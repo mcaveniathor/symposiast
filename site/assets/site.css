@@ -125,9 +125,14 @@ h1, h2, h3, p { margin-top: 0; }
 .prose pre code { padding: 0; background: transparent; color: inherit; font-size: inherit; border-radius: 0; overflow-wrap: normal; }
 .prose blockquote { border-left: 3px solid var(--teal); background: #edf0e6; margin: 24px 0; padding: 16px 20px; font-size: 14px; color: var(--muted); }
 .prose blockquote p:last-child { margin-bottom: 0; }
-.prose table { width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 13px; line-height: 1.6; overflow-wrap: anywhere; }
+.table-scroll { max-width: 100%; margin: 24px 0; overflow-x: auto; }
+.prose table { width: 100%; border-collapse: collapse; font-size: 13px; line-height: 1.6; overflow-wrap: normal; }
 .prose th, .prose td { text-align: left; vertical-align: top; border-bottom: 1px solid var(--rule); padding: 12px 10px; }
 .prose th { background: #eeeee5; font-weight: 650; }
+.prose table code { overflow-wrap: normal; }
+.prose-examples table { min-width: 36rem; }
+.prose-examples th:nth-child(-n+2), .prose-examples td:nth-child(-n+2) { width: 1%; white-space: nowrap; }
+.prose-examples th:nth-child(n+3) { width: 49%; }
 .prose strong { color: var(--ink); font-weight: 650; }
 .prose img { max-width: 100%; height: auto; }
 .doc-pagination { display: flex; justify-content: space-between; gap: 24px; border-top: 1px solid var(--rule); padding-top: 27px; margin-top: 45px; }
@@ -219,7 +224,6 @@ h1, h2, h3, p { margin-top: 0; }
   .prose h2 { font-size: 27px; }
   .prose pre { padding-inline: 16px; font-size: 11px; }
   .prose th, .prose td { padding: 10px 6px; font-size: 11px; }
-  .prose table { display: block; overflow-x: auto; }
   .doc-pagination strong { font-size: 20px; }
   .footer-inner nav { gap: 9px; }
   .footer-inner p { font-size: 10px; }
