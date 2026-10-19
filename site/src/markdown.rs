@@ -64,7 +64,7 @@ pub(crate) fn page(
                 .child(el::p().class("eyebrow doc-eyebrow").text(format!("DOCUMENTATION / 0{}", position + 1)))
                 .child(mobile_toc)
                 // Content is trusted, reviewed Markdown checked into this repository.
-                .child(el::article().class("prose").child(Raw::trusted(body)))
+                .child(el::article().class(format!("prose prose-{slug}")).child(Raw::trusted(body)))
                 .child(end))
             .child(el::aside().class("docs-aside").child(toc)
                 .child(el::div().class("aside-note").child(el::p().class("eyebrow").text("EXACT RELEASES"))
@@ -141,6 +141,12 @@ fn render(site: &Site, source: &str) -> (String, Vec<(HeadingLevel, String, Stri
     html::push_html(&mut body, events.into_iter());
     // Keyboard readers can scroll long examples even when JavaScript is off.
     body = body.replace("<pre>", "<pre tabindex=\"0\">");
+    body = body
+        .replace(
+            "<table>",
+            "<div class=\"table-scroll\" role=\"region\" aria-label=\"Scrollable table\" tabindex=\"0\"><table>",
+        )
+        .replace("</table>", "</table></div>");
     (body, headings)
 }
 

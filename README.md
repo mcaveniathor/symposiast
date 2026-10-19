@@ -2,7 +2,9 @@
 
 Build release-specific Rust crate guidance for the [Symposium](https://github.com/symposium-dev/symposium) ecosystem. Given a crate, Symposiast collects its published source and pinned repository evidence, asks a chosen agent to produce practical guidance, checks consumer examples, and exports skills, MCP retrieval, and a dependency-version hook.
 
-Claude Code and Codex are the initial agent integrations. A custom executable adapter can connect other agents. Validated examples cover clap, axum, and Stucco; Bevy-specific workflows are planned.
+Read the [documentation and examples](https://mcaveniathor.github.io/symposiast/).
+
+Claude Code and Codex are the initial agent integrations. A custom executable adapter can connect other agents. Validated examples cover clap, axum, and Stucco.
 
 ## Install
 

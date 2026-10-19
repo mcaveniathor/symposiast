@@ -7,7 +7,6 @@ These eight recipes were checked with Rust 1.99.1. Each project pins its primary
 | clap | 4.6.7 | Derive arguments, subcommands, fallible validation | Six parser tests passed |
 | axum | 0.8.9 | Typed routes, shared state, JSON bodies | Three in-memory requests passed |
 | Stucco | 0.2.1 | Static pages and Axum documents | HTML, escaping, asset bytes, and HTTP response assertions passed |
-| Bevy | Planned | No validated recipes yet | — |
 
 The pilot used imported structured analyses. Live Claude Code and Codex responses were not verified in the development environment. The normal `symposiast build` workflow uses your configured agent; see [agent adapters](adapters.html).
 

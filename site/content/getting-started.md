@@ -119,6 +119,6 @@ Refresh does not upgrade your application's dependencies. Review the new bundle,
 
 ## Current scope
 
-Collection covers public crates.io packages and commit-pinned GitHub repository snapshots: source rustdoc, metadata, documentation, changelogs, tests, and examples. It does not crawl arbitrary documentation websites. Evidence selection has explicit limits and records omissions. clap, axum, and Stucco have validated recipes; Bevy workflows are planned.
+Collection covers public crates.io packages and commit-pinned GitHub repository snapshots: source rustdoc, metadata, documentation, changelogs, tests, and examples. It does not crawl arbitrary documentation websites. Evidence selection has explicit limits and records omissions. clap, axum, and Stucco have validated recipes.
 
 Cargo can execute dependency build scripts and procedural macros during checks. Verification limits process lifetime and inherited environment variables, but does not provide an operating-system sandbox. Use a disposable container or VM when checking untrusted packages.
