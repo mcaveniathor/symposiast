@@ -1,0 +1,31 @@
+name: Guidance action checks
+
+on: [push, pull_request]
+
+permissions:
+  contents: read
+
+jobs:
+  action:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Test action input handling and artifact packaging
+        run: python3 -m unittest discover -s .github/action -p 'test_*.py' -v
+      - name: Exercise the action with a frozen analysis
+        id: guidance
+        uses: ./
+        with:
+          crate: stucco
+          version: 'v0.2.1'
+          analysis-file: examples/ci/stucco-analysis.json
+          artifact-name: stucco-action-check
+          retention-days: '3'
+      - name: Verify the portable archive and recipient installation
+        env:
+          ARCHIVE_PATH: ${{ steps.guidance.outputs.archive-path }}
+          BUNDLE_PATH: ${{ steps.guidance.outputs.bundle-path }}
+        run: python3 examples/ci/check_archive.py

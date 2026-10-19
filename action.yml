@@ -1,0 +1,103 @@
+name: Symposiast crate guidance
+description: Build and verify release-specific Rust crate guidance for Symposium.
+branding:
+  icon: book-open
+  color: orange
+inputs:
+  crate:
+    description: Published crates.io crate name.
+    required: true
+  version:
+    description: Exact published version or v-prefixed release tag; empty selects latest stable.
+    default: ''
+  agent:
+    description: Analysis adapter (codex, claude-code, or custom). Install and authenticate it before this action.
+    default: codex
+  agent-executable:
+    description: Optional path to the analysis adapter executable.
+    default: ''
+  reviewer:
+    description: Optional independent review adapter (codex, claude-code, or custom).
+    default: ''
+  reviewer-executable:
+    description: Optional path to the review adapter executable; requires reviewer.
+    default: ''
+  analysis-file:
+    description: Import structured analysis from this file instead of invoking the analysis agent.
+    default: ''
+  timeout:
+    description: Seconds per analysis, review, and recipe verification operation.
+    default: '600'
+  registry-wait-seconds:
+    description: Wait at most this long for an exact version in crates.io; 0 disables polling. Analysis is never retried.
+    default: '300'
+  rust-toolchain:
+    description: Rust toolchain; empty reads the action checkout's rust-toolchain.toml.
+    default: ''
+  symposiast-executable:
+    description: Existing Symposiast executable; skips CLI and Rust bootstrap. The selected Rust toolchain must already be installed.
+    default: ''
+  output-directory:
+    description: New or empty bundle directory; empty creates a fresh directory in RUNNER_TEMP. Symlinks are rejected.
+    default: ''
+  artifact-name:
+    description: Artifact name; empty uses symposiast-<crate>-<resolved-version>. Use unique names in matrices.
+    default: ''
+  upload-artifact:
+    description: Upload the portable tar.gz as a workflow artifact (true or false).
+    default: 'true'
+  retention-days:
+    description: Workflow artifact retention in days (1 through 90, subject to repository limits).
+    default: '14'
+outputs:
+  bundle-path:
+    description: Absolute path to the generated bundle on this runner.
+    value: ${{ steps.generate.outputs.bundle-path }}
+  archive-path:
+    description: Absolute path to the portable tar.gz archive on this runner.
+    value: ${{ steps.generate.outputs.archive-path }}
+  crate-version:
+    description: Resolved published crate version.
+    value: ${{ steps.generate.outputs.crate-version }}
+  artifact-name:
+    description: Resolved workflow artifact name.
+    value: ${{ steps.generate.outputs.artifact-name }}
+  artifact-id:
+    description: Uploaded workflow artifact ID; empty when upload is disabled.
+    value: ${{ steps.upload.outputs.artifact-id }}
+  artifact-url:
+    description: Uploaded workflow artifact URL; empty when upload is disabled.
+    value: ${{ steps.upload.outputs.artifact-url }}
+runs:
+  using: composite
+  steps:
+    - name: Generate verified release guidance
+      id: generate
+      shell: bash
+      env:
+        SYMPOSIAST_ACTION_PATH: ${{ github.action_path }}
+        SYMPOSIAST_INPUT_CRATE: ${{ inputs.crate }}
+        SYMPOSIAST_INPUT_VERSION: ${{ inputs.version }}
+        SYMPOSIAST_INPUT_AGENT: ${{ inputs.agent }}
+        SYMPOSIAST_INPUT_AGENT_EXECUTABLE: ${{ inputs.agent-executable }}
+        SYMPOSIAST_INPUT_REVIEWER: ${{ inputs.reviewer }}
+        SYMPOSIAST_INPUT_REVIEWER_EXECUTABLE: ${{ inputs.reviewer-executable }}
+        SYMPOSIAST_INPUT_ANALYSIS_FILE: ${{ inputs.analysis-file }}
+        SYMPOSIAST_INPUT_TIMEOUT: ${{ inputs.timeout }}
+        SYMPOSIAST_INPUT_REGISTRY_WAIT_SECONDS: ${{ inputs.registry-wait-seconds }}
+        SYMPOSIAST_INPUT_RUST_TOOLCHAIN: ${{ inputs.rust-toolchain }}
+        SYMPOSIAST_INPUT_SYMPOSIAST_EXECUTABLE: ${{ inputs.symposiast-executable }}
+        SYMPOSIAST_INPUT_OUTPUT_DIRECTORY: ${{ inputs.output-directory }}
+        SYMPOSIAST_INPUT_ARTIFACT_NAME: ${{ inputs.artifact-name }}
+        SYMPOSIAST_INPUT_UPLOAD_ARTIFACT: ${{ inputs.upload-artifact }}
+        SYMPOSIAST_INPUT_RETENTION_DAYS: ${{ inputs.retention-days }}
+      run: python3 "$SYMPOSIAST_ACTION_PATH/.github/action/run.py" run
+    - name: Upload portable bundle
+      id: upload
+      if: ${{ success() && inputs.upload-artifact == 'true' }}
+      uses: actions/upload-artifact@v4
+      with:
+        name: ${{ steps.generate.outputs.artifact-name }}
+        path: ${{ steps.generate.outputs.archive-path }}
+        if-no-files-found: error
+        retention-days: ${{ inputs.retention-days }}

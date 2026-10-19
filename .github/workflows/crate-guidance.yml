@@ -1,0 +1,75 @@
+name: Generate crate guidance
+
+on:
+  workflow_dispatch:
+    inputs:
+      crate:
+        description: Published crates.io package
+        required: true
+        default: stucco
+      version:
+        description: Exact crate version (empty selects latest stable)
+        default: '0.2.1'
+      agent:
+        description: Analysis agent
+        type: choice
+        options: [claude-code, codex]
+        default: claude-code
+      reviewer:
+        description: Optional independent review
+        type: choice
+        options: [none, claude-code, codex]
+        default: none
+
+permissions:
+  contents: read
+
+jobs:
+  guidance:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Check selected provider credentials
+        env:
+          ANALYSIS_AGENT: ${{ inputs.agent }}
+          REVIEW_AGENT: ${{ inputs.reviewer }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: |
+          if [[ "$ANALYSIS_AGENT" == claude-code || "$REVIEW_AGENT" == claude-code ]]; then
+            test -n "$ANTHROPIC_API_KEY" || { echo 'ANTHROPIC_API_KEY is required for Claude Code.' >&2; exit 1; }
+          fi
+          if [[ "$ANALYSIS_AGENT" == codex || "$REVIEW_AGENT" == codex ]]; then
+            test -n "$OPENAI_API_KEY" || { echo 'OPENAI_API_KEY is required for Codex.' >&2; exit 1; }
+          fi
+      - name: Install Claude Code
+        if: inputs.agent == 'claude-code' || inputs.reviewer == 'claude-code'
+        run: npm install --global @anthropic-ai/claude-code@2.1.303
+      - name: Install Codex
+        if: inputs.agent == 'codex' || inputs.reviewer == 'codex'
+        run: npm install --global @openai/codex@0.159.2
+      - name: Authenticate Codex
+        if: inputs.agent == 'codex' || inputs.reviewer == 'codex'
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: |
+          printenv OPENAI_API_KEY | codex login --with-api-key
+      - name: Generate and upload guidance
+        uses: ./
+        with:
+          crate: ${{ inputs.crate }}
+          version: ${{ inputs.version }}
+          agent: ${{ inputs.agent }}
+          reviewer: ${{ inputs.reviewer != 'none' && inputs.reviewer || '' }}
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+      - name: Remove temporary Codex login
+        if: always() && (inputs.agent == 'codex' || inputs.reviewer == 'codex')
+        run: |
+          if command -v codex >/dev/null 2>&1; then codex logout; fi
