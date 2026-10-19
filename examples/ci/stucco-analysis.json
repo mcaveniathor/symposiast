@@ -1,0 +1,28 @@
+{
+  "summary": "Frozen Stucco 0.2.1 analysis used to exercise the CI action without a provider call. This fixture covers semantic page rendering only.",
+  "findings": [
+    {
+      "id": "semantic-pages",
+      "title": "Use Page::main for the main landmark and skip link",
+      "guidance": "Compose a page with Page::new(&bundle, title).main(content).render(). Enable layout and typography for the components in this example. Page::main supplies the main landmark and skip link.",
+      "basis": "documented",
+      "features": ["layout", "typography"],
+      "citations": [{"source_id": "e0025", "start_line": 36, "end_line": 56}]
+    }
+  ],
+  "recipes": [
+    {
+      "id": "semantic-page",
+      "title": "Render a semantic page",
+      "description": "Render a complete Stucco document with escaped text, a main landmark, and a skip link. This example checks the HTML string; it does not serve or export theme assets.",
+      "code": "use stucco::prelude::*;\n\nfn main() {\n    let bundle = Bundle::new(Preset::Slate);\n    let html = Page::new(&bundle, \"Hello, Stucco\")\n        .main(Container::new().child(Stack::new()\n            .child(Heading::new(1, \"Hello, Stucco\"))\n            .child(Text::new(\"Safe <text> & a page.\"))))\n        .render();\n    assert!(html.contains(r#\"<main id=\"main\">\"#));\n    assert!(html.contains(r##\"href=\"#main\"\"##));\n    assert!(html.contains(\"Safe &lt;text&gt; &amp; a page.\"));\n    println!(\"Verified the rendered document.\");\n}\n",
+      "default_features": false,
+      "features": ["layout", "typography"],
+      "dependencies": {},
+      "citations": [
+        {"source_id": "e0025", "start_line": 36, "end_line": 56},
+        {"source_id": "e0022", "start_line": 47, "end_line": 58}
+      ]
+    }
+  ]
+}

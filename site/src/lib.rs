@@ -18,7 +18,7 @@ pub static SITE_STYLE: Asset = Asset {
 };
 register_asset!(SITE_STYLE);
 
-pub(crate) const DOCUMENTS: [(&str, &str, &str); 4] = [
+pub(crate) const DOCUMENTS: [(&str, &str, &str); 5] = [
     (
         "getting-started",
         "Getting started",
@@ -33,6 +33,11 @@ pub(crate) const DOCUMENTS: [(&str, &str, &str); 4] = [
         "adapters",
         "Agent adapters",
         "Use Claude Code, Codex, or a custom executable to analyze crate evidence.",
+    ),
+    (
+        "automation",
+        "Automation",
+        "Generate portable crate guidance in GitHub Actions after a release or on demand.",
     ),
     (
         "reference",

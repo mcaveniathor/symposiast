@@ -1,0 +1,66 @@
+# Copy to .github/workflows/release-guidance.yml in the crate's repository.
+# Set CRATE_NAME below and the ANTHROPIC_API_KEY repository secret.
+# Publish the crate to crates.io before publishing its GitHub release.
+name: Release crate guidance
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+    inputs:
+      version:
+        description: Exact published crate version
+        required: true
+        default: '0.2.1'
+
+permissions:
+  contents: read
+
+env:
+  CRATE_NAME: stucco
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    outputs:
+      artifact-name: ${{ steps.guidance.outputs.artifact-name }}
+    steps:
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Check the provider credential
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          test -n "$ANTHROPIC_API_KEY" || { echo 'ANTHROPIC_API_KEY is required.' >&2; exit 1; }
+      - name: Install the analysis agent
+        run: npm install --global @anthropic-ai/claude-code@2.1.303
+      - name: Build verified crate guidance
+        id: guidance
+        uses: mcaveniathor/symposiast@action-v1.0.0
+        with:
+          crate: ${{ env.CRATE_NAME }}
+          version: ${{ github.event.release.tag_name || inputs.version }}
+          agent: claude-code
+          artifact-name: release-guidance
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+
+  publish:
+    if: github.event_name == 'release'
+    needs: generate
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: ${{ needs.generate.outputs.artifact-name }}
+          path: guidance
+      - name: Attach the bundle to the existing release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          RELEASE_TAG: ${{ github.event.release.tag_name }}
+        run: gh release upload "$RELEASE_TAG" guidance/*.tar.gz --repo "$GH_REPO"

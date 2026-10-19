@@ -51,8 +51,18 @@ Installation from a relocated bundle produced matching manifest spellings and a 
 
 ## Documentation and workflow skill
 
-The Stucco 0.2.1 static site builds with a locked dependency graph. All six pages and their local assets and anchors pass `site/check_links.py` under both the `/symposiast/` project prefix and a `/` root deployment. The 24 downloadable recipe files match the validated consumer projects exactly, including the recorded lockfile hashes.
+The Stucco 0.2.1 static site builds with a locked dependency graph. All seven pages and their local assets and anchors pass `site/check_links.py` under both the `/symposiast/` project prefix and a `/` root deployment. The 24 downloadable recipe files match the validated consumer projects exactly, including the recorded lockfile hashes.
 
 Chromium checks cover 1440px, 768px, and 390px layouts with no document overflow, working copy buttons, keyboard skip navigation, and navigation without JavaScript. Automated WCAG A/AA checks pass on all six pages at desktop and phone widths. These are local checks; they do not establish that a GitHub Pages deployment has completed.
+
+The Automation page and expanded navigation also passed layout checks at 1440, 1024, 800, 768, 390, and 320 pixels, with accessibility checks at desktop and phone widths.
+
+## Release guidance action
+
+The reusable action passed 16 local helper tests covering input validation, argument handling, exact-version registry polling, single-attempt generation, failure propagation, source/recipe integrity, archive exclusions, and bootstrap credential filtering. A prefix-only `v` is rejected rather than treated as an omitted version. Actionlint 1.7.7 validated all repository workflows and the release workflow example.
+
+Both the preinstalled-CLI and default-bootstrap paths were exercised with the real Symposiast CLI. The default path installed the pinned Rust toolchain and compiled Symposiast from this checkout with `cargo install --locked`. Both runs collected Stucco 0.2.1, imported the CI fixture analysis, compiled its consumer, and produced a portable archive. Extracting the archive into a fresh directory preserved the evidence hashes; the example's HTML assertions passed and recipient installation created the local Symposium plugin and matching manifest spellings.
+
+The action's CI workflow repeats the imported-analysis integration and uploads the successful archive. These local checks do not establish that a hosted GitHub Actions run, artifact upload, release attachment, or live provider analysis has completed. Provider authentication is configured by the consuming workflow; no provider credentials are bundled with the action or its artifacts.
 
 The `plugins/symposiast` workflow plugin and its `use-symposiast` skill pass Symposium 0.5.1's plugin validator. In an isolated configuration, registering the repository's `plugins/` directory and running `cargo agents use symposiast` installed identical skill contents into both Claude Code's `.claude/skills/` and Codex's `.agents/skills/`. A second sync preserved the installation and `cargo agents status` reported the plugin active. No user-wide agent settings were changed during validation.

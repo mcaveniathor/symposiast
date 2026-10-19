@@ -52,6 +52,24 @@ symposiast refresh .symposiast/clap --agent codex \
 
 Refresh resolves the latest release into a separate bundle. It does not change a consumer's dependencies or replace installed guidance automatically. Reinstall the new bundle and restart the consuming MCP session after a refresh.
 
+## Generate guidance in CI
+
+Use the reusable GitHub Action after publishing a crate release:
+
+```yaml
+- uses: mcaveniathor/symposiast@action-v1.0.0
+  with:
+    crate: your-crate
+    version: ${{ github.event.release.tag_name }}
+    agent: claude-code
+  env:
+    ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+```
+
+Install the selected agent CLI in an earlier step. The action builds Symposiast from its own pinned source, waits for the exact version to appear on crates.io, validates and compiles the generated recipes, and uploads a portable bundle. A leading `v` on a release tag is accepted. Omitting `version` selects the latest stable release.
+
+See the [automation guide](https://mcaveniathor.github.io/symposiast/automation.html) for prerequisites, Claude Code and Codex authentication, all inputs and outputs, and bundle installation. Copy the [release workflow](examples/workflows/release-guidance.yml) for automatic release runs and optional release-asset publication. The [repository workflow](.github/workflows/crate-guidance.yml) also supports manual generation.
+
 ## Install into Symposium
 
 ```sh
@@ -101,7 +119,7 @@ See [the design](docs/design.md), [agent adapter contract](docs/adapters.md), an
 
 ## Documentation site
 
-The GitHub Pages site is built in Rust with [Stucco](https://github.com/mcaveniathor/stucco). It includes a getting started guide, adapter and command references, and eight runnable clap/axum/Stucco recipes with pinned lockfiles.
+The GitHub Pages site is built in Rust with [Stucco](https://github.com/mcaveniathor/stucco). It includes getting started and automation guides, adapter and command references, and eight runnable clap/axum/Stucco recipes with pinned lockfiles.
 
 ```sh
 cargo run --locked -p symposiast-site -- dist --base /symposiast/

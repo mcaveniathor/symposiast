@@ -6,3 +6,4 @@
 /plugins/stucco/bundle/verification/*/target/
 /plugins/stucco/bundle/plugin/
 /stucco-example/
+__pycache__/

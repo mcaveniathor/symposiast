@@ -166,7 +166,7 @@ h1, h2, h3, p { margin-top: 0; }
 @media (max-width: 780px) {
   .header-inner { flex-wrap: wrap; padding-block: 20px 13px; gap: 8px; }
   .wordmark { font-size: 26px; }
-  .site-nav { flex-basis: 100%; justify-content: flex-start; gap: 24px; margin: 0; }
+  .site-nav { flex-basis: 100%; flex-wrap: wrap; justify-content: flex-start; gap: 24px; margin: 0; }
   .site-nav a { font-size: 12px; padding-block: 12px; }
   .hero { grid-template-columns: 1fr; gap: 42px; padding-block: 52px 56px; }
   .hero-copy { max-width: 620px; }

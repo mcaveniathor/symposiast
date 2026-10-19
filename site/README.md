@@ -11,6 +11,8 @@ python3 site/check_links.py dist --base /symposiast/
 
 `--base` controls links and asset paths. Use `/` for a site hosted at the domain root. `dist/` is ignored by Git. Edit the Rust page shell in `site/src/`, prose in `site/content/`, and styles in `site/assets/`. The `site/downloads/` tree contains the eight validated, standalone Cargo projects copied into the site's `examples/` directory.
 
+The [automation guide](content/automation.md) documents the reusable Symposiast action and release workflow examples.
+
 For a local preview at the root path:
 
 ```sh
