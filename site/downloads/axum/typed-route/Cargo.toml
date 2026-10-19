@@ -1,0 +1,25 @@
+[dependencies.axum]
+default-features = true
+features = []
+version = "=0.8.9"
+
+[dependencies.tokio]
+default-features = true
+features = [
+    "macros",
+    "rt",
+]
+version = "1.44"
+
+[dependencies.tower]
+default-features = true
+features = ["util"]
+version = "0.5.2"
+
+[package]
+edition = "2024"
+name = "recipe-typed-route"
+publish = false
+version = "0.0.0"
+
+[workspace]

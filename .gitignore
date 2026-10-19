@@ -1,3 +1,4 @@
 /target/
 /.symposiast/
 /dist/
+/site/downloads/**/target/

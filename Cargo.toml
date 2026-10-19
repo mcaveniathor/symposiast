@@ -5,6 +5,11 @@ edition = "2024"
 description = "Release-specific Rust crate guidance for Symposium"
 repository = "https://github.com/mcaveniathor/symposiast"
 
+[workspace]
+members = ["site"]
+default-members = ["."]
+resolver = "3"
+
 [dependencies]
 anyhow = "1"
 clap = { version = "4", features = ["derive"] }
