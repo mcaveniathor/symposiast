@@ -68,6 +68,8 @@ Symposium's current MCP manifest registers a command but does not install that b
 
 ## Local retrieval and version checks
 
+To teach an agent this workflow, install the bundled [use-symposiast skill](plugins/README.md) through Symposium. It covers selecting the project's resolved release, reusing or generating guidance, inspecting evidence, and installing and syncing the resulting plugin for Claude Code or Codex.
+
 ```sh
 symposiast serve .symposiast/clap
 symposiast check .symposiast/clap --workspace /path/to/consumer
@@ -85,10 +87,21 @@ Examples run as Cargo consumer projects. Cargo can execute dependency build scri
 
 ```sh
 cargo fmt --all --check
-cargo clippy --locked --all-targets -- -D warnings
-cargo test --locked --all-targets
+cargo clippy --locked --workspace --all-targets -- -D warnings
+cargo test --locked --workspace --all-targets
 ```
 
 The automated suite uses local evidence and subprocess fixtures; it does not require model credentials. Live model calls and public-registry collection are separate integration checks.
 
 See [the design](docs/design.md), [agent adapter contract](docs/adapters.md), and [validation results](docs/validation.md).
+
+## Documentation site
+
+The GitHub Pages site is built in Rust with [Stucco](https://github.com/mcaveniathor/stucco). It includes a getting started guide, adapter and command references, and six runnable clap/axum recipes with pinned lockfiles.
+
+```sh
+cargo run --locked -p symposiast-site -- dist --base /symposiast/
+python3 site/check_links.py dist --base /symposiast/
+```
+
+See [site development and Pages deployment](site/README.md). The Documentation workflow validates pull requests and deploys `main` after GitHub Pages is enabled.

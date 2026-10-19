@@ -5,8 +5,8 @@ The initial implementation was checked with Rust 1.99.1 and Symposium 0.5.1.
 ## Automated checks
 
 - Formatting passes `cargo fmt --all --check`.
-- Linting passes `cargo clippy --locked --all-targets -- -D warnings`.
-- All 39 tests pass with `cargo test --locked --all-targets`.
+- Linting passes `cargo clippy --locked --workspace --all-targets -- -D warnings`.
+- All 39 tests pass with `cargo test --locked --workspace --all-targets`.
 
 Tests cover archive checksums and traversal, release selection, bounded evidence selection, real fixture subprocesses for agent adapters, structured responses, timeout cleanup, source citations, stale verification results, transactional replacement, plugin installation, MCP stdio requests, and version/provenance warnings.
 
@@ -35,3 +35,11 @@ Built-in command interfaces were checked against Claude Code 2.1.303 and Codex 0
 - Codex reports an existing login, but its injected state directory is read-only. Startup fails before a provider request because required state files cannot be written.
 
 No credentials were copied or replaced. A normal authenticated CLI with writable runtime state is needed to validate the live analysis path. The successful public-crate integration checks used imported analyses and do not establish live model integration.
+
+## Documentation and workflow skill
+
+The Stucco 0.2.1 static site builds with a locked dependency graph. All six pages and their local assets and anchors pass `site/check_links.py` under both the `/symposiast/` project prefix and a `/` root deployment. The 18 downloadable recipe files match the previously validated consumer projects exactly, including the recorded lockfile hashes.
+
+Chromium checks cover 1440px, 768px, and 390px layouts with no document overflow, working copy buttons, keyboard skip navigation, and navigation without JavaScript. Automated WCAG A/AA checks pass on all six pages at desktop and phone widths. These are local checks; they do not establish that a GitHub Pages deployment has completed.
+
+The `plugins/symposiast` workflow plugin and its `use-symposiast` skill pass Symposium 0.5.1's plugin validator. In an isolated configuration, registering the repository's `plugins/` directory and running `cargo agents use symposiast` installed identical skill contents into both Claude Code's `.claude/skills/` and Codex's `.agents/skills/`. A second sync preserved the installation and `cargo agents status` reported the plugin active. No user-wide agent settings were changed during validation.

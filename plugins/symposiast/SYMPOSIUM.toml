@@ -1,0 +1,4 @@
+name = "symposiast"
+
+[[skills]]
+source.path = "skills"

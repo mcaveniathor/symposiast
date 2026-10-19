@@ -1,0 +1,10 @@
+[package]
+name = "symposiast-site"
+version = "0.1.0"
+edition = "2024"
+publish = false
+description = "Static documentation for Symposiast, built with Stucco"
+
+[dependencies]
+stucco = { version = "=0.2.1", default-features = false, features = ["layout", "typography", "actions", "data"] }
+pulldown-cmark = { version = "0.13", default-features = false, features = ["html"] }
