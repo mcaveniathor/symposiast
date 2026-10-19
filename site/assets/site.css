@@ -46,6 +46,7 @@ h1, h2, h3, p { margin-top: 0; }
 .hero-actions .button-secondary { border: 1px solid var(--rule); color: var(--ink); background: transparent; }
 .hero-actions .button-secondary:hover { border-color: var(--ink); background: #eeeee5; }
 .hero-footnote { margin-top: 17px; margin-bottom: 0; font-size: 12px; color: var(--muted); }
+.built-with { margin: 12px 0 0; font-size: 12px; color: var(--muted); line-height: 1.8; }
 .release-note { padding: 27px 30px; border: 1px solid #c8ccbd; border-top: 3px solid var(--teal); background: var(--paper-bright); box-shadow: 7px 7px 0 #e8e9df; transform: rotate(1deg); }
 .note-topline { display: flex; justify-content: space-between; color: var(--muted); font-family: var(--mono); font-size: 10px; letter-spacing: 1.7px; padding-bottom: 26px; }
 .release-note h2 { display: flex; align-items: baseline; gap: 16px; font-family: var(--serif); font-size: 43px; font-weight: 500; line-height: 1.2; margin-bottom: 5px; }

@@ -12,3 +12,19 @@ jobs:
       - run: cargo fmt --all --check
       - run: cargo clippy --locked --workspace --all-targets -- -D warnings
       - run: cargo test --locked --workspace --all-targets
+      - name: Validate the packaged Stucco bundle
+        run: cargo run --locked --bin symposiast -- check plugins/stucco/bundle --workspace site
+  stucco-examples:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        recipe: [static-page, axum-page]
+    env:
+      CARGO_TARGET_DIR: ${{ github.workspace }}/target/stucco-examples
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install pinned toolchain
+        run: rustup show active-toolchain
+      - uses: Swatinem/rust-cache@v2
+      - name: Run the release-pinned example and its assertions
+        run: cargo run --locked --manifest-path site/downloads/stucco/${{ matrix.recipe }}/Cargo.toml

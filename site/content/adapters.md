@@ -29,7 +29,7 @@ Claude Code uses print mode, JSON output, and a response schema. Built-in tools,
 
 Codex uses `codex exec` with a read-only sandbox, ephemeral sessions, `--skip-git-repo-check`, a response schema, and a final output file. Progress output is separate from the accepted result. Its runtime state directory must be writable even though its analysis sandbox is read-only.
 
-The built-in CLI interfaces were checked against Claude Code 2.1.303 and Codex 0.159.2. Subprocess contracts are tested with fixtures. Live provider responses were not verified in the initial development environment: Claude Code lacked a login and Codex's injected state directory was read-only. The published clap and axum validation used imported analyses. A working authenticated local CLI is needed to exercise live analysis.
+The built-in CLI interfaces were checked against Claude Code 2.1.303 and Codex 0.159.2. Subprocess contracts are tested with fixtures. Live provider responses were not verified in the initial development environment: Claude Code lacked a login and Codex's injected state directory was read-only. The published clap, axum, and Stucco validation used imported analyses. A working authenticated local CLI is needed to exercise live analysis.
 
 ## Import an analysis
 

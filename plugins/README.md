@@ -1,5 +1,7 @@
 # Use Symposiast with Symposium
 
+This directory also includes an installable [Stucco 0.2.1 crate-guidance bundle](stucco/README.md), with skills, MCP retrieval, a version hook, and runnable static-page and Axum examples.
+
 The [`use-symposiast`](symposiast/skills/use-symposiast/SKILL.md) skill teaches an agent how to collect release evidence, generate and inspect crate guidance, install a bundle, and use Symposium to make its skills, MCP retrieval, and version hook available in the consuming project.
 
 It starts with the project's resolved dependency version and existing guidance. It does not interpret “latest” as permission to upgrade the project or repeatedly invoke analysis when a matching bundle already exists.

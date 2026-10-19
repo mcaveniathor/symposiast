@@ -14,7 +14,11 @@ pub(crate) fn page(site: &Site) -> String {
             .child(Cluster::new().space(Space::S3).class("hero-actions")
                 .child(ButtonLink::new("Get started →", site.url("getting-started.html")).variant(Variant::Primary).class("button-primary"))
                 .child(ButtonLink::new("Explore examples", site.url("examples.html")).class("button-secondary")))
-            .child(el::p().class("hero-footnote").text("Bring Claude Code, Codex, or your own agent.")),
+            .child(el::p().class("hero-footnote").text("Bring Claude Code, Codex, or your own agent."))
+            .child(el::p().class("built-with").text("This site is built with ")
+                .child(el::a().href("https://github.com/mcaveniathor/stucco").text("Stucco"))
+                .text(". ")
+                .child(el::a().href(site.url("examples.html#stucco-021")).text("Explore its plugin and examples →"))),
     ).child(
         el::div().class("release-note").aria("label", "Example release dossier")
             .child(el::div().class("note-topline").child(el::span().text("RELEASE DOSSIER")).child(el::span().text("001")))
@@ -73,11 +77,12 @@ pub(crate) fn page(site: &Site) -> String {
         .child(el::div().class("section-intro")
             .child(el::p().class("eyebrow").text("START WITH REAL EXAMPLES"))
             .child(el::h2().id("pilots-title").text("Small recipes. Concrete checks."))
-            .child(el::p().text("The initial pilots use imported analyses. All six recipes compile, with additional parser and request checks."))
+            .child(el::p().text("The pilots use imported analyses. Recipes compile against their exact releases, with additional parser, request, and rendering checks."))
             .child(el::a().class("text-link").href(site.url("examples.html")).text("Explore the checked recipes →")))
         .child(el::div().class("pilot-list")
             .child(pilot(site, "clap", "4.6.7", "Parsers, subcommands, validation", "Validated", "examples.html#clap-467"))
             .child(pilot(site, "axum", "0.8.9", "Routes, shared state, typed JSON", "Validated", "examples.html#axum-089"))
+            .child(pilot(site, "stucco", "0.2.1", "Static pages, themed assets, Axum", "Validated", "examples.html#stucco-021"))
             .child(el::div().class("pilot-row planned")
                 .child(el::div().child(el::h3().text("bevy")).child(el::p().text("Game and ECS workflows")))
                 .child(el::span().class("status-label").text("Planned"))));

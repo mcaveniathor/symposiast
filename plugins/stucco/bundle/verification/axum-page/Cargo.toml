@@ -1,0 +1,34 @@
+[dependencies.axum]
+default-features = false
+features = []
+version = "0.8.9"
+
+[dependencies.stucco]
+default-features = false
+features = [
+    "layout",
+    "typography",
+    "axum",
+]
+version = "=0.2.1"
+
+[dependencies.tokio]
+default-features = true
+features = [
+    "macros",
+    "rt",
+]
+version = "1.53"
+
+[dependencies.tower]
+default-features = true
+features = ["util"]
+version = "0.5.3"
+
+[package]
+edition = "2024"
+name = "recipe-axum-page"
+publish = false
+version = "0.0.0"
+
+[workspace]

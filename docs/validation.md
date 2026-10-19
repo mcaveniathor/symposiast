@@ -36,9 +36,22 @@ Built-in command interfaces were checked against Claude Code 2.1.303 and Codex 0
 
 No credentials were copied or replaced. A normal authenticated CLI with writable runtime state is needed to validate the live analysis path. The successful public-crate integration checks used imported analyses and do not establish live model integration.
 
+## Stucco plugin and examples
+
+Stucco 0.2.1 was resolved as the latest stable release for this run. Its published archive checksum and packaged repository commit `303ee2433ce3c05d0af9c4b79a4e09958d374f92` were verified. The collector retained 27 evidence files. The portable bundle adds `stucco-core/src/bundle.rs` from that exact commit for asset-prefix/export citations, plus the two upstream license texts, for 30 frozen files total. The supplemental files have their own hashes; they are not covered by the facade archive checksum.
+
+Four findings and two complete recipes were supplied through the structured analysis import path. Both passed `cargo check --locked --all-targets`; their recorded lockfiles resolve the Stucco companion crates to 0.2.1. Separate executable assertions passed:
+
+- `static-page`: escaped text, main landmark, skip link, project URL prefix, and exact exported asset bytes.
+- `axum-page`: in-memory HTML and stylesheet requests, content types, escaped text, main landmark, immutable asset caching, and exact stylesheet bytes.
+
+The checked-in `plugins/stucco/bundle` preserves the evidence, recipes, compiler results, and lockfiles without runtime manifests or build caches. Compiler logs normalize the temporary build-directory prefix. Its six downloadable Cargo files exactly match the validated consumer projects. CI checks bundle integrity and runs both example executables.
+
+Installation from a relocated bundle produced matching manifest spellings and a valid Symposium 0.5.1 plugin and skill. After deleting the relocated input, installed MCP retrieval still returned Stucco 0.2.1 and the compiled static recipe. Claude project sync registered the skill and MCP. Matching canonical hook input returned no warning; a temporary consumer lockfile changed to 0.2.0 produced the expected mismatch warning. Native Claude Code and Codex SessionStart dispatch also returned neutral responses for the matching release with automatic sync disabled. Codex's global MCP configuration was not modified or exercised in this test. All installed source hashes matched, and the two license texts survived in both the installed bundle and skill evidence.
+
 ## Documentation and workflow skill
 
-The Stucco 0.2.1 static site builds with a locked dependency graph. All six pages and their local assets and anchors pass `site/check_links.py` under both the `/symposiast/` project prefix and a `/` root deployment. The 18 downloadable recipe files match the previously validated consumer projects exactly, including the recorded lockfile hashes.
+The Stucco 0.2.1 static site builds with a locked dependency graph. All six pages and their local assets and anchors pass `site/check_links.py` under both the `/symposiast/` project prefix and a `/` root deployment. The 24 downloadable recipe files match the validated consumer projects exactly, including the recorded lockfile hashes.
 
 Chromium checks cover 1440px, 768px, and 390px layouts with no document overflow, working copy buttons, keyboard skip navigation, and navigation without JavaScript. Automated WCAG A/AA checks pass on all six pages at desktop and phone widths. These are local checks; they do not establish that a GitHub Pages deployment has completed.
 
