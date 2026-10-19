@@ -1,0 +1,266 @@
+# stucco
+
+Server-rendered UI components for Rust, built from semantic HTML and themeable
+CSS. Compose layouts, forms, tables, and application shells with ordinary Rust
+builders. Search, filters, sorting, and pagination can work through native GET
+requests without JavaScript.
+
+Stucco **0.2.1** is available on [crates.io](https://crates.io/crates/stucco).
+The [documentation site](https://mcaveniathor.github.io/stucco/) has the guide,
+a theme playground with Rust, CSS and JSON export, the component gallery and
+the API reference.
+The public API is experimental. Install the crates below, or run the examples
+from this repository.
+
+## What is included
+
+- Layout primitives, typography, buttons, form controls, feedback, and icons.
+- Tables, cards, panels, page headers, footers, and application shells.
+- Typed collection columns and capability-aware GET search/filter controls.
+- OKLCH themes with semantic color tokens, light/dark schemes, and contrast checks.
+- Escaped text, checked URLs, generated IDs, and explicit accessible labels.
+- Optional Tower/Axum integration and embedded redb storage.
+
+Components render HTML through the `Render` trait. A `Bundle` supplies themed,
+content-hashed assets, and a `Page` produces the document. Applications provide
+data and backend capabilities; components remain independent of HTTP, Tokio,
+and storage.
+
+## Render a page
+
+Add:
+
+```toml
+[dependencies]
+stucco = "0.2"
+```
+
+```rust
+use stucco::prelude::*;
+
+let bundle = Bundle::new(Preset::Slate);
+let html = Page::new(&bundle, "Hello, stucco")
+    .main(
+        Container::new().child(
+            Stack::new()
+                .child(Heading::new(1, "Hello, stucco"))
+                .child(Text::new("A page rendered entirely in Rust."))
+                .child(Button::new("Continue")),
+        ),
+    )
+    .render();
+assert!(html.contains("Hello, stucco"));
+```
+
+The prelude brings in the everyday components. `main` puts the content in
+the page's `<main id="main">` landmark after a skip link to it; for
+application layouts, `app` takes an `AppShell`, which brings its own.
+
+The page links to assets under `/_stucco/`. Serve them through
+`stucco_tower::assets_router`, or write the files exposed by `Bundle::paths`
+and `Bundle::get` to your static asset directory.
+
+## Serve with Axum
+
+Turn on the `axum` feature, and add `axum = "0.8"` and
+`tokio = { version = "1", features = ["macros", "rt-multi-thread", "net"] }`:
+
+```toml
+stucco = { version = "0.2", features = ["axum"] }
+```
+
+```rust,no_run
+use axum::{Router, routing::get};
+use stucco::prelude::*;
+
+async fn index(page: PageCx) -> Document {
+    page.title("Hello").main(Heading::new(1, "Hello"))
+}
+
+#[tokio::main]
+async fn main() -> std::io::Result<()> {
+    let app = Router::new().route("/", get(index)).stucco(Preset::Slate);
+    let listener = tokio::net::TcpListener::bind("127.0.0.1:3000").await?;
+    axum::serve(listener, app).await
+}
+```
+
+`stucco` is the last call on the router: it serves the theme's assets under
+`/_stucco/`, adds the standard middleware (request ids, `nosniff`, tracing,
+a body limit and a timeout) and hands the theme to the `PageCx` extractor.
+A handler builds a `Document` from it and returns it; its content can borrow
+request data, and `status` sets the response code. The rest of
+`stucco-tower`, such as fragment negotiation and form submissions, is under
+`stucco::server`. The
+[hello example](https://github.com/mcaveniathor/stucco/tree/main/examples/hello)
+also answers fragment requests.
+
+## Themes
+
+Fourteen presets cover common looks, each in light and dark. For anything
+else, build a `Theme`, or derive a whole one from a seed:
+
+```rust
+use stucco::Bundle;
+use stucco::theme::{Elevation, Fonts, Preset, Radius, Seeded, TableStyle, Theme};
+
+// Colours, fonts, type scale, spacing, radius, density and a style
+// personality, all from one number. The same seed always gives the same theme,
+// and seeded themes always pass the contrast checks.
+let theme = Theme::seeded(42);
+// Or hash a name, then adjust any option.
+let theme = Theme::seeded_str("acme").elevation(Elevation::Raised);
+// Every option implements `Seeded`, so you can seed options one at a time:
+// here, Slate's colours with seed 14's fonts, corners and tables.
+let theme = Theme::preset(Preset::Slate)
+    .fonts(Fonts::seeded(14))
+    .radius(Radius::seeded(14))
+    .table_style(TableStyle::seeded(14));
+// A bundle builds the theme; it panics with the contrast report if a
+// hand-tuned theme fails. `Bundle::try_new` returns the report instead.
+let bundle = Bundle::new(theme);
+```
+
+An option seeded on its own matches what the full seeded theme chooses for it,
+because each option draws from its own named stream. Implement `Seeded` for
+your own types with `SeedRng`.
+
+For a surprise, every `Seeded` type also implements `Random`:
+`Theme::random()` picks a fresh seed, and `Theme::random_with_seed()` also
+returns that seed so you can keep a result with `Theme::seeded(seed)`.
+
+The style personality changes presentation without changing markup: surface
+elevation, table rows, input style, header treatment, heading weight and
+button shape. Add more themes to a bundle with `Bundle::with_theme` and apply
+them to a subtree with `ThemeScope`. The gallery's seeded themes page shows a
+dozen seeds side by side.
+
+## Themes from the command line
+
+`cargo install stucco-cli` installs the `stucco` command. It starts a new
+app, and prints any preset, seeded or random theme as CSS, Rust, or JSON:
+
+```sh
+stucco new my-app --name my-app   # axum, a theme, a layout, a page and a table
+stucco theme --seed 42 --radius round -f rust
+```
+
+The guide's [recipes](https://mcaveniathor.github.io/stucco/guide/recipes.html)
+answer common "how do I…?" questions in a few lines each.
+
+## Collections and persistence
+
+Enable the `collections` feature for typed columns, a `DataTable`, native GET
+controls, and cursor or numbered pagination:
+
+```toml
+stucco = { version = "0.2", features = ["collections"] }
+```
+
+```rust
+use stucco::collections::{Col, DataTable};
+use stucco::{CollectionPage, to_html};
+
+let page = CollectionPage {
+    rows: vec!["Ada", "Grace"],
+    next: None,
+    prev: None,
+    total: None,
+};
+let table = DataTable::from_page(&page, "Customers")
+    .column(Col::text("name", "Customer", |row: &&str| row.to_string()));
+assert!(to_html(&table).contains("Ada"));
+```
+
+Declare sortable/searchable/filterable columns and provide backend capabilities
+to enable their controls. `CollectionQuery` validates incoming query parameters;
+`CollectionSource` in `stucco-tower` loads the corresponding page, and its
+`load` does both in one call, returning a `Collection` that
+`DataTable::from_collection` takes whole. With the `derive` feature,
+`#[derive(Columns)]` builds a row type's columns, and the query parser's
+column list, from its fields.
+`stucco-redb` adds typed records, transactional secondary indexes, and bounded
+blocking scans.
+
+The [orders example](https://github.com/mcaveniathor/stucco/tree/main/examples/orders)
+persists 67 seeded records and demonstrates the complete flow. Its default
+cursor mode leaves the total unknown. Numbered mode deliberately scans the whole
+collection and is intended for small datasets. Authentication, authorization,
+schema migrations, and mutation endpoints belong to the application.
+
+## Crates and compiler support
+
+| Crate | Purpose | Minimum Rust |
+| --- | --- | --- |
+| `stucco` | Facade and component families | 1.85 |
+| `stucco-theme` | Themes, color scales, and contrast validation | 1.85 |
+| `stucco-core` | Rendering, assets, pages, fragments, and query state | 1.85 |
+| `stucco-ui` | Component implementations | 1.85 |
+| `stucco-tower` | Tower services, Axum responses, and collection sources | 1.85 |
+| `stucco-redb` | Optional redb 4.3 storage adapter | 1.90 |
+| `stucco-cli` | The `stucco` command for generating themes | 1.85 |
+| `stucco-macros` | `#[derive(Columns)]`, through `stucco`'s `derive` feature | 1.85 |
+
+## Features
+
+The facade enables `layout`, `typography`, `actions`, `forms`, `feedback`,
+`navigation`, `data`, and `app` by default. Use `default-features = false`
+to select only the families you need.
+
+| Feature | Adds |
+| --- | --- |
+| `layout` | Stack, Cluster, Grid, Container, Sidebar, and related primitives |
+| `typography` | Headings, text, links, code, and keyboard keys |
+| `actions` | Buttons, button links, and icon buttons |
+| `forms` | Forms, fields, inputs, selects, and choice controls |
+| `feedback` | Empty states and live status regions |
+| `navigation` | Pagination, navigation links, and tabs |
+| `overlay` | Dialogs, menus, toasts, and tooltips |
+| `data` | Cards, panels, semantic tables, and result counts |
+| `app` | Application shells, page/section headers, and footers |
+| `collections` | Typed DataTable and GET controls; enables data/forms/navigation/feedback |
+| `icons` | Vendored Lucide icon catalog |
+
+The manifest also contains reserved feature names for planned families
+(`marketing`, `diagram`, `markdown`, `askama`, and `maud`). They do not yet
+provide those integrations or component families.
+
+`stucco-tower` enables `axum` and `tower-http` by default.
+`stucco-redb` enables its `tokio` collection adapter by default; disable defaults
+for synchronous storage alone.
+
+## Try the examples
+
+```sh
+git clone https://github.com/mcaveniathor/stucco.git
+cd stucco
+cargo run -p hello                 # http://localhost:4180
+cargo run -p orders                # http://localhost:4181/orders
+cargo run -p gallery -- target/gallery
+```
+
+Serve `target/gallery` with a static file server to explore the gallery.
+The orders example supports `PORT` and `ORDERS_DB` environment variables;
+its default database is `target/orders.redb`.
+
+## Development and releases
+
+```sh
+cargo fmt --all --check
+cargo clippy --workspace --all-targets -- -D warnings
+cargo test --workspace
+cd browser
+npm ci
+npx playwright install chromium firefox webkit
+npm test
+```
+
+See the [release guide](https://github.com/mcaveniathor/stucco/blob/main/RELEASING.md)
+for package verification, dependency order, and the first crates.io release.
+
+## License
+
+Licensed under MIT or Apache-2.0, at your option. The optional Lucide icon
+catalog is covered by the ISC notice distributed as
+[`LICENSE-LUCIDE`](https://github.com/mcaveniathor/stucco/blob/main/crates/stucco-ui/LICENSE-LUCIDE).
+Regenerate it with `cd tools && npm install && npm run icons`.

@@ -2,7 +2,7 @@
 
 Build release-specific Rust crate guidance for the [Symposium](https://github.com/symposium-dev/symposium) ecosystem. Given a crate, Symposiast collects its published source and pinned repository evidence, asks a chosen agent to produce practical guidance, checks consumer examples, and exports skills, MCP retrieval, and a dependency-version hook.
 
-Claude Code and Codex are the initial agent integrations. A custom executable adapter can connect other agents. The first target crates are clap and axum; Bevy-specific workflows are planned.
+Claude Code and Codex are the initial agent integrations. A custom executable adapter can connect other agents. Validated examples cover clap, axum, and Stucco; Bevy-specific workflows are planned.
 
 ## Install
 
@@ -70,6 +70,8 @@ Symposium's current MCP manifest registers a command but does not install that b
 
 To teach an agent this workflow, install the bundled [use-symposiast skill](plugins/README.md) through Symposium. It covers selecting the project's resolved release, reusing or generating guidance, inspecting evidence, and installing and syncing the resulting plugin for Claude Code or Codex.
 
+A ready-to-install [Stucco 0.2.1 plugin bundle](plugins/stucco/README.md) is included. Run `symposiast install plugins/stucco/bundle`, then `cargo agents sync` in the consumer project to enable its skills, MCP retrieval, and version hook.
+
 ```sh
 symposiast serve .symposiast/clap
 symposiast check .symposiast/clap --workspace /path/to/consumer
@@ -97,7 +99,7 @@ See [the design](docs/design.md), [agent adapter contract](docs/adapters.md), an
 
 ## Documentation site
 
-The GitHub Pages site is built in Rust with [Stucco](https://github.com/mcaveniathor/stucco). It includes a getting started guide, adapter and command references, and six runnable clap/axum recipes with pinned lockfiles.
+The GitHub Pages site is built in Rust with [Stucco](https://github.com/mcaveniathor/stucco). It includes a getting started guide, adapter and command references, and eight runnable clap/axum/Stucco recipes with pinned lockfiles.
 
 ```sh
 cargo run --locked -p symposiast-site -- dist --base /symposiast/

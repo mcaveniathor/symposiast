@@ -1,0 +1,15 @@
+[dependencies.stucco]
+default-features = false
+features = [
+    "layout",
+    "typography",
+]
+version = "=0.2.1"
+
+[package]
+edition = "2024"
+name = "recipe-static-page"
+publish = false
+version = "0.0.0"
+
+[workspace]

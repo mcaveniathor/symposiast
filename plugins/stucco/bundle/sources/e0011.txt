@@ -1,0 +1,48 @@
+[package]
+name = "stucco"
+description = "Server-rendered, themeable, accessible UI components for Rust."
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+repository.workspace = true
+homepage.workspace = true
+include.workspace = true
+readme = "README.md"
+documentation = "https://docs.rs/stucco"
+keywords = ["ui", "html", "server-rendered"]
+categories = ["web-programming"]
+
+[dependencies]
+stucco-core.workspace = true
+stucco-theme.workspace = true
+stucco-ui.workspace = true
+stucco-tower = { workspace = true, optional = true }
+stucco-macros = { workspace = true, optional = true }
+
+[features]
+default = ["layout", "typography", "actions", "forms", "feedback", "navigation", "overlay", "data", "app"]
+layout = ["stucco-ui/layout"]
+typography = ["stucco-ui/typography"]
+actions = ["stucco-ui/actions"]
+forms = ["actions", "stucco-ui/forms"]
+feedback = ["stucco-ui/feedback"]
+navigation = ["stucco-ui/navigation"]
+overlay = ["actions", "typography", "stucco-ui/overlay"]
+data = ["stucco-ui/data"]
+collections = ["data", "forms", "navigation", "feedback", "stucco-ui/collections"]
+app = ["navigation", "layout", "stucco-ui/app"]
+marketing = ["layout", "typography", "actions"]
+diagram = ["icons"]
+icons = ["stucco-ui/icons"]
+markdown = ["typography"]
+askama = []
+maud = []
+# Serve pages from axum handlers: `Router::stucco`, `PageCx` and `Document`
+# in the prelude, and `stucco::server` for the rest of `stucco-tower`.
+axum = ["dep:stucco-tower"]
+# `#[derive(Columns)]` for data table rows.
+derive = ["collections", "dep:stucco-macros"]
+
+[package.metadata.docs.rs]
+all-features = true

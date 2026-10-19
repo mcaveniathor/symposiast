@@ -1,0 +1,6 @@
+{
+  "git": {
+    "sha1": "303ee2433ce3c05d0af9c4b79a4e09958d374f92"
+  },
+  "path_in_vcs": "crates/stucco"
+}

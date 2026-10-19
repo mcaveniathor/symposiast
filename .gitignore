@@ -2,3 +2,7 @@
 /.symposiast/
 /dist/
 /site/downloads/**/target/
+/plugins/stucco/bundle/verification/target/
+/plugins/stucco/bundle/verification/*/target/
+/plugins/stucco/bundle/plugin/
+/stucco-example/

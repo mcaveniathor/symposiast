@@ -27,7 +27,7 @@ pub(crate) const DOCUMENTS: [(&str, &str, &str); 4] = [
     (
         "examples",
         "Examples",
-        "Explore checked clap and axum recipes, with their exact versions and features.",
+        "Explore checked clap, axum, and Stucco recipes, with their exact versions and features.",
     ),
     (
         "adapters",

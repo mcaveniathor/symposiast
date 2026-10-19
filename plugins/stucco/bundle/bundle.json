@@ -1,0 +1,559 @@
+{
+  "schema_version": 1,
+  "release": {
+    "name": "stucco",
+    "version": "0.2.1",
+    "checksum": "0a4b52163a2c588b58afce69ef1d216580909b1c1d48d372b8a2b5d1f4003553",
+    "repository": "https://github.com/mcaveniathor/stucco",
+    "repository_commit": "303ee2433ce3c05d0af9c4b79a4e09958d374f92",
+    "rust_version": "1.85",
+    "features": {
+      "actions": [
+        "stucco-ui/actions"
+      ],
+      "app": [
+        "navigation",
+        "layout",
+        "stucco-ui/app"
+      ],
+      "askama": [],
+      "axum": [
+        "dep:stucco-tower"
+      ],
+      "collections": [
+        "data",
+        "forms",
+        "navigation",
+        "feedback",
+        "stucco-ui/collections"
+      ],
+      "data": [
+        "stucco-ui/data"
+      ],
+      "default": [
+        "layout",
+        "typography",
+        "actions",
+        "forms",
+        "feedback",
+        "navigation",
+        "overlay",
+        "data",
+        "app"
+      ],
+      "derive": [
+        "collections",
+        "dep:stucco-macros"
+      ],
+      "diagram": [
+        "icons"
+      ],
+      "feedback": [
+        "stucco-ui/feedback"
+      ],
+      "forms": [
+        "actions",
+        "stucco-ui/forms"
+      ],
+      "icons": [
+        "stucco-ui/icons"
+      ],
+      "layout": [
+        "stucco-ui/layout"
+      ],
+      "markdown": [
+        "typography"
+      ],
+      "marketing": [
+        "layout",
+        "typography",
+        "actions"
+      ],
+      "maud": [],
+      "navigation": [
+        "stucco-ui/navigation"
+      ],
+      "overlay": [
+        "actions",
+        "typography",
+        "stucco-ui/overlay"
+      ],
+      "typography": [
+        "stucco-ui/typography"
+      ]
+    },
+    "collected_at": "1792450115"
+  },
+  "sources": [
+    {
+      "id": "e0001",
+      "kind": "manifest",
+      "path": "sources/e0001.txt",
+      "url": "https://docs.rs/crate/stucco/0.2.1/source/Cargo.toml",
+      "sha256": "50cf61900ec1386e00fe4a49b75fbe0d5539ffd743efb3bb310cdf96a959c382"
+    },
+    {
+      "id": "e0002",
+      "kind": "release_metadata",
+      "path": "sources/e0002.txt",
+      "url": "https://docs.rs/crate/stucco/0.2.1/source/.cargo_vcs_info.json",
+      "sha256": "2624cfa162eda3729a455a6ad2e751a7787b778ec64ac72e080704f7c22c68cd"
+    },
+    {
+      "id": "e0003",
+      "kind": "readme",
+      "path": "sources/e0003.txt",
+      "url": "https://docs.rs/crate/stucco/0.2.1/source/README.md",
+      "sha256": "5311c323116f1b7285196b5255524779d6ad93e3de21f750dd919430241a3b37"
+    },
+    {
+      "id": "e0004",
+      "kind": "readme",
+      "path": "sources/e0004.txt",
+      "url": "https://github.com/mcaveniathor/stucco/blob/303ee2433ce3c05d0af9c4b79a4e09958d374f92/README.md",
+      "sha256": "be1d6f63d816e4200d11797134a01dbc1316e85be7fb4d679414dfc074222a80"
+    },
+    {
+      "id": "e0005",
+      "kind": "changelog",
+      "path": "sources/e0005.txt",
+      "url": "https://github.com/mcaveniathor/stucco/blob/303ee2433ce3c05d0af9c4b79a4e09958d374f92/CHANGELOG.md",
+      "sha256": "b72715c4dfc37bcce6da0fc8a09873af03f9ed1ead391226337c200f210093b1"
+    },
+    {
+      "id": "e0006",
+      "kind": "api",
+      "path": "sources/e0006.txt",
+      "url": "https://docs.rs/crate/stucco/0.2.1/source/src/lib.rs",
+      "sha256": "cc299ecb41ce8275b25a8c50783f24868dd337c06ea723601faa26d5f04ea041"
+    },
+    {
+      "id": "e0007",
+      "kind": "example",
+      "path": "sources/e0007.txt",
+      "url": "https://github.com/mcaveniathor/stucco/blob/303ee2433ce3c05d0af9c4b79a4e09958d374f92/examples/hello/src/main.rs",
+      "sha256": "4d1409910e378a09b4f5e3603425381ef87a3e31e18be1af25508cbc9f38a360"
+    },
+    {
+      "id": "e0008",
+      "kind": "documentation",
+      "path": "sources/e0008.txt",
+      "url": "https://github.com/mcaveniathor/stucco/blob/303ee2433ce3c05d0af9c4b79a4e09958d374f92/DESIGN.md",
+      "sha256": "60eada19e74049d1f6b97cbaa0f846b42c4a53f11b1296d273a3bf5bed718e6c"
+    },
+    {
+      "id": "e0009",
+      "kind": "test",
+      "path": "sources/e0009.txt",
+      "url": "https://docs.rs/crate/stucco/0.2.1/source/tests/derive.rs",
+      "sha256": "23f51d41ba7d8c9dd0bacb54cf56014a5ba6249ebbb9c79940e1b0d44b7df5da"
+    },
+    {
+      "id": "e0010",
+      "kind": "readme",
+      "path": "sources/e0010.txt",
+      "url": "https://github.com/mcaveniathor/stucco/blob/303ee2433ce3c05d0af9c4b79a4e09958d374f92/examples/orders/README.md",
+      "sha256": "b540ac938ce7e134431d4945fe50bca50e9df851f93bc77d87bad19056378f18"
+    },
+    {
+      "id": "e0011",
+      "kind": "manifest",
+      "path": "sources/e0011.txt",
+      "url": "https://docs.rs/crate/stucco/0.2.1/source/Cargo.toml.orig",
+      "sha256": "cebedbc8a1500efe6aa4e6f9803950d7896be598e9b451766f3c39b4ece73d48"
+    },
+    {
+      "id": "e0012",
+      "kind": "example",
+      "path": "sources/e0012.txt",
+      "url": "https://github.com/mcaveniathor/stucco/blob/303ee2433ce3c05d0af9c4b79a4e09958d374f92/examples/orders/src/lib.rs",
+      "sha256": "c3f29750d82b0736308a8796cf29c378e34b3498a68dea8f70d452319d4cd8db"
+    },
+    {
+      "id": "e0013",
+      "kind": "documentation",
+      "path": "sources/e0013.txt",
+      "url": "https://github.com/mcaveniathor/stucco/blob/303ee2433ce3c05d0af9c4b79a4e09958d374f92/RELEASING.md",
+      "sha256": "19753e488323d714c20a9b39c70cad6e4485ac0562186f032ee4ccf582bac2c8"
+    },
+    {
+      "id": "e0014",
+      "kind": "manifest",
+      "path": "sources/e0014.txt",
+      "url": "https://github.com/mcaveniathor/stucco/blob/303ee2433ce3c05d0af9c4b79a4e09958d374f92/Cargo.toml",
+      "sha256": "54d3f6e681a2c6e9bc5ed8c735d096d627216f4203e9c63dea480de6fd60ad7e"
+    },
+    {
+      "id": "e0015",
+      "kind": "example",
+      "path": "sources/e0015.txt",
+      "url": "https://github.com/mcaveniathor/stucco/blob/303ee2433ce3c05d0af9c4b79a4e09958d374f92/examples/orders/src/main.rs",
+      "sha256": "5e0c65224116ae6a027a21ed51603bec66a6559d0e37949a5e8b9595cfbacb9a"
+    },
+    {
+      "id": "e0016",
+      "kind": "documentation",
+      "path": "sources/e0016.txt",
+      "url": "https://github.com/mcaveniathor/stucco/blob/303ee2433ce3c05d0af9c4b79a4e09958d374f92/docs/roadmap-0.2.md",
+      "sha256": "870a602f30eb656b4c4e1ff1144eb8edd1f8bf77acf35c91c287bf3c9f1a30ee"
+    },
+    {
+      "id": "e0017",
+      "kind": "example",
+      "path": "sources/e0017.txt",
+      "url": "https://github.com/mcaveniathor/stucco/blob/303ee2433ce3c05d0af9c4b79a4e09958d374f92/examples/orders/src/model.rs",
+      "sha256": "6341a47351e2cb74bea55d6261d2dda2623df978360151c0e006097fcc0eb33d"
+    },
+    {
+      "id": "e0018",
+      "kind": "documentation",
+      "path": "sources/e0018.txt",
+      "url": "https://github.com/mcaveniathor/stucco/blob/303ee2433ce3c05d0af9c4b79a4e09958d374f92/docs/guide/cli.md",
+      "sha256": "bc4747a5ee1f0715f742035fc20854f3201d84bcf5ec394413b38d4cc681575a"
+    },
+    {
+      "id": "e0019",
+      "kind": "example",
+      "path": "sources/e0019.txt",
+      "url": "https://github.com/mcaveniathor/stucco/blob/303ee2433ce3c05d0af9c4b79a4e09958d374f92/examples/orders/src/source.rs",
+      "sha256": "a0489ba503ed15c420056ce4b2a2f39b185c54047ad7d3904462d58e26c87cae"
+    },
+    {
+      "id": "e0020",
+      "kind": "documentation",
+      "path": "sources/e0020.txt",
+      "url": "https://github.com/mcaveniathor/stucco/blob/303ee2433ce3c05d0af9c4b79a4e09958d374f92/docs/guide/collections.md",
+      "sha256": "70299b3c5a7c7c63364ba2a5b82e360172e583017c3d65f0579dd3c0e74be0f6"
+    },
+    {
+      "id": "e0021",
+      "kind": "example",
+      "path": "sources/e0021.txt",
+      "url": "https://github.com/mcaveniathor/stucco/blob/303ee2433ce3c05d0af9c4b79a4e09958d374f92/examples/orders/tests/http.rs",
+      "sha256": "480c8fd0da418677737d3499f61460710063206ca5976371730fe03869ace88c"
+    },
+    {
+      "id": "e0022",
+      "kind": "documentation",
+      "path": "sources/e0022.txt",
+      "url": "https://github.com/mcaveniathor/stucco/blob/303ee2433ce3c05d0af9c4b79a4e09958d374f92/docs/guide/components.md",
+      "sha256": "eeb04d253e8bd81af307aad4ca9e625e761099a4e1dd0e6a1023c12064b13a4f"
+    },
+    {
+      "id": "e0023",
+      "kind": "documentation",
+      "path": "sources/e0023.txt",
+      "url": "https://github.com/mcaveniathor/stucco/blob/303ee2433ce3c05d0af9c4b79a4e09958d374f92/docs/guide/enhancement.md",
+      "sha256": "3b28d3f70b75bd13e4a43e9693b903fd30cd5272bad749a9f15f9ff3e44cecac"
+    },
+    {
+      "id": "e0024",
+      "kind": "documentation",
+      "path": "sources/e0024.txt",
+      "url": "https://github.com/mcaveniathor/stucco/blob/303ee2433ce3c05d0af9c4b79a4e09958d374f92/docs/guide/forms.md",
+      "sha256": "57e72079c69ae9501a3462516dc567bf40fdc7b12dd7a2c4bb8b3e887c073d21"
+    },
+    {
+      "id": "e0025",
+      "kind": "documentation",
+      "path": "sources/e0025.txt",
+      "url": "https://github.com/mcaveniathor/stucco/blob/303ee2433ce3c05d0af9c4b79a4e09958d374f92/docs/guide/getting-started.md",
+      "sha256": "4fed45fb3a66ad8ec7476880b44f286bef6dda64f6873822a9285ae6562af33a"
+    },
+    {
+      "id": "e0026",
+      "kind": "documentation",
+      "path": "sources/e0026.txt",
+      "url": "https://github.com/mcaveniathor/stucco/blob/303ee2433ce3c05d0af9c4b79a4e09958d374f92/docs/guide/recipes.md",
+      "sha256": "bdc06352719e3652d1908e9995d18cec2a76abc188af321cfc09da237fcfa0aa"
+    },
+    {
+      "id": "e0027",
+      "kind": "documentation",
+      "path": "sources/e0027.txt",
+      "url": "https://github.com/mcaveniathor/stucco/blob/303ee2433ce3c05d0af9c4b79a4e09958d374f92/docs/guide/theming.md",
+      "sha256": "41b91eb2465ee8afce8ab36c72bd8eb33f46c587c733d4b27d1ae05d5556db9d"
+    },
+    {
+      "id": "e0028",
+      "kind": "api",
+      "path": "sources/e0028.txt",
+      "url": "https://github.com/mcaveniathor/stucco/blob/303ee2433ce3c05d0af9c4b79a4e09958d374f92/crates/stucco-core/src/bundle.rs",
+      "sha256": "6722f304ac78fd0401c1dfbc6051e01b793b519ec948893134d1045f5494d733"
+    },
+    {
+      "id": "e0029",
+      "kind": "license",
+      "path": "sources/e0029.txt",
+      "url": "https://github.com/mcaveniathor/stucco/blob/303ee2433ce3c05d0af9c4b79a4e09958d374f92/LICENSE-MIT",
+      "sha256": "a440d14b3a7d8741eb49a457914a1854e9b115fe122c5502e35de64bfb7e1cac"
+    },
+    {
+      "id": "e0030",
+      "kind": "license",
+      "path": "sources/e0030.txt",
+      "url": "https://github.com/mcaveniathor/stucco/blob/303ee2433ce3c05d0af9c4b79a4e09958d374f92/LICENSE-APACHE",
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    }
+  ],
+  "analysis": {
+    "summary": "Practical Stucco 0.2.1 guidance for semantic static pages, escaped content, deployment-aware hashed assets, and optional Axum integration. This bundle targets the published release at commit 303ee2433ce3c05d0af9c4b79a4e09958d374f92. Its two recipes cover static output and in-memory HTML/asset requests; they do not cover the full component catalog, browser behavior, or APIs added on repository HEAD after that release.",
+    "findings": [
+      {
+        "id": "semantic-pages",
+        "title": "Use Page::main for the main landmark and skip link",
+        "guidance": "Compose the document with Page::new(&bundle, title).main(content).render(). PageExt::main supplies the <main id=\"main\"> landmark and a preceding skip link; avoid adding a second main landmark inside it. With default-features = false, enable layout for this shortcut and layout components, and typography for Heading, Text and Link. The examples here target the published 0.2.1 facade and its recorded repository commit, so newer repository HEAD examples can require unavailable APIs.",
+        "basis": "documented",
+        "features": [
+          "layout",
+          "typography"
+        ],
+        "citations": [
+          {
+            "source_id": "e0006",
+            "start_line": 60,
+            "end_line": 82
+          },
+          {
+            "source_id": "e0025",
+            "start_line": 36,
+            "end_line": 56
+          },
+          {
+            "source_id": "e0022",
+            "start_line": 5,
+            "end_line": 19
+          },
+          {
+            "source_id": "e0002",
+            "start_line": 1,
+            "end_line": 6
+          }
+        ]
+      },
+      {
+        "id": "safe-text-and-links",
+        "title": "Keep untrusted content in escaped text and checked URLs",
+        "guidance": "Pass user-provided text to text-rendering components or element .text(...) builders so Stucco escapes markup. Link URLs pass through Href, which accepts relative URLs and the http, https, mailto and tel schemes and replaces disallowed schemes such as javascript: with #. Reserve Raw::trusted for markup that the application already trusts; it bypasses normal escaping. Do not set reserved component attributes to override behavior.",
+        "basis": "documented",
+        "features": [
+          "typography"
+        ],
+        "citations": [
+          {
+            "source_id": "e0022",
+            "start_line": 47,
+            "end_line": 58
+          }
+        ]
+      },
+      {
+        "id": "static-assets-and-base-path",
+        "title": "Write hashed assets and match the deployment URL prefix",
+        "guidance": "A Bundle supplies content-hashed stylesheets and scripts. For static output, write every Bundle::paths URL using the bytes returned by Bundle::get; rendering index.html alone leaves its stylesheet unavailable. Bundle::prefix changes the asset URL prefix and normalizes leading and trailing slashes. For a GitHub Pages project mounted at /demo/, set the asset prefix to /demo/_stucco/ and strip /demo/ when mapping those URLs into the artifact directory. Keep the output paths relative and retain the hash-bearing filenames. At the domain root, use /_stucco/ instead. This deployment mapping follows the documented prefix and static-export APIs; the recipe asserts that all emitted assets reach disk.",
+        "basis": "documented",
+        "features": [],
+        "citations": [
+          {
+            "source_id": "e0025",
+            "start_line": 36,
+            "end_line": 56
+          },
+          {
+            "source_id": "e0026",
+            "start_line": 144,
+            "end_line": 160
+          },
+          {
+            "source_id": "e0028",
+            "start_line": 103,
+            "end_line": 124
+          },
+          {
+            "source_id": "e0028",
+            "start_line": 152,
+            "end_line": 168
+          },
+          {
+            "source_id": "e0028",
+            "start_line": 208,
+            "end_line": 222
+          }
+        ]
+      },
+      {
+        "id": "axum-integration",
+        "title": "Enable axum explicitly and apply Stucco after the routes",
+        "guidance": "Enable the optional axum feature to expose PageCx, Document and StuccoRouter through stucco::prelude. A handler can extract PageCx, call title(...).main(...), and return Document; the content is rendered when set and may borrow request data. Call Router::stucco last, after routes and with_state, to install asset serving, theme extraction and the standard middleware across every route. The static-page recipe needs no Axum dependency. The Axum recipe uses Tower in-memory requests to exercise both HTML and the actual theme stylesheet without opening a listener.",
+        "basis": "documented",
+        "features": [
+          "axum",
+          "layout",
+          "typography"
+        ],
+        "citations": [
+          {
+            "source_id": "e0006",
+            "start_line": 41,
+            "end_line": 45
+          },
+          {
+            "source_id": "e0006",
+            "start_line": 110,
+            "end_line": 111
+          },
+          {
+            "source_id": "e0025",
+            "start_line": 58,
+            "end_line": 82
+          },
+          {
+            "source_id": "e0021",
+            "start_line": 1,
+            "end_line": 25
+          },
+          {
+            "source_id": "e0014",
+            "start_line": 20,
+            "end_line": 28
+          }
+        ]
+      }
+    ],
+    "recipes": [
+      {
+        "id": "static-page",
+        "title": "Export a static page with hashed assets",
+        "description": "Write index.html and every Bundle asset to an optional output directory (default stucco-example). BASE_PATH is /demo/ for a project site; change it to / for root hosting. Assertions check escaping, the main landmark, the skip link and exact asset bytes on disk.",
+        "code": "use std::{\n    fs,\n    path::{Component, Path, PathBuf},\n};\nuse stucco::prelude::*;\n\n// Match the site's URL mount point; use \"/\" for a site served at the root.\nconst BASE_PATH: &str = \"/demo/\";\n\nfn main() -> Result<(), Box<dyn std::error::Error>> {\n    let output = std::env::args_os()\n        .nth(1)\n        .map(PathBuf::from)\n        .unwrap_or_else(|| PathBuf::from(\"stucco-example\"));\n    let bundle = Bundle::new(Preset::Slate).prefix(&format!(\"{BASE_PATH}_stucco/\"));\n    let user_text = \"A <careful> welcome & a fresh start.\";\n    let html = Page::new(&bundle, \"Built with Stucco\")\n        .main(\n            Container::new().child(\n                Stack::new()\n                    .child(Heading::new(1, \"Built with Stucco\"))\n                    .child(Text::new(user_text))\n                    .child(Link::new(\n                        \"Stucco repository\",\n                        \"https://github.com/mcaveniathor/stucco\",\n                    )),\n            ),\n        )\n        .render();\n\n    assert!(html.contains(r#\"<main id=\"main\">\"#));\n    assert!(html.contains(r##\"href=\"#main\"\"##));\n    assert!(html.contains(\"A &lt;careful&gt; welcome &amp; a fresh start.\"));\n    assert!(!html.contains(\"<careful>\"));\n    assert!(html.contains(bundle.stylesheet_url()));\n\n    fs::create_dir_all(&output)?;\n    let paths = bundle.paths();\n    for url in &paths {\n        // The deployment prefix is a URL, not a directory inside the output.\n        let relative = url\n            .strip_prefix(BASE_PATH)\n            .expect(\"asset stays under site prefix\");\n        let relative = Path::new(relative);\n        assert!(\n            relative\n                .components()\n                .all(|part| matches!(part, Component::Normal(_)))\n        );\n        let destination = output.join(relative);\n        fs::create_dir_all(destination.parent().expect(\"asset has a parent\"))?;\n        let asset = bundle.get(url).expect(\"listed asset exists\");\n        fs::write(&destination, &*asset.bytes)?;\n        assert_eq!(fs::read(&destination)?, asset.bytes.as_ref());\n    }\n    fs::write(output.join(\"index.html\"), &html)?;\n    assert_eq!(fs::read_to_string(output.join(\"index.html\"))?, html);\n    assert!(!paths.is_empty());\n    println!(\n        \"Wrote {} and {} assets; serve it at {BASE_PATH}\",\n        output.display(),\n        paths.len()\n    );\n    Ok(())\n}\n",
+        "default_features": false,
+        "features": [
+          "layout",
+          "typography"
+        ],
+        "dependencies": {},
+        "citations": [
+          {
+            "source_id": "e0025",
+            "start_line": 36,
+            "end_line": 56
+          },
+          {
+            "source_id": "e0022",
+            "start_line": 49,
+            "end_line": 58
+          },
+          {
+            "source_id": "e0026",
+            "start_line": 144,
+            "end_line": 160
+          },
+          {
+            "source_id": "e0028",
+            "start_line": 103,
+            "end_line": 124
+          },
+          {
+            "source_id": "e0028",
+            "start_line": 152,
+            "end_line": 168
+          }
+        ]
+      },
+      {
+        "id": "axum-page",
+        "title": "Serve a document and its stylesheet through Axum",
+        "description": "Return a Document from a PageCx handler, install Stucco last on the router, and issue in-memory requests for the HTML and its content-hashed CSS. Assertions cover status, content type, escaped text, landmarks, immutable cache policy and exact stylesheet bytes.",
+        "code": "use axum::{\n    Router,\n    body::{Body, to_bytes},\n    http::{\n        Request, StatusCode,\n        header::{CACHE_CONTROL, CONTENT_TYPE},\n    },\n    routing::get,\n};\nuse stucco::prelude::*;\nuse tower::ServiceExt;\n\nasync fn index(page: PageCx) -> Document {\n    page.title(\"Hello, Stucco\").main(\n        Container::new().child(\n            Stack::new()\n                .child(Heading::new(1, \"Hello, Stucco\"))\n                .child(Text::new(\"Rust <HTML> & a real stylesheet.\")),\n        ),\n    )\n}\n\nfn request(uri: &str) -> Request<Body> {\n    Request::builder().uri(uri).body(Body::empty()).unwrap()\n}\n\n#[tokio::main(flavor = \"current_thread\")]\nasync fn main() -> Result<(), Box<dyn std::error::Error>> {\n    let bundle = Bundle::new(Preset::Slate);\n    let stylesheet_url = bundle.stylesheet_url().to_owned();\n    let stylesheet = bundle\n        .get(&stylesheet_url)\n        .expect(\"theme stylesheet exists\");\n    // Call stucco last so it provides assets, middleware and PageCx to every route.\n    let app = Router::new().route(\"/\", get(index)).stucco(bundle);\n\n    let response = app.clone().oneshot(request(\"/\")).await?;\n    assert_eq!(response.status(), StatusCode::OK);\n    assert_eq!(response.headers()[CONTENT_TYPE], \"text/html; charset=utf-8\");\n    let html = String::from_utf8(to_bytes(response.into_body(), 1024 * 1024).await?.to_vec())?;\n    assert!(html.contains(r#\"<main id=\"main\">\"#));\n    assert!(html.contains(r##\"href=\"#main\"\"##));\n    assert!(html.contains(\"Rust &lt;HTML&gt; &amp; a real stylesheet.\"));\n    assert!(html.contains(&stylesheet_url));\n\n    let response = app.oneshot(request(&stylesheet_url)).await?;\n    assert_eq!(response.status(), StatusCode::OK);\n    assert_eq!(response.headers()[CONTENT_TYPE], \"text/css; charset=utf-8\");\n    assert!(\n        response.headers()[CACHE_CONTROL]\n            .to_str()?\n            .contains(\"immutable\")\n    );\n    let css = to_bytes(response.into_body(), 1024 * 1024).await?;\n    assert_eq!(css.as_ref(), stylesheet.bytes.as_ref());\n    println!(\"Verified HTML and {stylesheet_url} through in-memory requests.\");\n    Ok(())\n}\n",
+        "default_features": false,
+        "features": [
+          "layout",
+          "typography",
+          "axum"
+        ],
+        "dependencies": {
+          "axum": {
+            "version": "0.8.9",
+            "features": [],
+            "default_features": false
+          },
+          "tokio": {
+            "version": "1.53",
+            "features": [
+              "macros",
+              "rt"
+            ],
+            "default_features": true
+          },
+          "tower": {
+            "version": "0.5.3",
+            "features": [
+              "util"
+            ],
+            "default_features": true
+          }
+        },
+        "citations": [
+          {
+            "source_id": "e0025",
+            "start_line": 58,
+            "end_line": 82
+          },
+          {
+            "source_id": "e0006",
+            "start_line": 110,
+            "end_line": 111
+          },
+          {
+            "source_id": "e0021",
+            "start_line": 1,
+            "end_line": 25
+          },
+          {
+            "source_id": "e0028",
+            "start_line": 121,
+            "end_line": 124
+          },
+          {
+            "source_id": "e0028",
+            "start_line": 163,
+            "end_line": 168
+          },
+          {
+            "source_id": "e0014",
+            "start_line": 20,
+            "end_line": 28
+          }
+        ]
+      }
+    ]
+  },
+  "review": null,
+  "verification": [
+    {
+      "recipe_id": "static-page",
+      "input_sha256": "b020c46de077c9c589b8fcaa77ba3406d75bc6855d4e22de3f19ab3634212906",
+      "status": "compiled",
+      "rustc_version": "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
+      "log_path": "verification/static-page/check.log",
+      "lockfile_sha256": "aa4cfcba6f4db8b1875eec9dbc964bb45a08aa0ceba1fbb3f3cdacf8d9e2aa1b",
+      "message": "cargo check --locked --all-targets passed; runtime behavior was not tested"
+    },
+    {
+      "recipe_id": "axum-page",
+      "input_sha256": "396e34e171dc6e3bb20d694028be62581d6f87a3b86000ef3d47e90f1f40790f",
+      "status": "compiled",
+      "rustc_version": "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
+      "log_path": "verification/axum-page/check.log",
+      "lockfile_sha256": "3537358d3a8c87c55a6b03449f265fe36d7fb82e248f1aaa31af7b83f6324ec8",
+      "message": "cargo check --locked --all-targets passed; runtime behavior was not tested"
+    }
+  ],
+  "warnings": [
+    "Collection is bounded to 48 UTF-8 evidence files, 48 KiB per file, and 320 KiB total; examples and API documentation are sampled, not exhaustive. Rendered documentation and external documentation sites are not crawled.",
+    "Pinned repository archive: 1 link or special-file entries were rejected without following or extracting them.",
+    "2 distinct eligible source files were omitted by the evidence budget; 27 files selected.",
+    "The published facade and pinned repository selection were supplemented with stucco-core/src/bundle.rs from the same release commit to document asset prefixes and export APIs. This is curated evidence, not exhaustive coverage of companion crates.",
+    "Upstream MIT and Apache-2.0 license texts from the release commit are included as frozen sources so they accompany installed evidence. Compiler logs normalize the temporary build-directory prefix; recorded check results and lockfile hashes are unchanged."
+  ]
+}
