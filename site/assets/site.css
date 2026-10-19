@@ -91,8 +91,6 @@ h1, h2, h3, p { margin-top: 0; }
 .pilot-row h3 span { color: var(--muted); font-family: var(--mono); font-size: 11px; margin-left: 12px; }
 .pilot-row p { font-size: 11px; color: var(--muted); margin: 0; }
 .status-label { font-family: var(--mono); font-size: 9px; color: var(--teal); padding: 4px 8px; border: 1px solid #aabfb1; border-radius: 3px; background: #edf1e9; }
-.planned .status-label { color: var(--muted); border-color: var(--rule); background: transparent; }
-.planned h3 { color: var(--muted); }
 .site-footer { border-top: 1px solid var(--rule); background: #f0f0e7; padding-block: 34px; }
 .footer-inner { display: flex; justify-content: space-between; gap: 30px; align-items: center; }
 .footer-inner p { margin: 0; color: var(--muted); font-size: 11px; }

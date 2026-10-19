@@ -82,10 +82,7 @@ pub(crate) fn page(site: &Site) -> String {
         .child(el::div().class("pilot-list")
             .child(pilot(site, "clap", "4.6.7", "Parsers, subcommands, validation", "Validated", "examples.html#clap-467"))
             .child(pilot(site, "axum", "0.8.9", "Routes, shared state, typed JSON", "Validated", "examples.html#axum-089"))
-            .child(pilot(site, "stucco", "0.2.1", "Static pages, themed assets, Axum", "Validated", "examples.html#stucco-021"))
-            .child(el::div().class("pilot-row planned")
-                .child(el::div().child(el::h3().text("bevy")).child(el::p().text("Game and ECS workflows")))
-                .child(el::span().class("status-label").text("Planned"))));
+            .child(pilot(site, "stucco", "0.2.1", "Static pages, themed assets, Axum", "Validated", "examples.html#stucco-021")));
 
     site.page("Symposiast", "Generate release-specific Rust crate skills, MCP retrieval, and version checks for the Symposium ecosystem.", "home", (hero, terminal, artifacts, process, pilots))
 }

@@ -1,6 +1,6 @@
 # Design
 
-Symposiast builds release-specific tooling for developers using Rust crates. The first targets are clap and axum; Bevy follows after the workflow handles larger feature and platform matrices.
+Symposiast builds release-specific tooling for developers using Rust crates. Validated examples cover clap, axum, and Stucco.
 
 ## Release and evidence
 
@@ -37,4 +37,3 @@ MCP retrieval and version checks are local and deterministic. They do not invoke
 - Exact-version predicates establish the initial compatibility scope. Broader semver compatibility needs separate validation.
 - Review disagreements stop the pipeline; there is no majority vote that overrides evidence.
 - Refresh creates a separate bundle. It does not silently upgrade a consumer dependency or overwrite human edits.
-- Bevy rendering and platform-specific runtime checks require additional verification infrastructure.
