@@ -231,8 +231,7 @@ fn recipe_markdown(bundle: &Bundle, recipe: &Recipe) -> String {
     )
 }
 
-/// Materialize a Symposium plugin whose skills carry their own evidence files.
-pub fn render(bundle: &Bundle, root: &Path) -> Result<()> {
+pub(crate) fn validate_guidance(bundle: &Bundle, root: &Path) -> Result<()> {
     bundle.validate(root)?;
     ensure!(
         bundle
@@ -241,15 +240,20 @@ pub fn render(bundle: &Bundle, root: &Path) -> Result<()> {
             .is_none_or(|review| review.approved && review.issues.is_empty()),
         "review has unresolved issues; resolve them before rendering"
     );
-    let root = root.canonicalize()?;
+    ensure!(
+        bundle.analysis.is_some(),
+        "analyzed guidance is required to render a plugin"
+    );
+    Ok(())
+}
+
+/// Shared content for local runtime plugins and portable registry entries.
+/// The caller validates the bundle before creating any output.
+pub(crate) fn render_skills(bundle: &Bundle, root: &Path, plugin: &Path) -> Result<PathBuf> {
     let analysis = bundle
         .analysis
         .as_ref()
         .context("analyzed guidance is required to render a plugin")?;
-    let staging = tempfile::Builder::new()
-        .prefix(".plugin-render-")
-        .tempdir_in(&root)?;
-    let plugin = staging.path();
     // Installed skill names share one namespace, even when a workspace uses
     // multiple releases. Keep the crate prefix and a stable release identity.
     let prefix: String = bundle
@@ -334,7 +338,7 @@ pub fn render(bundle: &Bundle, root: &Path) -> Result<()> {
     }
     for source in &bundle.sources {
         fs::copy(
-            safe_path(&root, &source.path)?,
+            safe_path(root, &source.path)?,
             references
                 .join("evidence")
                 .join(format!("{}.txt", source.id)),
@@ -347,6 +351,18 @@ pub fn render(bundle: &Bundle, root: &Path) -> Result<()> {
         }
     }
     fs::write(skill.join("SKILL.md"), index)?;
+    Ok(skill)
+}
+
+/// Materialize a Symposium plugin whose skills carry their own evidence files.
+pub fn render(bundle: &Bundle, root: &Path) -> Result<()> {
+    validate_guidance(bundle, root)?;
+    let root = root.canonicalize()?;
+    let staging = tempfile::Builder::new()
+        .prefix(".plugin-render-")
+        .tempdir_in(&root)?;
+    let plugin = staging.path();
+    render_skills(bundle, &root, plugin)?;
     write_manifest(plugin, &manifest(bundle, &root, &std::env::current_exe()?)?)?;
     let target = root.join("plugin");
     ensure!(

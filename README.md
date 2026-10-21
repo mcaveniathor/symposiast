@@ -72,6 +72,8 @@ See the [automation guide](https://mcaveniathor.github.io/symposiast/automation.
 
 ## Install into Symposium
 
+To share compiled guidance as a portable skills-only plugin, use `symposiast export-registry BUNDLE --output REGISTRY/ENTRY`. The export carries recipes, evidence, provenance, and recorded lockfiles without local runtime paths. See [registry sharing and the Stucco pilot](docs/registry.md).
+
 ```sh
 symposiast install .symposiast/clap
 cd /path/to/consumer
