@@ -28,3 +28,14 @@ jobs:
       - uses: Swatinem/rust-cache@v2
       - name: Run the release-pinned example and its assertions
         run: cargo run --locked --manifest-path site/downloads/stucco/${{ matrix.recipe }}/Cargo.toml
+  registry:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install pinned toolchain
+        run: rustup show active-toolchain
+      - uses: Swatinem/rust-cache@v2
+      - run: cargo build --locked --bin symposiast
+      - run: cargo install symposium --version 0.5.1 --locked
+      - run: cargo fetch --locked --manifest-path plugins/stucco/bundle/verification/static-page/Cargo.toml
+      - run: python3 scripts/check_registry.py

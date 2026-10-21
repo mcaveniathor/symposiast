@@ -9,7 +9,7 @@ use symposiast::{
     adapters::{self, AgentKind, AgentOptions},
     collect,
     model::{Analysis, Bundle},
-    plugin, runtime,
+    plugin, registry, runtime,
     transaction::Transaction,
     verify::{self, VerifyOptions},
 };
@@ -86,6 +86,13 @@ enum Commands {
     },
     /// Validate evidence and render the bundle as a Symposium plugin.
     Render { bundle: PathBuf },
+    /// Export compiled guidance as a portable, skills-only Symposium registry entry.
+    ExportRegistry {
+        bundle: PathBuf,
+        /// New plugin directory inside a registry; existing paths are never replaced.
+        #[arg(long)]
+        output: PathBuf,
+    },
     /// Install a durable plugin copy into the local Symposium plugin source.
     Install {
         bundle: PathBuf,
@@ -306,6 +313,10 @@ async fn main() -> Result<()> {
         }
         Commands::Render { bundle } => {
             plugin::render(&Bundle::load(&bundle)?, &bundle)?;
+        }
+        Commands::ExportRegistry { bundle, output } => {
+            registry::export(&bundle, &output)?;
+            println!("Registry entry written to {}", output.display());
         }
         Commands::Install {
             bundle,
