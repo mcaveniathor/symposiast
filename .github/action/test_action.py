@@ -24,6 +24,24 @@ FIXTURE = ROOT / "plugins/stucco/bundle"
 
 
 class ActionTests(unittest.TestCase):
+    def test_ci_analysis_uses_only_published_release_evidence(self):
+        analysis = json.loads((ROOT / "examples/ci/stucco-analysis.json").read_text())
+        bundle = json.loads((FIXTURE / "bundle.json").read_text())
+        published = {
+            source["id"]: source for source in bundle["sources"]
+            if source["url"].startswith("https://docs.rs/crate/stucco/0.2.1/source/")
+        }
+        for item in analysis["findings"] + analysis["recipes"]:
+            self.assertTrue(item["citations"])
+            for citation in item["citations"]:
+                # Removing all optional repository evidence must leave every citation valid.
+                self.assertIn(citation["source_id"], published)
+                source = published[citation["source_id"]]
+                lines = (FIXTURE / source["path"]).read_text().splitlines()
+                self.assertGreaterEqual(citation["start_line"], 1)
+                self.assertLessEqual(citation["start_line"], citation["end_line"])
+                self.assertLessEqual(citation["end_line"], len(lines))
+
     def setUp(self):
         self.temporary = tempfile.TemporaryDirectory(prefix="symposiast-action-test-")
         self.addCleanup(self.temporary.cleanup)

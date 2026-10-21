@@ -3,11 +3,14 @@
   "findings": [
     {
       "id": "semantic-pages",
-      "title": "Use Page::main for the main landmark and skip link",
-      "guidance": "Compose a page with Page::new(&bundle, title).main(content).render(). Enable layout and typography for the components in this example. Page::main supplies the main landmark and skip link.",
+      "title": "Compose a page with the published facade example",
+      "guidance": "Compose a page with Page::new(&bundle, title).main(content).render(), following the published README. Enable layout and typography for the components in this example.",
       "basis": "documented",
       "features": ["layout", "typography"],
-      "citations": [{"source_id": "e0025", "start_line": 36, "end_line": 56}]
+      "citations": [
+        {"source_id": "e0003", "start_line": 7, "end_line": 26},
+        {"source_id": "e0001", "start_line": 88, "end_line": 103}
+      ]
     }
   ],
   "recipes": [
@@ -20,8 +23,8 @@
       "features": ["layout", "typography"],
       "dependencies": {},
       "citations": [
-        {"source_id": "e0025", "start_line": 36, "end_line": 56},
-        {"source_id": "e0022", "start_line": 47, "end_line": 58}
+        {"source_id": "e0003", "start_line": 7, "end_line": 26},
+        {"source_id": "e0001", "start_line": 88, "end_line": 103}
       ]
     }
   ]
