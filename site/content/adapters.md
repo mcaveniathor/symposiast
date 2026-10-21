@@ -59,22 +59,26 @@ Standard input contains one complete JSON job, terminated by end of input. The j
 
 | Field | Meaning |
 | --- | --- |
-| `schema_version` | Protocol version, currently `1`. |
+| `schema_version` | Protocol version, currently `2`. |
 | `operation` | `analyze` or `review`. |
 | `instructions` | Coordinator-provided task and evidence-handling instructions. |
 | `release` | Exact crate name and version, checksum, repository metadata, features, and collection timestamp. |
 | `warnings` | Collection limitations to consider. |
 | `sources` | Source metadata plus the complete frozen text as numbered line objects. |
+| `example_inventory` | Extracted documentation examples with source citations, original fence annotations, code, and extraction warnings. |
 | `analysis` | `null` for analysis; the proposed Analysis object for review. |
 | `output_schema` | The complete response schema for this operation. |
 
 Each entry in `sources` contains `source` metadata (`id`, `kind`, `path`, `url`, `sha256`) and a `lines` array such as `[{"line": 1, "text": "Source text"}]`. Paths describe provenance; they are not files to open from the adapter's temporary working directory. Line numbers are one-based.
+
+Protocol version 2 requires `example_coverage`: one entry per inventoried example, with `example_id`, `disposition` (`adapted`, `supporting`, or `skipped`), `recipe_ids`, and a nonempty `reason`. Used examples must name recipes citing their source lines; skipped examples must name no recipes. An empty inventory uses `[]`. Older bundles gain an inventory when reanalyzed, including through `--analysis`. The inventory covers collected evidence only, and does not imply upstream doctests were run.
 
 For `analyze`, write exactly one Analysis JSON object to standard output. This abbreviated teaching example illustrates the shape; replace its guidance, code, source ID, and lines with evidence-backed content from the actual job:
 
 ```json
 {
   "summary": "Guidance for the selected release.",
+  "example_coverage": [],
   "findings": [
     {
       "id": "parser",

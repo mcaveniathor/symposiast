@@ -41,7 +41,7 @@ symposiast build axum --agent codex \
 
 Omit `--reviewer` to use one agent. `--agent-executable` and `--reviewer-executable` override executable locations. Use `--version X.Y.Z` for an exact release; the default is the latest stable, non-yanked version. The output directory must be new or empty.
 
-Each run resolves and verifies a crate archive, gathers bounded release evidence, analyzes it, validates source citations, compiles complete consumer examples, and renders `plugin/Symposium.toml` and supporting skills. Findings distinguish documented advice from inferred patterns. Compilation status records the exact recipe inputs, toolchain, and consumer lockfile; it does not claim runtime testing.
+Each run resolves and verifies a crate archive, gathers bounded release evidence, analyzes it, validates source citations, compiles complete consumer examples, and renders `plugin/Symposium.toml` and supporting skills. Collected documentation examples are inventoried with source lines and annotations; analysis records whether each is adapted, supports a recipe, or is skipped with a reason. Plugins expose that coverage alongside the recipes. Findings distinguish documented advice from inferred patterns. Compilation status records the exact recipe inputs, toolchain, and consumer lockfile; it does not claim runtime testing.
 
 Analysis and verification run in a staged bundle. If a step fails, the previous bundle remains intact and the error identifies the retained failed run for inspection. `--timeout` bounds each agent invocation and each recipe check. `--skip-verify` produces explicitly unverified recipes.
 

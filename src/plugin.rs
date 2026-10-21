@@ -336,6 +336,41 @@ pub(crate) fn render_skills(bundle: &Bundle, root: &Path, plugin: &Path) -> Resu
             recipe.title, recipe.id, status
         ));
     }
+    index.push_str("\n## Documentation examples\n\n");
+    if let Some(inventory) = &bundle.example_inventory {
+        let mut report = format!(
+            "# Documentation example coverage\n\n{} examples inventoried in the collected evidence. Coverage records describe analysis decisions, not doctest or runtime results.\n\n",
+            inventory.examples.len()
+        );
+        for warning in &inventory.warnings {
+            report.push_str(&format!("- {warning}\n"));
+        }
+        for example in &inventory.examples {
+            let coverage = analysis
+                .example_coverage
+                .iter()
+                .find(|coverage| coverage.example_id == example.id)
+                .expect("validated example coverage");
+            report.push_str(&format!("\n## {}\n\n{:?}: {}\n\n[{} lines {}–{}](evidence/{}.txt). Fence annotations: {}.\n\n",
+                example.id, coverage.disposition, coverage.reason,
+                example.citation.source_id, example.citation.start_line,
+                example.citation.end_line, example.citation.source_id,
+                serde_json::to_string(&example.info)?));
+            for id in &coverage.recipe_ids {
+                report.push_str(&format!("- [Recipe {id}](recipes/{id}.md)\n"));
+            }
+        }
+        fs::write(references.join("examples.md"), report)?;
+        fs::write(
+            references.join("examples.json"),
+            serde_json::to_vec_pretty(&serde_json::json!({
+                "inventory": inventory, "coverage": analysis.example_coverage
+            }))?,
+        )?;
+        index.push_str(&format!("{} examples inventoried. [Adaptations, supporting examples, and skipped examples with reasons](references/examples.md); [complete inventory and coverage data](references/examples.json). This accounts only for the collected evidence.\n", inventory.examples.len()));
+    } else {
+        index.push_str("This older bundle has no documentation example inventory; example coverage is unknown. Re-run analyze to inventory its frozen evidence and record coverage.\n");
+    }
     for source in &bundle.sources {
         fs::copy(
             safe_path(root, &source.path)?,

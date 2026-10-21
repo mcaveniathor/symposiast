@@ -156,7 +156,7 @@ fn tool_call(bundle: &Bundle, root: &Path, params: &Value) -> Result<Value> {
         "get_release_info" => {
             ensure!(args.is_empty(), "get_release_info takes no arguments");
             Ok(
-                json!({"release":bundle.release,"sources":bundle.sources,"summary":bundle.analysis.as_ref().map(|analysis| &analysis.summary),"review":bundle.review,"verification":bundle.verification,"warnings":bundle.warnings}),
+                json!({"release":bundle.release,"sources":bundle.sources,"example_inventory":bundle.example_inventory,"example_coverage":bundle.analysis.as_ref().map(|analysis| &analysis.example_coverage),"summary":bundle.analysis.as_ref().map(|analysis| &analysis.summary),"review":bundle.review,"verification":bundle.verification,"warnings":bundle.warnings}),
             )
         }
         _ => bail!("unknown tool: {name}"),

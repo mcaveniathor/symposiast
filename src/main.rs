@@ -177,6 +177,13 @@ async fn analyze(root: &Path, options: AnalysisOptions) -> Result<()> {
 
 async fn analyze_staged(root: &Path, options: AnalysisOptions) -> Result<()> {
     let mut bundle = Bundle::load(root)?;
+    if bundle.example_inventory.is_none() {
+        bundle.example_inventory = Some(symposiast::examples::inventory(&bundle.sources, root)?);
+        bundle.analysis = None;
+        bundle.review = None;
+        bundle.verification.clear();
+        bundle.save(root)?;
+    }
     let analysis: Analysis = match options.imported {
         Some(path) => serde_json::from_slice(&fs::read(path).context("read imported analysis")?)
             .context("parse imported analysis")?,

@@ -237,3 +237,65 @@ fn export_rejects_symlink_destinations_and_evidence() {
     std::os::unix::fs::symlink(&outside, evidence).unwrap();
     assert!(registry::export(&source, &temp.path().join("entry")).is_err());
 }
+
+#[test]
+fn registry_preserves_example_inventory_and_skip_reasons() {
+    let temp = tempfile::tempdir().unwrap();
+    let source = temp.path().join("source");
+    let mut bundle = fixture(&source);
+    let inventory = symposiast::examples::inventory(&bundle.sources, &source).unwrap();
+    assert!(!inventory.examples.is_empty());
+    bundle.analysis.as_mut().unwrap().example_coverage = inventory
+        .examples
+        .iter()
+        .map(|example| symposiast::examples::ExampleCoverage {
+            example_id: example.id.clone(),
+            disposition: symposiast::examples::Disposition::Skipped,
+            recipe_ids: vec![],
+            reason: "Fixture records an explicit skip for export validation.".into(),
+        })
+        .collect();
+    bundle.example_inventory = Some(inventory.clone());
+    bundle.validate(&source).unwrap();
+    bundle.save(&source).unwrap();
+    let output = temp.path().join("export");
+    registry::export(&source, &output).unwrap();
+    let skill = fs::read_dir(output.join("skills"))
+        .unwrap()
+        .next()
+        .unwrap()
+        .unwrap()
+        .path();
+    fs::remove_dir_all(&source).unwrap();
+    let data: Value =
+        serde_json::from_slice(&fs::read(skill.join("references/examples.json")).unwrap()).unwrap();
+    assert_eq!(data["inventory"], serde_json::to_value(&inventory).unwrap());
+    assert_eq!(
+        data["coverage"].as_array().unwrap().len(),
+        inventory.examples.len()
+    );
+    assert!(
+        data["coverage"]
+            .as_array()
+            .unwrap()
+            .iter()
+            .all(|entry| entry["disposition"] == "skipped")
+    );
+    let provenance: Value =
+        serde_json::from_slice(&fs::read(skill.join("references/provenance.json")).unwrap())
+            .unwrap();
+    assert_eq!(provenance["example_inventory"], data["inventory"]);
+    assert_eq!(provenance["example_coverage"], data["coverage"]);
+    let report = fs::read_to_string(skill.join("references/examples.md")).unwrap();
+    assert!(report.contains("Skipped: Fixture records an explicit skip"));
+    for example in &inventory.examples {
+        assert!(
+            skill
+                .join(format!(
+                    "references/evidence/{}.txt",
+                    example.citation.source_id
+                ))
+                .exists()
+        );
+    }
+}

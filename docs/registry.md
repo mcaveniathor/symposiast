@@ -21,6 +21,7 @@ The command reads the source bundle without rendering or changing it. It refuses
 The plugin activates only for the exact crate release. Its skill contains:
 
 - Findings and complete recipe code, with feature and dependency declarations.
+- Documentation example inventory and coverage decisions, when recorded, in `references/examples.md` and `references/examples.json`; older bundles explicitly report unknown example coverage.
 - All frozen evidence, including any license sources recorded in the bundle.
 - `references/provenance.json`: release metadata, the source bundle JSON hash, generator version, evidence URLs and hashes, review status, compilation fingerprints, and lockfile hashes.
 - Recorded dependency lockfiles under `references/lockfiles/`.

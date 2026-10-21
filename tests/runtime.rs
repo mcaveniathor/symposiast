@@ -28,6 +28,7 @@ fn fixture(root: &Path) -> Bundle {
     }];
     let mut bundle = Bundle {
         schema_version: SCHEMA_VERSION,
+        example_inventory: None,
         release: Release {
             name: "clap".into(),
             version: "4.5.0".into(),
@@ -46,6 +47,7 @@ fn fixture(root: &Path) -> Bundle {
             sha256: sha256(text.as_bytes()),
         }],
         analysis: Some(Analysis {
+            example_coverage: vec![],
             summary: "Parse CLI arguments with the documented derive interface.".into(),
             findings: vec![Finding {
                 id: "derive-parsing".into(),
@@ -411,4 +413,47 @@ fn hook_warns_in_canonical_shape_and_never_blocks_on_bad_input() {
         json!({})
     );
     assert!(String::from_utf8_lossy(&output.stderr).contains("Version check unavailable"));
+}
+
+#[test]
+fn mcp_release_info_exposes_inventory_and_coverage() {
+    let root = tempfile::tempdir().unwrap();
+    let mut bundle = fixture(root.path());
+    let source = &mut bundle.sources[0];
+    let path = root.path().join(&source.path);
+    let text = fs::read_to_string(&path).unwrap() + "\n```rust,compile_fail\ninvalid();\n```\n";
+    fs::write(&path, &text).unwrap();
+    source.sha256 = sha256(text.as_bytes());
+    let inventory = symposiast::examples::inventory(&bundle.sources, root.path()).unwrap();
+    assert_eq!(inventory.examples.len(), 1);
+    bundle.analysis.as_mut().unwrap().example_coverage =
+        vec![symposiast::examples::ExampleCoverage {
+            example_id: inventory.examples[0].id.clone(),
+            disposition: symposiast::examples::Disposition::Skipped,
+            recipe_ids: vec![],
+            reason: "Intentional compiler error.".into(),
+        }];
+    bundle.example_inventory = Some(inventory.clone());
+    bundle.save(root.path()).unwrap();
+    let output = invoke(
+        "serve",
+        root.path(),
+        "{\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"tools/call\",\"params\":{\"name\":\"get_release_info\",\"arguments\":{}}}\n",
+    );
+    assert!(
+        output.status.success(),
+        "{}",
+        String::from_utf8_lossy(&output.stderr)
+    );
+    let response: Value = serde_json::from_slice(&output.stdout).unwrap();
+    let info: Value =
+        serde_json::from_str(response["result"]["content"][0]["text"].as_str().unwrap()).unwrap();
+    assert_eq!(
+        info["example_inventory"],
+        serde_json::to_value(inventory).unwrap()
+    );
+    assert_eq!(
+        info["example_coverage"][0]["reason"],
+        "Intentional compiler error."
+    );
 }

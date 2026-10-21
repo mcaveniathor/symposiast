@@ -250,6 +250,7 @@ mod tests {
     fn consumer_manifest_pins_primary_and_keeps_feature_selection() {
         let bundle = Bundle {
             schema_version: SCHEMA_VERSION,
+            example_inventory: None,
             release: Release {
                 name: "clap".into(),
                 version: "4.5.0".into(),

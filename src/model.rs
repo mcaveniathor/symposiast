@@ -16,6 +16,9 @@ pub struct Bundle {
     pub schema_version: u32,
     pub release: Release,
     pub sources: Vec<Source>,
+    /// None identifies older bundles whose documentation examples were not inventoried.
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub example_inventory: Option<crate::examples::ExampleInventory>,
     pub analysis: Option<Analysis>,
     pub review: Option<Review>,
     #[serde(default)]
@@ -53,6 +56,8 @@ pub struct Analysis {
     pub summary: String,
     pub findings: Vec<Finding>,
     pub recipes: Vec<Recipe>,
+    #[serde(default, skip_serializing_if = "Vec::is_empty")]
+    pub example_coverage: Vec<crate::examples::ExampleCoverage>,
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
@@ -73,7 +78,7 @@ pub enum Basis {
     Inferred,
 }
 
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone, Serialize, Deserialize, PartialEq, Eq)]
 #[serde(deny_unknown_fields)]
 pub struct Citation {
     pub source_id: String,
@@ -236,7 +241,14 @@ impl Bundle {
             }
             Ok(())
         };
+        if let Some(inventory) = &self.example_inventory {
+            ensure!(
+                *inventory == crate::examples::inventory(&self.sources, root)?,
+                "documentation example inventory differs from frozen evidence"
+            );
+        }
         if let Some(analysis) = &self.analysis {
+            crate::examples::validate_coverage(self.example_inventory.as_ref(), analysis)?;
             ensure!(
                 !analysis.summary.trim().is_empty(),
                 "analysis summary is empty"
