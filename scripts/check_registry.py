@@ -44,7 +44,7 @@ def main():
         shutil.copytree(repo / "plugins/stucco/bundle", source,
                         ignore=shutil.ignore_patterns("target", "plugin"))
         run([symposiast, "export-registry", str(source), "--output",
-             str(root / "export/stucco-0-2-1")], repo, env)
+             str(root / "export/stucco-0-3-0")], repo, env)
         registry = root / "relocated-registry"
         (root / "export").rename(registry)
         # Use the real pinned consumer project for the matching-version check.
@@ -69,7 +69,7 @@ path = {json.dumps(str(registry))}
         validation = json.loads(run([symposium, "agents", "plugin", "validate",
                                      str(registry), "--no-check-crates", "--json"], consumer, env))
         assert len(validation) == 2 and all(item.get("valid") for item in validation), validation
-        entry = registry / "stucco-0-2-1"
+        entry = registry / "stucco-0-3-0"
         skill = next((entry / "skills").iterdir())
         for _ in range(2):
             run([symposium, "agents", "sync", "--json"], consumer, env)
@@ -82,7 +82,7 @@ path = {json.dumps(str(registry))}
         # This tiny path crate is a version-matching fixture, not a Stucco build.
         mismatch = root / "mismatch"
         (mismatch / "src").mkdir(parents=True)
-        (mismatch / "Cargo.toml").write_text('[package]\nname = "stucco"\nversion = "0.2.2"\nedition = "2024"\n')
+        (mismatch / "Cargo.toml").write_text('[package]\nname = "stucco"\nversion = "0.3.1"\nedition = "2024"\n')
         (mismatch / "src/lib.rs").write_text("")
         (consumer / "Cargo.toml").write_text('''[package]
 name = "registry-consumer"

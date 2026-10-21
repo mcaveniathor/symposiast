@@ -15,13 +15,14 @@ jobs:
           persist-credentials: false
       - name: Test action input handling and artifact packaging
         run: python3 -m unittest discover -s .github/action -p 'test_*.py' -v
-      - name: Exercise the action with a frozen analysis
+      - name: Exercise the action with a deterministic fixture adapter
         id: guidance
         uses: ./
         with:
           crate: stucco
-          version: 'v0.2.1'
-          analysis-file: examples/ci/stucco-analysis.json
+          version: 'v0.3.0'
+          agent: custom
+          agent-executable: ./examples/ci/stucco-adapter.py
           artifact-name: stucco-action-check
           retention-days: '3'
       - name: Verify the portable archive and recipient installation

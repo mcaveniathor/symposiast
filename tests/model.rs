@@ -10,6 +10,7 @@ fn fixture(root: &std::path::Path) -> Bundle {
     .unwrap();
     Bundle {
         schema_version: SCHEMA_VERSION,
+        example_inventory: None,
         release: Release {
             name: "clap".into(),
             version: "4.5.0".into(),
@@ -28,6 +29,7 @@ fn fixture(root: &std::path::Path) -> Bundle {
             sha256: sha256(b"/// Construct a parser.\npub struct Parser;\n"),
         }],
         analysis: Some(Analysis {
+            example_coverage: vec![],
             summary: "Parser guidance".into(),
             findings: vec![Finding {
                 id: "parser".into(),
@@ -190,4 +192,174 @@ fn changing_resolved_dependencies_invalidates_compilation_record() {
             .to_string()
             .contains("lockfile changed")
     );
+}
+
+fn inventoried_fixture(root: &std::path::Path) -> Bundle {
+    let mut bundle = fixture(root);
+    let text = "/// ```rust,ignore\n/// first();\n/// ```\n/// ```compile_fail\n/// invalid();\n/// ```\npub struct Parser;\n";
+    fs::write(root.join("source.rs"), text).unwrap();
+    bundle.sources[0].sha256 = sha256(text.as_bytes());
+    bundle.example_inventory =
+        Some(symposiast::examples::inventory(&bundle.sources, root).unwrap());
+    let examples = &bundle.example_inventory.as_ref().unwrap().examples;
+    bundle.analysis.as_mut().unwrap().example_coverage = vec![
+        symposiast::examples::ExampleCoverage {
+            example_id: examples[0].id.clone(),
+            disposition: symposiast::examples::Disposition::Adapted,
+            recipe_ids: vec!["minimal".into()],
+            reason: "Adapt the documented construction into a complete consumer.".into(),
+        },
+        symposiast::examples::ExampleCoverage {
+            example_id: examples[1].id.clone(),
+            disposition: symposiast::examples::Disposition::Skipped,
+            recipe_ids: vec![],
+            reason: "Intentional compiler error.".into(),
+        },
+    ];
+    bundle
+}
+
+#[test]
+fn inventory_roundtrips_and_requires_complete_valid_coverage() {
+    use symposiast::examples::Disposition;
+    let root = tempfile::tempdir().unwrap();
+    let bundle = inventoried_fixture(root.path());
+    bundle.validate(root.path()).unwrap();
+    bundle.save(root.path()).unwrap();
+    assert_eq!(
+        Bundle::load(root.path()).unwrap().example_inventory,
+        bundle.example_inventory
+    );
+    for case in [
+        "missing",
+        "duplicate",
+        "unknown-example",
+        "unknown-recipe",
+        "empty-reason",
+        "skipped-with-recipe",
+        "adapted-without-recipe",
+        "uncited",
+        "duplicate-recipe",
+        "tampered-inventory",
+    ] {
+        let mut changed = bundle.clone();
+        let analysis = changed.analysis.as_mut().unwrap();
+        match case {
+            "missing" => {
+                analysis.example_coverage.pop();
+            }
+            "duplicate" => analysis
+                .example_coverage
+                .push(analysis.example_coverage[0].clone()),
+            "unknown-example" => analysis.example_coverage[0].example_id = "unknown".into(),
+            "unknown-recipe" => analysis.example_coverage[0].recipe_ids[0] = "unknown".into(),
+            "empty-reason" => analysis.example_coverage[0].reason = " ".into(),
+            "skipped-with-recipe" => {
+                analysis.example_coverage[0].disposition = Disposition::Skipped
+            }
+            "adapted-without-recipe" => analysis.example_coverage[0].recipe_ids.clear(),
+            "uncited" => {
+                analysis.recipes[0].citations[0] = Citation {
+                    source_id: "e0001".into(),
+                    start_line: 7,
+                    end_line: 7,
+                }
+            }
+            "duplicate-recipe" => analysis.example_coverage[0]
+                .recipe_ids
+                .push("minimal".into()),
+            "tampered-inventory" => {
+                changed.example_inventory.as_mut().unwrap().examples[0].code = "invented();".into()
+            }
+            _ => unreachable!(),
+        }
+        assert!(changed.validate(root.path()).is_err(), "accepted {case}");
+    }
+    let mut supporting = bundle;
+    supporting.analysis.as_mut().unwrap().example_coverage[0].disposition = Disposition::Supporting;
+    supporting.validate(root.path()).unwrap();
+}
+
+#[test]
+fn legacy_bundles_do_not_claim_example_coverage() {
+    let root = tempfile::tempdir().unwrap();
+    let mut bundle = fixture(root.path());
+    bundle.save(root.path()).unwrap();
+    let json: serde_json::Value =
+        serde_json::from_slice(&fs::read(root.path().join("bundle.json")).unwrap()).unwrap();
+    assert!(json.get("example_inventory").is_none());
+    assert!(
+        Bundle::load(root.path())
+            .unwrap()
+            .example_inventory
+            .is_none()
+    );
+    bundle.analysis.as_mut().unwrap().example_coverage = inventoried_fixture(root.path())
+        .analysis
+        .unwrap()
+        .example_coverage;
+    bundle.sources[0].sha256 = sha256(&fs::read(root.path().join("source.rs")).unwrap());
+    assert!(
+        bundle
+            .validate(root.path())
+            .unwrap_err()
+            .to_string()
+            .contains("requires an inventory")
+    );
+}
+
+#[test]
+fn cli_import_upgrades_legacy_inventory_and_renders_coverage_atomically() {
+    let temp = tempfile::tempdir().unwrap();
+    let root = temp.path().join("bundle");
+    fs::create_dir(&root).unwrap();
+    let mut bundle = inventoried_fixture(&root);
+    let analysis = bundle.analysis.take().unwrap();
+    bundle.example_inventory = None;
+    bundle.save(&root).unwrap();
+    let before = fs::read(root.join("bundle.json")).unwrap();
+    let input = temp.path().join("analysis.json");
+    let mut incomplete = analysis.clone();
+    incomplete.example_coverage.clear();
+    fs::write(&input, serde_json::to_vec(&incomplete).unwrap()).unwrap();
+    let analyze = || {
+        std::process::Command::new(env!("CARGO_BIN_EXE_symposiast"))
+            .arg("analyze")
+            .arg(&root)
+            .arg("--analysis")
+            .arg(&input)
+            .arg("--skip-verify")
+            .output()
+            .unwrap()
+    };
+    let failed = analyze();
+    assert!(!failed.status.success());
+    assert!(
+        String::from_utf8_lossy(&failed.stderr).contains("every inventoried documentation example")
+    );
+    assert_eq!(fs::read(root.join("bundle.json")).unwrap(), before);
+    fs::write(&input, serde_json::to_vec(&analysis).unwrap()).unwrap();
+    let success = analyze();
+    assert!(
+        success.status.success(),
+        "{}",
+        String::from_utf8_lossy(&success.stderr)
+    );
+    let saved = Bundle::load(&root).unwrap();
+    assert_eq!(saved.example_inventory.unwrap().examples.len(), 2);
+    assert!(saved.verification.is_empty());
+    let skill = fs::read_dir(root.join("plugin/skills"))
+        .unwrap()
+        .next()
+        .unwrap()
+        .unwrap()
+        .path();
+    let report = fs::read_to_string(skill.join("references/examples.md")).unwrap();
+    assert!(report.contains("Adapted:"));
+    assert!(report.contains("Skipped: Intentional compiler error."));
+    assert!(report.contains("recipes/minimal.md"));
+    let json: serde_json::Value =
+        serde_json::from_slice(&fs::read(skill.join("references/examples.json")).unwrap()).unwrap();
+    assert_eq!(json["inventory"]["examples"].as_array().unwrap().len(), 2);
+    assert_eq!(json["coverage"].as_array().unwrap().len(), 2);
 }

@@ -18,7 +18,7 @@ pub(crate) fn page(site: &Site) -> String {
             .child(el::p().class("built-with").text("This site is built with ")
                 .child(el::a().href("https://github.com/mcaveniathor/stucco").text("Stucco"))
                 .text(". ")
-                .child(el::a().href(site.url("examples.html#stucco-021")).text("Explore its plugin and examples →"))),
+                .child(el::a().href(site.url("examples.html#stucco-030")).text("Explore its plugin and examples →"))),
     ).child(
         el::div().class("release-note").aria("label", "Example release dossier")
             .child(el::div().class("note-topline").child(el::span().text("RELEASE DOSSIER")).child(el::span().text("001")))
@@ -96,7 +96,7 @@ pub(crate) fn page(site: &Site) -> String {
         .child(el::div().class("pilot-list")
             .child(pilot(site, "clap", "4.6.7", "Parsers, subcommands, validation", "Validated", "examples.html#clap-467"))
             .child(pilot(site, "axum", "0.8.9", "Routes, shared state, typed JSON", "Validated", "examples.html#axum-089"))
-            .child(pilot(site, "stucco", "0.2.1", "Static pages, themed assets, Axum", "Validated", "examples.html#stucco-021")));
+            .child(pilot(site, "stucco", "0.3.0", "Pages, fragments, tables, forms, themes", "Validated", "examples.html#stucco-030")));
 
     site.page("Symposiast", "Generate release-specific Rust crate skills, MCP retrieval, and version checks for the Symposium ecosystem.", "home", (hero, registry, terminal, artifacts, process, pilots))
 }

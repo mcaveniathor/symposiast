@@ -1,5 +1,6 @@
 pub mod adapters;
 pub mod collect;
+pub mod examples;
 pub mod model;
 pub mod plugin;
 pub mod registry;

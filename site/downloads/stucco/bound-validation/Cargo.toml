@@ -1,0 +1,12 @@
+[dependencies.stucco]
+default-features = false
+features = ["forms"]
+version = "=0.3.0"
+
+[package]
+edition = "2024"
+name = "recipe-bound-validation"
+publish = false
+version = "0.0.0"
+
+[workspace]

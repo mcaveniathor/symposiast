@@ -1,0 +1,12 @@
+[dependencies.stucco]
+default-features = true
+features = []
+version = "=0.3.0"
+
+[package]
+edition = "2024"
+name = "recipe-status-details"
+publish = false
+version = "0.0.0"
+
+[workspace]

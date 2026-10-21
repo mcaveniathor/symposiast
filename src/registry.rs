@@ -83,6 +83,8 @@ pub fn export(root: &Path, output: &Path) -> Result<()> {
             "release": bundle.release,
             "review": bundle.review,
             "sources": sources,
+            "example_inventory": bundle.example_inventory,
+            "example_coverage": analysis.example_coverage,
             "recipes": recipes,
             "warnings": bundle.warnings,
         }))?,

@@ -1,11 +1,10 @@
-    Updating crates.io index
      Locking 8 packages to highest Rust 1.99.1 compatible versions
     Checking percent-encoding v2.3.2
-    Checking stucco-theme v0.2.1
+    Checking stucco-theme v0.3.0
     Checking form_urlencoded v1.2.2
     Checking inventory v0.3.25
-    Checking stucco-core v0.2.1
-    Checking stucco-ui v0.2.1
-    Checking stucco v0.2.1
-    Checking recipe-static-page v0.0.0 (<verification-workspace>/verification/static-page)
-    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.77s
+    Checking stucco-core v0.3.0
+    Checking stucco-ui v0.3.0
+    Checking stucco v0.3.0
+    Checking recipe-static-page v0.0.0 (<verification-workspace>/static-page)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.55s

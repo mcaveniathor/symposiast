@@ -42,7 +42,7 @@ duplicate names. This supports strict response schemas without open-ended object
 keys. All built-in schema objects reject additional properties and require every
 declared field.
 
-## Custom executable protocol, version 1
+## Custom executable protocol, version 2
 
 Select the custom adapter and provide an executable path. The executable receives
 no arguments. Use a wrapper executable when extra arguments or provider-specific
@@ -54,7 +54,7 @@ Standard input contains one complete JSON object, terminated by end of input:
 
 ```json
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "operation": "analyze",
   "instructions": "Coordinator-provided task and evidence-handling instructions",
   "release": {
@@ -82,6 +82,7 @@ Standard input contains one complete JSON object, terminated by end of input:
       ]
     }
   ],
+  "example_inventory": {"examples": [], "warnings": []},
   "analysis": null,
   "output_schema": {}
 }
@@ -98,6 +99,7 @@ For `analyze`, standard output must contain exactly one Analysis JSON object:
 ```json
 {
   "summary": "Release-specific guidance",
+  "example_coverage": [],
   "findings": [
     {
       "id": "parser",
@@ -137,6 +139,40 @@ must have evidence and valid, unique IDs. The coordinator validates source
 checksums, citation ranges, and dependency declarations before accepting the
 analysis. Compiler checks happen separately; agents cannot assign verification
 results.
+
+Version 2 adds `example_inventory` to the job and requires `example_coverage`
+in the output schema. The inventory contains `examples` and extraction `warnings`.
+Each example has an `id`, a `citation` into frozen evidence, the original fence
+`info` string, and extracted `code`. Hidden rustdoc lines remain in the code.
+An empty inventory requires an empty coverage array.
+
+Account for every inventoried example exactly once:
+
+```json
+{
+  "example_id": "doc-<source-hash>-<ordinal>",
+  "disposition": "adapted",
+  "recipe_ids": ["parser"],
+  "reason": "Extend the documented parser construction into a complete consumer."
+}
+```
+
+`adapted` means the example is a basis for the recipe; `supporting` means it
+supports the recipe; `skipped` means no recipe uses it. All entries require a
+nonempty reason. Adapted/supporting entries must reference existing recipe IDs,
+and those recipes must cite lines overlapping the original example. Skipped
+entries must have an empty `recipe_ids` array. Duplicate entries, missing
+examples, unknown IDs, and invalid associations fail validation. Several examples
+can contribute to one task-oriented recipe; there is no one-recipe-per-snippet
+requirement. Respect `ignore`, target restrictions, `compile_fail`, `no_run`, and
+edition annotations when deciding whether and how to adapt an example.
+
+Older bundles without an inventory remain readable with unknown coverage.
+`analyze`, including `--analysis`, inventories their saved evidence in the staged
+run before accepting new analysis; imports must then account for that inventory.
+The additive bundle fields retain bundle schema version 1, independently of the
+agent job protocol version. Coverage does not change recipe compilation semantics
+or imply that upstream doctests were run.
 
 For `review`, the input includes the proposed Analysis object in `analysis` and
 the output must be:

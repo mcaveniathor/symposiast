@@ -199,8 +199,9 @@ pub async fn collect(crate_name: &str, version: Option<&str>, root: &Path) -> Re
     }
     let mut features = selected.features;
     features.extend(selected.features2);
-    let bundle = Bundle {
+    let mut bundle = Bundle {
         schema_version: SCHEMA_VERSION,
+        example_inventory: None,
         release: Release {
             name: crate_name.to_owned(),
             version: selected.vers,
@@ -225,6 +226,7 @@ pub async fn collect(crate_name: &str, version: Option<&str>, root: &Path) -> Re
         verification: Vec::new(),
         warnings,
     };
+    bundle.example_inventory = Some(crate::examples::inventory(&bundle.sources, root)?);
     bundle.validate(root)?;
     bundle.save(root)?;
     Ok(bundle)

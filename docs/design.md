@@ -8,6 +8,29 @@ A run resolves the latest stable, non-yanked release unless given an exact versi
 
 The version 1 bundle records release metadata, source hashes, source locations, findings, complete consumer recipes, review outcomes, and compilation checks. Source references identify actual lines in the frozen evidence. Gathering and model context have explicit limits; omissions and missing repository sources are reported.
 
+Collection also inventories Rust code blocks in the selected Markdown and Rust
+source documentation. It uses Markdown parsing and Rust tokenization to retain
+source line ranges, fence annotations, and hidden rustdoc lines without treating
+ordinary Rust strings or comments as documentation. Rust doc comments and literal
+`#[doc = "..."]` attributes are supported. Unlabelled and indented blocks count as
+Rust only inside Rust documentation; Markdown requires a Rust language tag or
+recognized rustdoc annotations. Macro expansion, `cfg_attr`, external includes,
+and generated docs are outside the inventory. Untokenizable Rust sources
+(including truncated files) produce explicit inventory warnings. Standalone
+`examples/*.rs` programs remain analysis evidence rather than doc-block entries.
+For escaped doc attributes, citations cover the complete literal because decoded
+newlines need not correspond to source lines.
+
+Analysis must account for each inventoried example as adapted, supporting a
+recipe, or skipped, with a reason. Used examples reference recipes that cite their
+source lines. The coordinator recomputes the inventory from frozen evidence and
+validates complete coverage; this checks structure and provenance, not whether an
+agent's rationale is semantically correct. Optional review also receives the
+inventory and coverage decisions. Plugins and registry exports include a readable
+coverage report and the complete JSON inventory; MCP `get_release_info` exposes
+both. Older bundles retain unknown coverage until reanalysis inventories their
+saved evidence. Missing upstream sources remain outside the coverage claim.
+
 Documented and inferred recommendations are separate. Compiled status comes only from the verification process, not from an analysis response. A successful compile does not establish idiomaticity or runtime behavior.
 
 ## Agents

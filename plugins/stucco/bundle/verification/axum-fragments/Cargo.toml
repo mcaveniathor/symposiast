@@ -1,33 +1,30 @@
 [dependencies.axum]
-default-features = false
+default-features = true
 features = []
-version = "0.8.9"
+version = "0.8"
 
 [dependencies.stucco]
-default-features = false
-features = [
-    "layout",
-    "typography",
-    "axum",
-]
-version = "=0.2.1"
+default-features = true
+features = ["axum"]
+version = "=0.3.0"
 
 [dependencies.tokio]
 default-features = true
 features = [
     "macros",
-    "rt",
+    "rt-multi-thread",
+    "net",
 ]
-version = "1.53"
+version = "1"
 
 [dependencies.tower]
 default-features = true
 features = ["util"]
-version = "0.5.3"
+version = "0.5"
 
 [package]
 edition = "2024"
-name = "recipe-axum-page"
+name = "recipe-axum-fragments"
 publish = false
 version = "0.0.0"
 

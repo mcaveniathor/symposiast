@@ -36,44 +36,40 @@ Built-in command interfaces were checked against Claude Code 2.1.303 and Codex 0
 
 No credentials were copied or replaced. A normal authenticated CLI with writable runtime state is needed to validate the live analysis path. The successful public-crate integration checks used imported analyses and do not establish live model integration.
 
-## Stucco plugin and examples
+## Stucco 0.3.0 plugin and examples
 
-Stucco 0.2.1 was resolved as the latest stable release for this run. Its published archive checksum and packaged repository commit `303ee2433ce3c05d0af9c4b79a4e09958d374f92` were verified. The collector retained 27 evidence files. The portable bundle adds `stucco-core/src/bundle.rs` from that exact commit for asset-prefix/export citations, plus the two upstream license texts, for 30 frozen files total. The supplemental files have their own hashes; they are not covered by the facade archive checksum.
+The current checked-in Stucco guidance targets 0.3.0 at repository commit `07335e73dfb22aba2ce89487bcee634a24c2080e`. A fresh exact-release collection verified the published archive checksum and matched all 31 sources of the existing 0.3.0 analysis. Two separately hashed upstream license texts bring the portable bundle to 33 frozen sources. The prior bundle and downloads have been replaced.
 
-Four findings and two complete recipes were supplied through the structured analysis import path. Both passed `cargo check --locked --all-targets`; their recorded lockfiles resolve the Stucco companion crates to 0.2.1. Separate executable assertions passed:
+The refined analysis was imported through Symposiast and has 12 findings, six complete consumer recipes, and explicit coverage for all 57 extracted documentation examples: 14 adapted, 13 supporting, and 30 skipped with reasons. No separate reviewer was invoked for this revision; the bundle's `review` is null. Source selection and extraction remain bounded, and coverage decisions do not prove semantic completeness.
 
-- `static-page`: escaped text, main landmark, skip link, project URL prefix, and exact exported asset bytes.
-- `axum-page`: in-memory HTML and stylesheet requests, content types, escaped text, main landmark, immutable asset caching, and exact stylesheet bytes.
+All six recipes passed `cargo check --locked --all-targets` against pinned lockfiles and their executable assertions passed separately:
 
-The checked-in `plugins/stucco/bundle` preserves the evidence, recipes, compiler results, and lockfiles without runtime manifests or build caches. Compiler logs normalize the temporary build-directory prefix. Its six downloadable Cargo files exactly match the validated consumer projects. CI checks bundle integrity and runs both example executables.
+- `static-page`: escaped text, main landmark, skip link, and exact exported asset bytes.
+- `axum-fragments`: full pages, named fragments, unknown-target fallback, escaping, response headers, and stylesheet bytes through in-memory requests. The optional listening-server path was not used for these checks.
+- `derived-table`: escaped values and stored-cents display formatting.
+- `bound-validation`: invalid submitted state, validation messages, and invalid-field markup.
+- `inline-server-theme`: a server-selected dark scheme, inline CSS, and document content.
+- `status-details`: native progress, meter, details/summary, and status/detail content.
 
-Installation from a relocated bundle produced matching manifest spellings and a valid Symposium 0.5.1 plugin and skill. After deleting the relocated input, installed MCP retrieval still returned Stucco 0.2.1 and the compiled static recipe. Claude project sync registered the skill and MCP. Matching canonical hook input returned no warning; a temporary consumer lockfile changed to 0.2.0 produced the expected mismatch warning. Native Claude Code and Codex SessionStart dispatch also returned neutral responses for the matching release with automatic sync disabled. Codex's global MCP configuration was not modified or exercised in this test. All installed source hashes matched, and the two license texts survived in both the installed bundle and skill evidence.
+Compiler logs normalize temporary build-directory prefixes. Input fingerprints and lockfile hashes remain intact. `scripts/update_stucco_examples.py --check` verifies that all 18 downloadable Stucco files and the generated Stucco guide section match the checked-in bundle. CI runs every Stucco example executable and rejects stale downloads or prose.
 
 ## Documentation and workflow skill
 
-The Stucco 0.2.1 static site builds with a locked dependency graph. All seven pages and their local assets and anchors pass `site/check_links.py` under both the `/symposiast/` project prefix and a `/` root deployment. The 24 downloadable recipe files match the validated consumer projects exactly, including the recorded lockfile hashes.
-
-Chromium checks cover 1440px, 768px, and 390px layouts with no document overflow, working copy buttons, keyboard skip navigation, and navigation without JavaScript. Automated WCAG A/AA checks pass on all six pages at desktop and phone widths. These are local checks; they do not establish that a GitHub Pages deployment has completed.
-
-The Automation page and expanded navigation also passed layout checks at 1440, 1024, 800, 768, 390, and 320 pixels, with accessibility checks at desktop and phone widths.
+The documentation site now pins Stucco 0.3.0. It includes twelve downloadable clap, axum, and Stucco projects. Site builds and link checks cover both `/symposiast/` and `/` deployment bases. No browser was connected for this migration, so desktop/mobile layout and browser enhancement were not visually revalidated. Earlier browser checks described below apply only to their earlier revisions.
 
 ## Release guidance action
 
-The reusable action passed 16 local helper tests covering input validation, argument handling, exact-version registry polling, single-attempt generation, failure propagation, source/recipe integrity, archive exclusions, and bootstrap credential filtering. A prefix-only `v` is rejected rather than treated as an omitted version. Actionlint 1.7.7 validated all repository workflows and the release workflow example.
+The action suite passes 21 local tests covering input handling, exact-version polling, failure propagation, portable artifact integrity, and the deterministic Stucco fixture adapter. The Rust regression suite additionally invokes that adapter against real frozen evidence with and without the optional repository sources. All 55 Rust tests pass, along with formatting and Clippy with warnings denied. Actionlint validates the repository workflows and the release workflow example.
 
-Both the preinstalled-CLI and default-bootstrap paths were exercised with the real Symposiast CLI. The default path installed the pinned Rust toolchain and compiled Symposiast from this checkout with `cargo install --locked`. Both runs collected Stucco 0.2.1, imported the CI fixture analysis, compiled its consumer, and produced a portable archive. Extracting the archive into a fresh directory preserved the evidence hashes; the example's HTML assertions passed and recipient installation created the local Symposium plugin and matching manifest spellings.
+The CI fixture uses a custom executable adapter to return fixed guidance with coverage IDs from the actual collection. Its release identity and cited source hashes must match the checked-in published evidence. The recipe adapts the published README example; other inventoried examples receive explicit scope-based skips. This exercises the version 2 protocol without provider credentials or a model call. The fixture JSON by itself is not a complete import for an inventoried bundle.
 
-The action's CI workflow repeats the imported-analysis integration and uploads the successful archive. These local checks do not establish that a hosted GitHub Actions run, artifact upload, release attachment, or live provider analysis has completed. Provider authentication is configured by the consuming workflow; no provider credentials are bundled with the action or its artifacts.
-
-The `plugins/symposiast` workflow plugin and its `use-symposiast` skill pass Symposium 0.5.1's plugin validator. In an isolated configuration, registering the repository's `plugins/` directory and running `cargo agents use symposiast` installed identical skill contents into both Claude Code's `.claude/skills/` and Codex's `.agents/skills/`. A second sync preserved the installation and `cargo agents status` reported the plugin active. No user-wide agent settings were changed during validation.
+The prebuilt-CLI action path collected Stucco 0.3.0, compiled the consumer, and packaged a portable archive. The recipient check validates the archived coverage and source hashes, runs the recipe's HTML assertions, and installs the plugin in a disposable directory. This does not enable guidance in the user's workspace. Hosted artifact upload and provider authentication are separate from these local checks.
 
 ## Portable registry export
 
-The exporter passes four integration tests covering deterministic output, an unchanged input bundle, relocation after removing the original, relative links, evidence and lockfile hashes, missing or stale compilation records, rejected reviews, and existing-file/symlink protection. All 44 Rust tests pass, as do workspace formatting, Clippy with warnings denied, and the packaged Stucco bundle check.
+The registry tests validate the current bundle's deterministic export, unchanged source bundle, relocation, relative references, evidence and lockfile hashes, coverage preservation, invalid/stale compilation rejection, and existing-path protection. Both upstream licenses accompany the exported evidence. The registry integration workflow targets the current version and uses a synthetic 0.3.1 path crate solely to test removal after a version mismatch.
 
-`scripts/check_registry.py` exercised Symposium 0.5.1 against an exported and relocated Stucco 0.2.1 entry in an isolated configuration. The real pinned consumer project received byte-identical skill contents in Claude Code and Codex. Repeated sync preserved them; switching the consumer to a synthetic path crate named `stucco` at version 0.2.2 removed them. That synthetic crate establishes version-selection behavior only, not recipe compilation or runtime correctness. A CI job repeats this integration check without model credentials.
-
-The [public registry](https://github.com/mcaveniathor/symposiast-registry) was also fetched through Symposium's Git registry path by a fresh temporary consumer. Both agents received byte-identical skill contents. The first [bundle release](https://github.com/mcaveniathor/symposiast-registry/releases/tag/stucco-0.2.1-r1) was downloaded again: its SHA256 and every archived file matched the local source bundle. These checks used isolated `SYMPOSIUM_HOME` directories and did not change user-wide agent configuration. The existing Stucco compilation and runtime evidence is described above; export did not run new model analysis.
+The public registry already lists [Stucco 0.3.0](https://github.com/mcaveniathor/symposiast-registry/tree/main/stucco-0-3-0) and its [revisioned release archive](https://github.com/mcaveniathor/symposiast-registry/releases/tag/stucco-0.3.0-r1). This repository's refinements add example coverage and runtime assertions; they are not claimed to be present in that independently published archive. No user-wide plugin enablement or synchronization was performed during this migration.
 
 ## Maintainer and consumer adoption workflow
 

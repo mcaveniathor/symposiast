@@ -1,0 +1,7 @@
+     Locking 13 packages to highest Rust 1.99.1 compatible versions
+   Compiling syn v2.0.119
+    Checking stucco-ui v0.3.0
+   Compiling stucco-macros v0.3.0
+    Checking stucco v0.3.0
+    Checking recipe-derived-table v0.0.0 (<verification-workspace>/derived-table)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 1.08s
