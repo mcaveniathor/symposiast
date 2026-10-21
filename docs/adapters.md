@@ -127,6 +127,11 @@ The recipe code above only illustrates the protocol. Real recipes must implement
 the described task using the selected release. `basis` is `documented` or
 `inferred`. Citation ranges are inclusive. Additional dependencies use a map from
 crate name to `{ "version": "1", "features": [], "default_features": true }`.
+The coordinator automatically adds `release.name` pinned to `=release.version`;
+do not include that crate in `dependencies`. Configure its features with the
+recipe's top-level `features` and `default_features` fields. Use an empty
+dependency map (or an empty array for built-in structured output) when the recipe
+needs no other crates.
 All fields are required and unknown fields are rejected. Findings and recipes
 must have evidence and valid, unique IDs. The coordinator validates source
 checksums, citation ranges, and dependency declarations before accepting the
@@ -173,6 +178,11 @@ cleanup is not implemented.
 The initial adapters use one-shot sessions. They do not resume a provider session
 or retry automatically, so unexpected model costs are not multiplied silently.
 The saved evidence bundle can be reused for a fresh analysis job after a failure.
+If a parsed analysis fails evidence validation, its proposal is retained as
+`rejected-analysis.json` in the failed run directory, in the dependency-map format
+accepted by `analyze --analysis`. Correct the reported issue, then import that
+file against the retained evidence bundle to rerun validation, review, and
+compilation without another analysis invocation.
 
 References: [Codex CLI reference](https://developers.openai.com/codex/cli/reference/)
 and [Claude Code CLI reference](https://code.claude.com/docs/en/cli-reference).

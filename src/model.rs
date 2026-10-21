@@ -91,7 +91,8 @@ pub struct Recipe {
     pub code: String,
     pub default_features: bool,
     pub features: Vec<String>,
-    /// Additional registry dependencies, never paths or git sources.
+    /// Additional registry dependencies, excluding the automatically pinned release crate.
+    /// Never paths or git sources.
     pub dependencies: BTreeMap<String, Dependency>,
     pub citations: Vec<Citation>,
 }
@@ -281,8 +282,15 @@ impl Bundle {
                 }
                 for (name, dep) in &recipe.dependencies {
                     ensure!(
-                        valid_id(name) && name != &self.release.name,
-                        "invalid or duplicate recipe dependency: {name}"
+                        valid_id(name),
+                        "recipe {} has invalid dependency name: {name}",
+                        recipe.id
+                    );
+                    ensure!(
+                        name != &self.release.name,
+                        "recipe {} lists primary crate {name} in dependencies; it is added automatically at ={}. Remove it from dependencies and set its features and default_features on the recipe itself",
+                        recipe.id,
+                        self.release.version
                     );
                     semver::VersionReq::parse(&dep.version)
                         .context("invalid dependency version requirement")?;
