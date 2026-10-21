@@ -6,6 +6,12 @@ Read the [documentation and examples](https://mcaveniathor.github.io/symposiast/
 
 Claude Code and Codex are the initial agent integrations. A custom executable adapter can connect other agents. Validated examples cover clap, axum, and Stucco.
 
+- **Using a crate?** [Install shared guidance](https://mcaveniathor.github.io/symposiast-registry/subscribe.html), try it on a real task, and [share what happened](https://github.com/mcaveniathor/symposiast-registry/issues/new?template=usage-feedback.yml). You do not need the Symposiast CLI to use a portable entry.
+- **Maintaining a crate?** [Start a pilot](https://mcaveniathor.github.io/symposiast/maintainers.html) for one published release and up to three user tasks, then review the bundle with consumers before adding it to your release workflow.
+- **Helping the project?** [Contribute](CONTRIBUTING.md) by reviewing recipes, reporting corrections, or maintaining coverage. Guidance remains freely available.
+
+Symposiast creates and maintains guidance; Symposium distributes it. The Symposiast Registry is an independent community source, separate from [Symposium's official recommendations](https://github.com/symposium-dev/recommendations). Official inclusion requires their review. See the [publishing paths](https://mcaveniathor.github.io/symposiast/maintainers.html#choose-a-publishing-path).
+
 ## Use shared guidance
 
 The [registry](https://mcaveniathor.github.io/symposiast-registry/) catalogs portable skills for exact crate releases, with recipes, frozen evidence, and compilation records. [Subscribe through Symposium](https://mcaveniathor.github.io/symposiast-registry/subscribe.html) to use an available entry without running Symposiast or an analysis agent. Portable entries contain skills and references; full bundles add local MCP retrieval and version hooks when installed with Symposiast.
@@ -74,7 +80,7 @@ Use the reusable GitHub Action after publishing a crate release:
 
 Install the selected agent CLI in an earlier step. The action builds Symposiast from its own pinned source, waits for the exact version to appear on crates.io, validates and compiles the generated recipes, and uploads a portable bundle. A leading `v` on a release tag is accepted. Omitting `version` selects the latest stable release.
 
-See the [automation guide](https://mcaveniathor.github.io/symposiast/automation.html) for prerequisites, Claude Code and Codex authentication, all inputs and outputs, and bundle installation. Copy the [release workflow](examples/workflows/release-guidance.yml) for automatic release runs and optional release-asset publication. The [repository workflow](.github/workflows/crate-guidance.yml) also supports manual generation.
+See the [automation guide](https://mcaveniathor.github.io/symposiast/automation.html) for prerequisites, Claude Code and Codex authentication, all inputs and outputs, and bundle installation. Copy the [release workflow](examples/workflows/release-guidance.yml) to generate a candidate artifact after a release. Review that exact artifact before publishing it to a registry or attaching it to a release; generation does not publish it automatically. The [repository workflow](.github/workflows/crate-guidance.yml) also supports manual generation.
 
 ## Install into Symposium
 

@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Try existing guidance
+    url: https://mcaveniathor.github.io/symposiast-registry/subscribe.html
+    about: Install a matching release and try it on a real task.
+  - name: Report guidance use or a correction
+    url: https://github.com/mcaveniathor/symposiast-registry/issues/new/choose
+    about: Share first or repeat use, request coverage, or correct a recipe.

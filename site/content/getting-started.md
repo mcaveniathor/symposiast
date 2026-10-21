@@ -1,6 +1,6 @@
 # Getting started
 
-Turn a Rust crate release into a local Symposium plugin with source-backed guidance, complete consumer recipes, MCP retrieval, and a dependency-version hook.
+Use guidance for the crate release in your project, or generate a missing bundle. Maintainers can follow the [pilot guide](maintainers.html) to choose user tasks, review the advice, and keep it current across releases.
 
 ## Start with shared guidance
 
@@ -9,6 +9,16 @@ Check the [Symposiast Registry](https://mcaveniathor.github.io/symposiast-regist
 Inspect the entry's features, source identity, collection warnings, and review status before applying it. Portable entries supply skills and references. For MCP retrieval and version hooks, use a full bundle installed with Symposiast, as described below.
 
 If coverage is missing, [request a crate or release](https://github.com/mcaveniathor/symposiast-registry/issues/new?template=guidance-request.yml), or generate guidance with this guide and [submit a verified entry](https://mcaveniathor.github.io/symposiast-registry/contributing.html).
+
+## Try it on a real task
+
+After installing a matching entry, run `cargo agents status` in your consumer project and reload your agent session if needed. Ask it to consult that release's installed skill, choose a relevant recipe, and explain how the recipe's features and source match your dependencies before adapting it. Run your project's checks on the result.
+
+For example, a project already using Stucco 0.2.1 can ask: "Use the installed Stucco 0.2.1 guidance to add a static page with a content-hashed stylesheet. Check the recipe's feature requirements and explain how the exported assets match the deployment path."
+
+If no skill applies, check the exact version and source in `Cargo.lock`, registry configuration, and sync output. An unsupported release needs its own guidance; do not downgrade the project just to activate a skill. Installed does not necessarily mean consulted: inspect your agent's explanation or visible tool activity, and record uncertainty when it is unclear.
+
+[Share first or repeat use](https://github.com/mcaveniathor/symposiast-registry/issues/new?template=usage-feedback.yml): the release, task, whether guidance was consulted, and what worked or got in the way. A redacted description is enough; private code and conversations are not needed. [Report incorrect advice](https://github.com/mcaveniathor/symposiast-registry/issues/new?template=correction.yml) separately with a reproduction where possible.
 
 ## Install the CLI
 

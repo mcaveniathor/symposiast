@@ -6,6 +6,8 @@ The [`use-symposiast`](symposiast/skills/use-symposiast/SKILL.md) skill teaches 
 
 It starts with the project's resolved dependency version and existing guidance. It does not interpret “latest” as permission to upgrade the project or repeatedly invoke analysis when a matching bundle already exists.
 
+Consumers can also [use a portable registry entry](https://mcaveniathor.github.io/symposiast-registry/subscribe.html) without installing this workflow skill or the Symposiast CLI. After a real task, [share first or repeat use](https://github.com/mcaveniathor/symposiast-registry/issues/new?template=usage-feedback.yml). Crate maintainers can [start a pilot](https://mcaveniathor.github.io/symposiast/maintainers.html) to review guidance with users and maintain it across releases.
+
 ## Install through Symposium
 
 Install the Symposiast CLI from this checkout and configure Symposium for your tools. With Symposium 0.5.1, `cargo agents init --add-agent claude --add-agent codex` adds both supported integrations through its normal setup flow.

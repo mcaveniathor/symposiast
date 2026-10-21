@@ -1,0 +1,41 @@
+name: Try a maintainer pilot
+description: Propose one crate release and up to three real tasks for agent guidance.
+title: "[Pilot] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Start with one published release. This opens a scoping conversation, not a delivery or maintenance commitment. Contributors are welcome; maintainer involvement and endorsement must be stated separately. Do not post credentials or private code.
+  - type: input
+    id: release
+    attributes:
+      label: Crate and exact release
+      description: Link the crates.io release and upstream repository.
+    validations:
+      required: true
+  - type: textarea
+    id: tasks
+    attributes:
+      label: Up to three user tasks
+      description: What should a successful solution do? Link existing examples or recurring questions and describe useful behavior checks.
+    validations:
+      required: true
+  - type: textarea
+    id: scope
+    attributes:
+      label: Features and environment
+      description: Required features, target, related dependencies, and agent or Symposium versions if known.
+    validations:
+      required: true
+  - type: textarea
+    id: review
+    attributes:
+      label: Your role and review availability
+      description: Are you a crate maintainer, contributor, or user? Who can review the advice and own corrections? Do not volunteer someone else without their agreement.
+    validations:
+      required: true
+  - type: textarea
+    id: trials
+    attributes:
+      label: Consumer trials and follow-up
+      description: Can you try this on a real project or help find willing testers? Say whether you want to repeat it for another task or release. No personal contact details are needed.
