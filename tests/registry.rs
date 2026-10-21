@@ -87,7 +87,7 @@ fn cli_exports_a_relocatable_deterministic_pilot_without_touching_the_bundle() {
         fs::read_to_string(relocated.join("SYMPOSIUM.toml")).unwrap()
     );
     let manifest: toml::Value = toml::from_str(&manifest_text).unwrap();
-    assert_eq!(manifest["depends-on"][0].as_str(), Some("stucco==0.2.1"));
+    assert_eq!(manifest["depends-on"][0].as_str(), Some("stucco==0.3.0"));
     assert_eq!(
         manifest["skills"][0]["source"]["path"].as_str(),
         Some("skills")

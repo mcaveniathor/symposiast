@@ -20,7 +20,7 @@ jobs:
         uses: ./
         with:
           crate: stucco
-          version: 'v0.2.1'
+          version: 'v0.3.0'
           agent: custom
           agent-executable: ./examples/ci/stucco-adapter.py
           artifact-name: stucco-action-check

@@ -1,0 +1,5 @@
+     Locking 8 packages to highest Rust 1.99.1 compatible versions
+    Checking stucco-ui v0.3.0
+    Checking stucco v0.3.0
+    Checking recipe-status-details v0.0.0 (<verification-workspace>/status-details)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.29s

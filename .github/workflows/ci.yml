@@ -14,11 +14,13 @@ jobs:
       - run: cargo test --locked --workspace --all-targets
       - name: Validate the packaged Stucco bundle
         run: cargo run --locked --bin symposiast -- check plugins/stucco/bundle --workspace site
+      - name: Check generated Stucco examples
+        run: python3 scripts/update_stucco_examples.py --check
   stucco-examples:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        recipe: [static-page, axum-page]
+        recipe: [static-page, axum-fragments, derived-table, bound-validation, inline-server-theme, status-details]
     env:
       CARGO_TARGET_DIR: ${{ github.workspace }}/target/stucco-examples
     steps:

@@ -2,10 +2,10 @@
   "schema_version": 1,
   "release": {
     "name": "stucco",
-    "version": "0.2.1",
-    "checksum": "0a4b52163a2c588b58afce69ef1d216580909b1c1d48d372b8a2b5d1f4003553",
+    "version": "0.3.0",
+    "checksum": "a69b16c5b1f9cb9e1d1cb1cbc844aaf0842d28777370001794d0ec89382f540c",
     "repository": "https://github.com/mcaveniathor/stucco",
-    "repository_commit": "303ee2433ce3c05d0af9c4b79a4e09958d374f92",
+    "repository_commit": "07335e73dfb22aba2ce89487bcee634a24c2080e",
     "rust_version": "1.85",
     "features": {
       "actions": [
@@ -16,7 +16,6 @@
         "layout",
         "stucco-ui/app"
       ],
-      "askama": [],
       "axum": [
         "dep:stucco-tower"
       ],
@@ -45,9 +44,6 @@
         "collections",
         "dep:stucco-macros"
       ],
-      "diagram": [
-        "icons"
-      ],
       "feedback": [
         "stucco-ui/feedback"
       ],
@@ -61,15 +57,6 @@
       "layout": [
         "stucco-ui/layout"
       ],
-      "markdown": [
-        "typography"
-      ],
-      "marketing": [
-        "layout",
-        "typography",
-        "actions"
-      ],
-      "maud": [],
       "navigation": [
         "stucco-ui/navigation"
       ],
@@ -82,340 +69,1113 @@
         "stucco-ui/typography"
       ]
     },
-    "collected_at": "1792450115"
+    "collected_at": "1792574667"
   },
   "sources": [
     {
       "id": "e0001",
       "kind": "manifest",
       "path": "sources/e0001.txt",
-      "url": "https://docs.rs/crate/stucco/0.2.1/source/Cargo.toml",
-      "sha256": "50cf61900ec1386e00fe4a49b75fbe0d5539ffd743efb3bb310cdf96a959c382"
+      "url": "https://docs.rs/crate/stucco/0.3.0/source/Cargo.toml",
+      "sha256": "8f5f8d3444bec296e3bb6fce5a2f7efa33c3a8dd8f1a3c07bf1d4e3d83a8107a"
     },
     {
       "id": "e0002",
       "kind": "release_metadata",
       "path": "sources/e0002.txt",
-      "url": "https://docs.rs/crate/stucco/0.2.1/source/.cargo_vcs_info.json",
-      "sha256": "2624cfa162eda3729a455a6ad2e751a7787b778ec64ac72e080704f7c22c68cd"
+      "url": "https://docs.rs/crate/stucco/0.3.0/source/.cargo_vcs_info.json",
+      "sha256": "69c2b38fb724fa4d281e60adcbe9c0156adeafaad0ea52133aa9db842fb8255f"
     },
     {
       "id": "e0003",
       "kind": "readme",
       "path": "sources/e0003.txt",
-      "url": "https://docs.rs/crate/stucco/0.2.1/source/README.md",
-      "sha256": "5311c323116f1b7285196b5255524779d6ad93e3de21f750dd919430241a3b37"
+      "url": "https://docs.rs/crate/stucco/0.3.0/source/README.md",
+      "sha256": "c2426dda3f5e25b64d518811d4ba2087127edc4f20ebcad4fb1aa92995d088d2"
     },
     {
       "id": "e0004",
       "kind": "readme",
       "path": "sources/e0004.txt",
-      "url": "https://github.com/mcaveniathor/stucco/blob/303ee2433ce3c05d0af9c4b79a4e09958d374f92/README.md",
-      "sha256": "be1d6f63d816e4200d11797134a01dbc1316e85be7fb4d679414dfc074222a80"
+      "url": "https://github.com/mcaveniathor/stucco/blob/07335e73dfb22aba2ce89487bcee634a24c2080e/README.md",
+      "sha256": "a72debbadb71811b9512b7c8f861b603eb68aec7e78b72644c5b06b51115ab03"
     },
     {
       "id": "e0005",
       "kind": "changelog",
       "path": "sources/e0005.txt",
-      "url": "https://github.com/mcaveniathor/stucco/blob/303ee2433ce3c05d0af9c4b79a4e09958d374f92/CHANGELOG.md",
-      "sha256": "b72715c4dfc37bcce6da0fc8a09873af03f9ed1ead391226337c200f210093b1"
+      "url": "https://github.com/mcaveniathor/stucco/blob/07335e73dfb22aba2ce89487bcee634a24c2080e/CHANGELOG.md",
+      "sha256": "5f0cb593fe3b8dff422e2c36c6d86a6f15fb9c5cb25512bb59a2d1cc57acafca"
     },
     {
       "id": "e0006",
       "kind": "api",
       "path": "sources/e0006.txt",
-      "url": "https://docs.rs/crate/stucco/0.2.1/source/src/lib.rs",
-      "sha256": "cc299ecb41ce8275b25a8c50783f24868dd337c06ea723601faa26d5f04ea041"
+      "url": "https://docs.rs/crate/stucco/0.3.0/source/src/lib.rs",
+      "sha256": "d1effab084216cc5fedfcdf2dc87d0b159e5adede3ca32feac662b2f358ce0a7"
     },
     {
       "id": "e0007",
       "kind": "example",
       "path": "sources/e0007.txt",
-      "url": "https://github.com/mcaveniathor/stucco/blob/303ee2433ce3c05d0af9c4b79a4e09958d374f92/examples/hello/src/main.rs",
+      "url": "https://github.com/mcaveniathor/stucco/blob/07335e73dfb22aba2ce89487bcee634a24c2080e/examples/hello/src/main.rs",
       "sha256": "4d1409910e378a09b4f5e3603425381ef87a3e31e18be1af25508cbc9f38a360"
     },
     {
       "id": "e0008",
       "kind": "documentation",
       "path": "sources/e0008.txt",
-      "url": "https://github.com/mcaveniathor/stucco/blob/303ee2433ce3c05d0af9c4b79a4e09958d374f92/DESIGN.md",
+      "url": "https://github.com/mcaveniathor/stucco/blob/07335e73dfb22aba2ce89487bcee634a24c2080e/DESIGN.md",
       "sha256": "60eada19e74049d1f6b97cbaa0f846b42c4a53f11b1296d273a3bf5bed718e6c"
     },
     {
       "id": "e0009",
       "kind": "test",
       "path": "sources/e0009.txt",
-      "url": "https://docs.rs/crate/stucco/0.2.1/source/tests/derive.rs",
+      "url": "https://docs.rs/crate/stucco/0.3.0/source/tests/derive.rs",
       "sha256": "23f51d41ba7d8c9dd0bacb54cf56014a5ba6249ebbb9c79940e1b0d44b7df5da"
     },
     {
       "id": "e0010",
       "kind": "readme",
       "path": "sources/e0010.txt",
-      "url": "https://github.com/mcaveniathor/stucco/blob/303ee2433ce3c05d0af9c4b79a4e09958d374f92/examples/orders/README.md",
-      "sha256": "b540ac938ce7e134431d4945fe50bca50e9df851f93bc77d87bad19056378f18"
+      "url": "https://github.com/mcaveniathor/stucco/blob/07335e73dfb22aba2ce89487bcee634a24c2080e/examples/orders/README.md",
+      "sha256": "71e2186daacd72180c0fb228cae77c24b21854c907ccfe009195be0c6820c00a"
     },
     {
       "id": "e0011",
       "kind": "manifest",
       "path": "sources/e0011.txt",
-      "url": "https://docs.rs/crate/stucco/0.2.1/source/Cargo.toml.orig",
-      "sha256": "cebedbc8a1500efe6aa4e6f9803950d7896be598e9b451766f3c39b4ece73d48"
+      "url": "https://docs.rs/crate/stucco/0.3.0/source/Cargo.toml.orig",
+      "sha256": "4098fc2474d8ebdbed55f68fa35dc39fc371b2382cec4d4b91a67ac230a9098d"
     },
     {
       "id": "e0012",
       "kind": "example",
       "path": "sources/e0012.txt",
-      "url": "https://github.com/mcaveniathor/stucco/blob/303ee2433ce3c05d0af9c4b79a4e09958d374f92/examples/orders/src/lib.rs",
-      "sha256": "c3f29750d82b0736308a8796cf29c378e34b3498a68dea8f70d452319d4cd8db"
+      "url": "https://github.com/mcaveniathor/stucco/blob/07335e73dfb22aba2ce89487bcee634a24c2080e/examples/orders/src/form.rs",
+      "sha256": "d9228dcaff6ff7166b9922ce9c3510ce30b4514c816b3b29483f4a5240154039"
     },
     {
       "id": "e0013",
       "kind": "documentation",
       "path": "sources/e0013.txt",
-      "url": "https://github.com/mcaveniathor/stucco/blob/303ee2433ce3c05d0af9c4b79a4e09958d374f92/RELEASING.md",
+      "url": "https://github.com/mcaveniathor/stucco/blob/07335e73dfb22aba2ce89487bcee634a24c2080e/RELEASING.md",
       "sha256": "19753e488323d714c20a9b39c70cad6e4485ac0562186f032ee4ccf582bac2c8"
     },
     {
       "id": "e0014",
       "kind": "manifest",
       "path": "sources/e0014.txt",
-      "url": "https://github.com/mcaveniathor/stucco/blob/303ee2433ce3c05d0af9c4b79a4e09958d374f92/Cargo.toml",
-      "sha256": "54d3f6e681a2c6e9bc5ed8c735d096d627216f4203e9c63dea480de6fd60ad7e"
+      "url": "https://github.com/mcaveniathor/stucco/blob/07335e73dfb22aba2ce89487bcee634a24c2080e/Cargo.toml",
+      "sha256": "511990879aec1aa1b0389f0fae93ed9543864337bc309bcfd19aba89d3d14f6d"
     },
     {
       "id": "e0015",
       "kind": "example",
       "path": "sources/e0015.txt",
-      "url": "https://github.com/mcaveniathor/stucco/blob/303ee2433ce3c05d0af9c4b79a4e09958d374f92/examples/orders/src/main.rs",
-      "sha256": "5e0c65224116ae6a027a21ed51603bec66a6559d0e37949a5e8b9595cfbacb9a"
+      "url": "https://github.com/mcaveniathor/stucco/blob/07335e73dfb22aba2ce89487bcee634a24c2080e/examples/orders/src/handlers.rs",
+      "sha256": "f1a25b4865ec9dfcf73f437d55e559d0e43b22f034cee42b5f7dac3ef1501714"
     },
     {
       "id": "e0016",
       "kind": "documentation",
       "path": "sources/e0016.txt",
-      "url": "https://github.com/mcaveniathor/stucco/blob/303ee2433ce3c05d0af9c4b79a4e09958d374f92/docs/roadmap-0.2.md",
-      "sha256": "870a602f30eb656b4c4e1ff1144eb8edd1f8bf77acf35c91c287bf3c9f1a30ee"
+      "url": "https://github.com/mcaveniathor/stucco/blob/07335e73dfb22aba2ce89487bcee634a24c2080e/docs/roadmap-0.2.md",
+      "sha256": "6395cf5a9a3171c59327a145adf9c7710d3bd28c8cde32a4fb6bbaf5771ee643"
     },
     {
       "id": "e0017",
       "kind": "example",
       "path": "sources/e0017.txt",
-      "url": "https://github.com/mcaveniathor/stucco/blob/303ee2433ce3c05d0af9c4b79a4e09958d374f92/examples/orders/src/model.rs",
-      "sha256": "6341a47351e2cb74bea55d6261d2dda2623df978360151c0e006097fcc0eb33d"
+      "url": "https://github.com/mcaveniathor/stucco/blob/07335e73dfb22aba2ce89487bcee634a24c2080e/examples/orders/src/lib.rs",
+      "sha256": "104aad5148b7430e25fc498b9f09fa8f32cdcceafa89ad5b50f1bdf26ddb9955"
     },
     {
       "id": "e0018",
       "kind": "documentation",
       "path": "sources/e0018.txt",
-      "url": "https://github.com/mcaveniathor/stucco/blob/303ee2433ce3c05d0af9c4b79a4e09958d374f92/docs/guide/cli.md",
+      "url": "https://github.com/mcaveniathor/stucco/blob/07335e73dfb22aba2ce89487bcee634a24c2080e/docs/guide/cli.md",
       "sha256": "bc4747a5ee1f0715f742035fc20854f3201d84bcf5ec394413b38d4cc681575a"
     },
     {
       "id": "e0019",
       "kind": "example",
       "path": "sources/e0019.txt",
-      "url": "https://github.com/mcaveniathor/stucco/blob/303ee2433ce3c05d0af9c4b79a4e09958d374f92/examples/orders/src/source.rs",
-      "sha256": "a0489ba503ed15c420056ce4b2a2f39b185c54047ad7d3904462d58e26c87cae"
+      "url": "https://github.com/mcaveniathor/stucco/blob/07335e73dfb22aba2ce89487bcee634a24c2080e/examples/orders/src/main.rs",
+      "sha256": "21c2501c4472d9d2db841f5861c76d71d9998913ad377599f7d37d67e022eda1"
     },
     {
       "id": "e0020",
       "kind": "documentation",
       "path": "sources/e0020.txt",
-      "url": "https://github.com/mcaveniathor/stucco/blob/303ee2433ce3c05d0af9c4b79a4e09958d374f92/docs/guide/collections.md",
-      "sha256": "70299b3c5a7c7c63364ba2a5b82e360172e583017c3d65f0579dd3c0e74be0f6"
+      "url": "https://github.com/mcaveniathor/stucco/blob/07335e73dfb22aba2ce89487bcee634a24c2080e/docs/guide/collections.md",
+      "sha256": "ef27d6f1b190c5f587227d316affbf64e73ec210e35622effc25d97e310fc466"
     },
     {
       "id": "e0021",
       "kind": "example",
       "path": "sources/e0021.txt",
-      "url": "https://github.com/mcaveniathor/stucco/blob/303ee2433ce3c05d0af9c4b79a4e09958d374f92/examples/orders/tests/http.rs",
-      "sha256": "480c8fd0da418677737d3499f61460710063206ca5976371730fe03869ace88c"
+      "url": "https://github.com/mcaveniathor/stucco/blob/07335e73dfb22aba2ce89487bcee634a24c2080e/examples/orders/src/model.rs",
+      "sha256": "58379fa90ec4e5c4a56d70b75e2a66e0fc90c913df19a50e5467b2ce3f40c8b8"
     },
     {
       "id": "e0022",
       "kind": "documentation",
       "path": "sources/e0022.txt",
-      "url": "https://github.com/mcaveniathor/stucco/blob/303ee2433ce3c05d0af9c4b79a4e09958d374f92/docs/guide/components.md",
-      "sha256": "eeb04d253e8bd81af307aad4ca9e625e761099a4e1dd0e6a1023c12064b13a4f"
+      "url": "https://github.com/mcaveniathor/stucco/blob/07335e73dfb22aba2ce89487bcee634a24c2080e/docs/guide/components.md",
+      "sha256": "98ef42a46fb4e6ac1ed5f8d21b4565ef9082a4727bc7a4ed6f667f393cc8737d"
     },
     {
       "id": "e0023",
-      "kind": "documentation",
+      "kind": "example",
       "path": "sources/e0023.txt",
-      "url": "https://github.com/mcaveniathor/stucco/blob/303ee2433ce3c05d0af9c4b79a4e09958d374f92/docs/guide/enhancement.md",
-      "sha256": "3b28d3f70b75bd13e4a43e9693b903fd30cd5272bad749a9f15f9ff3e44cecac"
+      "url": "https://github.com/mcaveniathor/stucco/blob/07335e73dfb22aba2ce89487bcee634a24c2080e/examples/orders/src/source.rs",
+      "sha256": "a0489ba503ed15c420056ce4b2a2f39b185c54047ad7d3904462d58e26c87cae"
     },
     {
       "id": "e0024",
       "kind": "documentation",
       "path": "sources/e0024.txt",
-      "url": "https://github.com/mcaveniathor/stucco/blob/303ee2433ce3c05d0af9c4b79a4e09958d374f92/docs/guide/forms.md",
-      "sha256": "57e72079c69ae9501a3462516dc567bf40fdc7b12dd7a2c4bb8b3e887c073d21"
+      "url": "https://github.com/mcaveniathor/stucco/blob/07335e73dfb22aba2ce89487bcee634a24c2080e/docs/guide/enhancement.md",
+      "sha256": "3b28d3f70b75bd13e4a43e9693b903fd30cd5272bad749a9f15f9ff3e44cecac"
     },
     {
       "id": "e0025",
-      "kind": "documentation",
+      "kind": "example",
       "path": "sources/e0025.txt",
-      "url": "https://github.com/mcaveniathor/stucco/blob/303ee2433ce3c05d0af9c4b79a4e09958d374f92/docs/guide/getting-started.md",
-      "sha256": "4fed45fb3a66ad8ec7476880b44f286bef6dda64f6873822a9285ae6562af33a"
+      "url": "https://github.com/mcaveniathor/stucco/blob/07335e73dfb22aba2ce89487bcee634a24c2080e/examples/orders/tests/crud.rs",
+      "sha256": "202885e009aa56e8136d201c3e51a5b9d25afb6796bf02f59bba446a2669e310"
     },
     {
       "id": "e0026",
       "kind": "documentation",
       "path": "sources/e0026.txt",
-      "url": "https://github.com/mcaveniathor/stucco/blob/303ee2433ce3c05d0af9c4b79a4e09958d374f92/docs/guide/recipes.md",
-      "sha256": "bdc06352719e3652d1908e9995d18cec2a76abc188af321cfc09da237fcfa0aa"
+      "url": "https://github.com/mcaveniathor/stucco/blob/07335e73dfb22aba2ce89487bcee634a24c2080e/docs/guide/forms.md",
+      "sha256": "76e3801711daa8b2cecd0c6d35a2fe0714ace4be2debc1afdb2679b4b20afd3f"
     },
     {
       "id": "e0027",
-      "kind": "documentation",
+      "kind": "example",
       "path": "sources/e0027.txt",
-      "url": "https://github.com/mcaveniathor/stucco/blob/303ee2433ce3c05d0af9c4b79a4e09958d374f92/docs/guide/theming.md",
-      "sha256": "41b91eb2465ee8afce8ab36c72bd8eb33f46c587c733d4b27d1ae05d5556db9d"
+      "url": "https://github.com/mcaveniathor/stucco/blob/07335e73dfb22aba2ce89487bcee634a24c2080e/examples/orders/tests/http.rs",
+      "sha256": "cdcae03dc20e265411f103f5bea6001a556994760de877773a831c01281c6e8a"
     },
     {
       "id": "e0028",
-      "kind": "api",
+      "kind": "documentation",
       "path": "sources/e0028.txt",
-      "url": "https://github.com/mcaveniathor/stucco/blob/303ee2433ce3c05d0af9c4b79a4e09958d374f92/crates/stucco-core/src/bundle.rs",
-      "sha256": "6722f304ac78fd0401c1dfbc6051e01b793b519ec948893134d1045f5494d733"
+      "url": "https://github.com/mcaveniathor/stucco/blob/07335e73dfb22aba2ce89487bcee634a24c2080e/docs/guide/getting-started.md",
+      "sha256": "4fed45fb3a66ad8ec7476880b44f286bef6dda64f6873822a9285ae6562af33a"
     },
     {
       "id": "e0029",
-      "kind": "license",
+      "kind": "example",
       "path": "sources/e0029.txt",
-      "url": "https://github.com/mcaveniathor/stucco/blob/303ee2433ce3c05d0af9c4b79a4e09958d374f92/LICENSE-MIT",
-      "sha256": "a440d14b3a7d8741eb49a457914a1854e9b115fe122c5502e35de64bfb7e1cac"
+      "url": "https://github.com/mcaveniathor/stucco/blob/07335e73dfb22aba2ce89487bcee634a24c2080e/examples/orders/tests/startup.rs",
+      "sha256": "e669be1eeb9e6e544b8a364e18d7c187393002def80f6fab9914295c5d82ca21"
     },
     {
       "id": "e0030",
-      "kind": "license",
+      "kind": "documentation",
       "path": "sources/e0030.txt",
-      "url": "https://github.com/mcaveniathor/stucco/blob/303ee2433ce3c05d0af9c4b79a4e09958d374f92/LICENSE-APACHE",
+      "url": "https://github.com/mcaveniathor/stucco/blob/07335e73dfb22aba2ce89487bcee634a24c2080e/docs/guide/recipes.md",
+      "sha256": "3791a9d5b82f8ef3ba1306a9f0b29cd56c812295823ec04071517c94ded90682"
+    },
+    {
+      "id": "e0031",
+      "kind": "documentation",
+      "path": "sources/e0031.txt",
+      "url": "https://github.com/mcaveniathor/stucco/blob/07335e73dfb22aba2ce89487bcee634a24c2080e/docs/guide/theming.md",
+      "sha256": "41b91eb2465ee8afce8ab36c72bd8eb33f46c587c733d4b27d1ae05d5556db9d"
+    },
+    {
+      "id": "license-mit",
+      "kind": "license",
+      "path": "sources/license-mit.txt",
+      "url": "https://github.com/mcaveniathor/stucco/blob/07335e73dfb22aba2ce89487bcee634a24c2080e/LICENSE-MIT",
+      "sha256": "a440d14b3a7d8741eb49a457914a1854e9b115fe122c5502e35de64bfb7e1cac"
+    },
+    {
+      "id": "license-apache",
+      "kind": "license",
+      "path": "sources/license-apache.txt",
+      "url": "https://github.com/mcaveniathor/stucco/blob/07335e73dfb22aba2ce89487bcee634a24c2080e/LICENSE-APACHE",
       "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
     }
   ],
+  "example_inventory": {
+    "examples": [
+      {
+        "id": "doc-403dabee035e1211-1",
+        "citation": {
+          "source_id": "e0003",
+          "start_line": 7,
+          "end_line": 19
+        },
+        "info": "rust",
+        "code": "use stucco::prelude::*;\n\nlet bundle = Bundle::new(Preset::Slate);\nlet html = Page::new(&bundle, \"Hello\")\n    .main(Container::new().child(\n        Stack::new()\n            .child(Heading::new(1, \"Hello\"))\n            .child(Text::new(\"Rendered in Rust.\")),\n    ))\n    .render();\nassert!(html.contains(\"Rendered in Rust.\"));\n"
+      },
+      {
+        "id": "doc-1a62a38631e53597-2",
+        "citation": {
+          "source_id": "e0004",
+          "start_line": 38,
+          "end_line": 53
+        },
+        "info": "rust",
+        "code": "use stucco::prelude::*;\n\nlet bundle = Bundle::new(Preset::Slate);\nlet html = Page::new(&bundle, \"Hello, stucco\")\n    .main(\n        Container::new().child(\n            Stack::new()\n                .child(Heading::new(1, \"Hello, stucco\"))\n                .child(Text::new(\"A page rendered entirely in Rust.\"))\n                .child(Button::new(\"Continue\")),\n        ),\n    )\n    .render();\nassert!(html.contains(\"Hello, stucco\"));\n"
+      },
+      {
+        "id": "doc-1a62a38631e53597-3",
+        "citation": {
+          "source_id": "e0004",
+          "start_line": 72,
+          "end_line": 86
+        },
+        "info": "rust,no_run",
+        "code": "use axum::{Router, routing::get};\nuse stucco::prelude::*;\n\nasync fn index(page: PageCx) -> Document {\n    page.title(\"Hello\").main(Heading::new(1, \"Hello\"))\n}\n\n#[tokio::main]\nasync fn main() -> std::io::Result<()> {\n    let app = Router::new().route(\"/\", get(index)).stucco(Preset::Slate);\n    let listener = tokio::net::TcpListener::bind(\"127.0.0.1:3000\").await?;\n    axum::serve(listener, app).await\n}\n"
+      },
+      {
+        "id": "doc-1a62a38631e53597-4",
+        "citation": {
+          "source_id": "e0004",
+          "start_line": 103,
+          "end_line": 122
+        },
+        "info": "rust",
+        "code": "use stucco::Bundle;\nuse stucco::theme::{Elevation, Fonts, Preset, Radius, Seeded, TableStyle, Theme};\n\n// Colours, fonts, type scale, spacing, radius, density and a style\n// personality, all from one number. The same seed always gives the same theme,\n// and seeded themes always pass the contrast checks.\nlet theme = Theme::seeded(42);\n// Or hash a name, then adjust any option.\nlet theme = Theme::seeded_str(\"acme\").elevation(Elevation::Raised);\n// Every option implements `Seeded`, so you can seed options one at a time:\n// here, Slate's colours with seed 14's fonts, corners and tables.\nlet theme = Theme::preset(Preset::Slate)\n    .fonts(Fonts::seeded(14))\n    .radius(Radius::seeded(14))\n    .table_style(TableStyle::seeded(14));\n// A bundle builds the theme; it panics with the contrast report if a\n// hand-tuned theme fails. `Bundle::try_new` returns the report instead.\nlet bundle = Bundle::new(theme);\n"
+      },
+      {
+        "id": "doc-1a62a38631e53597-5",
+        "citation": {
+          "source_id": "e0004",
+          "start_line": 160,
+          "end_line": 173
+        },
+        "info": "rust",
+        "code": "use stucco::collections::{Col, DataTable};\nuse stucco::{CollectionPage, to_html};\n\nlet page = CollectionPage {\n    rows: vec![\"Ada\", \"Grace\"],\n    next: None,\n    prev: None,\n    total: None,\n};\nlet table = DataTable::from_page(&page, \"Customers\")\n    .column(Col::text(\"name\", \"Customer\", |row: &&str| row.to_string()));\nassert!(to_html(&table).contains(\"Ada\"));\n"
+      },
+      {
+        "id": "doc-009efc5a9c870a09-6",
+        "citation": {
+          "source_id": "e0006",
+          "start_line": 5,
+          "end_line": 13
+        },
+        "info": "",
+        "code": "use stucco::prelude::*;\n\nlet bundle = Bundle::new(Preset::Slate);\nlet html = Page::new(&bundle, \"Hello\")\n    .body(el::main().child(el::h1().text(\"Hello\")))\n    .render();\nassert!(html.contains(\"<h1>Hello</h1>\"));\n"
+      },
+      {
+        "id": "doc-009efc5a9c870a09-7",
+        "citation": {
+          "source_id": "e0006",
+          "start_line": 65,
+          "end_line": 78
+        },
+        "info": "",
+        "code": "use stucco::prelude::*;\n\nlet bundle = Bundle::new(Preset::Slate);\nlet html = Page::new(&bundle, \"Hello\")\n    .main(\n        Stack::new()\n            .space(Space::S4)\n            .child(Heading::new(1, \"Hello\"))\n            .child(Button::new(\"Continue\").variant(Variant::Primary)),\n    )\n    .render();\nassert!(html.contains(r#\"<main id=\"main\">\"#));\n"
+      },
+      {
+        "id": "doc-009efc5a9c870a09-8",
+        "citation": {
+          "source_id": "e0006",
+          "start_line": 82,
+          "end_line": 98
+        },
+        "info": "",
+        "code": "use stucco::prelude::*;\n\nlet details = (\n    Breadcrumbs::new().link(\"Orders\", \"/orders\").current(\"Order 42\"),\n    Steps::new(\"Checkout\").step(\"Cart\", \"/cart\").step(\"Pay\", \"/pay\").current(1),\n    Avatar::new(\"Ada Lovelace\").decorative(),\n    Badge::new(\"Paid\").tone(Tone::Success),\n    DescriptionList::new().item(\"Total\", \"$12.50\"),\n    Stat::new(\"Orders\", \"128\").change(\"12%\", Trend::Up),\n    Progress::new(\"Import\", 42.0, 100.0),\n    Meter::new(\"Storage\", 7.2, 0.0, 10.0),\n    Callout::new(Tone::Warning).title(\"Payment overdue\"),\n    Accordion::new().item(\"Shipping\", Disclosure::new(\"Courier\").child(\"Two days\")),\n);\nassert!(stucco::to_html(&details).contains(\"st-callout\"));\n"
+      },
+      {
+        "id": "doc-087a7de4d36a294e-9",
+        "citation": {
+          "source_id": "e0018",
+          "start_line": 55,
+          "end_line": 63
+        },
+        "info": "rust",
+        "code": "use stucco::Bundle;\nuse stucco::theme::{Radius, Theme};\n\n// seed=42&radius=round\nlet theme = Theme::seeded(42)\n    .radius(Radius::Round);\nlet bundle = Bundle::new(theme.build().expect(\"the theme passes its contrast checks\"));\n"
+      },
+      {
+        "id": "doc-087a7de4d36a294e-10",
+        "citation": {
+          "source_id": "e0018",
+          "start_line": 75,
+          "end_line": 82
+        },
+        "info": "rust",
+        "code": "use stucco::theme::spec::ThemeSpec;\n\nlet spec: ThemeSpec = std::env::var(\"THEME\")\n    .unwrap_or_default()\n    .parse()?; // unknown keys or values are errors\nlet bundle = stucco::Bundle::new(spec.theme().build()?);\n"
+      },
+      {
+        "id": "doc-c1bc979081f7fda7-11",
+        "citation": {
+          "source_id": "e0020",
+          "start_line": 15,
+          "end_line": 35
+        },
+        "info": "rust",
+        "code": "use stucco::collections::{Col, DataTable};\nuse stucco::CollectionPage;\n\nlet page = CollectionPage { rows: orders, next: None, prev: None, total: None };\nlet table = DataTable::from_page(&page, \"Orders\")\n    .column(Col::number(\"id\", \"ID\", |o: &Order| o.id as f64).sortable())\n    .column(Col::text(\"customer\", \"Customer\", |o: &Order| o.customer.clone()).sortable().searchable())\n    .column(Col::enumeration(\n        \"status\",\n        \"Status\",\n        vec![(\"pending\".into(), \"Pending\".into()), (\"paid\".into(), \"Paid\".into())],\n        |o: &Order| o.status.clone(),\n    ).filter())\n    .column(\n        Col::number(\"total\", \"Total\", |o: &Order| o.total_cents as f64 / 100.0)\n            .display(|o: &Order| format!(\"${}.{:02}\", o.total_cents / 100, o.total_cents % 100))\n            .filter(),\n    )\n    .column(Col::date(\"created\", \"Created\", |o: &Order| o.created.clone()).filter());\n"
+      },
+      {
+        "id": "doc-c1bc979081f7fda7-12",
+        "citation": {
+          "source_id": "e0020",
+          "start_line": 45,
+          "end_line": 67
+        },
+        "info": "rust",
+        "code": "use stucco::prelude::*;\n\n#[derive(Columns)]\nstruct Order {\n    #[col(label = \"ID\", sortable)]\n    id: u64,\n    #[col(sortable, searchable)]\n    customer: String,\n    #[col(enumeration(\"pending\", \"paid\", \"shipped\"), filter)]\n    status: String,\n    #[col(key = \"total\", label = \"Total\", value = dollars, display = money, filter)]\n    total_cents: u64,\n    #[col(date, filter)]\n    created: String,\n}\n\nfn dollars(o: &Order) -> f64 { o.total_cents as f64 / 100.0 }\nfn money(o: &Order) -> String { format!(\"${}.{:02}\", o.total_cents / 100, o.total_cents % 100) }\n\nlet table = DataTable::from_collection(&orders, \"Orders\").columns(Order::columns());\nlet specs = Order::column_specs(); // for CollectionQuery::parse or CollectionSource::load\n"
+      },
+      {
+        "id": "doc-c1bc979081f7fda7-13",
+        "citation": {
+          "source_id": "e0020",
+          "start_line": 94,
+          "end_line": 104
+        },
+        "info": "rust",
+        "code": "use stucco::Capabilities;\n\nlet caps = Capabilities {\n    sortable: vec![\"id\".into(), \"customer\".into()],\n    filterable: vec![\"status\".into(), \"total\".into(), \"created\".into()],\n    searchable: true,\n    total_count: false, // cursor pagination: no \"Showing 1–25 of 67\"\n    offset: false,      // no numbered pages\n};\n"
+      },
+      {
+        "id": "doc-c1bc979081f7fda7-14",
+        "citation": {
+          "source_id": "e0020",
+          "start_line": 118,
+          "end_line": 134
+        },
+        "info": "rust",
+        "code": "use stucco_tower::{CollectionSource, RequestContext, SourceError};\n\nimpl CollectionSource for OrdersSource {\n    type Row = Order;\n\n    fn capabilities(&self) -> Capabilities { /* … */ }\n\n    async fn query(\n        &self,\n        query: &CollectionQuery,\n        cx: &RequestContext,\n    ) -> Result<CollectionPage<Order>, SourceError> {\n        // run the query against your database\n    }\n}\n"
+      },
+      {
+        "id": "doc-c1bc979081f7fda7-15",
+        "citation": {
+          "source_id": "e0020",
+          "start_line": 140,
+          "end_line": 160
+        },
+        "info": "rust",
+        "code": "use stucco::prelude::*;\nuse stucco::server::RequestContext;\n\nasync fn orders(\n    State(source): State<OrdersSource>,\n    RawQuery(raw): RawQuery,\n    context: RequestContext,\n    page: PageCx,\n) -> Document {\n    let raw = raw.unwrap_or_default();\n    match source.load(&raw, &columns(), &context).await {\n        Ok(orders) => page.title(\"Orders\").main(\n            DataTable::from_collection(&orders, \"Orders\")\n                .action(\"/orders\")\n                .column(Col::text(\"customer\", \"Customer\", |o: &Order| o.customer.clone()).searchable()),\n        ),\n        Err(_) => page.title(\"Orders unavailable\").status(StatusCode::INTERNAL_SERVER_ERROR),\n    }\n}\n"
+      },
+      {
+        "id": "doc-c1bc979081f7fda7-16",
+        "citation": {
+          "source_id": "e0020",
+          "start_line": 185,
+          "end_line": 190
+        },
+        "info": "rust",
+        "code": "let table = DataTable::from_collection(&orders, \"Orders\")\n    .responsive()\n    .action(\"/orders\")\n    .columns(Order::columns());\n"
+      },
+      {
+        "id": "doc-c1bc979081f7fda7-17",
+        "citation": {
+          "source_id": "e0020",
+          "start_line": 203,
+          "end_line": 219
+        },
+        "info": "rust",
+        "code": "use stucco::{CollectionQuery, ReturnContext};\nuse stucco::forms::HiddenInput;\n\nlet query = CollectionQuery::default().with_search(\"Ada\");\nlet context = ReturnContext::collection(\"/orders\", &query).unwrap();\nlet detail = context.carry(\"/orders/42?tab=history#details\").unwrap();\nlet hidden = HiddenInput::new(ReturnContext::FIELD, context.as_str());\nlet back_link = context.href();\n\n// On each subsequent request, validate the decoded query/form value again.\nlet incoming = \"/orders?q=Ada&page=2&sort=customer&dir=desc\";\nlet context = ReturnContext::parse(incoming,\n    &[\"/orders\", \"/review\"],\n    &[\"q\", \"page\", \"sort\", \"dir\", \"per\", \"after\", \"before\", \"f.status\"]);\nlet destination = context.as_ref().map_or(\"/orders\", ReturnContext::as_str);\n"
+      },
+      {
+        "id": "doc-2a0f140a86a74152-18",
+        "citation": {
+          "source_id": "e0022",
+          "start_line": 29,
+          "end_line": 45
+        },
+        "info": "rust",
+        "code": "use stucco::layout::{Cluster, Stack};\nuse stucco::actions::Button;\nuse stucco::typography::{Heading, Text};\nuse stucco::{Space, Variant};\n\nlet card = Stack::new()\n    .space(Space::S4)\n    .child(Heading::new(2, \"Invite your team\"))\n    .child(Text::new(\"Members can view and edit every project.\"))\n    .child(\n        Cluster::new()\n            .space(Space::S2)\n            .child(Button::new(\"Send invites\").variant(Variant::Primary))\n            .child(Button::new(\"Not now\")),\n    );\n"
+      },
+      {
+        "id": "doc-2a0f140a86a74152-19",
+        "citation": {
+          "source_id": "e0022",
+          "start_line": 64,
+          "end_line": 82
+        },
+        "info": "rust",
+        "code": "use stucco::{Cx, Render, el};\n\nstruct Disclosure<'a> {\n    summary: &'a str,\n    body: &'a str,\n}\n\nimpl Render for Disclosure<'_> {\n    fn render(&self, cx: &mut Cx) {\n        let id = cx.id(\"disclosure\");\n        el::details()\n            .id(id)\n            .child(el::summary().text(self.summary))\n            .child(el::p().text(self.body))\n            .render(cx);\n    }\n}\n"
+      },
+      {
+        "id": "doc-2a0f140a86a74152-20",
+        "citation": {
+          "source_id": "e0022",
+          "start_line": 93,
+          "end_line": 102
+        },
+        "info": "rust",
+        "code": "use stucco::app::{AppShell, PageHeader};\nuse stucco::navigation::NavLink;\n\nlet shell = AppShell::new()\n    .header(PageHeader::new(\"Orders\"))\n    .link(NavLink::new(\"Orders\", \"/orders\").current(true))\n    .link(NavLink::new(\"Customers\", \"/customers\"))\n    .main(/* … */);\n"
+      },
+      {
+        "id": "doc-2a0f140a86a74152-21",
+        "citation": {
+          "source_id": "e0022",
+          "start_line": 110,
+          "end_line": 126
+        },
+        "info": "rust",
+        "code": "use stucco::prelude::*;\n\nlet status = Badge::new(\"Paid\").tone(Tone::Success);\nlet customer = Cluster::of((\n    Avatar::new(\"Ada Lovelace\").image(\"/people/ada.jpg\").decorative(),\n    Text::new(\"Ada Lovelace\"),\n));\nlet details = DescriptionList::new()\n    .item(\"Customer\", customer)\n    .item(\"Status\", status)\n    .item(\"Total\", \"$128.00\");\nlet orders = Stat::new(\"Orders\", \"128\")\n    .change(\"12%\", Trend::Up)\n    .change_tone(Tone::Success)\n    .context(\"vs last week\");\n"
+      },
+      {
+        "id": "doc-2a0f140a86a74152-22",
+        "citation": {
+          "source_id": "e0022",
+          "start_line": 139,
+          "end_line": 152
+        },
+        "info": "rust",
+        "code": "use stucco::prelude::*;\n\nlet header = PageHeader::new(\"Order 1042\").breadcrumbs(\n    Breadcrumbs::new()\n        .link(\"Orders\", \"/orders\")\n        .current(\"Order 1042\"),\n);\nlet checkout = Steps::new(\"Checkout\")\n    .step(\"Cart\", \"/checkout/cart\")\n    .step(\"Delivery\", \"/checkout/delivery\")\n    .step_disabled(\"Payment\")\n    .current(1);\n"
+      },
+      {
+        "id": "doc-2a0f140a86a74152-23",
+        "citation": {
+          "source_id": "e0022",
+          "start_line": 162,
+          "end_line": 172
+        },
+        "info": "rust",
+        "code": "use stucco::feedback::{Meter, Progress};\n\nlet import = Progress::new(\"Importing orders\", 42.0, 100.0).show_value();\nlet waiting = Progress::indeterminate(\"Preparing import\");\nlet storage = Meter::new(\"Storage used\", 7.2, 0.0, 10.0)\n    .low(2.0)\n    .high(8.0)\n    .optimum(0.0)\n    .value_text(\"7.2 of 10 GB\");\n"
+      },
+      {
+        "id": "doc-2a0f140a86a74152-24",
+        "citation": {
+          "source_id": "e0022",
+          "start_line": 182,
+          "end_line": 198
+        },
+        "info": "rust",
+        "code": "use stucco::prelude::*;\n\nlet shipping = Disclosure::new(\"Shipping details\")\n    .heading(2)\n    .open(true)\n    .child(Text::new(\"Arrives by Friday.\"));\nlet help = Accordion::new()\n    .heading(2)\n    .item_open(\"Shipping\", Text::new(\"Tracked delivery is included.\"))\n    .item(\"Returns\", Text::new(\"Return within 30 days.\"))\n    .exclusive();\nlet note = Callout::new(Tone::Warning)\n    .title(\"Payment overdue\")\n    .child(Text::new(\"Pay the invoice before we can ship your order.\"))\n    .actions(Link::new(\"View invoice\", \"/orders/1042/invoice\"));\n"
+      },
+      {
+        "id": "doc-2a0f140a86a74152-25",
+        "citation": {
+          "source_id": "e0022",
+          "start_line": 208,
+          "end_line": 222
+        },
+        "info": "rust",
+        "code": "use stucco::prelude::*;\n\nlet confirm = Dialog::new(\"delete-order\", \"Delete order 1042?\")\n    .child(Text::new(\"The order and its history are removed.\"))\n    .actions(Dialog::close_button(\"delete-order\", \"Cancel\"))\n    .actions(\n        Form::post(\"/orders/1042/delete\")\n            .child(Button::new(\"Delete order\").submit().variant(Variant::Danger)),\n    );\nlet row_actions = Menu::new(\"Actions\")\n    .link(\"Edit\", \"/orders/1042/edit\")\n    .separator()\n    .item(confirm.opener(\"Delete\").variant(Variant::Ghost));\n"
+      },
+      {
+        "id": "doc-2a0f140a86a74152-26",
+        "citation": {
+          "source_id": "e0022",
+          "start_line": 248,
+          "end_line": 256
+        },
+        "info": "rust",
+        "code": "use stucco::feedback::{ReadinessPanel, Requirement};\n\nlet panel = ReadinessPanel::new(\"Ready to publish\")\n    .requirement(Requirement::ready(\"Customer details\"))\n    .requirement(Requirement::blocked(\"Approval\", \"A review is still needed.\")\n        .guidance(\"An editor can approve this record.\")\n        .remedy(\"Open review\", \"/orders/42/review\"));\n"
+      },
+      {
+        "id": "doc-37e1ff775b0df319-27",
+        "citation": {
+          "source_id": "e0024",
+          "start_line": 13,
+          "end_line": 22
+        },
+        "info": "rust",
+        "code": "use stucco::prelude::*;\n\nasync fn index(page: PageCx, query: Query<Params>) -> Response {\n    let name = query.name.as_deref();\n    page.respond()\n        .fragment(\"greeting\", || greeting(name))\n        .page(|| page.title(\"Hello\").main(content(name)))\n}\n"
+      },
+      {
+        "id": "doc-37e1ff775b0df319-28",
+        "citation": {
+          "source_id": "e0024",
+          "start_line": 32,
+          "end_line": 42
+        },
+        "info": "rust",
+        "code": "use stucco::{Asset, Behavior, register_asset};\n\npub static TABS: Asset = Asset {\n    name: \"tabs\",\n    css: Some(include_str!(\"tabs.css\")),\n    behavior: Some(Behavior::Js(include_str!(\"tabs.js\"))),\n    deps: &[],\n};\nregister_asset!(TABS);\n"
+      },
+      {
+        "id": "doc-555b16af49c41482-29",
+        "citation": {
+          "source_id": "e0026",
+          "start_line": 9,
+          "end_line": 26
+        },
+        "info": "rust",
+        "code": "use stucco::forms::{Field, Form, Input, Select};\nuse stucco::actions::Button;\nuse stucco::Variant;\n\nlet form = Form::post(\"/orders\")\n    .csrf(&token)\n    .child(Field::new(\"Customer\", Input::text(\"customer\").id(\"order-customer\")).required())\n    .child(\n        Field::new(\"Quantity\", Input::number(\"quantity\").min(\"1\"))\n            .hint(\"Between 1 and 99.\"),\n    )\n    .child(Field::new(\n        \"Status\",\n        Select::new(\"status\").options([(\"pending\", \"Pending\"), (\"paid\", \"Paid\")]),\n    ))\n    .child(Button::new(\"Create order\").submit().variant(Variant::Primary));\n"
+      },
+      {
+        "id": "doc-555b16af49c41482-30",
+        "citation": {
+          "source_id": "e0026",
+          "start_line": 34,
+          "end_line": 40
+        },
+        "info": "rust",
+        "code": "use stucco_tower::{SeeOther, Submission};\n\nasync fn create(Submission(form): Submission) -> axum::response::Response {\n    // validate, then redirect or re-render (below)\n}\n"
+      },
+      {
+        "id": "doc-555b16af49c41482-31",
+        "citation": {
+          "source_id": "e0026",
+          "start_line": 48,
+          "end_line": 64
+        },
+        "info": "rust",
+        "code": "use stucco::Validator;\n\nstruct Order { customer: String, quantity: u32 }\n\nlet mut v = Validator::new(form);\nlet customer = v.text(\"customer\")\n    .required(\"Enter a customer name\")\n    .max_chars(80, \"Use 80 characters or fewer\")\n    .get();\nlet quantity = v.text(\"quantity\")\n    .required(\"Enter a quantity\")\n    .parse::<u32>(\"Enter a whole number\")\n    .check(|q| (1..=99).contains(q), \"Enter a quantity from 1 to 99\")\n    .get();\nlet result = v.finish(|| Some(Order { customer: customer?, quantity: quantity? }));\n"
+      },
+      {
+        "id": "doc-555b16af49c41482-32",
+        "citation": {
+          "source_id": "e0026",
+          "start_line": 74,
+          "end_line": 95
+        },
+        "info": "rust",
+        "code": "use axum::response::IntoResponse;\nuse stucco::prelude::*;\nuse stucco::server::SeeOther;\n\n// In a handler that takes `page: PageCx`.\nmatch result {\n    Ok(order) => {\n        save(order).await;\n        SeeOther::new(\"/orders\").into_response()\n    }\n    Err(state) => {\n        let form = Form::post(\"/orders\")\n            .child(ErrorSummary::new(&state).field(\"customer\", \"order-customer\"))\n            .child(Field::new(\"Customer\", Input::text(\"customer\").id(\"order-customer\")).bind(&state));\n        page.title(\"New order\")\n            .main(form)\n            .status(StatusCode::UNPROCESSABLE_ENTITY)\n            .into_response()\n    }\n}\n"
+      },
+      {
+        "id": "doc-555b16af49c41482-33",
+        "citation": {
+          "source_id": "e0026",
+          "start_line": 108,
+          "end_line": 132
+        },
+        "info": "rust",
+        "code": "use axum::{Router, routing::get};\nuse stucco::prelude::*;\nuse stucco::server::{CsrfLayer, CsrfToken, FlashLayer, RequestContext, SecretKey};\n\nasync fn new_order(page: PageCx, cx: RequestContext) -> Document {\n    let token = cx.get::<CsrfToken>().expect(\"CsrfLayer installed\");\n    page.title(\"New order\").main(\n        Form::post(\"/orders\")\n            .csrf(token.as_str())\n            .child(Field::new(\"Customer\", Input::text(\"customer\")))\n            .child(Button::new(\"Create order\").submit()),\n    )\n}\n\n// Run once at startup; keep the same key across restarts and replicas.\nlet key = SecretKey::from_env()?;\nlet app = Router::new()\n    .route(\"/orders/new\", get(new_order))\n    // Add the application's POST routes here, before installing the layers.\n    .layer(FlashLayer::new(key.clone()))\n    .layer(CsrfLayer::new(key, \"https://example.com\")?)\n    // Call stucco last so static assets do not issue or consume these cookies.\n    .stucco(Preset::Slate);\n"
+      },
+      {
+        "id": "doc-555b16af49c41482-34",
+        "citation": {
+          "source_id": "e0026",
+          "start_line": 165,
+          "end_line": 170
+        },
+        "info": "rust",
+        "code": "use stucco::server::{Flash, FlashLevel, SeeOther};\n\nlet response = SeeOther::new(\"/orders\")\n    .flash(Flash::new(FlashLevel::Success, \"Order created.\"));\n"
+      },
+      {
+        "id": "doc-555b16af49c41482-35",
+        "citation": {
+          "source_id": "e0026",
+          "start_line": 174,
+          "end_line": 183
+        },
+        "info": "rust",
+        "code": "use stucco::prelude::*;\nuse stucco::server::RequestContext;\n\nasync fn orders(page: PageCx, cx: RequestContext) -> Document {\n    page.title(\"Orders\").main(\n        FlashMessages::new(cx.get::<Flash>().cloned()),\n    )\n}\n"
+      },
+      {
+        "id": "doc-555b16af49c41482-36",
+        "citation": {
+          "source_id": "e0026",
+          "start_line": 208,
+          "end_line": 221
+        },
+        "info": "rust",
+        "code": "use stucco::{FormState, ReturnContext};\nuse stucco::forms::{ConflictNotice, Field, Form, HiddenInput, Input};\n\nlet submitted = FormState::from_urlencoded(b\"customer=My+edit&revision=v1\");\n// The storage transaction rejected expected revision v1 and observed v2.\nlet state = submitted.with_conflict(\"v1\", \"v2\");\nlet context = ReturnContext::parse(\"/orders?page=2\", &[\"/orders\"], &[\"page\"]).unwrap();\nlet form = Form::post(\"/orders/42/edit\")\n    .child(ConflictNotice::new(&state, context.carry(\"/orders/42/edit\").unwrap()))\n    .child(HiddenInput::new(\"revision\", state.conflict().unwrap().submitted()))\n    .child(HiddenInput::new(ReturnContext::FIELD, context.as_str()))\n    .child(Field::new(\"Customer\", Input::text(\"customer\")).bind(&state));\n"
+      },
+      {
+        "id": "doc-6f445d44af831022-37",
+        "citation": {
+          "source_id": "e0028",
+          "start_line": 38,
+          "end_line": 52
+        },
+        "info": "rust",
+        "code": "use stucco::prelude::*;\n\nlet bundle = Bundle::new(Preset::Slate);\nlet html = Page::new(&bundle, \"Hello, stucco\")\n    .main(\n        Container::new().child(\n            Stack::new()\n                .child(Heading::new(1, \"Hello, stucco\"))\n                .child(Text::new(\"A page rendered entirely in Rust.\"))\n                .child(Button::new(\"Continue\")),\n        ),\n    )\n    .render();\n"
+      },
+      {
+        "id": "doc-6f445d44af831022-38",
+        "citation": {
+          "source_id": "e0028",
+          "start_line": 62,
+          "end_line": 76
+        },
+        "info": "rust",
+        "code": "use axum::{Router, routing::get};\nuse stucco::prelude::*;\n\nasync fn index(page: PageCx) -> Document {\n    page.title(\"Hello\").main(Heading::new(1, \"Hello\"))\n}\n\n#[tokio::main]\nasync fn main() -> std::io::Result<()> {\n    let app = Router::new().route(\"/\", get(index)).stucco(Preset::Slate);\n    let listener = tokio::net::TcpListener::bind(\"127.0.0.1:3000\").await?;\n    axum::serve(listener, app).await\n}\n"
+      },
+      {
+        "id": "doc-8803a58760042a28-39",
+        "citation": {
+          "source_id": "e0030",
+          "start_line": 21,
+          "end_line": 34
+        },
+        "info": "rust",
+        "code": "use stucco::prelude::*;\n\nfn shell<'a>(current: &str) -> AppShell<'a> {\n    AppShell::new()\n        .header(PageHeader::new(\"Shop\"))\n        .link(NavLink::new(\"Orders\", \"/orders\").current(current == \"/orders\"))\n        .link(NavLink::new(\"Customers\", \"/customers\").current(current == \"/customers\"))\n}\n\nasync fn customers(page: PageCx) -> Document {\n    page.title(\"Customers\").app(shell(\"/customers\").main(Heading::new(2, \"Customers\")))\n}\n"
+      },
+      {
+        "id": "doc-8803a58760042a28-40",
+        "citation": {
+          "source_id": "e0030",
+          "start_line": 40,
+          "end_line": 67
+        },
+        "info": "rust",
+        "code": "use stucco::prelude::*;\n\nasync fn order_detail(page: PageCx) -> Document {\n    let header = PageHeader::new(\"Order 1042\").breadcrumbs(\n        Breadcrumbs::new()\n            .link(\"Orders\", \"/orders\")\n            .current(\"Order 1042\"),\n    );\n    let details = DescriptionList::new()\n        .item(\"Customer\", \"Ada Lovelace\")\n        .item(\"Status\", Badge::new(\"Paid\").tone(Tone::Success))\n        .item(\"Total\", \"$128.00\")\n        .item(\"Placed\", \"21 October 2026\");\n    let shipping = Callout::new(Tone::Info)\n        .title(\"Preparing for dispatch\")\n        .child(Text::new(\"Your order will ship within two working days.\"))\n        .actions(Link::new(\"Delivery information\", \"/delivery\"));\n\n    page.title(\"Order 1042\").main(\n        Stack::new()\n            .space(Space::S6)\n            .child(header)\n            .child(details)\n            .child(shipping),\n    )\n}\n"
+      },
+      {
+        "id": "doc-8803a58760042a28-41",
+        "citation": {
+          "source_id": "e0030",
+          "start_line": 75,
+          "end_line": 102
+        },
+        "info": "rust",
+        "code": "use axum::response::{IntoResponse, Response};\nuse axum::http::StatusCode;\nuse stucco::prelude::*;\nuse stucco::FormState;\nuse stucco::Validator;\nuse stucco::server::{SeeOther, Submission};\n\nfn order_form(state: &FormState) -> impl Render + '_ {\n    Form::post(\"/orders\")\n        .child(ErrorSummary::new(state).field(\"customer\", \"order-customer\"))\n        .child(Field::new(\"Customer\", Input::text(\"customer\").id(\"order-customer\")).bind(state))\n        .child(Button::new(\"Create order\").submit().variant(Variant::Primary))\n}\n\nasync fn create(page: PageCx, Submission(form): Submission) -> Response {\n    let mut v = Validator::new(form);\n    let customer = v.text(\"customer\").required(\"Enter a customer name\").get();\n    match v.finish(|| customer) {\n        Ok(_customer) => SeeOther::new(\"/orders\").into_response(),\n        Err(state) => page\n            .title(\"New order\")\n            .main(order_form(&state))\n            .status(StatusCode::UNPROCESSABLE_ENTITY)\n            .into_response(),\n    }\n}\n"
+      },
+      {
+        "id": "doc-8803a58760042a28-42",
+        "citation": {
+          "source_id": "e0030",
+          "start_line": 110,
+          "end_line": 139
+        },
+        "info": "rust",
+        "code": "use axum::extract::{RawQuery, State};\nuse stucco::prelude::*;\nuse stucco::server::RequestContext;\n\n#[derive(Columns)]\nstruct Customer {\n    #[col(sortable, searchable)]\n    name: String,\n    #[col(enumeration(\"active\", \"paused\"), filter)]\n    status: String,\n}\n\nasync fn customers(\n    State(source): State<CustomerSource>, // your `CollectionSource`\n    RawQuery(raw): RawQuery,\n    context: RequestContext,\n    page: PageCx,\n) -> Document {\n    let raw = raw.unwrap_or_default();\n    match source.load(&raw, &Customer::column_specs(), &context).await {\n        Ok(customers) => page.title(\"Customers\").main(\n            DataTable::from_collection(&customers, \"Customers\")\n                .action(\"/customers\")\n                .columns(Customer::columns()),\n        ),\n        Err(_) => page.title(\"Customers unavailable\").status(StatusCode::INTERNAL_SERVER_ERROR),\n    }\n}\n"
+      },
+      {
+        "id": "doc-8803a58760042a28-43",
+        "citation": {
+          "source_id": "e0030",
+          "start_line": 147,
+          "end_line": 160
+        },
+        "info": "rust",
+        "code": "use stucco::prelude::*;\n\nfn cart(items: usize) -> impl Render {\n    el::div().id(\"cart\").child(Text::new(format!(\"{items} items\")))\n}\n\nasync fn shop(page: PageCx) -> axum::response::Response {\n    let items = 3;\n    page.respond()\n        .fragment(\"cart\", || cart(items))\n        .page(|| page.title(\"Shop\").main(Stack::of((Heading::new(1, \"Shop\"), cart(items)))))\n}\n"
+      },
+      {
+        "id": "doc-8803a58760042a28-44",
+        "citation": {
+          "source_id": "e0030",
+          "start_line": 168,
+          "end_line": 177
+        },
+        "info": "rust",
+        "code": "use stucco::prelude::*;\nuse stucco::layout::ThemeScope;\n\nlet bundle = Bundle::new(Preset::Slate).with_theme(\"promo\", Theme::seeded_str(\"summer sale\"));\nlet banner = ThemeScope::new()\n    .named(\"promo\")\n    .child(Card::new().child(Heading::new(2, \"Summer sale\")));\nlet app = axum::Router::new().stucco(bundle);\n"
+      },
+      {
+        "id": "doc-8803a58760042a28-45",
+        "citation": {
+          "source_id": "e0030",
+          "start_line": 183,
+          "end_line": 195
+        },
+        "info": "rust",
+        "code": "use std::fs;\nuse stucco::prelude::*;\n\nlet bundle = Bundle::new(Preset::Slate);\nfs::create_dir_all(\"public/_stucco\")?;\nfor path in bundle.paths() {\n    let file = bundle.get(&path).expect(\"listed paths exist\");\n    fs::write(format!(\"public{path}\"), &*file.bytes)?;\n}\nlet html = Page::new(&bundle, \"Hello\").main(Heading::new(1, \"Hello\")).render();\nfs::write(\"public/index.html\", html)?;\n"
+      },
+      {
+        "id": "doc-8803a58760042a28-46",
+        "citation": {
+          "source_id": "e0030",
+          "start_line": 201,
+          "end_line": 208
+        },
+        "info": "rust",
+        "code": "use std::time::Duration;\nuse stucco::prelude::*;\nuse stucco::server::LayerConfig;\n\nlet config = LayerConfig { body_limit: 10 * 1024 * 1024, timeout: Duration::from_secs(60) };\nlet app = axum::Router::new().stucco_with(Preset::Slate, &config);\n"
+      },
+      {
+        "id": "doc-8803a58760042a28-47",
+        "citation": {
+          "source_id": "e0030",
+          "start_line": 218,
+          "end_line": 308
+        },
+        "info": "rust",
+        "code": "use axum::extract::rejection::PathRejection;\nuse axum::extract::{Path, State};\nuse axum::http::StatusCode;\nuse axum::response::{IntoResponse, Response};\nuse stucco::forms::HiddenInput;\nuse stucco::prelude::*;\nuse stucco::server::{CsrfToken, SeeOther, Submission};\nuse stucco::{FormState, Validator};\nuse stucco_redb::{AsyncTable, Revision};\n\n// Bad ids (`/customers/abc`) get the same page as missing ones, rather than\n// axum's plain-text 400.\nfn not_found(page: PageCx) -> Response {\n    page.title(\"Not found\")\n        .main(Heading::new(1, \"Customer not found\"))\n        .status(StatusCode::NOT_FOUND)\n        .into_response()\n}\n\nfn edit_page(page: PageCx, id: u64, state: &FormState, revision: &str) -> Response {\n    let token = page.context().get::<CsrfToken>().map(|t| t.as_str().to_owned());\n    let status = if state.conflict().is_some() { StatusCode::CONFLICT }\n        else if state.has_errors() { StatusCode::UNPROCESSABLE_ENTITY }\n        else { StatusCode::OK };\n    page.title(\"Edit customer\")\n        .main(\n            Form::post(format!(\"/customers/{id}\"))\n                .csrf(token.as_deref().unwrap_or_default())\n                .child(HiddenInput::new(\"revision\", revision))\n                .child(ErrorSummary::new(state).field(\"name\", \"customer-name\"))\n                .child(ConflictNotice::new(state, format!(\"/customers/{id}/edit\")).focus(false))\n                .child(Field::new(\"Name\", Input::text(\"name\").id(\"customer-name\")).bind(state))\n                .child(Button::new(\"Save\").submit().variant(Variant::Primary)),\n        )\n        .status(status)\n        .into_response()\n}\n\nasync fn edit(\n    State(db): State<AsyncTable<u64, String>>,\n    page: PageCx,\n    path: Result<Path<u64>, PathRejection>,\n) -> Response {\n    let Ok(Path(id)) = path else { return not_found(page) };\n    match db.get_with_revision(id).await {\n        Ok(Some((name, revision))) => {\n            let state = FormState::new().with_value(\"name\", name);\n            edit_page(page, id, &state, &revision.to_string())\n        }\n        Ok(None) => not_found(page),\n        Err(_) => StatusCode::INTERNAL_SERVER_ERROR.into_response(),\n    }\n}\n\nasync fn update(\n    State(db): State<AsyncTable<u64, String>>,\n    page: PageCx,\n    path: Result<Path<u64>, PathRejection>,\n    Submission(form): Submission,\n) -> Response {\n    let Ok(Path(id)) = path else { return not_found(page) };\n    let submitted = form.value(\"revision\").unwrap_or_default().to_owned();\n    let mut v = Validator::new(form.clone());\n    let name = v.text(\"name\").required(\"Enter a name\").get();\n    let name = match v.finish(|| name) {\n        Ok(name) => name,\n        Err(state) => return edit_page(page, id, &state, &submitted),\n    };\n    // A malformed revision can't match anything: treat it as a conflict.\n    let Ok(revision) = submitted.parse::<Revision>() else {\n        let state = form.with_conflict(submitted.clone(), String::new());\n        return edit_page(page, id, &state, &submitted);\n    };\n    match db.update_if(id, revision, move |_| name).await {\n        Ok(_) => SeeOther::new(\"/customers\")\n            .flash(Flash::new(FlashLevel::Success, \"Customer saved.\"))\n            .into_response(),\n        // Changed meanwhile: show the conflict, keeping the user's entries\n        // and the revision they started from.\n        Err(e) => match e.conflict_revision() {\n            Some(Some(current)) => {\n                let state = form.with_conflict(submitted.clone(), current.to_string());\n                edit_page(page, id, &state, &submitted)\n            }\n            Some(None) => not_found(page),\n            None => StatusCode::INTERNAL_SERVER_ERROR.into_response(),\n        },\n    }\n}\n"
+      },
+      {
+        "id": "doc-8803a58760042a28-48",
+        "citation": {
+          "source_id": "e0030",
+          "start_line": 315,
+          "end_line": 331
+        },
+        "info": "rust",
+        "code": "use stucco::prelude::*;\n\nfn delete_order(id: u64, revision: &str, token: &str) -> impl Render {\n    let dialog_id = format!(\"delete-order-{id}\");\n    let confirm = Dialog::new(&dialog_id, format!(\"Delete order {id}?\"))\n        .child(Text::new(\"The order and its history are removed.\"))\n        .actions(Dialog::close_button(&dialog_id, \"Cancel\"))\n        .actions(\n            Form::post(format!(\"/orders/{id}/delete\"))\n                .csrf(token)\n                .child(stucco::forms::HiddenInput::new(\"revision\", revision))\n                .child(Button::new(\"Delete order\").submit().variant(Variant::Danger)),\n        );\n    (confirm.link_opener(\"Delete…\", format!(\"/orders/{id}/delete\")), confirm)\n}\n"
+      },
+      {
+        "id": "doc-8803a58760042a28-49",
+        "citation": {
+          "source_id": "e0030",
+          "start_line": 339,
+          "end_line": 348
+        },
+        "info": "rust",
+        "code": "use stucco::{Bundle, Page, el};\nuse stucco::theme::{Preset, Scheme};\nlet bundle = Bundle::new(Preset::Slate);\nlet html = Page::new(&bundle, \"Account\")\n    .server_theme(Some(Scheme::Dark))\n    .body(el::main().text(\"Server-rendered content\"))\n    .render();\nassert!(!html.contains(\"<script\"));\n"
+      },
+      {
+        "id": "doc-b33efcf30bd60f28-50",
+        "citation": {
+          "source_id": "e0031",
+          "start_line": 9,
+          "end_line": 13
+        },
+        "info": "rust",
+        "code": "use stucco::{Bundle, theme::Preset};\n\nlet bundle = Bundle::new(Preset::Pine);\n"
+      },
+      {
+        "id": "doc-b33efcf30bd60f28-51",
+        "citation": {
+          "source_id": "e0031",
+          "start_line": 21,
+          "end_line": 33
+        },
+        "info": "rust",
+        "code": "use stucco::theme::{Color, Density, Fonts, Radius, Theme, TypeScale};\n\nlet theme = Theme::from_seed(160.0) // accent hue in OKLCH degrees\n    .accent(Color::oklch(0.6, 0.14, 160.0))\n    .neutral_hue(150.0)\n    .neutral_tint(0.012)\n    .fonts(Fonts::system().sans(\"Inter\"))\n    .type_scale(TypeScale::new(16.0, 1.25))\n    .radius(Radius::Round)\n    .density(Density::Compact);\nlet built = theme.build()?; // fails with a report if any pair misses its contrast target\n"
+      },
+      {
+        "id": "doc-b33efcf30bd60f28-52",
+        "citation": {
+          "source_id": "e0031",
+          "start_line": 104,
+          "end_line": 112
+        },
+        "info": "rust",
+        "code": "use stucco::theme::{ButtonDepth, LineWeight, Preset, Radius, Theme};\n\n// A bold, graphic look: sharp corners, heavy lines and offset buttons.\nlet theme = Theme::preset(Preset::Slate)\n    .radius(Radius::Sharp)\n    .line_weight(LineWeight::Heavy)\n    .button_depth(ButtonDepth::Offset);\n"
+      },
+      {
+        "id": "doc-b33efcf30bd60f28-53",
+        "citation": {
+          "source_id": "e0031",
+          "start_line": 124,
+          "end_line": 132
+        },
+        "info": "rust",
+        "code": "use stucco::theme::{Backdrop, Elevation, Material, Preset, ShadowStyle, Theme};\n\nlet theme = Theme::preset(Preset::Slate)\n    .material(Material::Glass)\n    .backdrop(Backdrop::Glow)\n    .elevation(Elevation::Raised)\n    .shadow_style(ShadowStyle::Layered);\n"
+      },
+      {
+        "id": "doc-b33efcf30bd60f28-54",
+        "citation": {
+          "source_id": "e0031",
+          "start_line": 148,
+          "end_line": 157
+        },
+        "info": "rust",
+        "code": "use stucco::theme::{HeaderEdge, HeaderStyle, Pattern, Preset, Relief, Theme};\n\nlet theme = Theme::preset(Preset::Sand)\n    .relief(Relief::Trowel)\n    .header_style(HeaderStyle::Tinted)\n    .pattern(Pattern::Contours)\n    .header_edge(HeaderEdge::Torn)\n    .motif_seed(7);\n"
+      },
+      {
+        "id": "doc-b33efcf30bd60f28-55",
+        "citation": {
+          "source_id": "e0031",
+          "start_line": 163,
+          "end_line": 167
+        },
+        "info": "rust",
+        "code": "use stucco::theme::{Finish, Preset, Theme};\n\nlet theme = Theme::preset(Preset::Sand).finish(Finish::Float);\n"
+      },
+      {
+        "id": "doc-b33efcf30bd60f28-56",
+        "citation": {
+          "source_id": "e0031",
+          "start_line": 175,
+          "end_line": 182
+        },
+        "info": "rust",
+        "code": "use stucco::theme::{Fonts, Preset, Radius, Seeded, TableStyle, Theme};\n\nlet theme = Theme::preset(Preset::Slate)\n    .fonts(Fonts::seeded(14))\n    .radius(Radius::seeded(14))\n    .table_style(TableStyle::seeded(14));\n"
+      },
+      {
+        "id": "doc-b33efcf30bd60f28-57",
+        "citation": {
+          "source_id": "e0031",
+          "start_line": 192,
+          "end_line": 197
+        },
+        "info": "rust",
+        "code": "use stucco::{Bundle, layout::ThemeScope, theme::Preset};\n\nlet bundle = Bundle::new(Preset::Slate).with_theme(\"brand\", Preset::Iris);\nlet promo = ThemeScope::new().named(\"brand\").child(/* … */);\n"
+      }
+    ],
+    "warnings": [
+      "Example coverage is limited to collected Markdown code blocks and literal Rust doc attributes/comments. Unlabelled blocks are treated as Rust only in Rust documentation. Macros, cfg_attr, external includes, and generated documentation are not expanded; standalone example programs are still ordinary evidence."
+    ]
+  },
   "analysis": {
-    "summary": "Practical Stucco 0.2.1 guidance for semantic static pages, escaped content, deployment-aware hashed assets, and optional Axum integration. This bundle targets the published release at commit 303ee2433ce3c05d0af9c4b79a4e09958d374f92. Its two recipes cover static output and in-memory HTML/asset requests; they do not cover the full component catalog, browser behavior, or APIs added on repository HEAD after that release.",
+    "summary": "Stucco 0.3.0 provides themed server rendering, native display and status components, optional Axum integration, typed collections, and form workflows. These focused recipes use the frozen 0.3.0 evidence; consult each recorded compilation result and feature selection. Storage integration and browser enhancement still require application code beyond these examples.",
     "findings": [
       {
-        "id": "semantic-pages",
-        "title": "Use Page::main for the main landmark and skip link",
-        "guidance": "Compose the document with Page::new(&bundle, title).main(content).render(). PageExt::main supplies the <main id=\"main\"> landmark and a preceding skip link; avoid adding a second main landmark inside it. With default-features = false, enable layout for this shortcut and layout components, and typography for Heading, Text and Link. The examples here target the published 0.2.1 facade and its recorded repository commit, so newer repository HEAD examples can require unavailable APIs.",
-        "basis": "documented",
-        "features": [
-          "layout",
-          "typography"
-        ],
-        "citations": [
-          {
-            "source_id": "e0006",
-            "start_line": 60,
-            "end_line": 82
-          },
-          {
-            "source_id": "e0025",
-            "start_line": 36,
-            "end_line": 56
-          },
-          {
-            "source_id": "e0022",
-            "start_line": 5,
-            "end_line": 19
-          },
-          {
-            "source_id": "e0002",
-            "start_line": 1,
-            "end_line": 6
-          }
-        ]
-      },
-      {
-        "id": "safe-text-and-links",
-        "title": "Keep untrusted content in escaped text and checked URLs",
-        "guidance": "Pass user-provided text to text-rendering components or element .text(...) builders so Stucco escapes markup. Link URLs pass through Href, which accepts relative URLs and the http, https, mailto and tel schemes and replaces disallowed schemes such as javascript: with #. Reserve Raw::trusted for markup that the application already trusts; it bypasses normal escaping. Do not set reserved component attributes to override behavior.",
-        "basis": "documented",
-        "features": [
-          "typography"
-        ],
-        "citations": [
-          {
-            "source_id": "e0022",
-            "start_line": 47,
-            "end_line": 58
-          }
-        ]
-      },
-      {
-        "id": "static-assets-and-base-path",
-        "title": "Write hashed assets and match the deployment URL prefix",
-        "guidance": "A Bundle supplies content-hashed stylesheets and scripts. For static output, write every Bundle::paths URL using the bytes returned by Bundle::get; rendering index.html alone leaves its stylesheet unavailable. Bundle::prefix changes the asset URL prefix and normalizes leading and trailing slashes. For a GitHub Pages project mounted at /demo/, set the asset prefix to /demo/_stucco/ and strip /demo/ when mapping those URLs into the artifact directory. Keep the output paths relative and retain the hash-bearing filenames. At the domain root, use /_stucco/ instead. This deployment mapping follows the documented prefix and static-export APIs; the recipe asserts that all emitted assets reach disk.",
+        "id": "release-features",
+        "title": "Select features from the 0.3.0 manifest",
+        "guidance": "Use Rust 1.85 or later. Default features include overlay; axum, collections, derive, and icons require explicit selection. derive enables collections and its component dependencies. For migration from 0.2, remove the reserved marketing/diagram/markdown/askama/maud features and use into_http for plain HTTP response conversion.",
         "basis": "documented",
         "features": [],
         "citations": [
           {
-            "source_id": "e0025",
-            "start_line": 36,
-            "end_line": 56
+            "source_id": "e0001",
+            "start_line": 12,
+            "end_line": 16
           },
           {
-            "source_id": "e0026",
-            "start_line": 144,
-            "end_line": 160
+            "source_id": "e0001",
+            "start_line": 50,
+            "end_line": 94
           },
           {
-            "source_id": "e0028",
-            "start_line": 103,
-            "end_line": 124
-          },
-          {
-            "source_id": "e0028",
-            "start_line": 152,
-            "end_line": 168
-          },
-          {
-            "source_id": "e0028",
-            "start_line": 208,
-            "end_line": 222
+            "source_id": "e0005",
+            "start_line": 9,
+            "end_line": 17
           }
         ]
       },
       {
-        "id": "axum-integration",
-        "title": "Enable axum explicitly and apply Stucco after the routes",
-        "guidance": "Enable the optional axum feature to expose PageCx, Document and StuccoRouter through stucco::prelude. A handler can extract PageCx, call title(...).main(...), and return Document; the content is rendered when set and may borrow request data. Call Router::stucco last, after routes and with_state, to install asset serving, theme extraction and the standard middleware across every route. The static-page recipe needs no Axum dependency. The Axum recipe uses Tower in-memory requests to exercise both HTML and the actual theme stylesheet without opening a listener.",
+        "id": "page-assets",
+        "title": "Deliver assets with rendered HTML",
+        "guidance": "Compose a Bundle and Page, using main for a landmark and skip link or app for an AppShell. Default output references assets under /_stucco/: serve the bundle or export its files alongside static pages. Delivery::Inline embeds the required assets for standalone output, but inline pages cannot receive fragments.",
+        "basis": "documented",
+        "features": [],
+        "citations": [
+          {
+            "source_id": "e0004",
+            "start_line": 55,
+            "end_line": 61
+          },
+          {
+            "source_id": "e0030",
+            "start_line": 179,
+            "end_line": 195
+          },
+          {
+            "source_id": "e0024",
+            "start_line": 48,
+            "end_line": 50
+          }
+        ]
+      },
+      {
+        "id": "axum-setup",
+        "title": "Finish router construction with stucco",
+        "guidance": "Add axum 0.8 and Tokio with macros, rt-multi-thread, and net. Call Router::stucco last, after routes and state; handlers take PageCx and return Document. Content renders when assigned, allowing request-local borrows. Use stucco_with and LayerConfig to change the documented 1 MiB body limit and 30-second timeout.",
         "basis": "documented",
         "features": [
-          "axum",
-          "layout",
-          "typography"
+          "axum"
         ],
         "citations": [
           {
-            "source_id": "e0006",
-            "start_line": 41,
-            "end_line": 45
+            "source_id": "e0004",
+            "start_line": 65,
+            "end_line": 85
           },
           {
-            "source_id": "e0006",
-            "start_line": 110,
-            "end_line": 111
-          },
-          {
-            "source_id": "e0025",
-            "start_line": 58,
+            "source_id": "e0028",
+            "start_line": 78,
             "end_line": 82
           },
           {
-            "source_id": "e0021",
-            "start_line": 1,
-            "end_line": 25
+            "source_id": "e0030",
+            "start_line": 197,
+            "end_line": 208
+          }
+        ]
+      },
+      {
+        "id": "fragment-negotiation",
+        "title": "Keep fragment responses paired with a full-page fallback",
+        "guidance": "Build ordinary navigation and forms first. PageCx::respond selects named fragments using Stucco-Request and Stucco-Target headers and falls back to the full page for other targets. Browser request and swapping logic is still needed. Use Page::enhanced when a page must receive fragments before any component behavior has loaded the runtime.",
+        "basis": "documented",
+        "features": [
+          "axum"
+        ],
+        "citations": [
+          {
+            "source_id": "e0024",
+            "start_line": 7,
+            "end_line": 26
           },
           {
-            "source_id": "e0014",
-            "start_line": 20,
-            "end_line": 28
+            "source_id": "e0024",
+            "start_line": 30,
+            "end_line": 46
+          }
+        ]
+      },
+      {
+        "id": "collection-contract",
+        "title": "Match table controls to backend capabilities",
+        "guidance": "Use collections for typed tables; add derive when columns should come from a struct. Reuse column_specs for query parsing. Controls require both column declarations and backend capabilities; marking a column does not implement querying. Cursor totals may be unknown, filtering can scan many records, and the example's numbered mode scans all matches. Scope queries to the requester independently of cursor validation.",
+        "basis": "documented",
+        "features": [
+          "collections",
+          "derive"
+        ],
+        "citations": [
+          {
+            "source_id": "e0020",
+            "start_line": 37,
+            "end_line": 78
+          },
+          {
+            "source_id": "e0020",
+            "start_line": 88,
+            "end_line": 110
+          },
+          {
+            "source_id": "e0020",
+            "start_line": 164,
+            "end_line": 171
+          },
+          {
+            "source_id": "e0010",
+            "start_line": 19,
+            "end_line": 23
+          }
+        ]
+      },
+      {
+        "id": "form-validation",
+        "title": "Preserve values and explain validation failures",
+        "guidance": "Validate FormState with Validator and finish into a typed value. On failure, bind the returned state to fields, map ErrorSummary entries to control IDs, and return 422 from HTTP handlers. On success, use a 303 redirect. Preserve submitted values and reinsert the issued CSRF token when rendering errors; passwords are not redisplayed.",
+        "basis": "documented",
+        "features": [
+          "forms"
+        ],
+        "citations": [
+          {
+            "source_id": "e0026",
+            "start_line": 44,
+            "end_line": 99
+          },
+          {
+            "source_id": "e0026",
+            "start_line": 153,
+            "end_line": 159
+          }
+        ]
+      },
+      {
+        "id": "csrf-flash",
+        "title": "Configure CSRF and flash layers explicitly",
+        "guidance": "Install CsrfLayer and FlashLayer explicitly before the final stucco call; enabling axum alone does not install them. Configure the browser-visible origin and a stable secret key. Include the issued token on unsafe requests. Keep secure cookies in production and align CSRF buffering with request body limits. Flash cookies are signed, readable, short-lived feedback, not authorization or secret storage.",
+        "basis": "documented",
+        "features": [
+          "axum",
+          "forms",
+          "feedback"
+        ],
+        "citations": [
+          {
+            "source_id": "e0026",
+            "start_line": 101,
+            "end_line": 159
+          },
+          {
+            "source_id": "e0026",
+            "start_line": 185,
+            "end_line": 198
+          }
+        ]
+      },
+      {
+        "id": "conflicts-return-context",
+        "title": "Keep conflict recovery and return navigation explicit",
+        "guidance": "Compare revisions and save atomically in storage; with_conflict only records UI state. Return 409 while retaining submitted values and the submitted revision. If ErrorSummary and ConflictNotice are both shown, disable focus on the notice. Revalidate ReturnContext on each request with application-owned allowlists; it prevents external return redirects but does not authorize access or validate filter values.",
+        "basis": "documented",
+        "features": [
+          "forms"
+        ],
+        "citations": [
+          {
+            "source_id": "e0026",
+            "start_line": 200,
+            "end_line": 233
+          },
+          {
+            "source_id": "e0020",
+            "start_line": 221,
+            "end_line": 232
+          }
+        ]
+      },
+      {
+        "id": "theme-validation",
+        "title": "Validate themes and choose scheme ownership",
+        "guidance": "Use presets or seeded themes for reproducible appearance within this release. Handle custom-theme contrast failures with Theme::build or Bundle::try_new instead of relying on Bundle::new's panic. Seed mappings may change in minor releases. Use server_theme for a server-owned scheme preference; it omits the localStorage initializer but does not disable component scripts. Custom CSS should use semantic tokens in stucco.utilities.",
+        "basis": "documented",
+        "features": [],
+        "citations": [
+          {
+            "source_id": "e0004",
+            "start_line": 103,
+            "end_line": 121
+          },
+          {
+            "source_id": "e0005",
+            "start_line": 303,
+            "end_line": 306
+          },
+          {
+            "source_id": "e0030",
+            "start_line": 333,
+            "end_line": 350
+          },
+          {
+            "source_id": "e0031",
+            "start_line": 211,
+            "end_line": 219
+          }
+        ]
+      },
+      {
+        "id": "rendering-boundaries",
+        "title": "Preserve rendering and application responsibility boundaries",
+        "guidance": "Use normal rendering for escaped text and checked URLs; reserve Raw::trusted for trusted markup. Use component builders instead of overriding reserved attributes. For dialogs that must work without script, provide link_opener with a real fallback page. Displayed readiness checks do not grant permission: recheck eligibility and authorization when executing actions.",
+        "basis": "documented",
+        "features": [],
+        "citations": [
+          {
+            "source_id": "e0022",
+            "start_line": 49,
+            "end_line": 58
+          },
+          {
+            "source_id": "e0022",
+            "start_line": 224,
+            "end_line": 227
+          },
+          {
+            "source_id": "e0022",
+            "start_line": 263,
+            "end_line": 265
+          }
+        ]
+      },
+      {
+        "id": "numeric-display-pattern",
+        "title": "Separate stored values from table presentation",
+        "guidance": "For money-like values, follow the orders example's separation: retain integer cents in the model, parse decimal input with checked integer arithmetic, and format cells independently. Its floating-point dollars projection supports table filtering; it is not evidence of exact decimal arithmetic for general financial calculations.",
+        "basis": "inferred",
+        "features": [
+          "collections"
+        ],
+        "citations": [
+          {
+            "source_id": "e0021",
+            "start_line": 13,
+            "end_line": 29
+          },
+          {
+            "source_id": "e0012",
+            "start_line": 63,
+            "end_line": 79
+          },
+          {
+            "source_id": "e0020",
+            "start_line": 88,
+            "end_line": 88
+          }
+        ]
+      },
+      {
+        "id": "status-and-details",
+        "title": "Compose native status, navigation, progress and disclosures",
+        "guidance": "Use Badge labels to communicate status independently of tone; mark Avatar decorative only when the same name is adjacent. DescriptionList accepts rich Render values, and Stat changes remain neutral until change_tone is set. Breadcrumbs marks the current page, while Steps uses a zero-based current index. Progress and Meter carry visible labels. Disclosure and Accordion use native details/summary; exclusive accordions depend on browser support. Callout is static content rather than a live announcement. These components live in existing default feature families.",
+        "basis": "documented",
+        "features": [
+          "data",
+          "navigation",
+          "feedback",
+          "layout"
+        ],
+        "citations": [
+          {
+            "source_id": "e0022",
+            "start_line": 106,
+            "end_line": 202
+          },
+          {
+            "source_id": "e0001",
+            "start_line": 50,
+            "end_line": 94
           }
         ]
       }
@@ -423,9 +1183,9 @@
     "recipes": [
       {
         "id": "static-page",
-        "title": "Export a static page with hashed assets",
-        "description": "Write index.html and every Bundle asset to an optional output directory (default stucco-example). BASE_PATH is /demo/ for a project site; change it to / for root hosting. Assertions check escaping, the main landmark, the skip link and exact asset bytes on disk.",
-        "code": "use std::{\n    fs,\n    path::{Component, Path, PathBuf},\n};\nuse stucco::prelude::*;\n\n// Match the site's URL mount point; use \"/\" for a site served at the root.\nconst BASE_PATH: &str = \"/demo/\";\n\nfn main() -> Result<(), Box<dyn std::error::Error>> {\n    let output = std::env::args_os()\n        .nth(1)\n        .map(PathBuf::from)\n        .unwrap_or_else(|| PathBuf::from(\"stucco-example\"));\n    let bundle = Bundle::new(Preset::Slate).prefix(&format!(\"{BASE_PATH}_stucco/\"));\n    let user_text = \"A <careful> welcome & a fresh start.\";\n    let html = Page::new(&bundle, \"Built with Stucco\")\n        .main(\n            Container::new().child(\n                Stack::new()\n                    .child(Heading::new(1, \"Built with Stucco\"))\n                    .child(Text::new(user_text))\n                    .child(Link::new(\n                        \"Stucco repository\",\n                        \"https://github.com/mcaveniathor/stucco\",\n                    )),\n            ),\n        )\n        .render();\n\n    assert!(html.contains(r#\"<main id=\"main\">\"#));\n    assert!(html.contains(r##\"href=\"#main\"\"##));\n    assert!(html.contains(\"A &lt;careful&gt; welcome &amp; a fresh start.\"));\n    assert!(!html.contains(\"<careful>\"));\n    assert!(html.contains(bundle.stylesheet_url()));\n\n    fs::create_dir_all(&output)?;\n    let paths = bundle.paths();\n    for url in &paths {\n        // The deployment prefix is a URL, not a directory inside the output.\n        let relative = url\n            .strip_prefix(BASE_PATH)\n            .expect(\"asset stays under site prefix\");\n        let relative = Path::new(relative);\n        assert!(\n            relative\n                .components()\n                .all(|part| matches!(part, Component::Normal(_)))\n        );\n        let destination = output.join(relative);\n        fs::create_dir_all(destination.parent().expect(\"asset has a parent\"))?;\n        let asset = bundle.get(url).expect(\"listed asset exists\");\n        fs::write(&destination, &*asset.bytes)?;\n        assert_eq!(fs::read(&destination)?, asset.bytes.as_ref());\n    }\n    fs::write(output.join(\"index.html\"), &html)?;\n    assert_eq!(fs::read_to_string(output.join(\"index.html\"))?, html);\n    assert!(!paths.is_empty());\n    println!(\n        \"Wrote {} and {} assets; serve it at {BASE_PATH}\",\n        output.display(),\n        paths.len()\n    );\n    Ok(())\n}\n",
+        "title": "Export a static page with its assets",
+        "description": "Write a complete page and its hashed theme assets to an optional output directory (default stucco-example). Assertions check escaped text, the main landmark, the skip link, and exact exported bytes. Serve the output directory at the URL root.",
+        "code": "use std::{\n    fs,\n    path::{Component, Path, PathBuf},\n};\nuse stucco::prelude::*;\n\nfn main() -> Result<(), Box<dyn std::error::Error>> {\n    let output = std::env::args_os()\n        .nth(1)\n        .map(PathBuf::from)\n        .unwrap_or_else(|| PathBuf::from(\"stucco-example\"));\n    let bundle = Bundle::new(Preset::Slate);\n    let html = Page::new(&bundle, \"Hello, Stucco\")\n        .main(\n            Container::new().child(\n                Stack::new()\n                    .child(Heading::new(1, \"Hello, Stucco\"))\n                    .child(Text::new(\"A <careful> welcome & a fresh start.\")),\n            ),\n        )\n        .render();\n    assert!(html.contains(r#\"<main id=\"main\">\"#));\n    assert!(html.contains(r##\"href=\"#main\"\"##));\n    assert!(html.contains(\"A &lt;careful&gt; welcome &amp; a fresh start.\"));\n    assert!(html.contains(bundle.stylesheet_url()));\n    for path in bundle.paths() {\n        let relative = Path::new(path.trim_start_matches('/'));\n        assert!(\n            relative\n                .components()\n                .all(|part| matches!(part, Component::Normal(_)))\n        );\n        let destination = output.join(relative);\n        fs::create_dir_all(destination.parent().expect(\"asset has a parent\"))?;\n        let asset = bundle.get(&path).expect(\"listed asset exists\");\n        fs::write(&destination, &*asset.bytes)?;\n        assert_eq!(fs::read(&destination)?, asset.bytes.as_ref());\n    }\n    fs::write(output.join(\"index.html\"), &html)?;\n    assert_eq!(fs::read_to_string(output.join(\"index.html\"))?, html);\n    println!(\n        \"Wrote {} with matching theme assets; serve this directory at /.\",\n        output.display()\n    );\n    Ok(())\n}\n",
         "default_features": false,
         "features": [
           "layout",
@@ -434,59 +1194,73 @@
         "dependencies": {},
         "citations": [
           {
-            "source_id": "e0025",
-            "start_line": 36,
-            "end_line": 56
+            "source_id": "e0003",
+            "start_line": 8,
+            "end_line": 18
           },
           {
-            "source_id": "e0022",
-            "start_line": 49,
-            "end_line": 58
+            "source_id": "e0030",
+            "start_line": 179,
+            "end_line": 195
           },
           {
-            "source_id": "e0026",
-            "start_line": 144,
-            "end_line": 160
+            "source_id": "e0001",
+            "start_line": 87,
+            "end_line": 94
+          },
+          {
+            "source_id": "e0003",
+            "start_line": 7,
+            "end_line": 19
+          },
+          {
+            "source_id": "e0004",
+            "start_line": 38,
+            "end_line": 53
+          },
+          {
+            "source_id": "e0006",
+            "start_line": 65,
+            "end_line": 78
           },
           {
             "source_id": "e0028",
-            "start_line": 103,
-            "end_line": 124
+            "start_line": 38,
+            "end_line": 52
           },
           {
-            "source_id": "e0028",
-            "start_line": 152,
-            "end_line": 168
+            "source_id": "e0030",
+            "start_line": 183,
+            "end_line": 195
           }
         ]
       },
       {
-        "id": "axum-page",
-        "title": "Serve a document and its stylesheet through Axum",
-        "description": "Return a Document from a PageCx handler, install Stucco last on the router, and issue in-memory requests for the HTML and its content-hashed CSS. Assertions cover status, content type, escaped text, landmarks, immutable cache policy and exact stylesheet bytes.",
-        "code": "use axum::{\n    Router,\n    body::{Body, to_bytes},\n    http::{\n        Request, StatusCode,\n        header::{CACHE_CONTROL, CONTENT_TYPE},\n    },\n    routing::get,\n};\nuse stucco::prelude::*;\nuse tower::ServiceExt;\n\nasync fn index(page: PageCx) -> Document {\n    page.title(\"Hello, Stucco\").main(\n        Container::new().child(\n            Stack::new()\n                .child(Heading::new(1, \"Hello, Stucco\"))\n                .child(Text::new(\"Rust <HTML> & a real stylesheet.\")),\n        ),\n    )\n}\n\nfn request(uri: &str) -> Request<Body> {\n    Request::builder().uri(uri).body(Body::empty()).unwrap()\n}\n\n#[tokio::main(flavor = \"current_thread\")]\nasync fn main() -> Result<(), Box<dyn std::error::Error>> {\n    let bundle = Bundle::new(Preset::Slate);\n    let stylesheet_url = bundle.stylesheet_url().to_owned();\n    let stylesheet = bundle\n        .get(&stylesheet_url)\n        .expect(\"theme stylesheet exists\");\n    // Call stucco last so it provides assets, middleware and PageCx to every route.\n    let app = Router::new().route(\"/\", get(index)).stucco(bundle);\n\n    let response = app.clone().oneshot(request(\"/\")).await?;\n    assert_eq!(response.status(), StatusCode::OK);\n    assert_eq!(response.headers()[CONTENT_TYPE], \"text/html; charset=utf-8\");\n    let html = String::from_utf8(to_bytes(response.into_body(), 1024 * 1024).await?.to_vec())?;\n    assert!(html.contains(r#\"<main id=\"main\">\"#));\n    assert!(html.contains(r##\"href=\"#main\"\"##));\n    assert!(html.contains(\"Rust &lt;HTML&gt; &amp; a real stylesheet.\"));\n    assert!(html.contains(&stylesheet_url));\n\n    let response = app.oneshot(request(&stylesheet_url)).await?;\n    assert_eq!(response.status(), StatusCode::OK);\n    assert_eq!(response.headers()[CONTENT_TYPE], \"text/css; charset=utf-8\");\n    assert!(\n        response.headers()[CACHE_CONTROL]\n            .to_str()?\n            .contains(\"immutable\")\n    );\n    let css = to_bytes(response.into_body(), 1024 * 1024).await?;\n    assert_eq!(css.as_ref(), stylesheet.bytes.as_ref());\n    println!(\"Verified HTML and {stylesheet_url} through in-memory requests.\");\n    Ok(())\n}\n",
-        "default_features": false,
+        "id": "axum-fragments",
+        "title": "Serve full pages and a named fragment",
+        "description": "Exercise full-page, named-fragment, unknown-target fallback, escaping, and stylesheet responses with in-memory requests. Pass --serve to listen on 127.0.0.1:3000 after the checks.",
+        "code": "use axum::{\n    Router,\n    body::{Body, to_bytes},\n    extract::Query,\n    http::{\n        Request, StatusCode,\n        header::{CACHE_CONTROL, CONTENT_TYPE, VARY},\n    },\n    response::Response,\n    routing::get,\n};\nuse std::collections::HashMap;\nuse stucco::prelude::*;\nuse tower::ServiceExt;\n\nfn greeting(name: &str) -> impl Render {\n    el::div()\n        .id(\"greeting\")\n        .child(Text::new(format!(\"Hello, {name}!\")))\n}\n\nasync fn index(page: PageCx, Query(params): Query<HashMap<String, String>>) -> Response {\n    let name = params.get(\"q\").map(String::as_str).unwrap_or(\"visitor\");\n    page.respond()\n        .fragment(\"greeting\", || greeting(name))\n        .page(|| {\n            page.title(\"Greeting\").main(Stack::of((\n                Heading::new(1, \"Greeting\"),\n                Form::get(\"/\").child(Stack::of((\n                    Field::new(\"Name\", Input::text(\"q\").value(name)),\n                    Button::new(\"Greet\").submit(),\n                ))),\n                greeting(name),\n            )))\n        })\n}\n\n#[tokio::main]\nasync fn main() -> Result<(), Box<dyn std::error::Error>> {\n    let bundle = Bundle::new(Preset::Slate);\n    let stylesheet_url = bundle.stylesheet_url().to_owned();\n    let stylesheet = bundle\n        .get(&stylesheet_url)\n        .expect(\"theme stylesheet exists\");\n    // Call stucco last to attach assets, middleware, and PageCx to all routes.\n    let app = Router::new().route(\"/\", get(index)).stucco(bundle);\n    for target in [None, Some(\"greeting\"), Some(\"unknown\")] {\n        let mut request = Request::builder().uri(\"/?q=%3CAda%3E\");\n        if let Some(target) = target {\n            request = request\n                .header(\"Stucco-Request\", \"fragment\")\n                .header(\"Stucco-Target\", target);\n        }\n        let response = app.clone().oneshot(request.body(Body::empty())?).await?;\n        assert_eq!(response.status(), StatusCode::OK);\n        assert_eq!(response.headers()[CONTENT_TYPE], \"text/html; charset=utf-8\");\n        assert_eq!(response.headers()[VARY], \"Stucco-Request, Stucco-Target\");\n        if target == Some(\"greeting\") {\n            assert_eq!(response.headers()[CACHE_CONTROL], \"no-store\");\n        }\n        let html = String::from_utf8(to_bytes(response.into_body(), 1024 * 1024).await?.to_vec())?;\n        assert!(html.contains(\"Hello, &lt;Ada&gt;!\"));\n        assert_eq!(html.contains(\"<html\"), target != Some(\"greeting\"));\n        assert_eq!(html.contains(\"<form\"), target != Some(\"greeting\"));\n    }\n    let response = app\n        .clone()\n        .oneshot(\n            Request::builder()\n                .uri(&stylesheet_url)\n                .body(Body::empty())?,\n        )\n        .await?;\n    assert_eq!(response.status(), StatusCode::OK);\n    assert_eq!(response.headers()[CONTENT_TYPE], \"text/css; charset=utf-8\");\n    assert!(\n        response.headers()[CACHE_CONTROL]\n            .to_str()?\n            .contains(\"immutable\")\n    );\n    assert_eq!(\n        to_bytes(response.into_body(), 1024 * 1024).await?.as_ref(),\n        stylesheet.bytes.as_ref()\n    );\n    println!(\"Verified full pages, fragments, fallback, escaping, and stylesheet bytes.\");\n    if std::env::args().any(|argument| argument == \"--serve\") {\n        let listener = tokio::net::TcpListener::bind(\"127.0.0.1:3000\").await?;\n        axum::serve(listener, app).await?;\n    }\n    Ok(())\n}\n",
+        "default_features": true,
         "features": [
-          "layout",
-          "typography",
           "axum"
         ],
         "dependencies": {
           "axum": {
-            "version": "0.8.9",
+            "version": "0.8",
             "features": [],
-            "default_features": false
+            "default_features": true
           },
           "tokio": {
-            "version": "1.53",
+            "version": "1",
             "features": [
               "macros",
-              "rt"
+              "rt-multi-thread",
+              "net"
             ],
             "default_features": true
           },
           "tower": {
-            "version": "0.5.3",
+            "version": "0.5",
             "features": [
               "util"
             ],
@@ -495,36 +1269,642 @@
         },
         "citations": [
           {
-            "source_id": "e0025",
-            "start_line": 58,
-            "end_line": 82
+            "source_id": "e0004",
+            "start_line": 65,
+            "end_line": 66
+          },
+          {
+            "source_id": "e0007",
+            "start_line": 6,
+            "end_line": 63
+          },
+          {
+            "source_id": "e0024",
+            "start_line": 9,
+            "end_line": 26
+          },
+          {
+            "source_id": "e0004",
+            "start_line": 72,
+            "end_line": 86
+          },
+          {
+            "source_id": "e0024",
+            "start_line": 13,
+            "end_line": 22
+          },
+          {
+            "source_id": "e0028",
+            "start_line": 62,
+            "end_line": 76
+          },
+          {
+            "source_id": "e0030",
+            "start_line": 147,
+            "end_line": 160
+          }
+        ]
+      },
+      {
+        "id": "derived-table",
+        "title": "Derive columns and format stored cents",
+        "description": "Render table markup from derived columns with separate numeric and display values. This has no backend capabilities or query execution; embed the table in a Page for themed document output.",
+        "code": "use stucco::prelude::*;\nuse stucco::{CollectionPage, to_html};\n\n#[derive(Columns)]\nstruct Order {\n    #[col(label = \"ID\", sortable)]\n    id: u64,\n    #[col(sortable, searchable)]\n    customer: String,\n    #[col(key = \"total\", label = \"Total\", value = dollars, display = money)]\n    total_cents: u64,\n}\n\nfn dollars(order: &Order) -> f64 {\n    order.total_cents as f64 / 100.0\n}\n\nfn money(order: &Order) -> String {\n    format!(\n        \"${}.{:02}\",\n        order.total_cents / 100,\n        order.total_cents % 100\n    )\n}\n\nfn main() {\n    let page = CollectionPage {\n        rows: vec![Order {\n            id: 7,\n            customer: \"<Ada>\".into(),\n            total_cents: 4800,\n        }],\n        next: None,\n        prev: None,\n        total: None,\n    };\n    let table = DataTable::from_page(&page, \"Orders\").columns(Order::columns());\n    let html = to_html(&table);\n    assert!(html.contains(\"&lt;Ada&gt;\"));\n    assert!(html.contains(\"$48.00\"));\n    println!(\"{html}\");\n}\n",
+        "default_features": false,
+        "features": [
+          "derive"
+        ],
+        "dependencies": {},
+        "citations": [
+          {
+            "source_id": "e0001",
+            "start_line": 77,
+            "end_line": 80
+          },
+          {
+            "source_id": "e0009",
+            "start_line": 4,
+            "end_line": 34
+          },
+          {
+            "source_id": "e0009",
+            "start_line": 50,
+            "end_line": 74
+          },
+          {
+            "source_id": "e0004",
+            "start_line": 160,
+            "end_line": 173
+          },
+          {
+            "source_id": "e0020",
+            "start_line": 15,
+            "end_line": 35
+          },
+          {
+            "source_id": "e0020",
+            "start_line": 45,
+            "end_line": 67
+          },
+          {
+            "source_id": "e0030",
+            "start_line": 110,
+            "end_line": 139
+          }
+        ]
+      },
+      {
+        "id": "bound-validation",
+        "title": "Render validation errors from returned form state",
+        "description": "Demonstrate validation and bound error markup without an HTTP server. A deployed POST flow must supply its handler, CSRF setup and issued token, and a 422 response on validation failure.",
+        "code": "use stucco::prelude::*;\nuse stucco::{FormState, Validator, to_html};\n\nfn validate(state: FormState) -> Result<String, FormState> {\n    let mut validator = Validator::new(state);\n    let customer = validator\n        .text(\"customer\")\n        .required(\"Enter a customer name\")\n        .max_chars(80, \"Use 80 characters or fewer\")\n        .get();\n    validator.finish(|| customer)\n}\n\nfn main() {\n    let submitted = FormState::new().with_value(\"customer\", \"\");\n    match validate(submitted) {\n        Ok(_) => panic!(\"an empty customer name must fail validation\"),\n        Err(state) => {\n            let form = Form::post(\"/customers\")\n                .child(ErrorSummary::new(&state).field(\"customer\", \"customer-name\"))\n                .child(\n                    Field::new(\"Customer\", Input::text(\"customer\").id(\"customer-name\"))\n                        .required()\n                        .bind(&state),\n                )\n                .child(Button::new(\"Save\").submit());\n            let html = to_html(&form);\n            assert!(html.contains(\"Enter a customer name\"));\n            assert!(html.contains(\"aria-invalid=\\\"true\\\"\"));\n            assert!(html.contains(\"customer-name\"));\n            println!(\"{html}\");\n        }\n    }\n}\n",
+        "default_features": false,
+        "features": [
+          "forms"
+        ],
+        "dependencies": {},
+        "citations": [
+          {
+            "source_id": "e0026",
+            "start_line": 44,
+            "end_line": 99
+          },
+          {
+            "source_id": "e0012",
+            "start_line": 97,
+            "end_line": 107
+          },
+          {
+            "source_id": "e0030",
+            "start_line": 83,
+            "end_line": 101
+          },
+          {
+            "source_id": "e0001",
+            "start_line": 82,
+            "end_line": 85
+          },
+          {
+            "source_id": "e0026",
+            "start_line": 9,
+            "end_line": 26
+          },
+          {
+            "source_id": "e0026",
+            "start_line": 48,
+            "end_line": 64
+          },
+          {
+            "source_id": "e0026",
+            "start_line": 74,
+            "end_line": 95
+          },
+          {
+            "source_id": "e0030",
+            "start_line": 75,
+            "end_line": 102
+          }
+        ]
+      },
+      {
+        "id": "inline-server-theme",
+        "title": "Render an inline document with a server-selected scheme",
+        "description": "Render a standalone document with an explicit dark scheme and inline assets. This example uses basic elements and no component behaviors; inline output cannot receive fragments.",
+        "code": "use stucco::theme::{Preset, Scheme};\nuse stucco::{Bundle, Delivery, Page, el};\n\nfn main() {\n    let bundle = Bundle::new(Preset::Slate);\n    let html = Page::new(&bundle, \"Account\")\n        .server_theme(Some(Scheme::Dark))\n        .delivery(Delivery::Inline)\n        .body(el::main().child(el::h1().text(\"Account\")))\n        .render();\n    assert!(html.contains(\"data-theme=\\\"dark\\\"\"));\n    assert!(html.contains(\"<style\"));\n    assert!(!html.contains(\"rel=\\\"stylesheet\\\"\"));\n    assert!(html.contains(\"<h1>Account</h1>\"));\n    println!(\"{html}\");\n}\n",
+        "default_features": false,
+        "features": [],
+        "dependencies": {},
+        "citations": [
+          {
+            "source_id": "e0006",
+            "start_line": 19,
+            "end_line": 24
+          },
+          {
+            "source_id": "e0024",
+            "start_line": 48,
+            "end_line": 50
+          },
+          {
+            "source_id": "e0030",
+            "start_line": 333,
+            "end_line": 350
           },
           {
             "source_id": "e0006",
-            "start_line": 110,
-            "end_line": 111
+            "start_line": 5,
+            "end_line": 13
           },
           {
-            "source_id": "e0021",
-            "start_line": 1,
-            "end_line": 25
+            "source_id": "e0030",
+            "start_line": 339,
+            "end_line": 348
           },
           {
-            "source_id": "e0028",
-            "start_line": 121,
-            "end_line": 124
-          },
-          {
-            "source_id": "e0028",
-            "start_line": 163,
-            "end_line": 168
-          },
-          {
-            "source_id": "e0014",
-            "start_line": 20,
-            "end_line": 28
+            "source_id": "e0031",
+            "start_line": 9,
+            "end_line": 13
           }
         ]
+      },
+      {
+        "id": "status-details",
+        "title": "Render status and details with native components",
+        "description": "Render a standalone order page demonstrating all eleven new display, navigation, progress and disclosure components. Replace sample values and navigation URLs with application data and routes.",
+        "code": "use stucco::Delivery;\nuse stucco::prelude::*;\n\nfn main() {\n    let bundle = Bundle::new(Preset::Slate);\n    let content = Stack::new()\n        .child(\n            PageHeader::new(\"Order 1042\").breadcrumbs(\n                Breadcrumbs::new()\n                    .link(\"Orders\", \"/orders\")\n                    .current(\"Order 1042\"),\n            ),\n        )\n        .child(Cluster::of((\n            Avatar::new(\"Ada Lovelace\").decorative(),\n            Text::new(\"Ada Lovelace\"),\n        )))\n        .child(\n            DescriptionList::new()\n                .item(\"Status\", Badge::new(\"Paid\").tone(Tone::Success))\n                .item(\"Total\", \"$128.00\"),\n        )\n        .child(\n            Stat::new(\"Orders\", \"128\")\n                .change(\"12%\", Trend::Up)\n                .change_tone(Tone::Success)\n                .context(\"vs last week\"),\n        )\n        .child(\n            Steps::new(\"Checkout\")\n                .step(\"Cart\", \"/checkout/cart\")\n                .step(\"Delivery\", \"/checkout/delivery\")\n                .step_disabled(\"Payment\")\n                .current(1),\n        )\n        .child(Progress::new(\"Import\", 42.0, 100.0).show_value())\n        .child(\n            Meter::new(\"Storage\", 7.2, 0.0, 10.0)\n                .low(3.0)\n                .high(8.0)\n                .optimum(1.0)\n                .value_text(\"7.2 of 10 GB\"),\n        )\n        .child(\n            Callout::new(Tone::Info)\n                .title(\"Preparing for dispatch\")\n                .child(Text::new(\"Your order will ship within two working days.\")),\n        )\n        .child(\n            Disclosure::new(\"Shipping details\")\n                .heading(2)\n                .child(Text::new(\"Tracked delivery is included.\")),\n        )\n        .child(\n            Accordion::new()\n                .heading(2)\n                .item_open(\"Shipping\", Text::new(\"Arrives by Friday.\"))\n                .item(\"Returns\", Text::new(\"Return within 30 days.\"))\n                .exclusive(),\n        );\n    let html = Page::new(&bundle, \"Order 1042\")\n        .delivery(Delivery::Inline)\n        .main(content)\n        .render();\n    for marker in [\n        \"<progress\",\n        \"<meter\",\n        \"<details\",\n        \"<summary\",\n        \"Paid\",\n        \"Order 1042\",\n        \"$128.00\",\n    ] {\n        assert!(html.contains(marker), \"missing {marker}\");\n    }\n    println!(\"{html}\");\n}\n",
+        "default_features": true,
+        "features": [],
+        "dependencies": {},
+        "citations": [
+          {
+            "source_id": "e0022",
+            "start_line": 106,
+            "end_line": 202
+          },
+          {
+            "source_id": "e0030",
+            "start_line": 36,
+            "end_line": 69
+          },
+          {
+            "source_id": "e0024",
+            "start_line": 48,
+            "end_line": 50
+          },
+          {
+            "source_id": "e0006",
+            "start_line": 82,
+            "end_line": 98
+          },
+          {
+            "source_id": "e0022",
+            "start_line": 29,
+            "end_line": 45
+          },
+          {
+            "source_id": "e0022",
+            "start_line": 110,
+            "end_line": 126
+          },
+          {
+            "source_id": "e0022",
+            "start_line": 139,
+            "end_line": 152
+          },
+          {
+            "source_id": "e0022",
+            "start_line": 162,
+            "end_line": 172
+          },
+          {
+            "source_id": "e0022",
+            "start_line": 182,
+            "end_line": 198
+          },
+          {
+            "source_id": "e0030",
+            "start_line": 40,
+            "end_line": 67
+          }
+        ]
+      }
+    ],
+    "example_coverage": [
+      {
+        "example_id": "doc-403dabee035e1211-1",
+        "disposition": "adapted",
+        "recipe_ids": [
+          "static-page"
+        ],
+        "reason": "Adapt the published README composition into a complete static page with exported assets."
+      },
+      {
+        "example_id": "doc-1a62a38631e53597-2",
+        "disposition": "supporting",
+        "recipe_ids": [
+          "static-page"
+        ],
+        "reason": "The repository quick start supplies the same page and layout composition."
+      },
+      {
+        "example_id": "doc-1a62a38631e53597-3",
+        "disposition": "supporting",
+        "recipe_ids": [
+          "axum-fragments"
+        ],
+        "reason": "The basic Axum setup supports the recipe router; its no_run server is checked in memory by default."
+      },
+      {
+        "example_id": "doc-1a62a38631e53597-4",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "Custom seeded themes and theme-builder validation are described in findings but are outside the fixed-preset recipes."
+      },
+      {
+        "example_id": "doc-1a62a38631e53597-5",
+        "disposition": "supporting",
+        "recipe_ids": [
+          "derived-table"
+        ],
+        "reason": "Use the in-memory CollectionPage and DataTable pattern with derived columns."
+      },
+      {
+        "example_id": "doc-009efc5a9c870a09-6",
+        "disposition": "supporting",
+        "recipe_ids": [
+          "inline-server-theme"
+        ],
+        "reason": "The facade doc example supplies the low-level Page body composition."
+      },
+      {
+        "example_id": "doc-009efc5a9c870a09-7",
+        "disposition": "supporting",
+        "recipe_ids": [
+          "static-page"
+        ],
+        "reason": "The facade example documents main content and component composition."
+      },
+      {
+        "example_id": "doc-009efc5a9c870a09-8",
+        "disposition": "adapted",
+        "recipe_ids": [
+          "status-details"
+        ],
+        "reason": "Compose the documented native display and status components into one document."
+      },
+      {
+        "example_id": "doc-087a7de4d36a294e-9",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "CLI theme-spec generation is outside the consumer recipes."
+      },
+      {
+        "example_id": "doc-087a7de4d36a294e-10",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "Environment-driven theme-spec parsing is outside the consumer recipes."
+      },
+      {
+        "example_id": "doc-c1bc979081f7fda7-11",
+        "disposition": "supporting",
+        "recipe_ids": [
+          "derived-table"
+        ],
+        "reason": "Use the in-memory page and column composition; backend query controls are outside this recipe."
+      },
+      {
+        "example_id": "doc-c1bc979081f7fda7-12",
+        "disposition": "adapted",
+        "recipe_ids": [
+          "derived-table"
+        ],
+        "reason": "Adapt the Columns derive example and demonstrate numeric value versus display formatting."
+      },
+      {
+        "example_id": "doc-c1bc979081f7fda7-13",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "Backend collection capabilities are not implemented by the in-memory derived-table example."
+      },
+      {
+        "example_id": "doc-c1bc979081f7fda7-14",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "Implementing an application CollectionSource requires storage-specific code outside these recipes."
+      },
+      {
+        "example_id": "doc-c1bc979081f7fda7-15",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "Storage-backed querying, pagination, and handler state are outside the in-memory derived-table example."
+      },
+      {
+        "example_id": "doc-c1bc979081f7fda7-16",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "Responsive backend collection controls require query handling not implemented by the in-memory table recipe."
+      },
+      {
+        "example_id": "doc-c1bc979081f7fda7-17",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "Return navigation across persistent CRUD workflows is described in findings but not implemented by a recipe."
+      },
+      {
+        "example_id": "doc-2a0f140a86a74152-18",
+        "disposition": "supporting",
+        "recipe_ids": [
+          "status-details"
+        ],
+        "reason": "Reuse the documented Stack and Cluster composition pattern for the status page."
+      },
+      {
+        "example_id": "doc-2a0f140a86a74152-19",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "The recipes compose native components rather than implement a custom Render component."
+      },
+      {
+        "example_id": "doc-2a0f140a86a74152-20",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "An application navigation shell is outside the focused status/detail page."
+      },
+      {
+        "example_id": "doc-2a0f140a86a74152-21",
+        "disposition": "adapted",
+        "recipe_ids": [
+          "status-details"
+        ],
+        "reason": "Adapt Badge, Avatar, DescriptionList, and Stat into the status page."
+      },
+      {
+        "example_id": "doc-2a0f140a86a74152-22",
+        "disposition": "adapted",
+        "recipe_ids": [
+          "status-details"
+        ],
+        "reason": "Adapt PageHeader, Breadcrumbs, and Steps into the status page."
+      },
+      {
+        "example_id": "doc-2a0f140a86a74152-23",
+        "disposition": "adapted",
+        "recipe_ids": [
+          "status-details"
+        ],
+        "reason": "Adapt Progress and Meter into the status page."
+      },
+      {
+        "example_id": "doc-2a0f140a86a74152-24",
+        "disposition": "adapted",
+        "recipe_ids": [
+          "status-details"
+        ],
+        "reason": "Adapt native Disclosure and Accordion sections into the status page."
+      },
+      {
+        "example_id": "doc-2a0f140a86a74152-25",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "Confirmation dialogs and their application actions are outside the native status/detail example."
+      },
+      {
+        "example_id": "doc-2a0f140a86a74152-26",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "Application-specific publication readiness rules are outside these recipes."
+      },
+      {
+        "example_id": "doc-37e1ff775b0df319-27",
+        "disposition": "adapted",
+        "recipe_ids": [
+          "axum-fragments"
+        ],
+        "reason": "Complete the named-fragment negotiation example and check its full-page fallback."
+      },
+      {
+        "example_id": "doc-37e1ff775b0df319-28",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "Registering custom JavaScript and CSS requires extra files outside these single-main.rs recipes."
+      },
+      {
+        "example_id": "doc-555b16af49c41482-29",
+        "disposition": "supporting",
+        "recipe_ids": [
+          "bound-validation"
+        ],
+        "reason": "Reuse native field and form composition; CSRF middleware and submission are outside this pure rendering example."
+      },
+      {
+        "example_id": "doc-555b16af49c41482-30",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "HTTP submission extraction and persistence are outside the pure validation/rendering example."
+      },
+      {
+        "example_id": "doc-555b16af49c41482-31",
+        "disposition": "adapted",
+        "recipe_ids": [
+          "bound-validation"
+        ],
+        "reason": "Adapt Validator and field constraints to reject an empty customer name."
+      },
+      {
+        "example_id": "doc-555b16af49c41482-32",
+        "disposition": "adapted",
+        "recipe_ids": [
+          "bound-validation"
+        ],
+        "reason": "Adapt invalid-state binding and ErrorSummary; persistence and redirects are outside the recipe."
+      },
+      {
+        "example_id": "doc-555b16af49c41482-33",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "CSRF and flash middleware require application secrets and request context; findings document the boundary."
+      },
+      {
+        "example_id": "doc-555b16af49c41482-34",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "Flash-cookie redirects require configured middleware outside the pure validation example."
+      },
+      {
+        "example_id": "doc-555b16af49c41482-35",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "Flash message rendering requires request middleware outside these recipes."
+      },
+      {
+        "example_id": "doc-555b16af49c41482-36",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "Optimistic concurrency and storage conflict resolution need application persistence outside these recipes."
+      },
+      {
+        "example_id": "doc-6f445d44af831022-37",
+        "disposition": "supporting",
+        "recipe_ids": [
+          "static-page"
+        ],
+        "reason": "The getting-started page demonstrates the same static page composition."
+      },
+      {
+        "example_id": "doc-6f445d44af831022-38",
+        "disposition": "supporting",
+        "recipe_ids": [
+          "axum-fragments"
+        ],
+        "reason": "The no_run Axum server demonstrates routing and PageCx; the recipe adds bounded in-memory checks."
+      },
+      {
+        "example_id": "doc-8803a58760042a28-39",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "A complete application shell and section navigation are outside the focused examples."
+      },
+      {
+        "example_id": "doc-8803a58760042a28-40",
+        "disposition": "adapted",
+        "recipe_ids": [
+          "status-details"
+        ],
+        "reason": "Adapt the record-detail composition into a standalone inline document."
+      },
+      {
+        "example_id": "doc-8803a58760042a28-41",
+        "disposition": "adapted",
+        "recipe_ids": [
+          "bound-validation"
+        ],
+        "reason": "Extract the validation and re-rendering pattern into a standalone program without storage or HTTP submission."
+      },
+      {
+        "example_id": "doc-8803a58760042a28-42",
+        "disposition": "supporting",
+        "recipe_ids": [
+          "derived-table"
+        ],
+        "reason": "The derived Customer columns support the derive pattern; backend loading and GET controls are not implemented."
+      },
+      {
+        "example_id": "doc-8803a58760042a28-43",
+        "disposition": "supporting",
+        "recipe_ids": [
+          "axum-fragments"
+        ],
+        "reason": "The cart-region example supports named-region negotiation and a full-page fallback."
+      },
+      {
+        "example_id": "doc-8803a58760042a28-44",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "Multiple named themes and scoped theme composition are outside the fixed-preset recipes."
+      },
+      {
+        "example_id": "doc-8803a58760042a28-45",
+        "disposition": "adapted",
+        "recipe_ids": [
+          "static-page"
+        ],
+        "reason": "Adapt the asset-export loop and verify every file against Bundle bytes."
+      },
+      {
+        "example_id": "doc-8803a58760042a28-46",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "Custom body limits and timeouts are application-specific policy outside the default router recipe."
+      },
+      {
+        "example_id": "doc-8803a58760042a28-47",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "This full CRUD example needs storage, revision handling, CSRF, and redirects beyond the focused recipes."
+      },
+      {
+        "example_id": "doc-8803a58760042a28-48",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "Destructive-action confirmation needs an application deletion route and CSRF context outside these recipes."
+      },
+      {
+        "example_id": "doc-8803a58760042a28-49",
+        "disposition": "adapted",
+        "recipe_ids": [
+          "inline-server-theme"
+        ],
+        "reason": "Adapt server-selected dark scheme to a complete inline document."
+      },
+      {
+        "example_id": "doc-b33efcf30bd60f28-50",
+        "disposition": "supporting",
+        "recipe_ids": [
+          "inline-server-theme"
+        ],
+        "reason": "Use the documented Bundle preset constructor; this recipe chooses Slate rather than Pine."
+      },
+      {
+        "example_id": "doc-b33efcf30bd60f28-51",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "Custom color, font, and spacing token construction is outside the fixed-preset recipes."
+      },
+      {
+        "example_id": "doc-b33efcf30bd60f28-52",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "Custom graphic theme styles are outside the fixed-preset recipes."
+      },
+      {
+        "example_id": "doc-b33efcf30bd60f28-53",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "Custom material and elevation styling is outside the fixed-preset recipes."
+      },
+      {
+        "example_id": "doc-b33efcf30bd60f28-54",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "Custom relief, header, and pattern styling is outside the fixed-preset recipes."
+      },
+      {
+        "example_id": "doc-b33efcf30bd60f28-55",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "Custom finish styling is outside the fixed-preset recipes."
+      },
+      {
+        "example_id": "doc-b33efcf30bd60f28-56",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "Seeded per-property theming is outside the fixed-preset recipes."
+      },
+      {
+        "example_id": "doc-b33efcf30bd60f28-57",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "Multiple named themes and scoped composition are outside the fixed-preset recipes."
       }
     ]
   },
@@ -532,28 +1912,63 @@
   "verification": [
     {
       "recipe_id": "static-page",
-      "input_sha256": "b020c46de077c9c589b8fcaa77ba3406d75bc6855d4e22de3f19ab3634212906",
+      "input_sha256": "a693871eb0c09f9318532e6e922ac4967fe2f6bab7c62c21baaa5d2970ac18f0",
       "status": "compiled",
       "rustc_version": "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
       "log_path": "verification/static-page/check.log",
-      "lockfile_sha256": "aa4cfcba6f4db8b1875eec9dbc964bb45a08aa0ceba1fbb3f3cdacf8d9e2aa1b",
+      "lockfile_sha256": "a4fc71f8571bb6caab402708733068bf1c79d9216f69def83b5dd0c0ea9b6581",
       "message": "cargo check --locked --all-targets passed; runtime behavior was not tested"
     },
     {
-      "recipe_id": "axum-page",
-      "input_sha256": "396e34e171dc6e3bb20d694028be62581d6f87a3b86000ef3d47e90f1f40790f",
+      "recipe_id": "axum-fragments",
+      "input_sha256": "5ed15ce7a3ddeeda2fbc80585fe57fed8495a168b7bb0e5465d87654e67641cf",
       "status": "compiled",
       "rustc_version": "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
-      "log_path": "verification/axum-page/check.log",
-      "lockfile_sha256": "3537358d3a8c87c55a6b03449f265fe36d7fb82e248f1aaa31af7b83f6324ec8",
+      "log_path": "verification/axum-fragments/check.log",
+      "lockfile_sha256": "820f5729f97ae2101e5fa7154157e08da4e0b8658763c73dcf5fbf7063d24a43",
+      "message": "cargo check --locked --all-targets passed; runtime behavior was not tested"
+    },
+    {
+      "recipe_id": "derived-table",
+      "input_sha256": "d915082082e83ee9cb0bc46ddf3044e3febce3f130fce06ee85853724f29ea4d",
+      "status": "compiled",
+      "rustc_version": "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
+      "log_path": "verification/derived-table/check.log",
+      "lockfile_sha256": "959c956afd0038e7adac8484945a6136ec0db6a02af0b18e0cf8b064cda3b925",
+      "message": "cargo check --locked --all-targets passed; runtime behavior was not tested"
+    },
+    {
+      "recipe_id": "bound-validation",
+      "input_sha256": "256f79dd491fd2eaacf811120d18a0de38f6cffab3aae2d155d54a236df1640f",
+      "status": "compiled",
+      "rustc_version": "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
+      "log_path": "verification/bound-validation/check.log",
+      "lockfile_sha256": "68bc846e48bb28b55e3462a0587eb2d219bdb383c97a147e73708da81a23c587",
+      "message": "cargo check --locked --all-targets passed; runtime behavior was not tested"
+    },
+    {
+      "recipe_id": "inline-server-theme",
+      "input_sha256": "937aa0c347f608b0f2755d13ce9bd8337023ee1726ddea08cf6c24ec3eed20d2",
+      "status": "compiled",
+      "rustc_version": "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
+      "log_path": "verification/inline-server-theme/check.log",
+      "lockfile_sha256": "71a801f03082e4e30a1f1b3157a644bc3b8e2d34b417f0f57638dd42f377053d",
+      "message": "cargo check --locked --all-targets passed; runtime behavior was not tested"
+    },
+    {
+      "recipe_id": "status-details",
+      "input_sha256": "f28fad551b33f02d4cc7d079daf8eff057b12bfc2d8dbb20d30f1ab9410c5a20",
+      "status": "compiled",
+      "rustc_version": "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
+      "log_path": "verification/status-details/check.log",
+      "lockfile_sha256": "e7fad3a6ef77d9813812239aba9ba357f72af041819e7b1d904ca4742afb9856",
       "message": "cargo check --locked --all-targets passed; runtime behavior was not tested"
     }
   ],
   "warnings": [
     "Collection is bounded to 48 UTF-8 evidence files, 48 KiB per file, and 320 KiB total; examples and API documentation are sampled, not exhaustive. Rendered documentation and external documentation sites are not crawled.",
     "Pinned repository archive: 1 link or special-file entries were rejected without following or extracting them.",
-    "2 distinct eligible source files were omitted by the evidence budget; 27 files selected.",
-    "The published facade and pinned repository selection were supplemented with stucco-core/src/bundle.rs from the same release commit to document asset prefixes and export APIs. This is curated evidence, not exhaustive coverage of companion crates.",
-    "Upstream MIT and Apache-2.0 license texts from the release commit are included as frozen sources so they accompany installed evidence. Compiler logs normalize the temporary build-directory prefix; recorded check results and lockfile hashes are unchanged."
+    "2 distinct eligible source files were omitted by the evidence budget; 31 files selected.",
+    "The upstream MIT and Apache-2.0 license texts from the release commit are included as separately hashed frozen evidence."
   ]
 }

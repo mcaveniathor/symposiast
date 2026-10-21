@@ -8,7 +8,7 @@ This is an independent community registry, separate from [Symposium's official r
 
 ```sh
 symposiast export-registry plugins/stucco/bundle \
-  --output .symposiast/registry/stucco-0-2-1
+  --output .symposiast/registry/stucco-0-3-0
 cargo agents plugin validate .symposiast/registry --no-check-crates
 ```
 
@@ -56,7 +56,7 @@ See Symposium's [registry configuration](https://symposium.dev/reference/configu
 
 ## Stucco pilot and validation
 
-The first export uses the checked-in [Stucco 0.2.1 bundle](../plugins/stucco/README.md), with static-page and Axum recipes. Its analysis was imported, and its two recipes have recorded compilation checks. The upstream MIT and Apache-2.0 license texts are frozen evidence and survive export and skill installation. Retain those notices when distributing the entry.
+The current export uses the checked-in [Stucco 0.3.0 bundle](../plugins/stucco/README.md), with six recipes covering static pages, Axum fragments, tables, forms, themes, and status/detail components. Its refined analysis was imported, and all six recipes have recorded compilation checks and documentation-example coverage. The upstream MIT and Apache-2.0 license texts are frozen evidence and survive export and skill installation. Retain those notices when distributing the entry.
 
 The Rust integration tests check export determinism, relocation, reference links, hashes, rejection of incomplete verification, and preservation of existing files. To exercise the real Symposium 0.5.1 installer as well:
 
@@ -84,7 +84,7 @@ Maintainers review source identity, citations, scope, licenses, recipe usefulnes
 
 ## Publication and the registry website
 
-The pilot is published in a separate Git registry with a catalog README and a [revisioned bundle download](https://github.com/mcaveniathor/symposiast-registry/releases/tag/stucco-0.2.1-r1). The archive preserves the full source bundle, runnable recipe projects, compiler logs, and recorded lockfiles; a SHA256 file accompanies it. Corrections should get new release tags and archives rather than replacing an existing download.
+The registry entry is published in a separate Git registry with a catalog README and a [revisioned bundle download](https://github.com/mcaveniathor/symposiast-registry/releases/tag/stucco-0.3.0-r1). The published archive preserves its release snapshot, runnable recipe projects, compiler logs, and recorded lockfiles; a SHA256 file accompanies it. The checked-in bundle in this repository additionally includes the current example-coverage records and runtime assertions; publishing those refinements requires a separate registry revision. Corrections should get new release tags and archives rather than replacing an existing download.
 
 The [registry website](https://mcaveniathor.github.io/symposiast-registry/) is built with Stucco in the registry repository and deployed through GitHub Pages. Its searchable catalog reads `catalog.json` and each entry’s exported provenance; the contribution page renders the repository’s `CONTRIBUTING.md`. Accepted entries appear after the Pages build deploys. See [site development](https://github.com/mcaveniathor/symposiast-registry/blob/main/site/README.md) for local preview and checks.
 

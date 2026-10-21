@@ -16,7 +16,7 @@ def analysis_for(job):
     expected = json.loads((ROOT / "plugins/stucco/bundle/bundle.json").read_text())
     for field in ("name", "version", "checksum"):
         if job["release"][field] != expected["release"][field]:
-            raise ValueError("the CI fixture requires the published Stucco 0.2.1 release")
+            raise ValueError("the CI fixture requires the published Stucco 0.3.0 release")
     analysis = json.loads((HERE / "stucco-analysis.json").read_text())
     sources = {entry["source"]["id"]: entry["source"] for entry in job["sources"]}
     expected_sources = {source["id"]: source for source in expected["sources"]}

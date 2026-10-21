@@ -1,12 +1,12 @@
 # Examples you can inspect and run
 
-These eight recipes were checked with Rust 1.99.1. Each project pins its primary crate and includes the lockfile used for validation. The versions below are **validated snapshots**, not a promise that they are still the latest release.
+These twelve recipes were checked with Rust 1.99.1. Each project pins its primary crate and includes the lockfile used for validation. The versions below are **validated snapshots**, not a promise that they are still the latest release.
 
 | Crate | Version | Recipes | Additional behavior checks |
 | --- | --- | --- | --- |
 | clap | 4.6.7 | Derive arguments, subcommands, fallible validation | Six parser tests passed |
 | axum | 0.8.9 | Typed routes, shared state, JSON bodies | Three in-memory requests passed |
-| Stucco | 0.2.1 | Static pages and Axum documents | HTML, escaping, asset bytes, and HTTP response assertions passed |
+| Stucco | 0.3.0 | Static pages, fragments, tables, forms, themes, and status displays | Six executables with rendering, asset, validation, and HTTP assertions passed |
 
 The pilot used imported structured analyses. Live Claude Code and Codex responses were not verified in the development environment. The normal `symposiast build` workflow uses your configured agent; see [agent adapters](adapters.html).
 
@@ -491,13 +491,13 @@ cargo run --locked --manifest-path site/downloads/axum/typed-json/Cargo.toml
 Release evidence: [documentation, lines 120–152](https://docs.rs/crate/axum/0.8.9/source/src/docs/extract.md) · [api, lines 12–56](https://docs.rs/crate/axum/0.8.9/source/src/json.rs) · [api, lines 158–189](https://docs.rs/crate/axum/0.8.9/source/src/lib.rs) · [example, lines 15–33](https://github.com/tokio-rs/axum/blob/c59208c86fded335cd85e388030ad59347b0e5ae/examples/compression/src/tests.rs#L15-L33).
 
 
-## Stucco 0.2.1
+## Stucco 0.3.0
 
-This documentation site is itself built with [Stucco](https://github.com/mcaveniathor/stucco): Rust components render the pages, and a `Bundle` supplies the hashed theme assets. These smaller recipes show the same building blocks without the documentation site's shell.
+This documentation site is built with Stucco 0.3.0. The six recipes below cover static asset export, Axum fragments, derived tables, validation feedback, server-selected themes, and native status/detail components.
 
 ### Install the Stucco plugin
 
-A frozen, verified Stucco bundle is included in the repository. With Symposiast and Symposium configured, run from the checkout:
+With Symposiast and Symposium configured, run from this checkout:
 
 ```sh
 symposiast install plugins/stucco/bundle
@@ -505,13 +505,15 @@ cd /path/to/consumer
 cargo agents sync
 ```
 
-Installation creates a local plugin with cited skills, MCP retrieval, and a version-check hook using your own executable and bundle paths. It needs no analysis-provider call. Guidance and MCP registration match Stucco **0.2.1** exactly; the hook can warn about other resolved versions. Restart the consuming MCP session after installation. See the [plugin guide](https://github.com/mcaveniathor/symposiast/blob/main/plugins/stucco/README.md) for inspection and refresh commands.
+Guidance and MCP retrieval match Stucco **0.3.0** exactly. The version hook warns about other releases. Restart the consuming MCP session after installation and inspect the [plugin guide](https://github.com/mcaveniathor/symposiast/blob/main/plugins/stucco/README.md).
 
-The bundle contains 27 automatically selected evidence files, one supplemental `stucco-core` API file from the same release commit, and two upstream license files. The source archive checksum authenticates the published facade archive; supplemental files have their own recorded hashes and commit URLs. The checked consumer lockfiles also resolve the Stucco companion crates to 0.2.1.
+The bundle contains 33 frozen sources, including both upstream license texts, at release commit `07335e73dfb22aba2ce89487bcee634a24c2080e`. Its 57 inventoried documentation examples have 14 adapted, 13 supporting, and 30 skipped decisions with reasons. The generated plugin exposes that complete coverage report. This is coverage of the collected evidence, not the entire crate.
 
-### Export a static page with hashed assets
+Every recipe has a recorded compilation check and a pinned consumer lockfile. Local executable assertions are recorded separately in the [validation notes](https://github.com/mcaveniathor/symposiast/blob/main/docs/validation.md). They do not establish browser behavior or application storage integration.
 
-Write index.html and every Bundle asset to an optional output directory (default stucco-example). BASE_PATH is /demo/ for a project site; change it to / for root hosting. Assertions check escaping, the main landmark, the skip link and exact asset bytes on disk.
+### Export a static page with its assets
+
+Write a complete page and its hashed theme assets to an optional output directory (default stucco-example). Assertions check escaped text, the main landmark, the skip link, and exact exported bytes. Serve the output directory at the URL root.
 
 [Cargo.toml](examples/stucco/static-page/Cargo.toml) · [Cargo.lock](examples/stucco/static-page/Cargo.lock) · [src/main.rs](examples/stucco/static-page/src/main.rs)
 
@@ -522,7 +524,7 @@ features = [
     "layout",
     "typography",
 ]
-version = "=0.2.1"
+version = "=0.3.0"
 
 [package]
 edition = "2024"
@@ -540,44 +542,27 @@ use std::{
 };
 use stucco::prelude::*;
 
-// Match the site's URL mount point; use "/" for a site served at the root.
-const BASE_PATH: &str = "/demo/";
-
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     let output = std::env::args_os()
         .nth(1)
         .map(PathBuf::from)
         .unwrap_or_else(|| PathBuf::from("stucco-example"));
-    let bundle = Bundle::new(Preset::Slate).prefix(&format!("{BASE_PATH}_stucco/"));
-    let user_text = "A <careful> welcome & a fresh start.";
-    let html = Page::new(&bundle, "Built with Stucco")
+    let bundle = Bundle::new(Preset::Slate);
+    let html = Page::new(&bundle, "Hello, Stucco")
         .main(
             Container::new().child(
                 Stack::new()
-                    .child(Heading::new(1, "Built with Stucco"))
-                    .child(Text::new(user_text))
-                    .child(Link::new(
-                        "Stucco repository",
-                        "https://github.com/mcaveniathor/stucco",
-                    )),
+                    .child(Heading::new(1, "Hello, Stucco"))
+                    .child(Text::new("A <careful> welcome & a fresh start.")),
             ),
         )
         .render();
-
     assert!(html.contains(r#"<main id="main">"#));
     assert!(html.contains(r##"href="#main""##));
     assert!(html.contains("A &lt;careful&gt; welcome &amp; a fresh start."));
-    assert!(!html.contains("<careful>"));
     assert!(html.contains(bundle.stylesheet_url()));
-
-    fs::create_dir_all(&output)?;
-    let paths = bundle.paths();
-    for url in &paths {
-        // The deployment prefix is a URL, not a directory inside the output.
-        let relative = url
-            .strip_prefix(BASE_PATH)
-            .expect("asset stays under site prefix");
-        let relative = Path::new(relative);
+    for path in bundle.paths() {
+        let relative = Path::new(path.trim_start_matches('/'));
         assert!(
             relative
                 .components()
@@ -585,67 +570,60 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         );
         let destination = output.join(relative);
         fs::create_dir_all(destination.parent().expect("asset has a parent"))?;
-        let asset = bundle.get(url).expect("listed asset exists");
+        let asset = bundle.get(&path).expect("listed asset exists");
         fs::write(&destination, &*asset.bytes)?;
         assert_eq!(fs::read(&destination)?, asset.bytes.as_ref());
     }
     fs::write(output.join("index.html"), &html)?;
     assert_eq!(fs::read_to_string(output.join("index.html"))?, html);
-    assert!(!paths.is_empty());
     println!(
-        "Wrote {} and {} assets; serve it at {BASE_PATH}",
-        output.display(),
-        paths.len()
+        "Wrote {} with matching theme assets; serve this directory at /.",
+        output.display()
     );
     Ok(())
 }
 ```
 
 ```sh
-cargo run --locked --manifest-path site/downloads/stucco/static-page/Cargo.toml -- /tmp/stucco-preview/demo
+cargo run --locked --manifest-path site/downloads/stucco/static-page/Cargo.toml -- /tmp/stucco-preview
 ```
 
-Serve `/tmp/stucco-preview` as the document root and visit the `/demo/` path. The URL prefix must match `BASE_PATH`; opening the HTML directly as a file will not resolve its absolute asset URLs. For root hosting, change `BASE_PATH` to `/` and regenerate.
+Release evidence: [readme, lines 8–18](https://docs.rs/crate/stucco/0.3.0/source/README.md) · [documentation, lines 179–195](https://github.com/mcaveniathor/stucco/blob/07335e73dfb22aba2ce89487bcee634a24c2080e/docs/guide/recipes.md#L179-L195) · [manifest, lines 87–94](https://docs.rs/crate/stucco/0.3.0/source/Cargo.toml) · [readme, lines 7–19](https://docs.rs/crate/stucco/0.3.0/source/README.md) · [readme, lines 38–53](https://github.com/mcaveniathor/stucco/blob/07335e73dfb22aba2ce89487bcee634a24c2080e/README.md#L38-L53) · [api, lines 65–78](https://docs.rs/crate/stucco/0.3.0/source/src/lib.rs) · [documentation, lines 38–52](https://github.com/mcaveniathor/stucco/blob/07335e73dfb22aba2ce89487bcee634a24c2080e/docs/guide/getting-started.md#L38-L52) · [documentation, lines 183–195](https://github.com/mcaveniathor/stucco/blob/07335e73dfb22aba2ce89487bcee634a24c2080e/docs/guide/recipes.md#L183-L195).
 
-Release evidence: [documentation, lines 36–56](https://github.com/mcaveniathor/stucco/blob/303ee2433ce3c05d0af9c4b79a4e09958d374f92/docs/guide/getting-started.md#L36-L56) · [documentation, lines 49–58](https://github.com/mcaveniathor/stucco/blob/303ee2433ce3c05d0af9c4b79a4e09958d374f92/docs/guide/components.md#L49-L58) · [documentation, lines 144–160](https://github.com/mcaveniathor/stucco/blob/303ee2433ce3c05d0af9c4b79a4e09958d374f92/docs/guide/recipes.md#L144-L160) · [api, lines 103–124](https://github.com/mcaveniathor/stucco/blob/303ee2433ce3c05d0af9c4b79a4e09958d374f92/crates/stucco-core/src/bundle.rs#L103-L124) · [api, lines 152–168](https://github.com/mcaveniathor/stucco/blob/303ee2433ce3c05d0af9c4b79a4e09958d374f92/crates/stucco-core/src/bundle.rs#L152-L168).
+### Serve full pages and a named fragment
 
-### Serve a document and its stylesheet through Axum
+Exercise full-page, named-fragment, unknown-target fallback, escaping, and stylesheet responses with in-memory requests. Pass --serve to listen on 127.0.0.1:3000 after the checks.
 
-Return a Document from a PageCx handler, install Stucco last on the router, and issue in-memory requests for the HTML and its content-hashed CSS. Assertions cover status, content type, escaped text, landmarks, immutable cache policy and exact stylesheet bytes.
-
-[Cargo.toml](examples/stucco/axum-page/Cargo.toml) · [Cargo.lock](examples/stucco/axum-page/Cargo.lock) · [src/main.rs](examples/stucco/axum-page/src/main.rs)
+[Cargo.toml](examples/stucco/axum-fragments/Cargo.toml) · [Cargo.lock](examples/stucco/axum-fragments/Cargo.lock) · [src/main.rs](examples/stucco/axum-fragments/src/main.rs)
 
 ```toml
 [dependencies.axum]
-default-features = false
+default-features = true
 features = []
-version = "0.8.9"
+version = "0.8"
 
 [dependencies.stucco]
-default-features = false
-features = [
-    "layout",
-    "typography",
-    "axum",
-]
-version = "=0.2.1"
+default-features = true
+features = ["axum"]
+version = "=0.3.0"
 
 [dependencies.tokio]
 default-features = true
 features = [
     "macros",
-    "rt",
+    "rt-multi-thread",
+    "net",
 ]
-version = "1.53"
+version = "1"
 
 [dependencies.tower]
 default-features = true
 features = ["util"]
-version = "0.5.3"
+version = "0.5"
 
 [package]
 edition = "2024"
-name = "recipe-axum-page"
+name = "recipe-axum-fragments"
 publish = false
 version = "0.0.0"
 
@@ -656,49 +634,76 @@ version = "0.0.0"
 use axum::{
     Router,
     body::{Body, to_bytes},
+    extract::Query,
     http::{
         Request, StatusCode,
-        header::{CACHE_CONTROL, CONTENT_TYPE},
+        header::{CACHE_CONTROL, CONTENT_TYPE, VARY},
     },
+    response::Response,
     routing::get,
 };
+use std::collections::HashMap;
 use stucco::prelude::*;
 use tower::ServiceExt;
 
-async fn index(page: PageCx) -> Document {
-    page.title("Hello, Stucco").main(
-        Container::new().child(
-            Stack::new()
-                .child(Heading::new(1, "Hello, Stucco"))
-                .child(Text::new("Rust <HTML> & a real stylesheet.")),
-        ),
-    )
+fn greeting(name: &str) -> impl Render {
+    el::div()
+        .id("greeting")
+        .child(Text::new(format!("Hello, {name}!")))
 }
 
-fn request(uri: &str) -> Request<Body> {
-    Request::builder().uri(uri).body(Body::empty()).unwrap()
+async fn index(page: PageCx, Query(params): Query<HashMap<String, String>>) -> Response {
+    let name = params.get("q").map(String::as_str).unwrap_or("visitor");
+    page.respond()
+        .fragment("greeting", || greeting(name))
+        .page(|| {
+            page.title("Greeting").main(Stack::of((
+                Heading::new(1, "Greeting"),
+                Form::get("/").child(Stack::of((
+                    Field::new("Name", Input::text("q").value(name)),
+                    Button::new("Greet").submit(),
+                ))),
+                greeting(name),
+            )))
+        })
 }
 
-#[tokio::main(flavor = "current_thread")]
+#[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
     let bundle = Bundle::new(Preset::Slate);
     let stylesheet_url = bundle.stylesheet_url().to_owned();
     let stylesheet = bundle
         .get(&stylesheet_url)
         .expect("theme stylesheet exists");
-    // Call stucco last so it provides assets, middleware and PageCx to every route.
+    // Call stucco last to attach assets, middleware, and PageCx to all routes.
     let app = Router::new().route("/", get(index)).stucco(bundle);
-
-    let response = app.clone().oneshot(request("/")).await?;
-    assert_eq!(response.status(), StatusCode::OK);
-    assert_eq!(response.headers()[CONTENT_TYPE], "text/html; charset=utf-8");
-    let html = String::from_utf8(to_bytes(response.into_body(), 1024 * 1024).await?.to_vec())?;
-    assert!(html.contains(r#"<main id="main">"#));
-    assert!(html.contains(r##"href="#main""##));
-    assert!(html.contains("Rust &lt;HTML&gt; &amp; a real stylesheet."));
-    assert!(html.contains(&stylesheet_url));
-
-    let response = app.oneshot(request(&stylesheet_url)).await?;
+    for target in [None, Some("greeting"), Some("unknown")] {
+        let mut request = Request::builder().uri("/?q=%3CAda%3E");
+        if let Some(target) = target {
+            request = request
+                .header("Stucco-Request", "fragment")
+                .header("Stucco-Target", target);
+        }
+        let response = app.clone().oneshot(request.body(Body::empty())?).await?;
+        assert_eq!(response.status(), StatusCode::OK);
+        assert_eq!(response.headers()[CONTENT_TYPE], "text/html; charset=utf-8");
+        assert_eq!(response.headers()[VARY], "Stucco-Request, Stucco-Target");
+        if target == Some("greeting") {
+            assert_eq!(response.headers()[CACHE_CONTROL], "no-store");
+        }
+        let html = String::from_utf8(to_bytes(response.into_body(), 1024 * 1024).await?.to_vec())?;
+        assert!(html.contains("Hello, &lt;Ada&gt;!"));
+        assert_eq!(html.contains("<html"), target != Some("greeting"));
+        assert_eq!(html.contains("<form"), target != Some("greeting"));
+    }
+    let response = app
+        .clone()
+        .oneshot(
+            Request::builder()
+                .uri(&stylesheet_url)
+                .body(Body::empty())?,
+        )
+        .await?;
     assert_eq!(response.status(), StatusCode::OK);
     assert_eq!(response.headers()[CONTENT_TYPE], "text/css; charset=utf-8");
     assert!(
@@ -706,25 +711,312 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
             .to_str()?
             .contains("immutable")
     );
-    let css = to_bytes(response.into_body(), 1024 * 1024).await?;
-    assert_eq!(css.as_ref(), stylesheet.bytes.as_ref());
-    println!("Verified HTML and {stylesheet_url} through in-memory requests.");
+    assert_eq!(
+        to_bytes(response.into_body(), 1024 * 1024).await?.as_ref(),
+        stylesheet.bytes.as_ref()
+    );
+    println!("Verified full pages, fragments, fallback, escaping, and stylesheet bytes.");
+    if std::env::args().any(|argument| argument == "--serve") {
+        let listener = tokio::net::TcpListener::bind("127.0.0.1:3000").await?;
+        axum::serve(listener, app).await?;
+    }
     Ok(())
 }
 ```
 
 ```sh
-cargo run --locked --manifest-path site/downloads/stucco/axum-page/Cargo.toml
+cargo run --locked --manifest-path site/downloads/stucco/axum-fragments/Cargo.toml
 ```
 
-A successful run prints the checked stylesheet URL. It sends requests through Tower in memory and does not start a network listener.
+The default run completes after in-memory HTTP checks. Append `-- --serve` to start the demo server at `http://127.0.0.1:3000`.
 
-Release evidence: [documentation, lines 58–82](https://github.com/mcaveniathor/stucco/blob/303ee2433ce3c05d0af9c4b79a4e09958d374f92/docs/guide/getting-started.md#L58-L82) · [api, lines 110–111](https://docs.rs/crate/stucco/0.2.1/source/src/lib.rs) · [example, lines 1–25](https://github.com/mcaveniathor/stucco/blob/303ee2433ce3c05d0af9c4b79a4e09958d374f92/examples/orders/tests/http.rs#L1-L25) · [api, lines 121–124](https://github.com/mcaveniathor/stucco/blob/303ee2433ce3c05d0af9c4b79a4e09958d374f92/crates/stucco-core/src/bundle.rs#L121-L124) · [api, lines 163–168](https://github.com/mcaveniathor/stucco/blob/303ee2433ce3c05d0af9c4b79a4e09958d374f92/crates/stucco-core/src/bundle.rs#L163-L168) · [manifest, lines 20–28](https://github.com/mcaveniathor/stucco/blob/303ee2433ce3c05d0af9c4b79a4e09958d374f92/Cargo.toml#L20-L28).
+Release evidence: [readme, lines 65–66](https://github.com/mcaveniathor/stucco/blob/07335e73dfb22aba2ce89487bcee634a24c2080e/README.md#L65-L66) · [example, lines 6–63](https://github.com/mcaveniathor/stucco/blob/07335e73dfb22aba2ce89487bcee634a24c2080e/examples/hello/src/main.rs#L6-L63) · [documentation, lines 9–26](https://github.com/mcaveniathor/stucco/blob/07335e73dfb22aba2ce89487bcee634a24c2080e/docs/guide/enhancement.md#L9-L26) · [readme, lines 72–86](https://github.com/mcaveniathor/stucco/blob/07335e73dfb22aba2ce89487bcee634a24c2080e/README.md#L72-L86) · [documentation, lines 13–22](https://github.com/mcaveniathor/stucco/blob/07335e73dfb22aba2ce89487bcee634a24c2080e/docs/guide/enhancement.md#L13-L22) · [documentation, lines 62–76](https://github.com/mcaveniathor/stucco/blob/07335e73dfb22aba2ce89487bcee634a24c2080e/docs/guide/getting-started.md#L62-L76) · [documentation, lines 147–160](https://github.com/mcaveniathor/stucco/blob/07335e73dfb22aba2ce89487bcee634a24c2080e/docs/guide/recipes.md#L147-L160).
 
-## What was validated
+### Derive columns and format stored cents
 
-All eight projects compiled against their exact primary crate releases with recorded dependency lockfiles. The clap recipes also passed six parser tests; the three axum executables passed their response assertions. The two Stucco recipes passed assertions for rendered HTML, escaping, main landmarks, asset output, and in-memory HTML/CSS responses. These checks establish the behavior shown here, not comprehensive library coverage.
+Render table markup from derived columns with separate numeric and display values. This has no backend capabilities or query execution; embed the table in a Page for themed document output.
 
-The collector verified all three published crate archives and read repository snapshots pinned by the published VCS metadata. The clap and axum pilots each retained 48 evidence sources; Stucco retained 27 before the supplemental API and license files described above were added. All bundles record coverage limits. Source citations refer to those frozen inputs; inspect bundle warnings when creating your own guidance.
+[Cargo.toml](examples/stucco/derived-table/Cargo.toml) · [Cargo.lock](examples/stucco/derived-table/Cargo.lock) · [src/main.rs](examples/stucco/derived-table/src/main.rs)
 
-After installing a generated plugin, use `cargo agents sync` in your consumer workspace. Skills and MCP registration use exact release predicates. The SessionStart hook warns when the consumer's lockfile no longer matches. See the [getting started guide](getting-started.html) for installation and [command reference](reference.html) for refresh and retrieval.
+```toml
+[dependencies.stucco]
+default-features = false
+features = ["derive"]
+version = "=0.3.0"
+
+[package]
+edition = "2024"
+name = "recipe-derived-table"
+publish = false
+version = "0.0.0"
+
+[workspace]
+```
+
+```rust
+use stucco::prelude::*;
+use stucco::{CollectionPage, to_html};
+
+#[derive(Columns)]
+struct Order {
+    #[col(label = "ID", sortable)]
+    id: u64,
+    #[col(sortable, searchable)]
+    customer: String,
+    #[col(key = "total", label = "Total", value = dollars, display = money)]
+    total_cents: u64,
+}
+
+fn dollars(order: &Order) -> f64 {
+    order.total_cents as f64 / 100.0
+}
+
+fn money(order: &Order) -> String {
+    format!(
+        "${}.{:02}",
+        order.total_cents / 100,
+        order.total_cents % 100
+    )
+}
+
+fn main() {
+    let page = CollectionPage {
+        rows: vec![Order {
+            id: 7,
+            customer: "<Ada>".into(),
+            total_cents: 4800,
+        }],
+        next: None,
+        prev: None,
+        total: None,
+    };
+    let table = DataTable::from_page(&page, "Orders").columns(Order::columns());
+    let html = to_html(&table);
+    assert!(html.contains("&lt;Ada&gt;"));
+    assert!(html.contains("$48.00"));
+    println!("{html}");
+}
+```
+
+```sh
+cargo run --locked --manifest-path site/downloads/stucco/derived-table/Cargo.toml
+```
+
+Release evidence: [manifest, lines 77–80](https://docs.rs/crate/stucco/0.3.0/source/Cargo.toml) · [test, lines 4–34](https://docs.rs/crate/stucco/0.3.0/source/tests/derive.rs) · [test, lines 50–74](https://docs.rs/crate/stucco/0.3.0/source/tests/derive.rs) · [readme, lines 160–173](https://github.com/mcaveniathor/stucco/blob/07335e73dfb22aba2ce89487bcee634a24c2080e/README.md#L160-L173) · [documentation, lines 15–35](https://github.com/mcaveniathor/stucco/blob/07335e73dfb22aba2ce89487bcee634a24c2080e/docs/guide/collections.md#L15-L35) · [documentation, lines 45–67](https://github.com/mcaveniathor/stucco/blob/07335e73dfb22aba2ce89487bcee634a24c2080e/docs/guide/collections.md#L45-L67) · [documentation, lines 110–139](https://github.com/mcaveniathor/stucco/blob/07335e73dfb22aba2ce89487bcee634a24c2080e/docs/guide/recipes.md#L110-L139).
+
+### Render validation errors from returned form state
+
+Demonstrate validation and bound error markup without an HTTP server. A deployed POST flow must supply its handler, CSRF setup and issued token, and a 422 response on validation failure.
+
+[Cargo.toml](examples/stucco/bound-validation/Cargo.toml) · [Cargo.lock](examples/stucco/bound-validation/Cargo.lock) · [src/main.rs](examples/stucco/bound-validation/src/main.rs)
+
+```toml
+[dependencies.stucco]
+default-features = false
+features = ["forms"]
+version = "=0.3.0"
+
+[package]
+edition = "2024"
+name = "recipe-bound-validation"
+publish = false
+version = "0.0.0"
+
+[workspace]
+```
+
+```rust
+use stucco::prelude::*;
+use stucco::{FormState, Validator, to_html};
+
+fn validate(state: FormState) -> Result<String, FormState> {
+    let mut validator = Validator::new(state);
+    let customer = validator
+        .text("customer")
+        .required("Enter a customer name")
+        .max_chars(80, "Use 80 characters or fewer")
+        .get();
+    validator.finish(|| customer)
+}
+
+fn main() {
+    let submitted = FormState::new().with_value("customer", "");
+    match validate(submitted) {
+        Ok(_) => panic!("an empty customer name must fail validation"),
+        Err(state) => {
+            let form = Form::post("/customers")
+                .child(ErrorSummary::new(&state).field("customer", "customer-name"))
+                .child(
+                    Field::new("Customer", Input::text("customer").id("customer-name"))
+                        .required()
+                        .bind(&state),
+                )
+                .child(Button::new("Save").submit());
+            let html = to_html(&form);
+            assert!(html.contains("Enter a customer name"));
+            assert!(html.contains("aria-invalid=\"true\""));
+            assert!(html.contains("customer-name"));
+            println!("{html}");
+        }
+    }
+}
+```
+
+```sh
+cargo run --locked --manifest-path site/downloads/stucco/bound-validation/Cargo.toml
+```
+
+Release evidence: [documentation, lines 44–99](https://github.com/mcaveniathor/stucco/blob/07335e73dfb22aba2ce89487bcee634a24c2080e/docs/guide/forms.md#L44-L99) · [example, lines 97–107](https://github.com/mcaveniathor/stucco/blob/07335e73dfb22aba2ce89487bcee634a24c2080e/examples/orders/src/form.rs#L97-L107) · [documentation, lines 83–101](https://github.com/mcaveniathor/stucco/blob/07335e73dfb22aba2ce89487bcee634a24c2080e/docs/guide/recipes.md#L83-L101) · [manifest, lines 82–85](https://docs.rs/crate/stucco/0.3.0/source/Cargo.toml) · [documentation, lines 9–26](https://github.com/mcaveniathor/stucco/blob/07335e73dfb22aba2ce89487bcee634a24c2080e/docs/guide/forms.md#L9-L26) · [documentation, lines 48–64](https://github.com/mcaveniathor/stucco/blob/07335e73dfb22aba2ce89487bcee634a24c2080e/docs/guide/forms.md#L48-L64) · [documentation, lines 74–95](https://github.com/mcaveniathor/stucco/blob/07335e73dfb22aba2ce89487bcee634a24c2080e/docs/guide/forms.md#L74-L95) · [documentation, lines 75–102](https://github.com/mcaveniathor/stucco/blob/07335e73dfb22aba2ce89487bcee634a24c2080e/docs/guide/recipes.md#L75-L102).
+
+### Render an inline document with a server-selected scheme
+
+Render a standalone document with an explicit dark scheme and inline assets. This example uses basic elements and no component behaviors; inline output cannot receive fragments.
+
+[Cargo.toml](examples/stucco/inline-server-theme/Cargo.toml) · [Cargo.lock](examples/stucco/inline-server-theme/Cargo.lock) · [src/main.rs](examples/stucco/inline-server-theme/src/main.rs)
+
+```toml
+[dependencies.stucco]
+default-features = false
+features = []
+version = "=0.3.0"
+
+[package]
+edition = "2024"
+name = "recipe-inline-server-theme"
+publish = false
+version = "0.0.0"
+
+[workspace]
+```
+
+```rust
+use stucco::theme::{Preset, Scheme};
+use stucco::{Bundle, Delivery, Page, el};
+
+fn main() {
+    let bundle = Bundle::new(Preset::Slate);
+    let html = Page::new(&bundle, "Account")
+        .server_theme(Some(Scheme::Dark))
+        .delivery(Delivery::Inline)
+        .body(el::main().child(el::h1().text("Account")))
+        .render();
+    assert!(html.contains("data-theme=\"dark\""));
+    assert!(html.contains("<style"));
+    assert!(!html.contains("rel=\"stylesheet\""));
+    assert!(html.contains("<h1>Account</h1>"));
+    println!("{html}");
+}
+```
+
+```sh
+cargo run --locked --manifest-path site/downloads/stucco/inline-server-theme/Cargo.toml
+```
+
+Release evidence: [api, lines 19–24](https://docs.rs/crate/stucco/0.3.0/source/src/lib.rs) · [documentation, lines 48–50](https://github.com/mcaveniathor/stucco/blob/07335e73dfb22aba2ce89487bcee634a24c2080e/docs/guide/enhancement.md#L48-L50) · [documentation, lines 333–350](https://github.com/mcaveniathor/stucco/blob/07335e73dfb22aba2ce89487bcee634a24c2080e/docs/guide/recipes.md#L333-L350) · [api, lines 5–13](https://docs.rs/crate/stucco/0.3.0/source/src/lib.rs) · [documentation, lines 339–348](https://github.com/mcaveniathor/stucco/blob/07335e73dfb22aba2ce89487bcee634a24c2080e/docs/guide/recipes.md#L339-L348) · [documentation, lines 9–13](https://github.com/mcaveniathor/stucco/blob/07335e73dfb22aba2ce89487bcee634a24c2080e/docs/guide/theming.md#L9-L13).
+
+### Render status and details with native components
+
+Render a standalone order page demonstrating all eleven new display, navigation, progress and disclosure components. Replace sample values and navigation URLs with application data and routes.
+
+[Cargo.toml](examples/stucco/status-details/Cargo.toml) · [Cargo.lock](examples/stucco/status-details/Cargo.lock) · [src/main.rs](examples/stucco/status-details/src/main.rs)
+
+```toml
+[dependencies.stucco]
+default-features = true
+features = []
+version = "=0.3.0"
+
+[package]
+edition = "2024"
+name = "recipe-status-details"
+publish = false
+version = "0.0.0"
+
+[workspace]
+```
+
+```rust
+use stucco::Delivery;
+use stucco::prelude::*;
+
+fn main() {
+    let bundle = Bundle::new(Preset::Slate);
+    let content = Stack::new()
+        .child(
+            PageHeader::new("Order 1042").breadcrumbs(
+                Breadcrumbs::new()
+                    .link("Orders", "/orders")
+                    .current("Order 1042"),
+            ),
+        )
+        .child(Cluster::of((
+            Avatar::new("Ada Lovelace").decorative(),
+            Text::new("Ada Lovelace"),
+        )))
+        .child(
+            DescriptionList::new()
+                .item("Status", Badge::new("Paid").tone(Tone::Success))
+                .item("Total", "$128.00"),
+        )
+        .child(
+            Stat::new("Orders", "128")
+                .change("12%", Trend::Up)
+                .change_tone(Tone::Success)
+                .context("vs last week"),
+        )
+        .child(
+            Steps::new("Checkout")
+                .step("Cart", "/checkout/cart")
+                .step("Delivery", "/checkout/delivery")
+                .step_disabled("Payment")
+                .current(1),
+        )
+        .child(Progress::new("Import", 42.0, 100.0).show_value())
+        .child(
+            Meter::new("Storage", 7.2, 0.0, 10.0)
+                .low(3.0)
+                .high(8.0)
+                .optimum(1.0)
+                .value_text("7.2 of 10 GB"),
+        )
+        .child(
+            Callout::new(Tone::Info)
+                .title("Preparing for dispatch")
+                .child(Text::new("Your order will ship within two working days.")),
+        )
+        .child(
+            Disclosure::new("Shipping details")
+                .heading(2)
+                .child(Text::new("Tracked delivery is included.")),
+        )
+        .child(
+            Accordion::new()
+                .heading(2)
+                .item_open("Shipping", Text::new("Arrives by Friday."))
+                .item("Returns", Text::new("Return within 30 days."))
+                .exclusive(),
+        );
+    let html = Page::new(&bundle, "Order 1042")
+        .delivery(Delivery::Inline)
+        .main(content)
+        .render();
+    for marker in [
+        "<progress",
+        "<meter",
+        "<details",
+        "<summary",
+        "Paid",
+        "Order 1042",
+        "$128.00",
+    ] {
+        assert!(html.contains(marker), "missing {marker}");
+    }
+    println!("{html}");
+}
+```
+
+```sh
+cargo run --locked --manifest-path site/downloads/stucco/status-details/Cargo.toml
+```
+
+Release evidence: [documentation, lines 106–202](https://github.com/mcaveniathor/stucco/blob/07335e73dfb22aba2ce89487bcee634a24c2080e/docs/guide/components.md#L106-L202) · [documentation, lines 36–69](https://github.com/mcaveniathor/stucco/blob/07335e73dfb22aba2ce89487bcee634a24c2080e/docs/guide/recipes.md#L36-L69) · [documentation, lines 48–50](https://github.com/mcaveniathor/stucco/blob/07335e73dfb22aba2ce89487bcee634a24c2080e/docs/guide/enhancement.md#L48-L50) · [api, lines 82–98](https://docs.rs/crate/stucco/0.3.0/source/src/lib.rs) · [documentation, lines 29–45](https://github.com/mcaveniathor/stucco/blob/07335e73dfb22aba2ce89487bcee634a24c2080e/docs/guide/components.md#L29-L45) · [documentation, lines 110–126](https://github.com/mcaveniathor/stucco/blob/07335e73dfb22aba2ce89487bcee634a24c2080e/docs/guide/components.md#L110-L126) · [documentation, lines 139–152](https://github.com/mcaveniathor/stucco/blob/07335e73dfb22aba2ce89487bcee634a24c2080e/docs/guide/components.md#L139-L152) · [documentation, lines 162–172](https://github.com/mcaveniathor/stucco/blob/07335e73dfb22aba2ce89487bcee634a24c2080e/docs/guide/components.md#L162-L172) · [documentation, lines 182–198](https://github.com/mcaveniathor/stucco/blob/07335e73dfb22aba2ce89487bcee634a24c2080e/docs/guide/components.md#L182-L198) · [documentation, lines 40–67](https://github.com/mcaveniathor/stucco/blob/07335e73dfb22aba2ce89487bcee634a24c2080e/docs/guide/recipes.md#L40-L67).

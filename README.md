@@ -104,7 +104,7 @@ Symposium's current MCP manifest registers a command but does not install that b
 
 To teach an agent this workflow, install the bundled [use-symposiast skill](plugins/README.md) through Symposium. It covers selecting the project's resolved release, reusing or generating guidance, inspecting evidence, and installing and syncing the resulting plugin for Claude Code or Codex.
 
-A ready-to-install [Stucco 0.2.1 plugin bundle](plugins/stucco/README.md) is included. Run `symposiast install plugins/stucco/bundle`, then `cargo agents sync` in the consumer project to enable its skills, MCP retrieval, and version hook.
+A ready-to-install [Stucco 0.3.0 plugin bundle](plugins/stucco/README.md) is included. Run `symposiast install plugins/stucco/bundle`, then `cargo agents sync` in the consumer project to enable its skills, MCP retrieval, and version hook.
 
 ```sh
 symposiast serve .symposiast/clap
@@ -133,7 +133,7 @@ See [the design](docs/design.md), [agent adapter contract](docs/adapters.md), an
 
 ## Documentation site
 
-The GitHub Pages site is built in Rust with [Stucco](https://github.com/mcaveniathor/stucco). It includes getting started and automation guides, adapter and command references, and eight runnable clap/axum/Stucco recipes with pinned lockfiles.
+The GitHub Pages site is built in Rust with [Stucco](https://github.com/mcaveniathor/stucco). It includes getting started and automation guides, adapter and command references, and twelve runnable clap/axum/Stucco recipes with pinned lockfiles.
 
 ```sh
 cargo run --locked -p symposiast-site -- dist --base /symposiast/

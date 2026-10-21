@@ -29,7 +29,7 @@ class ActionTests(unittest.TestCase):
         bundle = json.loads((FIXTURE / "bundle.json").read_text())
         published = {
             source["id"]: source for source in bundle["sources"]
-            if source["url"].startswith("https://docs.rs/crate/stucco/0.2.1/source/")
+            if source["url"].startswith("https://docs.rs/crate/stucco/0.3.0/source/")
         }
         for item in analysis["findings"] + analysis["recipes"]:
             self.assertTrue(item["citations"])
@@ -76,7 +76,7 @@ class ActionTests(unittest.TestCase):
             "RUNNER_OS": "Linux", "RUNNER_ENVIRONMENT": "github-hosted",
             "RUNNER_TEMP": str(self.root), "GITHUB_OUTPUT": str(self.outputs),
             "SYMPOSIAST_ACTION_PATH": str(ROOT), "SYMPOSIAST_INPUT_CRATE": "stucco",
-            "SYMPOSIAST_INPUT_VERSION": "v0.2.1", "SYMPOSIAST_INPUT_REGISTRY_WAIT_SECONDS": "0",
+            "SYMPOSIAST_INPUT_VERSION": "v0.3.0", "SYMPOSIAST_INPUT_REGISTRY_WAIT_SECONDS": "0",
             "SYMPOSIAST_INPUT_SYMPOSIAST_EXECUTABLE": str(self.cli),
             "SYMPOSIAST_INPUT_UPLOAD_ARTIFACT": "false",
         })
@@ -110,25 +110,25 @@ class ActionTests(unittest.TestCase):
         result = self.run_action()
         self.assertEqual(result.returncode, 0, result.stderr)
         values = self.output_values()
-        self.assertEqual(values["crate-version"], "0.2.1")
-        self.assertEqual(values["artifact-name"], "symposiast-stucco-0.2.1")
+        self.assertEqual(values["crate-version"], "0.3.0")
+        self.assertEqual(values["artifact-name"], "symposiast-stucco-0.3.0")
         self.assertEqual([call["args"][0] for call in self.calls()], ["build", "check"])
         self.assertEqual(self.calls()[0]["toolchain"], "1.99.1")
         args = self.calls()[0]["args"]
-        self.assertEqual(args[args.index("--version") + 1], "0.2.1")
+        self.assertEqual(args[args.index("--version") + 1], "0.3.0")
         with tarfile.open(values["archive-path"]) as archive:
-            metadata = json.load(archive.extractfile("stucco-0.2.1/bundle.json"))
-            expected = {"stucco-0.2.1/bundle.json"}
-            expected.update("stucco-0.2.1/" + source["path"] for source in metadata["sources"])
+            metadata = json.load(archive.extractfile("stucco-0.3.0/bundle.json"))
+            expected = {"stucco-0.3.0/bundle.json"}
+            expected.update("stucco-0.3.0/" + source["path"] for source in metadata["sources"])
             for recipe in metadata["analysis"]["recipes"]:
-                expected.update(f"stucco-0.2.1/verification/{recipe['id']}/{suffix}"
+                expected.update(f"stucco-0.3.0/verification/{recipe['id']}/{suffix}"
                                 for suffix in ("Cargo.toml", "Cargo.lock", "src/main.rs", "check.log"))
             self.assertEqual(set(archive.getnames()), expected)
             for member in archive.getmembers():
                 self.assertTrue(member.isfile())
                 self.assertEqual(member.mode, 0o644)
                 self.assertEqual(member.uid, 0)
-                relative = member.name.removeprefix("stucco-0.2.1/")
+                relative = member.name.removeprefix("stucco-0.3.0/")
                 self.assertEqual(archive.extractfile(member).read(), (FIXTURE / relative).read_bytes())
 
     def test_inputs_are_argv_data_not_shell_code(self):
@@ -213,7 +213,7 @@ class ActionTests(unittest.TestCase):
             path.write_text("THIS_TEST_SECRET_MUST_NEVER_BE_PACKAGED")
             path.chmod(0o755)
         archive = self.root / "portable.tar.gz"
-        action.package(bundle, "stucco", "0.2.1", archive, str(self.cli))
+        action.package(bundle, "stucco", "0.3.0", archive, str(self.cli))
         with tarfile.open(archive) as tar:
             self.assertFalse(any("THIS_TEST_SECRET_MUST_NEVER_BE_PACKAGED" in tar.extractfile(item).read().decode()
                                  for item in tar.getmembers()))
@@ -228,12 +228,12 @@ class ActionTests(unittest.TestCase):
                 path = bundle / relative
                 original = path.read_bytes()
                 if relative.endswith("Cargo.toml"):
-                    path.write_bytes(original.replace(b'version = "=0.2.1"', b'version = "*"'))
+                    path.write_bytes(original.replace(b'version = "=0.3.0"', b'version = "*"'))
                 else:
                     path.write_bytes(original + b"\n# changed\n")
                 try:
                     with self.assertRaises((action.ActionError, ValueError)):
-                        action.portable_files(bundle, "stucco", "0.2.1")
+                        action.portable_files(bundle, "stucco", "0.3.0")
                 finally:
                     path.write_bytes(original)
 
@@ -256,7 +256,7 @@ class ActionTests(unittest.TestCase):
             change(data)
             path.write_text(json.dumps(data))
             with self.assertRaises(action.ActionError):
-                action.portable_files(bundle, "stucco", "0.2.1")
+                action.portable_files(bundle, "stucco", "0.3.0")
 
     def test_rejects_symlink_evidence(self):
         bundle = self.copy_bundle()
@@ -264,7 +264,7 @@ class ActionTests(unittest.TestCase):
         path.unlink()
         path.symlink_to(FIXTURE / "sources/e0001.txt")
         with self.assertRaises(action.ActionError):
-            action.portable_files(bundle, "stucco", "0.2.1")
+            action.portable_files(bundle, "stucco", "0.3.0")
 
     def test_bootstrap_environment_excludes_credentials_and_rustflags(self):
         with patch.dict(os.environ, {"OPENAI_API_KEY": "private", "ANTHROPIC_API_KEY": "private",
@@ -286,12 +286,12 @@ class RegistryTests(unittest.TestCase):
             requests.append((request.full_url, timeout))
             if len(requests) == 1:
                 raise urllib.error.HTTPError(request.full_url, 404, "not ready", {}, None)
-            return io.BytesIO(b'{"name":"stucco","vers":"0.2.1","yanked":false}\n')
+            return io.BytesIO(b'{"name":"stucco","vers":"0.3.0","yanked":false}\n')
 
         def sleep(seconds):
             now[0] += seconds
 
-        action.wait_for_registry("stucco", "0.2.1", 30, opener=opener,
+        action.wait_for_registry("stucco", "0.3.0", 30, opener=opener,
                                  clock=lambda: now[0], sleep=sleep)
         self.assertEqual(len(requests), 2)
         self.assertEqual(requests[0][0], "https://index.crates.io/st/uc/stucco")
@@ -303,23 +303,23 @@ class RegistryTests(unittest.TestCase):
             now[0] += seconds
 
         with self.assertRaises(action.ActionError):
-            action.wait_for_registry("stucco", "0.2.1", 12, opener=lambda *a, **kw: io.BytesIO(b""),
+            action.wait_for_registry("stucco", "0.3.0", 12, opener=lambda *a, **kw: io.BytesIO(b""),
                                      clock=lambda: now[0], sleep=sleep)
         self.assertEqual(now[0], 12)
         with patch.object(action.urllib.request, "urlopen") as opener:
             action.wait_for_registry("stucco", "", 300, opener=opener)
-            action.wait_for_registry("stucco", "0.2.1", 0, opener=opener)
+            action.wait_for_registry("stucco", "0.3.0", 0, opener=opener)
             opener.assert_not_called()
 
     def test_yanked_version_and_forbidden_response_fail_without_retries(self):
-        responses = [io.BytesIO(b'{"name":"stucco","vers":"0.2.1","yanked":true}\n'),
+        responses = [io.BytesIO(b'{"name":"stucco","vers":"0.3.0","yanked":true}\n'),
                      urllib.error.HTTPError("url", 403, "forbidden", {}, None)]
         for response in responses:
             with patch.object(action.urllib.request, "urlopen", side_effect=(
                 response if isinstance(response, Exception) else None)) as opener:
                 opener.return_value = response
                 with self.assertRaises(action.ActionError):
-                    action.wait_for_registry("stucco", "0.2.1", 30, opener=opener)
+                    action.wait_for_registry("stucco", "0.3.0", 30, opener=opener)
                 self.assertEqual(opener.call_count, 1)
 
 

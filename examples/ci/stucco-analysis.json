@@ -1,15 +1,26 @@
 {
-  "summary": "Fixed Stucco 0.2.1 guidance used by the deterministic CI adapter without a provider call. This fixture covers semantic page rendering only.",
+  "summary": "Fixed Stucco 0.3.0 guidance used by the deterministic CI adapter without a provider call. This fixture covers semantic page rendering only.",
   "findings": [
     {
       "id": "semantic-pages",
       "title": "Compose a page with the published facade example",
       "guidance": "Compose a page with Page::new(&bundle, title).main(content).render(), following the published README. Enable layout and typography for the components in this example.",
       "basis": "documented",
-      "features": ["layout", "typography"],
+      "features": [
+        "layout",
+        "typography"
+      ],
       "citations": [
-        {"source_id": "e0003", "start_line": 7, "end_line": 26},
-        {"source_id": "e0001", "start_line": 88, "end_line": 103}
+        {
+          "source_id": "e0003",
+          "start_line": 7,
+          "end_line": 19
+        },
+        {
+          "source_id": "e0001",
+          "start_line": 39,
+          "end_line": 91
+        }
       ]
     }
   ],
@@ -20,11 +31,22 @@
       "description": "Render a complete Stucco document with escaped text, a main landmark, and a skip link. This example checks the HTML string; it does not serve or export theme assets.",
       "code": "use stucco::prelude::*;\n\nfn main() {\n    let bundle = Bundle::new(Preset::Slate);\n    let html = Page::new(&bundle, \"Hello, Stucco\")\n        .main(Container::new().child(Stack::new()\n            .child(Heading::new(1, \"Hello, Stucco\"))\n            .child(Text::new(\"Safe <text> & a page.\"))))\n        .render();\n    assert!(html.contains(r#\"<main id=\"main\">\"#));\n    assert!(html.contains(r##\"href=\"#main\"\"##));\n    assert!(html.contains(\"Safe &lt;text&gt; &amp; a page.\"));\n    println!(\"Verified the rendered document.\");\n}\n",
       "default_features": false,
-      "features": ["layout", "typography"],
+      "features": [
+        "layout",
+        "typography"
+      ],
       "dependencies": {},
       "citations": [
-        {"source_id": "e0003", "start_line": 7, "end_line": 26},
-        {"source_id": "e0001", "start_line": 88, "end_line": 103}
+        {
+          "source_id": "e0003",
+          "start_line": 7,
+          "end_line": 19
+        },
+        {
+          "source_id": "e0001",
+          "start_line": 39,
+          "end_line": 91
+        }
       ]
     }
   ]

@@ -14,7 +14,7 @@ If coverage is missing, [request a crate or release](https://github.com/mcavenia
 
 After installing a matching entry, run `cargo agents status` in your consumer project and reload your agent session if needed. Ask it to consult that release's installed skill, choose a relevant recipe, and explain how the recipe's features and source match your dependencies before adapting it. Run your project's checks on the result.
 
-For example, a project already using Stucco 0.2.1 can ask: "Use the installed Stucco 0.2.1 guidance to add a static page with a content-hashed stylesheet. Check the recipe's feature requirements and explain how the exported assets match the deployment path."
+For example, a project already using Stucco 0.3.0 can ask: "Use the installed Stucco 0.3.0 guidance to add a static page with a content-hashed stylesheet. Check the recipe's feature requirements and explain how the exported assets match the deployment path."
 
 If no skill applies, check the exact version and source in `Cargo.lock`, registry configuration, and sync output. An unsupported release needs its own guidance; do not downgrade the project just to activate a skill. Installed does not necessarily mean consulted: inspect your agent's explanation or visible tool activity, and record uncertainty when it is unclear.
 

@@ -9,7 +9,7 @@ on:
         default: stucco
       version:
         description: Exact crate version (empty selects latest stable)
-        default: '0.2.1'
+        default: '0.3.0'
       agent:
         description: Analysis agent
         type: choice

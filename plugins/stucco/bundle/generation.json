@@ -1,0 +1,10 @@
+{
+  "generator_repository": "https://github.com/mcaveniathor/symposiast",
+  "generator_revision": "7c60465",
+  "generation": "Reused existing Stucco 0.3.0 analysis after matching all 31 sources against a fresh exact-release collection; imported refinements add explicit example coverage and runtime assertions.",
+  "analysis_review": "No separate reviewer was run for this refined analysis; bundle review is null.",
+  "toolchain": "Rust 1.99.1",
+  "platform": "Linux x86_64",
+  "runtime_trials": "All six recipe executables and their assertions passed locally; no browser enhancement validation is claimed.",
+  "human_review_claimed": false
+}

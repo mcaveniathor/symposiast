@@ -1,202 +1,353 @@
+# Recipes
 
-                                 Apache License
-                           Version 2.0, January 2004
-                        http://www.apache.org/licenses/
+Short answers to "how do I…?". Each one is a complete handler or a few lines you can drop into an app built with the [getting started](getting-started.html) setup.
 
-   TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
+## Start a new app
 
-   1. Definitions.
+The CLI writes a working app: axum, a theme, a shared layout, a home page and a table.
 
-      "License" shall mean the terms and conditions for use, reproduction,
-      and distribution as defined by Sections 1 through 9 of this document.
+```sh
+cargo install stucco-cli
+stucco new my-app --name my-app   # a theme derived from the app's name
+cd my-app && cargo run
+```
 
-      "Licensor" shall mean the copyright owner or entity authorized by
-      the copyright owner that is granting the License.
+`--preset`, `--seed` and `--random` pick the theme instead. `--git` takes stucco from its repository, for features not yet released.
 
-      "Legal Entity" shall mean the union of the acting entity and all
-      other entities that control, are controlled by, or are under common
-      control with that entity. For the purposes of this definition,
-      "control" means (i) the power, direct or indirect, to cause the
-      direction or management of such entity, whether by contract or
-      otherwise, or (ii) ownership of fifty percent (50%) or more of the
-      outstanding shares, or (iii) beneficial ownership of such entity.
+## Share a layout between pages
 
-      "You" (or "Your") shall mean an individual or Legal Entity
-      exercising permissions granted by this License.
+Write the shell once, and mark the current page from each handler:
 
-      "Source" form shall mean the preferred form for making modifications,
-      including but not limited to software source code, documentation
-      source, and configuration files.
+```rust
+use stucco::prelude::*;
 
-      "Object" form shall mean any form resulting from mechanical
-      transformation or translation of a Source form, including but
-      not limited to compiled object code, generated documentation,
-      and conversions to other media types.
+fn shell<'a>(current: &str) -> AppShell<'a> {
+    AppShell::new()
+        .header(PageHeader::new("Shop"))
+        .link(NavLink::new("Orders", "/orders").current(current == "/orders"))
+        .link(NavLink::new("Customers", "/customers").current(current == "/customers"))
+}
 
-      "Work" shall mean the work of authorship, whether in Source or
-      Object form, made available under the License, as indicated by a
-      copyright notice that is included in or attached to the work
-      (an example is provided in the Appendix below).
+async fn customers(page: PageCx) -> Document {
+    page.title("Customers").app(shell("/customers").main(Heading::new(2, "Customers")))
+}
+```
 
-      "Derivative Works" shall mean any work, whether in Source or Object
-      form, that is based on (or derived from) the Work and for which the
-      editorial revisions, annotations, elaborations, or other modifications
-      represent, as a whole, an original work of authorship. For the purposes
-      of this License, Derivative Works shall not include works that remain
-      separable from, or merely link (or bind by name) to the interfaces of,
-      the Work and Derivative Works thereof.
+## Show status and details
 
-      "Contribution" shall mean any work of authorship, including
-      the original version of the Work and any modifications or additions
-      to that Work or Derivative Works thereof, that is intentionally
-      submitted to Licensor for inclusion in the Work by the copyright owner
-      or by an individual or Legal Entity authorized to submit on behalf of
-      the copyright owner. For the purposes of this definition, "submitted"
-      means any form of electronic, verbal, or written communication sent
-      to the Licensor or its representatives, including but not limited to
-      communication on electronic mailing lists, source code control systems,
-      and issue tracking systems that are managed by, or on behalf of, the
-      Licensor for the purpose of discussing and improving the Work, but
-      excluding communication that is conspicuously marked or otherwise
-      designated in writing by the copyright owner as "Not a Contribution."
+Compose an order detail page from a breadcrumb trail, a status badge, labelled fields and a static callout. This handler uses the default component features and the `axum` feature:
 
-      "Contributor" shall mean Licensor and any individual or Legal Entity
-      on behalf of whom a Contribution has been received by Licensor and
-      subsequently incorporated within the Work.
+```rust
+use stucco::prelude::*;
 
-   2. Grant of Copyright License. Subject to the terms and conditions of
-      this License, each Contributor hereby grants to You a perpetual,
-      worldwide, non-exclusive, no-charge, royalty-free, irrevocable
-      copyright license to reproduce, prepare Derivative Works of,
-      publicly display, publicly perform, sublicense, and distribute the
-      Work and such Derivative Works in Source or Object form.
+async fn order_detail(page: PageCx) -> Document {
+    let header = PageHeader::new("Order 1042").breadcrumbs(
+        Breadcrumbs::new()
+            .link("Orders", "/orders")
+            .current("Order 1042"),
+    );
+    let details = DescriptionList::new()
+        .item("Customer", "Ada Lovelace")
+        .item("Status", Badge::new("Paid").tone(Tone::Success))
+        .item("Total", "$128.00")
+        .item("Placed", "21 October 2026");
+    let shipping = Callout::new(Tone::Info)
+        .title("Preparing for dispatch")
+        .child(Text::new("Your order will ship within two working days."))
+        .actions(Link::new("Delivery information", "/delivery"));
 
-   3. Grant of Patent License. Subject to the terms and conditions of
-      this License, each Contributor hereby grants to You a perpetual,
-      worldwide, non-exclusive, no-charge, royalty-free, irrevocable
-      (except as stated in this section) patent license to make, have made,
-      use, offer to sell, sell, import, and otherwise transfer the Work,
-      where such license applies only to those patent claims licensable
-      by such Contributor that are necessarily infringed by their
-      Contribution(s) alone or by combination of their Contribution(s)
-      with the Work to which such Contribution(s) was submitted. If You
-      institute patent litigation against any entity (including a
-      cross-claim or counterclaim in a lawsuit) alleging that the Work
-      or a Contribution incorporated within the Work constitutes direct
-      or contributory patent infringement, then any patent licenses
-      granted to You under this License for that Work shall terminate
-      as of the date such litigation is filed.
+    page.title("Order 1042").main(
+        Stack::new()
+            .space(Space::S6)
+            .child(header)
+            .child(details)
+            .child(shipping),
+    )
+}
+```
 
-   4. Redistribution. You may reproduce and distribute copies of the
-      Work or Derivative Works thereof in any medium, with or without
-      modifications, and in Source or Object form, provided that You
-      meet the following conditions:
+Load the order in your handler and use its values in place of these examples. The badge's text carries the status independently of colour. The callout is part of the page; it doesn't interrupt screen readers with a live announcement.
 
-      (a) You must give any other recipients of the Work or
-          Derivative Works a copy of this License; and
+## Handle a form with errors
 
-      (b) You must cause any modified files to carry prominent notices
-          stating that You changed the files; and
+Read the submission, validate it, and either redirect or show the form again with its values and errors, answering 422:
 
-      (c) You must retain, in the Source form of any Derivative Works
-          that You distribute, all copyright, patent, trademark, and
-          attribution notices from the Source form of the Work,
-          excluding those notices that do not pertain to any part of
-          the Derivative Works; and
+```rust
+use axum::response::{IntoResponse, Response};
+use axum::http::StatusCode;
+use stucco::prelude::*;
+use stucco::FormState;
+use stucco::Validator;
+use stucco::server::{SeeOther, Submission};
 
-      (d) If the Work includes a "NOTICE" text file as part of its
-          distribution, then any Derivative Works that You distribute must
-          include a readable copy of the attribution notices contained
-          within such NOTICE file, excluding those notices that do not
-          pertain to any part of the Derivative Works, in at least one
-          of the following places: within a NOTICE text file distributed
-          as part of the Derivative Works; within the Source form or
-          documentation, if provided along with the Derivative Works; or,
-          within a display generated by the Derivative Works, if and
-          wherever such third-party notices normally appear. The contents
-          of the NOTICE file are for informational purposes only and
-          do not modify the License. You may add Your own attribution
-          notices within Derivative Works that You distribute, alongside
-          or as an addendum to the NOTICE text from the Work, provided
-          that such additional attribution notices cannot be construed
-          as modifying the License.
+fn order_form(state: &FormState) -> impl Render + '_ {
+    Form::post("/orders")
+        .child(ErrorSummary::new(state).field("customer", "order-customer"))
+        .child(Field::new("Customer", Input::text("customer").id("order-customer")).bind(state))
+        .child(Button::new("Create order").submit().variant(Variant::Primary))
+}
 
-      You may add Your own copyright statement to Your modifications and
-      may provide additional or different license terms and conditions
-      for use, reproduction, or distribution of Your modifications, or
-      for any such Derivative Works as a whole, provided Your use,
-      reproduction, and distribution of the Work otherwise complies with
-      the conditions stated in this License.
+async fn create(page: PageCx, Submission(form): Submission) -> Response {
+    let mut v = Validator::new(form);
+    let customer = v.text("customer").required("Enter a customer name").get();
+    match v.finish(|| customer) {
+        Ok(_customer) => SeeOther::new("/orders").into_response(),
+        Err(state) => page
+            .title("New order")
+            .main(order_form(&state))
+            .status(StatusCode::UNPROCESSABLE_ENTITY)
+            .into_response(),
+    }
+}
+```
 
-   5. Submission of Contributions. Unless You explicitly state otherwise,
-      any Contribution intentionally submitted for inclusion in the Work
-      by You to the Licensor shall be under the terms and conditions of
-      this License, without any additional terms or conditions.
-      Notwithstanding the above, nothing herein shall supersede or modify
-      the terms of any separate license agreement you may have executed
-      with Licensor regarding such Contributions.
+See [Forms](forms.html) for every check and control.
 
-   6. Trademarks. This License does not grant permission to use the trade
-      names, trademarks, service marks, or product names of the Licensor,
-      except as required for reasonable and customary use in describing the
-      origin of the Work and reproducing the content of the NOTICE file.
+## Show a searchable, filterable table
 
-   7. Disclaimer of Warranty. Unless required by applicable law or
-      agreed to in writing, Licensor provides the Work (and each
-      Contributor provides its Contributions) on an "AS IS" BASIS,
-      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
-      implied, including, without limitation, any warranties or conditions
-      of TITLE, NON-INFRINGEMENT, MERCHANTABILITY, or FITNESS FOR A
-      PARTICULAR PURPOSE. You are solely responsible for determining the
-      appropriateness of using or redistributing the Work and assume any
-      risks associated with Your exercise of permissions under this License.
+Derive the columns from your row type, implement `CollectionSource` for your storage, and load a page per request. The query string carries the search, filters, sort and page, so every view has a URL:
 
-   8. Limitation of Liability. In no event and under no legal theory,
-      whether in tort (including negligence), contract, or otherwise,
-      unless required by applicable law (such as deliberate and grossly
-      negligent acts) or agreed to in writing, shall any Contributor be
-      liable to You for damages, including any direct, indirect, special,
-      incidental, or consequential damages of any character arising as a
-      result of this License or out of the use or inability to use the
-      Work (including but not limited to damages for loss of goodwill,
-      work stoppage, computer failure or malfunction, or any and all
-      other commercial damages or losses), even if such Contributor
-      has been advised of the possibility of such damages.
+```rust
+use axum::extract::{RawQuery, State};
+use stucco::prelude::*;
+use stucco::server::RequestContext;
 
-   9. Accepting Warranty or Additional Liability. While redistributing
-      the Work or Derivative Works thereof, You may choose to offer,
-      and charge a fee for, acceptance of support, warranty, indemnity,
-      or other liability obligations and/or rights consistent with this
-      License. However, in accepting such obligations, You may act only
-      on Your own behalf and on Your sole responsibility, not on behalf
-      of any other Contributor, and only if You agree to indemnify,
-      defend, and hold each Contributor harmless for any liability
-      incurred by, or claims asserted against, such Contributor by reason
-      of your accepting any such warranty or additional liability.
+#[derive(Columns)]
+struct Customer {
+    #[col(sortable, searchable)]
+    name: String,
+    #[col(enumeration("active", "paused"), filter)]
+    status: String,
+}
 
-   END OF TERMS AND CONDITIONS
+async fn customers(
+    State(source): State<CustomerSource>, // your `CollectionSource`
+    RawQuery(raw): RawQuery,
+    context: RequestContext,
+    page: PageCx,
+) -> Document {
+    let raw = raw.unwrap_or_default();
+    match source.load(&raw, &Customer::column_specs(), &context).await {
+        Ok(customers) => page.title("Customers").main(
+            DataTable::from_collection(&customers, "Customers")
+                .action("/customers")
+                .columns(Customer::columns()),
+        ),
+        Err(_) => page.title("Customers unavailable").status(StatusCode::INTERNAL_SERVER_ERROR),
+    }
+}
+```
 
-   APPENDIX: How to apply the Apache License to your work.
+[Collections](collections.html) covers `CollectionSource`; `stucco-redb` implements it for embedded storage.
 
-      To apply the Apache License to your work, attach the following
-      boilerplate notice, with the fields enclosed by brackets "[]"
-      replaced with your own identifying information. (Don't include
-      the brackets!)  The text should be enclosed in the appropriate
-      comment syntax for the file format. We also recommend that a
-      file or class name and description of purpose be included on the
-      same "printed page" as the copyright notice for easier
-      identification within third-party archives.
+## Update part of a page without reloading
 
-   Copyright [yyyy] [name of copyright owner]
+Give the region an id, and answer enhanced requests for it with just that region. Everything else, including browsers without JavaScript, gets the full page:
 
-   Licensed under the Apache License, Version 2.0 (the "License");
-   you may not use this file except in compliance with the License.
-   You may obtain a copy of the License at
+```rust
+use stucco::prelude::*;
 
-       http://www.apache.org/licenses/LICENSE-2.0
+fn cart(items: usize) -> impl Render {
+    el::div().id("cart").child(Text::new(format!("{items} items")))
+}
 
-   Unless required by applicable law or agreed to in writing, software
-   distributed under the License is distributed on an "AS IS" BASIS,
-   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-   See the License for the specific language governing permissions and
-   limitations under the License.
+async fn shop(page: PageCx) -> axum::response::Response {
+    let items = 3;
+    page.respond()
+        .fragment("cart", || cart(items))
+        .page(|| page.title("Shop").main(Stack::of((Heading::new(1, "Shop"), cart(items)))))
+}
+```
+
+See [Progressive enhancement](enhancement.html) for how the browser side asks for a fragment.
+
+## Use a second theme on part of a page
+
+Add a named theme to the bundle, then wrap a subtree in a `ThemeScope` with that name:
+
+```rust
+use stucco::prelude::*;
+use stucco::layout::ThemeScope;
+
+let bundle = Bundle::new(Preset::Slate).with_theme("promo", Theme::seeded_str("summer sale"));
+let banner = ThemeScope::new()
+    .named("promo")
+    .child(Card::new().child(Heading::new(2, "Summer sale")));
+let app = axum::Router::new().stucco(bundle);
+```
+
+## Write static pages without a server
+
+Render pages to strings and write the bundle's files next to them:
+
+```rust
+use std::fs;
+use stucco::prelude::*;
+
+let bundle = Bundle::new(Preset::Slate);
+fs::create_dir_all("public/_stucco")?;
+for path in bundle.paths() {
+    let file = bundle.get(&path).expect("listed paths exist");
+    fs::write(format!("public{path}"), &*file.bytes)?;
+}
+let html = Page::new(&bundle, "Hello").main(Heading::new(1, "Hello")).render();
+fs::write("public/index.html", html)?;
+```
+
+## Change the request limits
+
+`stucco` uses a 1 MiB body limit and a 30 second timeout. `stucco_with` takes your own:
+
+```rust
+use std::time::Duration;
+use stucco::prelude::*;
+use stucco::server::LayerConfig;
+
+let config = LayerConfig { body_limit: 10 * 1024 * 1024, timeout: Duration::from_secs(60) };
+let app = axum::Router::new().stucco_with(Preset::Slate, &config);
+```
+
+## Build a create/edit/delete flow
+
+Store records in an `AsyncTable`, and carry each record's revision through its
+edit form. If someone else saved the record in the meantime, the update is
+refused and the user keeps what they typed. This is the edit half of the
+[orders example](https://github.com/mcaveniathor/stucco/tree/main/examples/orders),
+which also creates, lists and deletes:
+
+```rust
+use axum::extract::rejection::PathRejection;
+use axum::extract::{Path, State};
+use axum::http::StatusCode;
+use axum::response::{IntoResponse, Response};
+use stucco::forms::HiddenInput;
+use stucco::prelude::*;
+use stucco::server::{CsrfToken, SeeOther, Submission};
+use stucco::{FormState, Validator};
+use stucco_redb::{AsyncTable, Revision};
+
+// Bad ids (`/customers/abc`) get the same page as missing ones, rather than
+// axum's plain-text 400.
+fn not_found(page: PageCx) -> Response {
+    page.title("Not found")
+        .main(Heading::new(1, "Customer not found"))
+        .status(StatusCode::NOT_FOUND)
+        .into_response()
+}
+
+fn edit_page(page: PageCx, id: u64, state: &FormState, revision: &str) -> Response {
+    let token = page.context().get::<CsrfToken>().map(|t| t.as_str().to_owned());
+    let status = if state.conflict().is_some() { StatusCode::CONFLICT }
+        else if state.has_errors() { StatusCode::UNPROCESSABLE_ENTITY }
+        else { StatusCode::OK };
+    page.title("Edit customer")
+        .main(
+            Form::post(format!("/customers/{id}"))
+                .csrf(token.as_deref().unwrap_or_default())
+                .child(HiddenInput::new("revision", revision))
+                .child(ErrorSummary::new(state).field("name", "customer-name"))
+                .child(ConflictNotice::new(state, format!("/customers/{id}/edit")).focus(false))
+                .child(Field::new("Name", Input::text("name").id("customer-name")).bind(state))
+                .child(Button::new("Save").submit().variant(Variant::Primary)),
+        )
+        .status(status)
+        .into_response()
+}
+
+async fn edit(
+    State(db): State<AsyncTable<u64, String>>,
+    page: PageCx,
+    path: Result<Path<u64>, PathRejection>,
+) -> Response {
+    let Ok(Path(id)) = path else { return not_found(page) };
+    match db.get_with_revision(id).await {
+        Ok(Some((name, revision))) => {
+            let state = FormState::new().with_value("name", name);
+            edit_page(page, id, &state, &revision.to_string())
+        }
+        Ok(None) => not_found(page),
+        Err(_) => StatusCode::INTERNAL_SERVER_ERROR.into_response(),
+    }
+}
+
+async fn update(
+    State(db): State<AsyncTable<u64, String>>,
+    page: PageCx,
+    path: Result<Path<u64>, PathRejection>,
+    Submission(form): Submission,
+) -> Response {
+    let Ok(Path(id)) = path else { return not_found(page) };
+    let submitted = form.value("revision").unwrap_or_default().to_owned();
+    let mut v = Validator::new(form.clone());
+    let name = v.text("name").required("Enter a name").get();
+    let name = match v.finish(|| name) {
+        Ok(name) => name,
+        Err(state) => return edit_page(page, id, &state, &submitted),
+    };
+    // A malformed revision can't match anything: treat it as a conflict.
+    let Ok(revision) = submitted.parse::<Revision>() else {
+        let state = form.with_conflict(submitted.clone(), String::new());
+        return edit_page(page, id, &state, &submitted);
+    };
+    match db.update_if(id, revision, move |_| name).await {
+        Ok(_) => SeeOther::new("/customers")
+            .flash(Flash::new(FlashLevel::Success, "Customer saved."))
+            .into_response(),
+        // Changed meanwhile: show the conflict, keeping the user's entries
+        // and the revision they started from.
+        Err(e) => match e.conflict_revision() {
+            Some(Some(current)) => {
+                let state = form.with_conflict(submitted.clone(), current.to_string());
+                edit_page(page, id, &state, &submitted)
+            }
+            Some(None) => not_found(page),
+            None => StatusCode::INTERNAL_SERVER_ERROR.into_response(),
+        },
+    }
+}
+```
+
+The router needs `CsrfLayer` and `FlashLayer` (see [Forms](forms.html)).
+Delete the same way: put the revision in the delete form and call
+`remove_if`. To confirm first, put that form in a `Dialog` and open it with
+`link_opener`, which links to a confirmation page where script doesn't run:
+
+```rust
+use stucco::prelude::*;
+
+fn delete_order(id: u64, revision: &str, token: &str) -> impl Render {
+    let dialog_id = format!("delete-order-{id}");
+    let confirm = Dialog::new(&dialog_id, format!("Delete order {id}?"))
+        .child(Text::new("The order and its history are removed."))
+        .actions(Dialog::close_button(&dialog_id, "Cancel"))
+        .actions(
+            Form::post(format!("/orders/{id}/delete"))
+                .csrf(token)
+                .child(stucco::forms::HiddenInput::new("revision", revision))
+                .child(Button::new("Delete order").submit().variant(Variant::Danger)),
+        );
+    (confirm.link_opener("Delete…", format!("/orders/{id}/delete")), confirm)
+}
+```
+
+## Use a server-side theme preference without JavaScript
+
+`Page::server_theme` renders an explicit scheme on the document and omits the
+localStorage initializer. Pass `None` to follow the OS through CSS; pass a scheme
+read from your own validated cookie or account preference to override it.
+
+```rust
+use stucco::{Bundle, Page, el};
+use stucco::theme::{Preset, Scheme};
+let bundle = Bundle::new(Preset::Slate);
+let html = Page::new(&bundle, "Account")
+    .server_theme(Some(Scheme::Dark))
+    .body(el::main().text("Server-rendered content"))
+    .render();
+assert!(!html.contains("<script"));
+```
+
+This does not disable component behavior: enhanced pages and components that need
+scripts still load those scripts. `el::svg`, `el::path`, `el::circle`, `el::line`,
+`el::polyline`, and `el::text` also support server-rendered charts with escaped
+attributes and labels, without a charting runtime.

@@ -23,15 +23,15 @@ def main():
                 path = PurePosixPath(member.name)
                 assert member.isfile(), f"Unexpected archive member: {member.name}"
                 assert not path.is_absolute() and ".." not in path.parts
-                assert path.parts[0] == "stucco-0.2.1"
+                assert path.parts[0] == "stucco-0.3.0"
                 assert not {"plugin", "target", ".git", ".codex"}.intersection(path.parts)
             archive.extractall(root, filter="data")
 
-        bundle = root / "stucco-0.2.1"
+        bundle = root / "stucco-0.3.0"
         data = json.loads((bundle / "bundle.json").read_text())
         assert (bundle / "bundle.json").read_bytes() == (original / "bundle.json").read_bytes()
         assert data["release"]["name"] == "stucco"
-        assert data["release"]["version"] == "0.2.1"
+        assert data["release"]["version"] == "0.3.0"
         assert len(data["analysis"]["recipes"]) == 1
         examples = data["example_inventory"]["examples"]
         coverage = data["analysis"]["example_coverage"]
