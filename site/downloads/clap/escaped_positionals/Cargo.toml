@@ -1,0 +1,12 @@
+[dependencies.clap]
+default-features = true
+features = ["derive"]
+version = "=4.6.7"
+
+[package]
+edition = "2024"
+name = "recipe-escaped_positionals"
+publish = false
+version = "0.0.0"
+
+[workspace]

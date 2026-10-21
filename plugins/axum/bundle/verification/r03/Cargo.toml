@@ -1,0 +1,24 @@
+[dependencies.axum]
+default-features = false
+features = [
+    "tokio",
+    "http1",
+]
+version = "=0.8.9"
+
+[dependencies.tokio]
+default-features = true
+features = [
+    "macros",
+    "rt-multi-thread",
+    "net",
+]
+version = "1.44.2"
+
+[package]
+edition = "2024"
+name = "recipe-r03"
+publish = false
+version = "0.0.0"
+
+[workspace]

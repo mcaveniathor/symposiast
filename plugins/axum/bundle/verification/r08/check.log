@@ -1,0 +1,10 @@
+    Updating crates.io index
+    Blocking waiting for file lock on package cache
+     Locking 41 packages to highest Rust 1.99.1 compatible versions
+      Adding matchit v0.8.4 (available: v0.8.6)
+    Blocking waiting for file lock on package cache
+   Compiling anyhow v1.0.104
+    Checking tower v0.5.3
+    Checking axum v0.8.9
+    Checking recipe-r08 v0.0.0 (<bundle>/verification/r08)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 1.71s

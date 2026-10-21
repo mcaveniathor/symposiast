@@ -1,0 +1,4 @@
+    Updating crates.io index
+     Locking 21 packages to highest Rust 1.99.1 compatible versions
+    Checking recipe-deferred_subcommands v0.0.0 (<bundle>/verification/deferred_subcommands)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.06s

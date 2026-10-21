@@ -1,0 +1,13 @@
+{
+  "generator_repository": "https://github.com/mcaveniathor/symposiast",
+  "generator_revision": "19cd230",
+  "generation": "Live Symposiast Codex adapter generated findings, recipes, and example coverage from collected release evidence. No recipe code was supplied through --analysis.",
+  "command": "symposiast analyze .symposiast/axum-docs --agent codex --timeout 900",
+  "analysis_review": "No separate reviewer invoked; bundle review is null.",
+  "toolchain": "Rust 1.99.1",
+  "platform": "Linux x86_64",
+  "human_review_claimed": false,
+  "agent": "codex",
+  "agent_cli_version": "0.163.0",
+  "runtime_trials": "All twelve generated servers passed 27 localhost HTTP response scenarios; the finite body-limit example also passed. scripts/check_axum_examples.py reproduces these checks."
+}

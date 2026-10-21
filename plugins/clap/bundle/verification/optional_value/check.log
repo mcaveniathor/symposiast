@@ -1,0 +1,4 @@
+    Updating crates.io index
+     Locking 21 packages to highest Rust 1.99.1 compatible versions
+    Checking recipe-optional_value v0.0.0 (<bundle>/verification/optional_value)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.05s

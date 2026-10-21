@@ -2,6 +2,32 @@
 
 The initial implementation was checked with Rust 1.99.1 and Symposium 0.5.1.
 
+## Live generated clap, axum, and Bevy recipes (October 21, 2026)
+
+The current documentation bundles were produced by `symposiast analyze --agent codex --timeout 900` using authenticated Codex CLI 0.163.0 and generator revision `19cd230`. The live responses supplied both findings and complete recipe code, including example coverage; no hand-written analysis was imported. All recipe code is retained unchanged from the generator. No separate reviewer was invoked. This successful run supersedes the earlier live-provider limitations described below for Codex; it does not establish a live Claude Code run.
+
+| Crate | Release | Findings | Recipes compiled | Documentation examples | Adapted / supporting / skipped |
+| --- | --- | --- | --- | --- | --- |
+| clap | 4.6.7 | 13 | 8 | 122 | 14 / 6 / 102 |
+| axum | 0.8.9 | 14 | 13 | 78 | 30 / 27 / 21 |
+| Bevy | 0.20.0 | 7 | 5 | 5 | 3 / 0 / 2 |
+
+Clap and axum retain the earlier exact release targets. Bevy 0.20.0 was resolved as the latest stable, non-yanked release from the crates.io index. Collection verified each archive checksum. The Bevy repository archive exceeded the download limit, leaving published-crate evidence only, with two truncated manifests and 530 eligible files omitted. This is sampled guidance, not exhaustive engine coverage. All bundles retain their collection and extraction warnings. Upstream license files were copied from checksum-verified crate archives and separately hashed into the bundles.
+
+All 26 generated recipes passed `cargo check --locked --all-targets` with Rust 1.99.1. The Bevy window, mesh, and profiling checks initially failed because Wayland development files were missing. Reverification passed with Ubuntu Wayland and xkbcommon packages extracted under `/tmp`, supplied through a Cargo wrapper that sets `PKG_CONFIG_PATH`; the generated code and features were unchanged. CI installs the corresponding development packages normally. Compilation does not establish graphical execution.
+
+Separate runtime checks passed:
+
+- All eight clap executables ran their generated assertions. `cargo test --locked` also passed, including the two generated parser-definition tests.
+- Twelve axum servers passed 27 actual localhost HTTP scenarios for JSON, routes and fallbacks, shared state, path/query extraction, rejections, custom extractors, demonstration authentication middleware, service failures and timeouts, response composition, forms, URI rewriting, and tracing/layer composition. The thirteenth executable checked bounded body collection and its error. `python3 scripts/check_axum_examples.py` repeats these checks and stops only the processes it starts. Port 3000 must be free.
+- Bevy's `hello` and `message` executables passed. The window, mesh, and profiling recipes were not run or visually checked.
+
+`plugins/{clap,axum,bevy}/bundle` preserves the actual analysis, evidence, lockfiles, compilation logs, and generation provenance. Temporary compiler-log path prefixes are normalized; recipe fingerprints and lockfile hashes are unchanged. Original agent summaries describe their pre-verification state; compilation records are the authority for the subsequent checks. No user-wide plugin installation or synchronization was performed.
+
+Final local validation passed formatting, Clippy with warnings denied, all 55 Rust tests, actionlint, both documentation generators’ drift checks, and site builds/link checks at `/symposiast/` and `/` (eight HTML pages and 394 local references each). Browser inspection at the default desktop viewport confirmed the overview and Bevy section, preserved Rust generic types, no horizontal document overflow, and no console errors. The expanded recipe navigation now scrolls within the viewport. Mobile layout was not separately rechecked.
+
+The site now contains 32 consumer projects, including the six existing Stucco examples. `python3 scripts/update_examples.py --check` checks generated clap, axum, and Bevy prose, downloads, and coverage reports; the existing Stucco check remains in place. Bundle rendering validates source checksums, complete coverage associations, recipe fingerprints, and lockfiles. CI validates the bundles, checks generated documentation, compiles all new recipes, and runs the recorded clap, axum, and headless Bevy checks.
+
 ## Automated checks
 
 - Formatting passes `cargo fmt --all --check`.
@@ -10,7 +36,7 @@ The initial implementation was checked with Rust 1.99.1 and Symposium 0.5.1.
 
 Tests cover archive checksums and traversal, release selection, bounded evidence selection, real fixture subprocesses for agent adapters, structured responses, timeout cleanup, source citations, stale verification results, transactional replacement, plugin installation, MCP stdio requests, and version/provenance warnings.
 
-## Public-crate integration
+## Initial public-crate integration (historical)
 
 The collector resolved clap 4.6.7 and axum 0.8.9 from the crates.io index, verified their published archives, and fetched their pinned repository snapshots. Each bundle contains 48 evidence sources and records coverage limits.
 
@@ -27,7 +53,7 @@ The official Symposium 0.5.1 recursive validator recognizes the real pilot manif
 
 An upstream limitation remains: Symposium 0.5.1 removed the mismatched skill during sync but retained the existing MCP registration. The hook and release metadata identify that mismatch; automatic removal of the stale MCP entry is not established.
 
-## Live agent limitations
+## Initial live agent limitations (historical)
 
 Built-in command interfaces were checked against Claude Code 2.1.303 and Codex 0.159.2, and their subprocess contracts are covered by fixture tests. Live provider responses were not verified in this environment:
 
@@ -55,7 +81,7 @@ Compiler logs normalize temporary build-directory prefixes. Input fingerprints a
 
 ## Documentation and workflow skill
 
-The documentation site now pins Stucco 0.3.0. It includes twelve downloadable clap, axum, and Stucco projects. Site builds and link checks cover both `/symposiast/` and `/` deployment bases. No browser was connected for this migration, so desktop/mobile layout and browser enhancement were not visually revalidated. Earlier browser checks described below apply only to their earlier revisions.
+The earlier Stucco migration pinned the documentation site to Stucco 0.3.0 and included twelve downloadable clap, axum, and Stucco projects. Site builds and link checks cover both `/symposiast/` and `/` deployment bases. No browser was connected for this migration, so desktop/mobile layout and browser enhancement were not visually revalidated. Earlier browser checks described below apply only to their earlier revisions.
 
 ## Release guidance action
 

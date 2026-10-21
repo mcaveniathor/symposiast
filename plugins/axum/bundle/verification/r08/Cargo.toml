@@ -1,0 +1,38 @@
+[dependencies.anyhow]
+default-features = true
+features = []
+version = "1.0"
+
+[dependencies.axum]
+default-features = false
+features = [
+    "tokio",
+    "http1",
+]
+version = "=0.8.9"
+
+[dependencies.tokio]
+default-features = true
+features = [
+    "macros",
+    "rt-multi-thread",
+    "net",
+    "time",
+]
+version = "1.44.2"
+
+[dependencies.tower]
+default-features = false
+features = [
+    "util",
+    "timeout",
+]
+version = "0.5.2"
+
+[package]
+edition = "2024"
+name = "recipe-r08"
+publish = false
+version = "0.0.0"
+
+[workspace]

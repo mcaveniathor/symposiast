@@ -91,11 +91,12 @@ pub(crate) fn page(site: &Site) -> String {
         .child(el::div().class("section-intro")
             .child(el::p().class("eyebrow").text("START WITH REAL EXAMPLES"))
             .child(el::h2().id("pilots-title").text("Small recipes. Concrete checks."))
-            .child(el::p().text("The pilots use imported analyses. Recipes compile against their exact releases, with additional parser, request, and rendering checks."))
+            .child(el::p().text("Symposiast generates findings and recipes from frozen release evidence. Inspect the exact versions, compilation records, and documentation example coverage."))
             .child(el::a().class("text-link").href(site.url("examples.html")).text("Explore the checked recipes →")))
         .child(el::div().class("pilot-list")
             .child(pilot(site, "clap", "4.6.7", "Parsers, subcommands, validation", "Validated", "examples.html#clap-467"))
             .child(pilot(site, "axum", "0.8.9", "Routes, shared state, typed JSON", "Validated", "examples.html#axum-089"))
+            .child(pilot(site, "Bevy", "0.20.0", "Apps, messages, meshes, profiling", "Validated", "examples.html#bevy-0200"))
             .child(pilot(site, "stucco", "0.3.0", "Pages, fragments, tables, forms, themes", "Validated", "examples.html#stucco-030")));
 
     site.page("Symposiast", "Generate release-specific Rust crate skills, MCP retrieval, and version checks for the Symposium ecosystem.", "home", (hero, registry, terminal, artifacts, process, pilots))

@@ -1,0 +1,4 @@
+    Updating crates.io index
+     Locking 21 packages to highest Rust 1.99.1 compatible versions
+    Checking recipe-help_text v0.0.0 (<bundle>/verification/help_text)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.04s

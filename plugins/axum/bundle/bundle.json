@@ -1,0 +1,3067 @@
+{
+  "schema_version": 1,
+  "release": {
+    "name": "axum",
+    "version": "0.8.9",
+    "checksum": "31b698c5f9a010f6573133b09e0de5408834d0c82f8d7475a89fc1867a71cd90",
+    "repository": "https://github.com/tokio-rs/axum",
+    "repository_commit": "c59208c86fded335cd85e388030ad59347b0e5ae",
+    "rust_version": "1.80",
+    "features": {
+      "__private": [
+        "tokio",
+        "http1",
+        "dep:reqwest"
+      ],
+      "__private_docs": [
+        "axum-core/__private_docs",
+        "tower/full",
+        "dep:serde",
+        "dep:tower-http"
+      ],
+      "default": [
+        "form",
+        "http1",
+        "json",
+        "matched-path",
+        "original-uri",
+        "query",
+        "tokio",
+        "tower-log",
+        "tracing"
+      ],
+      "form": [
+        "dep:form_urlencoded",
+        "dep:serde_urlencoded",
+        "dep:serde_path_to_error"
+      ],
+      "http1": [
+        "dep:hyper",
+        "hyper?/http1",
+        "hyper-util?/http1"
+      ],
+      "http2": [
+        "dep:hyper",
+        "hyper?/http2",
+        "hyper-util?/http2"
+      ],
+      "json": [
+        "dep:serde_json",
+        "dep:serde_path_to_error"
+      ],
+      "macros": [
+        "dep:axum-macros"
+      ],
+      "matched-path": [],
+      "multipart": [
+        "dep:multer"
+      ],
+      "original-uri": [],
+      "query": [
+        "dep:form_urlencoded",
+        "dep:serde_urlencoded",
+        "dep:serde_path_to_error"
+      ],
+      "tokio": [
+        "dep:hyper-util",
+        "dep:tokio",
+        "tokio/net",
+        "tokio/rt",
+        "tower/make",
+        "tokio/macros"
+      ],
+      "tower-log": [
+        "tower/log"
+      ],
+      "tracing": [
+        "dep:tracing",
+        "axum-core/tracing"
+      ],
+      "ws": [
+        "dep:hyper",
+        "tokio",
+        "dep:tokio-tungstenite",
+        "dep:sha1",
+        "dep:base64"
+      ]
+    },
+    "collected_at": "1792577100"
+  },
+  "sources": [
+    {
+      "id": "e0001",
+      "kind": "manifest",
+      "path": "sources/e0001.txt",
+      "url": "https://docs.rs/crate/axum/0.8.9/source/Cargo.toml",
+      "sha256": "ed35dc0f840f27c8b953d9789fff678c0f5b2f10229c8f50d70a1a5857bdd83f"
+    },
+    {
+      "id": "e0002",
+      "kind": "release_metadata",
+      "path": "sources/e0002.txt",
+      "url": "https://docs.rs/crate/axum/0.8.9/source/.cargo_vcs_info.json",
+      "sha256": "b0a9e5ef3087d547e82a857367b154860c5a8984947a26efde53bc5dd54926e2"
+    },
+    {
+      "id": "e0003",
+      "kind": "readme",
+      "path": "sources/e0003.txt",
+      "url": "https://docs.rs/crate/axum/0.8.9/source/README.md",
+      "sha256": "0e8950436ad984d610e7cf1db354b634767f698b8352de247ad9156594c44218"
+    },
+    {
+      "id": "e0004",
+      "kind": "changelog",
+      "path": "sources/e0004.txt",
+      "url": "https://docs.rs/crate/axum/0.8.9/source/CHANGELOG.md",
+      "sha256": "079c2a91ec11802f38767e2deedd95c91ca77e7901a20315ec1f88ca7c82653a"
+    },
+    {
+      "id": "e0005",
+      "kind": "changelog",
+      "path": "sources/e0005.txt",
+      "url": "https://github.com/tokio-rs/axum/blob/c59208c86fded335cd85e388030ad59347b0e5ae/CHANGELOG.md",
+      "sha256": "77f8460dc6134d6e252416082f686546595a1fd811e257ee8be4f9cba9c88f41"
+    },
+    {
+      "id": "e0006",
+      "kind": "changelog",
+      "path": "sources/e0006.txt",
+      "url": "https://github.com/tokio-rs/axum/blob/c59208c86fded335cd85e388030ad59347b0e5ae/axum-core/CHANGELOG.md",
+      "sha256": "26db2d88914fdcce6b3d1c103ab20ac8001183b05fe9aff39f33b46b7cf5a682"
+    },
+    {
+      "id": "e0007",
+      "kind": "api",
+      "path": "sources/e0007.txt",
+      "url": "https://docs.rs/crate/axum/0.8.9/source/src/lib.rs",
+      "sha256": "6dde9a13818139d63476bfe1562f1956b5e5c34bf6df3fe595f502cac3dad87a"
+    },
+    {
+      "id": "e0008",
+      "kind": "example",
+      "path": "sources/e0008.txt",
+      "url": "https://github.com/tokio-rs/axum/blob/c59208c86fded335cd85e388030ad59347b0e5ae/examples/anyhow-error-response/src/main.rs",
+      "sha256": "66c5af1b6817cf5b496d3f415b34e717aaf1d13d7b5fdcf810f4fdbf737d3d83"
+    },
+    {
+      "id": "e0009",
+      "kind": "documentation",
+      "path": "sources/e0009.txt",
+      "url": "https://docs.rs/crate/axum/0.8.9/source/src/docs/debugging_handler_type_errors.md",
+      "sha256": "a934859b6464575afbf20c07bfd838d5c7c4baad51aeccee29a9b18f44e7cecb"
+    },
+    {
+      "id": "e0010",
+      "kind": "api",
+      "path": "sources/e0010.txt",
+      "url": "https://docs.rs/crate/axum/0.8.9/source/src/boxed.rs",
+      "sha256": "013079e838244787b0d4d78500092a3ee6408efae0b80a58b5a69e8b635e3a50"
+    },
+    {
+      "id": "e0011",
+      "kind": "test",
+      "path": "sources/e0011.txt",
+      "url": "https://docs.rs/crate/axum/0.8.9/source/tests/panic_location.rs",
+      "sha256": "6d0d3602c1b080d888c1c4a3683beaa7551961efc739e7fb54cee2e1e38477fb"
+    },
+    {
+      "id": "e0012",
+      "kind": "readme",
+      "path": "sources/e0012.txt",
+      "url": "https://github.com/tokio-rs/axum/blob/c59208c86fded335cd85e388030ad59347b0e5ae/axum-core/README.md",
+      "sha256": "7cdbf181d88f894f16c587d2611fb7cef18a04df836f70af6ef5bd68ae8fc00d"
+    },
+    {
+      "id": "e0013",
+      "kind": "manifest",
+      "path": "sources/e0013.txt",
+      "url": "https://docs.rs/crate/axum/0.8.9/source/Cargo.toml.orig",
+      "sha256": "33fa07ebf37f268bfb4c0ccbf1245a80c58a92884789e358c695329772f0b9fc"
+    },
+    {
+      "id": "e0014",
+      "kind": "example",
+      "path": "sources/e0014.txt",
+      "url": "https://github.com/tokio-rs/axum/blob/c59208c86fded335cd85e388030ad59347b0e5ae/examples/auto-reload/src/main.rs",
+      "sha256": "6221d2a10884cb7e73b4bd186d298b30654e5515e31c3be9382ea4bb7e9fb3f8"
+    },
+    {
+      "id": "e0015",
+      "kind": "documentation",
+      "path": "sources/e0015.txt",
+      "url": "https://docs.rs/crate/axum/0.8.9/source/src/docs/error_handling.md",
+      "sha256": "5c094b9e17507b2a4350aed632e8410f40efe4c9fbd5fb2fffe7a4d875eeac78"
+    },
+    {
+      "id": "e0016",
+      "kind": "api",
+      "path": "sources/e0016.txt",
+      "url": "https://docs.rs/crate/axum/0.8.9/source/src/extension.rs",
+      "sha256": "afecc958be6d00da1813ee3ca623265d3c7ec7d32a8b72859f11fef364e701ef"
+    },
+    {
+      "id": "e0017",
+      "kind": "test",
+      "path": "sources/e0017.txt",
+      "url": "https://docs.rs/crate/axum/0.8.9/source/src/routing/tests/fallback.rs",
+      "sha256": "f8320561d1a495ced3c7e5b8b18da1fc10d114e6416afa183147f5328de1cef8"
+    },
+    {
+      "id": "e0018",
+      "kind": "readme",
+      "path": "sources/e0018.txt",
+      "url": "https://github.com/tokio-rs/axum/blob/c59208c86fded335cd85e388030ad59347b0e5ae/axum-macros/README.md",
+      "sha256": "9b466bba95f10b2b9ffd9ccdfd668507279a70bbf1d9fcbcea2475272ba0d409"
+    },
+    {
+      "id": "e0019",
+      "kind": "manifest",
+      "path": "sources/e0019.txt",
+      "url": "https://github.com/tokio-rs/axum/blob/c59208c86fded335cd85e388030ad59347b0e5ae/Cargo.toml",
+      "sha256": "c5bb614b53a399d8f254dcbced18e772c53b848bbb16025cebc0be77122e5395"
+    },
+    {
+      "id": "e0020",
+      "kind": "example",
+      "path": "sources/e0020.txt",
+      "url": "https://github.com/tokio-rs/axum/blob/c59208c86fded335cd85e388030ad59347b0e5ae/examples/chat/src/main.rs",
+      "sha256": "b3b7d990ad8be156e4378220ae8f3ada4670ab16cb9a9104c9fa825cd86bc09c"
+    },
+    {
+      "id": "e0021",
+      "kind": "documentation",
+      "path": "sources/e0021.txt",
+      "url": "https://docs.rs/crate/axum/0.8.9/source/src/docs/extract.md",
+      "sha256": "6e011cc8c4c6837e32066b7de1aee6e73f1b5b17049daefe512194bee8fe90dc"
+    },
+    {
+      "id": "e0022",
+      "kind": "api",
+      "path": "sources/e0022.txt",
+      "url": "https://docs.rs/crate/axum/0.8.9/source/src/form.rs",
+      "sha256": "f20a1cc31c8109bc20a9946463c39c9435814a0bed5a1f0cf4a1a64e940d7a4c"
+    },
+    {
+      "id": "e0023",
+      "kind": "test",
+      "path": "sources/e0023.txt",
+      "url": "https://docs.rs/crate/axum/0.8.9/source/src/routing/tests/get_to_head.rs",
+      "sha256": "239896501902ad4b549ab5b88287095ce623b3e092353b00a2d39f2d8e23d0ad"
+    },
+    {
+      "id": "e0024",
+      "kind": "example",
+      "path": "sources/e0024.txt",
+      "url": "https://github.com/tokio-rs/axum/blob/c59208c86fded335cd85e388030ad59347b0e5ae/examples/compression/src/main.rs",
+      "sha256": "6cedecbf07da92dca80b4f478a0d17e59114149ddd16dfb83a0e41b79f0d5e12"
+    },
+    {
+      "id": "e0025",
+      "kind": "documentation",
+      "path": "sources/e0025.txt",
+      "url": "https://docs.rs/crate/axum/0.8.9/source/src/docs/handlers_intro.md",
+      "sha256": "44be7d8c2087380d3e512b6724cba41c9637dd7177c9b545d45cda244b6ec861"
+    },
+    {
+      "id": "e0026",
+      "kind": "api",
+      "path": "sources/e0026.txt",
+      "url": "https://docs.rs/crate/axum/0.8.9/source/src/json.rs",
+      "sha256": "feaad1fce714c48cad69b3a1e6ccac9a49966e7c6b5f85f7d8a7c392af667f7a"
+    },
+    {
+      "id": "e0027",
+      "kind": "test",
+      "path": "sources/e0027.txt",
+      "url": "https://docs.rs/crate/axum/0.8.9/source/src/routing/tests/handle_error.rs",
+      "sha256": "25a87355a7f0f0f976686fa86b8a39949e444e848f5c43fa2d8b52fe5e31d139"
+    },
+    {
+      "id": "e0028",
+      "kind": "example",
+      "path": "sources/e0028.txt",
+      "url": "https://github.com/tokio-rs/axum/blob/c59208c86fded335cd85e388030ad59347b0e5ae/examples/compression/src/tests.rs",
+      "sha256": "e125691ee97537e500f3baf35b7263eada41cd09535188c94f2960cca427da26"
+    },
+    {
+      "id": "e0029",
+      "kind": "documentation",
+      "path": "sources/e0029.txt",
+      "url": "https://docs.rs/crate/axum/0.8.9/source/src/docs/middleware.md",
+      "sha256": "ea8230b01447f074f5b321f6f75305f52d4484f4c9f38c08e1b087eb9154f518"
+    },
+    {
+      "id": "e0030",
+      "kind": "api",
+      "path": "sources/e0030.txt",
+      "url": "https://docs.rs/crate/axum/0.8.9/source/src/macros.rs",
+      "sha256": "c853759c285a324149b6e143c84dd275233b52c4b8fd2a69f090ce72cc7438f2"
+    },
+    {
+      "id": "e0031",
+      "kind": "test",
+      "path": "sources/e0031.txt",
+      "url": "https://docs.rs/crate/axum/0.8.9/source/src/routing/tests/merge.rs",
+      "sha256": "770e78fed76f9d5bf3eba6b0a56f84532468f24e660ef7f1e991be2d3e8e8d0b"
+    },
+    {
+      "id": "e0032",
+      "kind": "example",
+      "path": "sources/e0032.txt",
+      "url": "https://github.com/tokio-rs/axum/blob/c59208c86fded335cd85e388030ad59347b0e5ae/examples/consume-body-in-extractor-or-middleware/src/main.rs",
+      "sha256": "50ffb46e2aa2c017294120200c70b07c425999e2c9a22c5f14d1a7d87577defc"
+    },
+    {
+      "id": "e0033",
+      "kind": "documentation",
+      "path": "sources/e0033.txt",
+      "url": "https://docs.rs/crate/axum/0.8.9/source/src/docs/response.md",
+      "sha256": "d52c4a393f47d920bea350f2037ad6b67ccb5183c17b64b180483cbcafc3e6b8"
+    },
+    {
+      "id": "e0034",
+      "kind": "api",
+      "path": "sources/e0034.txt",
+      "url": "https://docs.rs/crate/axum/0.8.9/source/src/service_ext.rs",
+      "sha256": "e212b899108791b586d442e9c0a294ef908cfa97652b68c8770c782d1efd07cb"
+    },
+    {
+      "id": "e0035",
+      "kind": "test",
+      "path": "sources/e0035.txt",
+      "url": "https://docs.rs/crate/axum/0.8.9/source/src/routing/tests/mod.rs",
+      "sha256": "48c54f725094786e778cd8bb79c96dd2c31d760187a64962c403477e805538c9"
+    },
+    {
+      "id": "e0036",
+      "kind": "example",
+      "path": "sources/e0036.txt",
+      "url": "https://github.com/tokio-rs/axum/blob/c59208c86fded335cd85e388030ad59347b0e5ae/examples/cors/src/main.rs",
+      "sha256": "6de38103c3c14df4575721f852e631a219d48a6888f53259893cad3a524aa4e8"
+    },
+    {
+      "id": "e0037",
+      "kind": "documentation",
+      "path": "sources/e0037.txt",
+      "url": "https://docs.rs/crate/axum/0.8.9/source/src/docs/method_routing/fallback.md",
+      "sha256": "a50eb78881b5dfa0f74536db1caf45ba7013103de4f897142c3fa00faff2f9d2"
+    },
+    {
+      "id": "e0038",
+      "kind": "api",
+      "path": "sources/e0038.txt",
+      "url": "https://docs.rs/crate/axum/0.8.9/source/src/util.rs",
+      "sha256": "687ea91590f562caa0459455fabbc91a69ae152f8910d55241503969938a764b"
+    },
+    {
+      "id": "e0039",
+      "kind": "test",
+      "path": "sources/e0039.txt",
+      "url": "https://docs.rs/crate/axum/0.8.9/source/src/routing/tests/nest.rs",
+      "sha256": "ae253d891d2c8e4517ef0d7ce4d8387b54631dbfb9c65ffa025d35cab7107e29"
+    },
+    {
+      "id": "e0040",
+      "kind": "example",
+      "path": "sources/e0040.txt",
+      "url": "https://github.com/tokio-rs/axum/blob/c59208c86fded335cd85e388030ad59347b0e5ae/examples/customize-extractor-error/src/custom_extractor.rs",
+      "sha256": "a2a3c2ce792df43ed25236566746c9c110f6e56dfa5a9c095a831b2b06294df9"
+    },
+    {
+      "id": "e0041",
+      "kind": "documentation",
+      "path": "sources/e0041.txt",
+      "url": "https://docs.rs/crate/axum/0.8.9/source/src/docs/method_routing/layer.md",
+      "sha256": "a54cbe8b067f675d95eb2b2b482022fe098aefda9d8dd60ad48c01e8517487e8"
+    },
+    {
+      "id": "e0042",
+      "kind": "api",
+      "path": "sources/e0042.txt",
+      "url": "https://docs.rs/crate/axum/0.8.9/source/src/body/mod.rs",
+      "sha256": "83a6632a770e9f3c0ddcdafc26dce4729a1c305f12eef0006c9200f38e774a5a"
+    },
+    {
+      "id": "e0043",
+      "kind": "test",
+      "path": "sources/e0043.txt",
+      "url": "https://github.com/tokio-rs/axum/blob/c59208c86fded335cd85e388030ad59347b0e5ae/axum-macros/tests/debug_handler/fail/argument_not_extractor.rs",
+      "sha256": "460270e4fca39bf4fcf0013c9e9948e24c71ea4740576eb75ceecbaedea71c40"
+    },
+    {
+      "id": "e0044",
+      "kind": "example",
+      "path": "sources/e0044.txt",
+      "url": "https://github.com/tokio-rs/axum/blob/c59208c86fded335cd85e388030ad59347b0e5ae/examples/customize-extractor-error/src/derive_from_request.rs",
+      "sha256": "7f29fb76d3b115c11e7540b2456ce66074bcc1816b5d6ae5b7b1f1e2f803a531"
+    },
+    {
+      "id": "e0045",
+      "kind": "documentation",
+      "path": "sources/e0045.txt",
+      "url": "https://docs.rs/crate/axum/0.8.9/source/src/docs/method_routing/merge.md",
+      "sha256": "b031f00fe984fc705a0d83ec0000d6665e812168ad87bc8ac0ccfe283179486e"
+    },
+    {
+      "id": "e0046",
+      "kind": "api",
+      "path": "sources/e0046.txt",
+      "url": "https://docs.rs/crate/axum/0.8.9/source/src/error_handling/mod.rs",
+      "sha256": "31244358a1d14744ec60d9a15e6acf97cbfdd891a07b066535cb38ac733814e5"
+    },
+    {
+      "id": "e0047",
+      "kind": "test",
+      "path": "sources/e0047.txt",
+      "url": "https://github.com/tokio-rs/axum/blob/c59208c86fded335cd85e388030ad59347b0e5ae/axum-macros/tests/debug_handler/fail/duplicate_args.rs",
+      "sha256": "0c607f73ce64b11216a0f61e099e5ede41d49f5d72c612db3a02974e8f87a5c8"
+    },
+    {
+      "id": "e0048",
+      "kind": "example",
+      "path": "sources/e0048.txt",
+      "url": "https://github.com/tokio-rs/axum/blob/c59208c86fded335cd85e388030ad59347b0e5ae/examples/customize-extractor-error/src/main.rs",
+      "sha256": "bc4b539ed0ac0c224b2b3b7cbf84cbe46947e8c974808a5c2353e99098d327ee"
+    },
+    {
+      "id": "license",
+      "kind": "license",
+      "path": "sources/LICENSE",
+      "url": "https://docs.rs/crate/axum/0.8.9/source/LICENSE",
+      "sha256": "6a13bc24a100a6812f053879ec51b126b103af7cda6dbf48c4188722da44da9f"
+    }
+  ],
+  "example_inventory": {
+    "examples": [
+      {
+        "id": "doc-403dabee035e1211-1",
+        "citation": {
+          "source_id": "e0003",
+          "start_line": 28,
+          "end_line": 86
+        },
+        "info": "rust",
+        "code": "use axum::{\n    routing::{get, post},\n    http::StatusCode,\n    Json, Router,\n};\nuse serde::{Deserialize, Serialize};\n\n#[tokio::main]\nasync fn main() {\n    // initialize tracing\n    tracing_subscriber::fmt::init();\n\n    // build our application with a route\n    let app = Router::new()\n        // `GET /` goes to `root`\n        .route(\"/\", get(root))\n        // `POST /users` goes to `create_user`\n        .route(\"/users\", post(create_user));\n\n    // run our app with hyper, listening globally on port 3000\n    let listener = tokio::net::TcpListener::bind(\"0.0.0.0:3000\").await.unwrap();\n    axum::serve(listener, app).await.unwrap();\n}\n\n// basic handler that responds with a static string\nasync fn root() -> &'static str {\n    \"Hello, World!\"\n}\n\nasync fn create_user(\n    // this argument tells axum to parse the request body\n    // as JSON into a `CreateUser` type\n    Json(payload): Json<CreateUser>,\n) -> (StatusCode, Json<User>) {\n    // insert your application logic here\n    let user = User {\n        id: 1337,\n        username: payload.username,\n    };\n\n    // this will be converted into a JSON response\n    // with a status code of `201 Created`\n    (StatusCode::CREATED, Json(user))\n}\n\n// the input to our `create_user` handler\n#[derive(Deserialize)]\nstruct CreateUser {\n    username: String,\n}\n\n// the output to our `create_user` handler\n#[derive(Serialize)]\nstruct User {\n    id: u64,\n    username: String,\n}\n"
+      },
+      {
+        "id": "doc-1a62a38631e53597-2",
+        "citation": {
+          "source_id": "e0004",
+          "start_line": 575,
+          "end_line": 586
+        },
+        "info": "rust",
+        "code": "let api_router = Router::new()\n    .route(\"/users\", get(|| { ... }))\n    .fallback(api_fallback);\n\nlet app = Router::new()\n    // this would panic in 0.5 but in 0.6 it just works\n    //\n    // requests starting with `/api` but not handled by `api_router`\n    // will go to `api_fallback`\n    .nest(\"/api\", api_router);\n"
+      },
+      {
+        "id": "doc-1a62a38631e53597-3",
+        "citation": {
+          "source_id": "e0004",
+          "start_line": 591,
+          "end_line": 599
+        },
+        "info": "rust",
+        "code": "// this time without a fallback\nlet api_router = Router::new().route(\"/users\", get(|| { ... }));\n\nlet app = Router::new()\n    .nest(\"/api\", api_router)\n    // `api_router` will inherit this fallback\n    .fallback(app_fallback);\n"
+      },
+      {
+        "id": "doc-1a62a38631e53597-4",
+        "citation": {
+          "source_id": "e0004",
+          "start_line": 606,
+          "end_line": 621
+        },
+        "info": "rust",
+        "code": "use axum::{Router, routing::get, extract::Path};\n\nlet app = Router::new()\n    // this will match `/foo/bar/baz`\n    .route(\"/foo/*rest\", get(handler))\n    // this will match `/foo/`\n    .route(\"/foo/\", get(handler))\n    // if you want `/foo` to match you must also add an explicit route for it\n    .route(\"/foo\", get(handler));\n\nasync fn handler(\n    // use an `Option` because `/foo/` and `/foo` don't have any path params\n    params: Option<Path<String>>,\n) {}\n"
+      },
+      {
+        "id": "doc-1a62a38631e53597-5",
+        "citation": {
+          "source_id": "e0004",
+          "start_line": 629,
+          "end_line": 641
+        },
+        "info": "rust",
+        "code": "use axum::{Router, routing::get, extract::Path};\n\nlet app = Router::new().route(\"/foo/*rest\", get(handler));\n\nasync fn handler(\n    Path(params): Path<String>,\n) {\n    // for the request `/foo/bar/baz` the value of `params` will be `bar/baz`\n    //\n    // on 0.5 it would be `/bar/baz`\n}\n"
+      },
+      {
+        "id": "doc-1a62a38631e53597-6",
+        "citation": {
+          "source_id": "e0004",
+          "start_line": 648,
+          "end_line": 659
+        },
+        "info": "rust",
+        "code": "use axum::{Router, routing::get};\n\nlet app = Router::new()\n    // this used to not be allowed but now just works\n    .route(\"/foo/*rest\", get(foo))\n    .route(\"/foo/bar\", get(bar));\n\nasync fn foo() {}\n\nasync fn bar() {}\n"
+      },
+      {
+        "id": "doc-1a62a38631e53597-7",
+        "citation": {
+          "source_id": "e0004",
+          "start_line": 665,
+          "end_line": 677
+        },
+        "info": "rust",
+        "code": "use axum::{Router, routing::get};\n\nlet app = Router::new()\n    // a request to `GET /foo/` will now get `404 Not Found`\n    // whereas in 0.5 axum would redirect to `/foo`\n    //\n    // same goes the other way if you had the route `/foo/`\n    // axum will no longer redirect from `/foo` to `/foo/`\n    .route(\"/foo\", get(handler));\n\nasync fn handler() {}\n"
+      },
+      {
+        "id": "doc-1a62a38631e53597-8",
+        "citation": {
+          "source_id": "e0004",
+          "start_line": 689,
+          "end_line": 695
+        },
+        "info": "rust",
+        "code": "use axum::{Router, handler::Handler};\n\nlet app = Router::new().fallback(fallback.into_service());\n\nasync fn fallback() {}\n"
+      },
+      {
+        "id": "doc-1a62a38631e53597-9",
+        "citation": {
+          "source_id": "e0004",
+          "start_line": 699,
+          "end_line": 705
+        },
+        "info": "rust",
+        "code": "use axum::Router;\n\nlet app = Router::new().fallback(fallback);\n\nasync fn fallback() {}\n"
+      },
+      {
+        "id": "doc-1a62a38631e53597-10",
+        "citation": {
+          "source_id": "e0004",
+          "start_line": 738,
+          "end_line": 749
+        },
+        "info": "rust",
+        "code": "use axum::{routing::get, Extension, Router};\n\nlet app = Router::new()\n    .route(\"/\", get(handler))\n    .layer(Extension(AppState {}));\n\nasync fn handler(Extension(app_state): Extension<AppState>) {}\n\n#[derive(Clone)]\nstruct AppState {}\n"
+      },
+      {
+        "id": "doc-1a62a38631e53597-11",
+        "citation": {
+          "source_id": "e0004",
+          "start_line": 753,
+          "end_line": 764
+        },
+        "info": "rust",
+        "code": "use axum::{routing::get, extract::State, Router};\n\nlet app = Router::new()\n    .route(\"/\", get(handler))\n    .with_state(AppState {});\n\nasync fn handler(State(app_state): State<AppState>) {}\n\n#[derive(Clone)]\nstruct AppState {}\n"
+      },
+      {
+        "id": "doc-1a62a38631e53597-12",
+        "citation": {
+          "source_id": "e0004",
+          "start_line": 769,
+          "end_line": 796
+        },
+        "info": "rust",
+        "code": "use axum::{extract::{State, FromRef}, routing::get, Router};\n\nlet state = AppState {\n    client: HttpClient {},\n    database: Database {},\n};\n\nlet app = Router::new().route(\"/\", get(handler)).with_state(state);\n\nasync fn handler(\n    State(client): State<HttpClient>,\n    State(database): State<Database>,\n) {}\n\n// the derive requires enabling the \"macros\" feature\n#[derive(Clone, FromRef)]\nstruct AppState {\n    client: HttpClient,\n    database: Database,\n}\n\n#[derive(Clone)]\nstruct HttpClient {}\n\n#[derive(Clone)]\nstruct Database {}\n"
+      },
+      {
+        "id": "doc-1a62a38631e53597-13",
+        "citation": {
+          "source_id": "e0004",
+          "start_line": 807,
+          "end_line": 828
+        },
+        "info": "rust",
+        "code": "use axum::{Json, http::HeaderMap};\n\n// This won't compile on 0.6 because both `Json` and `String` need to consume\n// the request body. You can use either `Json` or `String`, but not both.\nasync fn handler_1(\n    json: Json<serde_json::Value>,\n    string: String,\n) {}\n\n// This won't work either since `Json` is not the last extractor.\nasync fn handler_2(\n    json: Json<serde_json::Value>,\n    headers: HeaderMap,\n) {}\n\n// This works!\nasync fn handler_3(\n    headers: HeaderMap,\n    json: Json<serde_json::Value>,\n) {}\n"
+      },
+      {
+        "id": "doc-1a62a38631e53597-14",
+        "citation": {
+          "source_id": "e0004",
+          "start_line": 838,
+          "end_line": 851
+        },
+        "info": "rust",
+        "code": "struct MyExtractor { /* ... */ }\n\nimpl<B> FromRequest<B> for MyExtractor\nwhere\n    B: Send,\n{\n    type Rejection = StatusCode;\n\n    async fn from_request(req: &mut RequestParts<B>) -> Result<Self, Self::Rejection> {\n        // ...\n    }\n}\n"
+      },
+      {
+        "id": "doc-1a62a38631e53597-15",
+        "citation": {
+          "source_id": "e0004",
+          "start_line": 855,
+          "end_line": 887
+        },
+        "info": "rust",
+        "code": "use axum::{\n    extract::{FromRequest, FromRequestParts},\n    http::{StatusCode, Request, request::Parts},\n};\n\nstruct MyExtractor { /* ... */ }\n\n// implement `FromRequestParts` if you don't need to consume the request body\nimpl<S> FromRequestParts<S> for MyExtractor\nwhere\n    S: Send + Sync,\n{\n    type Rejection = StatusCode;\n\n    async fn from_request_parts(parts: &mut Parts, state: &S) -> Result<Self, Self::Rejection> {\n        // ...\n    }\n}\n\n// implement `FromRequest` if you do need to consume the request body\nimpl<S, B> FromRequest<S, B> for MyExtractor\nwhere\n    S: Send + Sync,\n    B: Send + 'static,\n{\n    type Rejection = StatusCode;\n\n    async fn from_request(req: Request<B>, state: &S) -> Result<Self, Self::Rejection> {\n        // ...\n    }\n}\n"
+      },
+      {
+        "id": "doc-1a62a38631e53597-16",
+        "citation": {
+          "source_id": "e0004",
+          "start_line": 1015,
+          "end_line": 1017
+        },
+        "info": "rust",
+        "code": "Router::with_state(state).route(...);\n"
+      },
+      {
+        "id": "doc-1a62a38631e53597-17",
+        "citation": {
+          "source_id": "e0004",
+          "start_line": 1021,
+          "end_line": 1023
+        },
+        "info": "rust",
+        "code": "Router::new().route(...).with_state(state);\n"
+      },
+      {
+        "id": "doc-1a62a38631e53597-18",
+        "citation": {
+          "source_id": "e0004",
+          "start_line": 1157,
+          "end_line": 1167
+        },
+        "info": "rust",
+        "code": "use axum::{Router, handler::Handler};\n\nlet api_routes = Router::new();\n\nlet app = Router::new()\n    .nest(\"/api\", api_routes)\n    .fallback(fallback.into_service());\n\nasync fn fallback() {}\n"
+      },
+      {
+        "id": "doc-1a62a38631e53597-19",
+        "citation": {
+          "source_id": "e0004",
+          "start_line": 1171,
+          "end_line": 1185
+        },
+        "info": "rust",
+        "code": "use axum::Router;\n\nlet api_routes = Router::new()\n    // we have to explicitly set the fallback here\n    // since nested routers no longer delegate to the outer\n    // router's fallback\n    .fallback(fallback);\n\nlet app = Router::new()\n    .nest(\"/api\", api_routes)\n    .fallback(fallback);\n\nasync fn fallback() {}\n"
+      },
+      {
+        "id": "doc-1aed3b13f3eeb20d-20",
+        "citation": {
+          "source_id": "e0007",
+          "start_line": 27,
+          "end_line": 42
+        },
+        "info": "rust,no_run",
+        "code": "use axum::{\n    routing::get,\n    Router,\n};\n\n#[tokio::main]\nasync fn main() {\n    // build our application with a single route\n    let app = Router::new().route(\"/\", get(|| async { \"Hello, World!\" }));\n\n    // run our app with hyper, listening globally on port 3000\n    let listener = tokio::net::TcpListener::bind(\"0.0.0.0:3000\").await.unwrap();\n    axum::serve(listener, app).await.unwrap();\n}\n"
+      },
+      {
+        "id": "doc-1aed3b13f3eeb20d-21",
+        "citation": {
+          "source_id": "e0007",
+          "start_line": 51,
+          "end_line": 66
+        },
+        "info": "rust",
+        "code": "use axum::{Router, routing::get};\n\n// our router\nlet app = Router::new()\n    .route(\"/\", get(root))\n    .route(\"/foo\", get(get_foo).post(post_foo))\n    .route(\"/foo/bar\", get(foo_bar));\n\n// which calls one of these handlers\nasync fn root() {}\nasync fn get_foo() {}\nasync fn post_foo() {}\nasync fn foo_bar() {}\n# let _: Router = app;\n"
+      },
+      {
+        "id": "doc-1aed3b13f3eeb20d-22",
+        "citation": {
+          "source_id": "e0007",
+          "start_line": 81,
+          "end_line": 95
+        },
+        "info": "rust",
+        "code": "use axum::extract::{Path, Query, Json};\nuse std::collections::HashMap;\n\n// `Path` gives you the path parameters and deserializes them.\nasync fn path(Path(user_id): Path<u32>) {}\n\n// `Query` gives you the query parameters and deserializes them.\nasync fn query(Query(params): Query<HashMap<String, String>>) {}\n\n// Buffer the request body and deserialize it as JSON into a\n// `serde_json::Value`. `Json` supports any type that implements\n// `serde::Deserialize`.\nasync fn json(Json(payload): Json<serde_json::Value>) {}\n"
+      },
+      {
+        "id": "doc-1aed3b13f3eeb20d-23",
+        "citation": {
+          "source_id": "e0007",
+          "start_line": 103,
+          "end_line": 127
+        },
+        "info": "rust,no_run",
+        "code": "use axum::{\n    body::Body,\n    routing::get,\n    response::Json,\n    Router,\n};\nuse serde_json::{Value, json};\n\n// `&'static str` becomes a `200 OK` with `content-type: text/plain; charset=utf-8`\nasync fn plain_text() -> &'static str {\n    \"foo\"\n}\n\n// `Json` gives a content-type of `application/json` and works with any type\n// that implements `serde::Serialize`\nasync fn json() -> Json<Value> {\n    Json(json!({ \"data\": 42 }))\n}\n\nlet app = Router::new()\n    .route(\"/plain_text\", get(plain_text))\n    .route(\"/json\", get(json));\n# let _: Router = app;\n"
+      },
+      {
+        "id": "doc-1aed3b13f3eeb20d-24",
+        "citation": {
+          "source_id": "e0007",
+          "start_line": 160,
+          "end_line": 184
+        },
+        "info": "rust,no_run",
+        "code": "use axum::{\n    extract::State,\n    routing::get,\n    Router,\n};\nuse std::sync::Arc;\n\nstruct AppState {\n    // ...\n}\n\nlet shared_state = Arc::new(AppState { /* ... */ });\n\nlet app = Router::new()\n    .route(\"/\", get(handler))\n    .with_state(shared_state);\n\nasync fn handler(\n    State(state): State<Arc<AppState>>,\n) {\n    // ...\n}\n# let _: Router = app;\n"
+      },
+      {
+        "id": "doc-1aed3b13f3eeb20d-25",
+        "citation": {
+          "source_id": "e0007",
+          "start_line": 197,
+          "end_line": 222
+        },
+        "info": "rust",
+        "code": "use axum::{Router, routing::get, extract::{State, FromRef}};\n\n#[derive(Clone)]\nstruct AppState {\n    api_state: ApiState,\n}\n\n#[derive(Clone)]\nstruct ApiState {}\n\n// Teach axum how to produce an `ApiState` from a reference to `AppState`.\nimpl FromRef<AppState> for ApiState {\n    fn from_ref(app_state: &AppState) -> ApiState {\n        app_state.api_state.clone()\n    }\n}\n\nlet app = Router::new()\n    .route(\"/\", get(handler))\n    .with_state(AppState { api_state: ApiState {} });\n\n// This handler receives only the `ApiState` slice; it never sees `AppState`.\nasync fn handler(State(api_state): State<ApiState>) {}\n# let _: Router = app;\n"
+      },
+      {
+        "id": "doc-1aed3b13f3eeb20d-26",
+        "citation": {
+          "source_id": "e0007",
+          "start_line": 241,
+          "end_line": 265
+        },
+        "info": "rust,no_run",
+        "code": "use axum::{\n    extract::Extension,\n    routing::get,\n    Router,\n};\nuse std::sync::Arc;\n\nstruct AppState {\n    // ...\n}\n\nlet shared_state = Arc::new(AppState { /* ... */ });\n\nlet app = Router::new()\n    .route(\"/\", get(handler))\n    .layer(Extension(shared_state));\n\nasync fn handler(\n    Extension(state): Extension<Arc<AppState>>,\n) {\n    // ...\n}\n# let _: Router = app;\n"
+      },
+      {
+        "id": "doc-1aed3b13f3eeb20d-27",
+        "citation": {
+          "source_id": "e0007",
+          "start_line": 276,
+          "end_line": 321
+        },
+        "info": "rust,no_run",
+        "code": "use axum::{\n    Json,\n    extract::{Extension, Path},\n    routing::{get, post},\n    Router,\n};\nuse std::sync::Arc;\nuse serde::Deserialize;\n\nstruct AppState {\n    // ...\n}\n\nlet shared_state = Arc::new(AppState { /* ... */ });\n\nlet app = Router::new()\n    .route(\n        \"/users\",\n        post({\n            let shared_state = Arc::clone(&shared_state);\n            move |body| create_user(body, shared_state)\n        }),\n    )\n    .route(\n        \"/users/{id}\",\n        get({\n            let shared_state = Arc::clone(&shared_state);\n            move |path| get_user(path, shared_state)\n        }),\n    );\n\nasync fn get_user(Path(user_id): Path<String>, state: Arc<AppState>) {\n    // ...\n}\n\nasync fn create_user(Json(payload): Json<CreateUserPayload>, state: Arc<AppState>) {\n    // ...\n}\n\n#[derive(Deserialize)]\nstruct CreateUserPayload {\n    // ...\n}\n# let _: Router = app;\n"
+      },
+      {
+        "id": "doc-1aed3b13f3eeb20d-28",
+        "citation": {
+          "source_id": "e0007",
+          "start_line": 329,
+          "end_line": 384
+        },
+        "info": "rust,no_run",
+        "code": "use axum::{\n    extract::Request,\n    http::{header, StatusCode},\n    middleware::{self, Next},\n    response::{IntoResponse, Response},\n    routing::get,\n    Router,\n};\nuse tokio::task_local;\n\n#[derive(Clone)]\nstruct CurrentUser {\n    name: String,\n}\ntask_local! {\n    pub static USER: CurrentUser;\n}\n\nasync fn auth(req: Request, next: Next) -> Result<Response, StatusCode> {\n    let auth_header = req\n        .headers()\n        .get(header::AUTHORIZATION)\n        .and_then(|header| header.to_str().ok())\n        .ok_or(StatusCode::UNAUTHORIZED)?;\n    if let Some(current_user) = authorize_current_user(auth_header).await {\n        // State is setup here in the middleware\n        Ok(USER.scope(current_user, next.run(req)).await)\n    } else {\n        Err(StatusCode::UNAUTHORIZED)\n    }\n}\nasync fn authorize_current_user(auth_token: &str) -> Option<CurrentUser> {\n    Some(CurrentUser {\n        name: auth_token.to_string(),\n    })\n}\n\nstruct UserResponse;\n\nimpl IntoResponse for UserResponse {\n    fn into_response(self) -> Response {\n        // State is accessed here in the IntoResponse implementation\n        let current_user = USER.with(|u| u.clone());\n        (StatusCode::OK, current_user.name).into_response()\n    }\n}\n\nasync fn handler() -> UserResponse {\n    UserResponse\n}\n\nlet app: Router = Router::new()\n    .route(\"/\", get(handler))\n    .route_layer(middleware::from_fn(auth));\n"
+      },
+      {
+        "id": "doc-6baa962bdc58fdbd-29",
+        "citation": {
+          "source_id": "e0015",
+          "start_line": 16,
+          "end_line": 23
+        },
+        "info": "rust",
+        "code": "use axum::http::StatusCode;\n\nasync fn handler() -> Result<String, StatusCode> {\n    # todo!()\n    // ...\n}\n"
+      },
+      {
+        "id": "doc-6baa962bdc58fdbd-30",
+        "citation": {
+          "source_id": "e0015",
+          "start_line": 56,
+          "end_line": 92
+        },
+        "info": "rust",
+        "code": "use axum::{\n    Router,\n    body::Body,\n    http::{Request, Response, StatusCode},\n    error_handling::HandleError,\n};\n\nasync fn thing_that_might_fail() -> Result<(), anyhow::Error> {\n    # Ok(())\n    // ...\n}\n\n// this service might fail with `anyhow::Error`\nlet some_fallible_service = tower::service_fn(|_req| async {\n    thing_that_might_fail().await?;\n    Ok::<_, anyhow::Error>(Response::new(Body::empty()))\n});\n\nlet app = Router::new().route_service(\n    \"/\",\n    // we cannot route to `some_fallible_service` directly since it might fail.\n    // we have to use `handle_error` which converts its errors into responses\n    // and changes its error type from `anyhow::Error` to `Infallible`.\n    HandleError::new(some_fallible_service, handle_anyhow_error),\n);\n\n// handle errors by converting them into something that implements\n// `IntoResponse`\nasync fn handle_anyhow_error(err: anyhow::Error) -> (StatusCode, String) {\n    (\n        StatusCode::INTERNAL_SERVER_ERROR,\n        format!(\"Something went wrong: {err}\"),\n    )\n}\n# let _: Router = app;\n"
+      },
+      {
+        "id": "doc-6baa962bdc58fdbd-31",
+        "citation": {
+          "source_id": "e0015",
+          "start_line": 99,
+          "end_line": 134
+        },
+        "info": "rust",
+        "code": "use axum::{\n    Router,\n    BoxError,\n    routing::get,\n    http::StatusCode,\n    error_handling::HandleErrorLayer,\n};\nuse std::time::Duration;\nuse tower::ServiceBuilder;\n\nlet app = Router::new()\n    .route(\"/\", get(|| async {}))\n    .layer(\n        ServiceBuilder::new()\n            // `timeout` will produce an error if the handler takes\n            // too long so we must handle those\n            .layer(HandleErrorLayer::new(handle_timeout_error))\n            .timeout(Duration::from_secs(30))\n    );\n\nasync fn handle_timeout_error(err: BoxError) -> (StatusCode, String) {\n    if err.is::<tower::timeout::error::Elapsed>() {\n        (\n            StatusCode::REQUEST_TIMEOUT,\n            \"Request took too long\".to_string(),\n        )\n    } else {\n        (\n            StatusCode::INTERNAL_SERVER_ERROR,\n            format!(\"Unhandled internal error: {err}\"),\n        )\n    }\n}\n# let _: Router = app;\n"
+      },
+      {
+        "id": "doc-6baa962bdc58fdbd-32",
+        "citation": {
+          "source_id": "e0015",
+          "start_line": 140,
+          "end_line": 174
+        },
+        "info": "rust",
+        "code": "use axum::{\n    Router,\n    BoxError,\n    routing::get,\n    http::{StatusCode, Method, Uri},\n    error_handling::HandleErrorLayer,\n};\nuse std::time::Duration;\nuse tower::ServiceBuilder;\n\nlet app = Router::new()\n    .route(\"/\", get(|| async {}))\n    .layer(\n        ServiceBuilder::new()\n            // `timeout` will produce an error if the handler takes\n            // too long so we must handle those\n            .layer(HandleErrorLayer::new(handle_timeout_error))\n            .timeout(Duration::from_secs(30))\n    );\n\nasync fn handle_timeout_error(\n    // `Method` and `Uri` are extractors so they can be used here\n    method: Method,\n    uri: Uri,\n    // the last argument must be the error itself\n    err: BoxError,\n) -> (StatusCode, String) {\n    (\n        StatusCode::INTERNAL_SERVER_ERROR,\n        format!(\"`{method} {uri}` failed with {err}\"),\n    )\n}\n# let _: Router = app;\n"
+      },
+      {
+        "id": "doc-984c599c9d1dae76-33",
+        "citation": {
+          "source_id": "e0016",
+          "start_line": 20,
+          "end_line": 44
+        },
+        "info": "rust,no_run",
+        "code": "use axum::{\n    Router,\n    Extension,\n    routing::get,\n};\nuse std::sync::Arc;\n\n// Some shared state used throughout our application\nstruct State {\n    // ...\n}\n\nasync fn handler(state: Extension<Arc<State>>) {\n    // ...\n}\n\nlet state = Arc::new(State { /* ... */ });\n\nlet app = Router::new().route(\"/\", get(handler))\n    // Add middleware that inserts the state into all incoming request's\n    // extensions.\n    .layer(Extension(state));\n# let _: Router = app;\n"
+      },
+      {
+        "id": "doc-984c599c9d1dae76-34",
+        "citation": {
+          "source_id": "e0016",
+          "start_line": 54,
+          "end_line": 69
+        },
+        "info": "rust",
+        "code": "use axum::{\n    Extension,\n    response::IntoResponse,\n};\n\nasync fn handler() -> (Extension<Foo>, &'static str) {\n    (\n        Extension(Foo(\"foo\")),\n        \"Hello, World!\"\n    )\n}\n\n#[derive(Clone)]\nstruct Foo(&'static str);\n"
+      },
+      {
+        "id": "doc-53a6c173aa00e510-35",
+        "citation": {
+          "source_id": "e0021",
+          "start_line": 12,
+          "end_line": 33
+        },
+        "info": "rust,no_run",
+        "code": "use axum::{\n    extract::Json,\n    routing::post,\n    handler::Handler,\n    Router,\n};\nuse serde::Deserialize;\n\n#[derive(Deserialize)]\nstruct CreateUser {\n    email: String,\n    password: String,\n}\n\nasync fn create_user(Json(payload): Json<CreateUser>) {\n    // ...\n}\n\nlet app = Router::new().route(\"/users\", post(create_user));\n# let _: Router = app;\n"
+      },
+      {
+        "id": "doc-53a6c173aa00e510-36",
+        "citation": {
+          "source_id": "e0021",
+          "start_line": 39,
+          "end_line": 88
+        },
+        "info": "rust,no_run",
+        "code": "use axum::{\n    extract::{Request, Json, Path, Extension, Query},\n    routing::post,\n    http::header::HeaderMap,\n    body::{Bytes, Body},\n    Router,\n};\nuse serde_json::Value;\nuse std::collections::HashMap;\n\n// `Path` gives you the path parameters and deserializes them. See its docs for\n// more details\nasync fn path(Path(user_id): Path<u32>) {}\n\n// `Query` gives you the query parameters and deserializes them.\nasync fn query(Query(params): Query<HashMap<String, String>>) {}\n\n// `HeaderMap` gives you all the headers\nasync fn headers(headers: HeaderMap) {}\n\n// `String` consumes the request body and ensures it is valid utf-8\nasync fn string(body: String) {}\n\n// `Bytes` gives you the raw request body\nasync fn bytes(body: Bytes) {}\n\n// We've already seen `Json` for parsing the request body as json\nasync fn json(Json(payload): Json<Value>) {}\n\n// `Request` gives you the whole request for maximum control\nasync fn request(request: Request) {}\n\n// `Extension` extracts data from \"request extensions\"\n// This is commonly used to share state with handlers\nasync fn extension(Extension(state): Extension<State>) {}\n\n#[derive(Clone)]\nstruct State { /* ... */ }\n\nlet app = Router::new()\n    .route(\"/path/{user_id}\", post(path))\n    .route(\"/query\", post(query))\n    .route(\"/string\", post(string))\n    .route(\"/bytes\", post(bytes))\n    .route(\"/json\", post(json))\n    .route(\"/request\", post(request))\n    .route(\"/extension\", post(extension));\n# let _: Router = app;\n"
+      },
+      {
+        "id": "doc-53a6c173aa00e510-37",
+        "citation": {
+          "source_id": "e0021",
+          "start_line": 94,
+          "end_line": 118
+        },
+        "info": "rust,no_run",
+        "code": "use axum::{\n    extract::{Path, Query},\n    routing::get,\n    Router,\n};\nuse uuid::Uuid;\nuse serde::Deserialize;\n\nlet app = Router::new().route(\"/users/{id}/things\", get(get_user_things));\n\n#[derive(Deserialize)]\nstruct Pagination {\n    page: usize,\n    per_page: usize,\n}\n\nasync fn get_user_things(\n    Path(user_id): Path<Uuid>,\n    Query(pagination): Query<Pagination>,\n) {\n    // ...\n}\n# let _: Router = app;\n"
+      },
+      {
+        "id": "doc-53a6c173aa00e510-38",
+        "citation": {
+          "source_id": "e0021",
+          "start_line": 132,
+          "end_line": 153
+        },
+        "info": "rust",
+        "code": "use axum::{extract::State, http::{Method, HeaderMap}};\n#\n# #[derive(Clone)]\n# struct AppState {\n# }\n\nasync fn handler(\n    // `Method` and `HeaderMap` don't consume the request body so they can\n    // put anywhere in the argument list (but before `body`)\n    method: Method,\n    headers: HeaderMap,\n    // `State` is also an extractor so it needs to be before `body`\n    State(state): State<AppState>,\n    // `String` consumes the request body and thus must be the last extractor\n    body: String,\n) {\n    // ...\n}\n#\n# let _: axum::routing::MethodRouter<AppState> = axum::routing::get(handler);\n"
+      },
+      {
+        "id": "doc-53a6c173aa00e510-39",
+        "citation": {
+          "source_id": "e0021",
+          "start_line": 157,
+          "end_line": 169
+        },
+        "info": "rust,compile_fail",
+        "code": "use axum::http::Method;\n\nasync fn handler(\n    // this doesn't work since `String` must be the last argument\n    body: String,\n    method: Method,\n) {\n    // ...\n}\n#\n# let _: axum::routing::MethodRouter = axum::routing::get(handler);\n"
+      },
+      {
+        "id": "doc-53a6c173aa00e510-40",
+        "citation": {
+          "source_id": "e0021",
+          "start_line": 173,
+          "end_line": 190
+        },
+        "info": "rust,compile_fail",
+        "code": "use axum::Json;\nuse serde::Deserialize;\n\n#[derive(Deserialize)]\nstruct Payload {}\n\nasync fn handler(\n    // `String` and `Json` both consume the request body\n    // so they cannot both be used\n    string_body: String,\n    json_body: Json<Payload>,\n) {\n    // ...\n}\n#\n# let _: axum::routing::MethodRouter = axum::routing::get(handler);\n"
+      },
+      {
+        "id": "doc-53a6c173aa00e510-41",
+        "citation": {
+          "source_id": "e0021",
+          "start_line": 201,
+          "end_line": 236
+        },
+        "info": "rust,no_run",
+        "code": "use axum::{\n    extract::{Json, rejection::JsonRejection},\n    routing::post,\n    Router,\n};\nuse serde_json::Value;\n\nasync fn create_user(payload: Result<Json<Value>, JsonRejection>) {\n    match payload {\n        Ok(payload) => {\n            // We got a valid JSON payload\n        }\n        Err(JsonRejection::MissingJsonContentType(_)) => {\n            // Request didn't have `Content-Type: application/json`\n            // header\n        }\n        Err(JsonRejection::JsonDataError(_)) => {\n            // Couldn't deserialize the body into the target type\n        }\n        Err(JsonRejection::JsonSyntaxError(_)) => {\n            // Syntax error in the body\n        }\n        Err(JsonRejection::BytesRejection(_)) => {\n            // Failed to extract the request body\n        }\n        Err(_) => {\n            // `JsonRejection` is marked `#[non_exhaustive]` so match must\n            // include a catch-all case.\n        }\n    }\n}\n\nlet app = Router::new().route(\"/users\", post(create_user));\n# let _: Router = app;\n"
+      },
+      {
+        "id": "doc-53a6c173aa00e510-42",
+        "citation": {
+          "source_id": "e0021",
+          "start_line": 249,
+          "end_line": 264
+        },
+        "info": "rust,no_run",
+        "code": "use axum::{routing::post, Router};\nuse axum_extra::{headers::UserAgent, TypedHeader};\nuse serde_json::Value;\n\nasync fn foo(user_agent: Option<TypedHeader<UserAgent>>) {\n    if let Some(TypedHeader(user_agent)) = user_agent {\n        // The client sent a user agent\n    } else {\n        // No user agent header\n    }\n}\n\nlet app = Router::new().route(\"/foo\", post(foo));\n# let _: Router = app;\n"
+      },
+      {
+        "id": "doc-53a6c173aa00e510-43",
+        "citation": {
+          "source_id": "e0021",
+          "start_line": 290,
+          "end_line": 387
+        },
+        "info": "rust",
+        "code": "use std::error::Error;\nuse axum::{\n    extract::{Json, rejection::JsonRejection},\n    response::IntoResponse,\n    http::StatusCode,\n};\nuse serde_json::{json, Value};\n\nasync fn handler(\n    result: Result<Json<Value>, JsonRejection>,\n) -> Result<Json<Value>, (StatusCode, String)> {\n    match result {\n        // if the client sent valid JSON then we're good\n        Ok(Json(payload)) => Ok(Json(json!({ \"payload\": payload }))),\n\n        Err(err) => match err {\n            JsonRejection::JsonDataError(err) => {\n                Err(serde_json_error_response(err))\n            }\n            JsonRejection::JsonSyntaxError(err) => {\n                Err(serde_json_error_response(err))\n            }\n            // handle other rejections from the `Json` extractor\n            JsonRejection::MissingJsonContentType(_) => Err((\n                StatusCode::BAD_REQUEST,\n                \"Missing `Content-Type: application/json` header\".to_string(),\n            )),\n            JsonRejection::BytesRejection(_) => Err((\n                StatusCode::INTERNAL_SERVER_ERROR,\n                \"Failed to buffer request body\".to_string(),\n            )),\n            // we must provide a catch-all case since `JsonRejection` is marked\n            // `#[non_exhaustive]`\n            _ => Err((\n                StatusCode::INTERNAL_SERVER_ERROR,\n                \"Unknown error\".to_string(),\n            )),\n        },\n    }\n}\n\n// attempt to extract the inner `serde_path_to_error::Error<serde_json::Error>`,\n// if that succeeds we can provide a more specific error.\n//\n// `Json` uses `serde_path_to_error` so the error will be wrapped in `serde_path_to_error::Error`.\nfn serde_json_error_response<E>(err: E) -> (StatusCode, String)\nwhere\n    E: Error + 'static,\n{\n    if let Some(err) = find_error_source::<serde_path_to_error::Error<serde_json::Error>>(&err) {\n        let serde_json_err = err.inner();\n        (\n            StatusCode::BAD_REQUEST,\n            format!(\n                \"Invalid JSON at line {} column {}\",\n                serde_json_err.line(),\n                serde_json_err.column()\n            ),\n        )\n    } else {\n        (StatusCode::BAD_REQUEST, \"Unknown error\".to_string())\n    }\n}\n\n// attempt to downcast `err` into a `T` and if that fails recursively try and\n// downcast `err`'s source\nfn find_error_source<'a, T>(err: &'a (dyn Error + 'static)) -> Option<&'a T>\nwhere\n    T: Error + 'static,\n{\n    if let Some(err) = err.downcast_ref::<T>() {\n        Some(err)\n    } else if let Some(source) = err.source() {\n        find_error_source(source)\n    } else {\n        None\n    }\n}\n# \n# #[tokio::main]\n# async fn main() {\n#     use axum::extract::FromRequest;\n# \n#     let req = axum::http::Request::builder()\n#         .header(\"content-type\", \"application/json\")\n#         .body(axum::body::Body::from(\"{\"))\n#         .unwrap();\n# \n#     let err = match Json::<serde_json::Value>::from_request(req, &()).await.unwrap_err() {\n#         JsonRejection::JsonSyntaxError(err) => err,\n#         _ => panic!(),\n#     };\n# \n#     let (_, body) = serde_json_error_response(err);\n#     assert_eq!(body, \"Invalid JSON at line 1 column 1\");\n# }\n"
+      },
+      {
+        "id": "doc-53a6c173aa00e510-44",
+        "citation": {
+          "source_id": "e0021",
+          "start_line": 403,
+          "end_line": 438
+        },
+        "info": "rust,no_run",
+        "code": "use axum::{\n    extract::FromRequestParts,\n    routing::get,\n    Router,\n    http::{\n        StatusCode,\n        header::{HeaderValue, USER_AGENT},\n        request::Parts,\n    },\n};\n\nstruct ExtractUserAgent(HeaderValue);\n\nimpl<S> FromRequestParts<S> for ExtractUserAgent\nwhere\n    S: Send + Sync,\n{\n    type Rejection = (StatusCode, &'static str);\n\n    async fn from_request_parts(parts: &mut Parts, state: &S) -> Result<Self, Self::Rejection> {\n        if let Some(user_agent) = parts.headers.get(USER_AGENT) {\n            Ok(ExtractUserAgent(user_agent.clone()))\n        } else {\n            Err((StatusCode::BAD_REQUEST, \"`User-Agent` header is missing\"))\n        }\n    }\n}\n\nasync fn handler(ExtractUserAgent(user_agent): ExtractUserAgent) {\n    // ...\n}\n\nlet app = Router::new().route(\"/foo\", get(handler));\n# let _: Router = app;\n"
+      },
+      {
+        "id": "doc-53a6c173aa00e510-45",
+        "citation": {
+          "source_id": "e0021",
+          "start_line": 444,
+          "end_line": 483
+        },
+        "info": "rust,no_run",
+        "code": "use axum::{\n    extract::{Request, FromRequest},\n    response::{Response, IntoResponse},\n    body::{Bytes, Body},\n    routing::get,\n    Router,\n    http::{\n        StatusCode,\n        header::{HeaderValue, USER_AGENT},\n    },\n};\n\nstruct ValidatedBody(Bytes);\n\nimpl<S> FromRequest<S> for ValidatedBody\nwhere\n    Bytes: FromRequest<S>,\n    S: Send + Sync,\n{\n    type Rejection = Response;\n\n    async fn from_request(req: Request, state: &S) -> Result<Self, Self::Rejection> {\n        let body = Bytes::from_request(req, state)\n            .await\n            .map_err(IntoResponse::into_response)?;\n\n        // do validation...\n\n        Ok(Self(body))\n    }\n}\n\nasync fn handler(ValidatedBody(body): ValidatedBody) {\n    // ...\n}\n\nlet app = Router::new().route(\"/foo\", get(handler));\n# let _: Router = app;\n"
+      },
+      {
+        "id": "doc-53a6c173aa00e510-46",
+        "citation": {
+          "source_id": "e0021",
+          "start_line": 491,
+          "end_line": 542
+        },
+        "info": "rust,compile_fail",
+        "code": "use axum::{\n    Router,\n    routing::get,\n    extract::{FromRequest, Request, FromRequestParts},\n    http::request::Parts,\n    body::Body,\n};\nuse std::convert::Infallible;\n\n// Some extractor that doesn't wrap another extractor\nstruct MyExtractor;\n\n// `MyExtractor` implements both `FromRequest`\nimpl<S> FromRequest<S> for MyExtractor\nwhere\n    S: Send + Sync,\n{\n    type Rejection = Infallible;\n\n    async fn from_request(req: Request, state: &S) -> Result<Self, Self::Rejection> {\n        // ...\n        # todo!()\n    }\n}\n\n// and `FromRequestParts`\nimpl<S> FromRequestParts<S> for MyExtractor\nwhere\n    S: Send + Sync,\n{\n    type Rejection = Infallible;\n\n    async fn from_request_parts(parts: &mut Parts, state: &S) -> Result<Self, Self::Rejection> {\n        // ...\n        # todo!()\n    }\n}\n\nlet app = Router::new().route(\n    \"/\",\n    // This fails when we go to actually use `MyExtractor` in a handler function.\n    // This is due to a limit in Rust's type system.\n    //\n    // The workaround is to implement either `FromRequest` or `FromRequestParts`\n    // but not both, if your extractor doesn't wrap another extractor.\n    //\n    // See \"Wrapping extractors\" for how to wrap other extractors.\n    get(|_: MyExtractor| async {}),\n);\n# let _: Router = app;\n"
+      },
+      {
+        "id": "doc-53a6c173aa00e510-47",
+        "citation": {
+          "source_id": "e0021",
+          "start_line": 549,
+          "end_line": 597
+        },
+        "info": "rust",
+        "code": "use axum::{\n    extract::{Extension, FromRequestParts},\n    http::{StatusCode, HeaderMap, request::Parts},\n    response::{IntoResponse, Response},\n    routing::get,\n    Router,\n};\n\n#[derive(Clone)]\nstruct State {\n    // ...\n}\n\nstruct AuthenticatedUser {\n    // ...\n}\n\nimpl<S> FromRequestParts<S> for AuthenticatedUser\nwhere\n    S: Send + Sync,\n{\n    type Rejection = Response;\n\n    async fn from_request_parts(parts: &mut Parts, state: &S) -> Result<Self, Self::Rejection> {\n        // You can either call them directly...\n        let headers = HeaderMap::from_request_parts(parts, state)\n            .await\n            .map_err(|err| match err {})?;\n\n        // ... or use `extract` / `extract_with_state` from `RequestExt` / `RequestPartsExt`\n        use axum::RequestPartsExt;\n        let Extension(state) = parts.extract::<Extension<State>>()\n            .await\n            .map_err(|err| err.into_response())?;\n\n        unimplemented!(\"actually perform the authorization\")\n    }\n}\n\nasync fn handler(user: AuthenticatedUser) {\n    // ...\n}\n\nlet state = State { /* ... */ };\n\nlet app = Router::new().route(\"/\", get(handler)).layer(Extension(state));\n# let _: Router = app;\n"
+      },
+      {
+        "id": "doc-53a6c173aa00e510-48",
+        "citation": {
+          "source_id": "e0021",
+          "start_line": 613,
+          "end_line": 674
+        },
+        "info": "rust",
+        "code": "use axum::{\n    Router,\n    body::Body,\n    routing::get,\n    extract::{Request, FromRequest, FromRequestParts},\n    http::{HeaderMap, request::Parts},\n};\nuse std::time::{Instant, Duration};\n\n// an extractor that wraps another and measures how long time it takes to run\nstruct Timing<E> {\n    extractor: E,\n    duration: Duration,\n}\n\n// we must implement both `FromRequestParts`\nimpl<S, T> FromRequestParts<S> for Timing<T>\nwhere\n    S: Send + Sync,\n    T: FromRequestParts<S>,\n{\n    type Rejection = T::Rejection;\n\n    async fn from_request_parts(parts: &mut Parts, state: &S) -> Result<Self, Self::Rejection> {\n        let start = Instant::now();\n        let extractor = T::from_request_parts(parts, state).await?;\n        let duration = start.elapsed();\n        Ok(Timing {\n            extractor,\n            duration,\n        })\n    }\n}\n\n// and `FromRequest`\nimpl<S, T> FromRequest<S> for Timing<T>\nwhere\n    S: Send + Sync,\n    T: FromRequest<S>,\n{\n    type Rejection = T::Rejection;\n\n    async fn from_request(req: Request, state: &S) -> Result<Self, Self::Rejection> {\n        let start = Instant::now();\n        let extractor = T::from_request(req, state).await?;\n        let duration = start.elapsed();\n        Ok(Timing {\n            extractor,\n            duration,\n        })\n    }\n}\n\nasync fn handler(\n    // this uses the `FromRequestParts` impl\n    _: Timing<HeaderMap>,\n    // this uses the `FromRequest` impl\n    _: Timing<String>,\n) {}\n# let _: axum::routing::MethodRouter = axum::routing::get(handler);\n"
+      },
+      {
+        "id": "doc-2a0f140a86a74152-49",
+        "citation": {
+          "source_id": "e0022",
+          "start_line": 32,
+          "end_line": 45
+        },
+        "info": "rust",
+        "code": "use axum::Form;\nuse serde::Deserialize;\n\n#[derive(Deserialize)]\nstruct SignUp {\n    username: String,\n    password: String,\n}\n\nasync fn accept_form(Form(sign_up): Form<SignUp>) {\n    // ...\n}\n"
+      },
+      {
+        "id": "doc-2a0f140a86a74152-50",
+        "citation": {
+          "source_id": "e0022",
+          "start_line": 52,
+          "end_line": 64
+        },
+        "info": "rust",
+        "code": "use axum::Form;\nuse serde::Serialize;\n\n#[derive(Serialize)]\nstruct Payload {\n    value: String,\n}\n\nasync fn handler() -> Form<Payload> {\n    Form(Payload { value: \"foo\".to_owned() })\n}\n"
+      },
+      {
+        "id": "doc-555b16af49c41482-51",
+        "citation": {
+          "source_id": "e0026",
+          "start_line": 33,
+          "end_line": 53
+        },
+        "info": "rust,no_run",
+        "code": "use axum::{\n    extract,\n    routing::post,\n    Router,\n};\nuse serde::Deserialize;\n\n#[derive(Deserialize)]\nstruct CreateUser {\n    email: String,\n    password: String,\n}\n\nasync fn create_user(extract::Json(payload): extract::Json<CreateUser>) {\n    // payload is a `CreateUser`\n}\n\nlet app = Router::new().route(\"/users\", post(create_user));\n# let _: Router = app;\n"
+      },
+      {
+        "id": "doc-555b16af49c41482-52",
+        "citation": {
+          "source_id": "e0026",
+          "start_line": 65,
+          "end_line": 93
+        },
+        "info": "",
+        "code": "use axum::{\n    extract::Path,\n    routing::get,\n    Router,\n    Json,\n};\nuse serde::Serialize;\nuse uuid::Uuid;\n\n#[derive(Serialize)]\nstruct User {\n    id: Uuid,\n    username: String,\n}\n\nasync fn get_user(Path(user_id) : Path<Uuid>) -> Json<User> {\n    let user = find_user(user_id).await;\n    Json(user)\n}\n\nasync fn find_user(user_id: Uuid) -> User {\n    // ...\n    # unimplemented!()\n}\n\nlet app = Router::new().route(\"/users/{id}\", get(get_user));\n# let _: Router = app;\n"
+      },
+      {
+        "id": "doc-0488c65d5a91dcaf-53",
+        "citation": {
+          "source_id": "e0029",
+          "start_line": 25,
+          "end_line": 47
+        },
+        "info": "rust",
+        "code": "use axum::{\n    routing::get,\n    Extension,\n    Router,\n};\nuse tower_http::{trace::TraceLayer};\nuse tower::ServiceBuilder;\n\nasync fn handler() {}\n\n#[derive(Clone)]\nstruct State {}\n\nlet app = Router::new()\n    .route(\"/\", get(handler))\n    .layer(\n        ServiceBuilder::new()\n            .layer(TraceLayer::new_for_http())\n            .layer(Extension(State {}))\n    );\n# let _: Router = app;\n"
+      },
+      {
+        "id": "doc-0488c65d5a91dcaf-54",
+        "citation": {
+          "source_id": "e0029",
+          "start_line": 69,
+          "end_line": 84
+        },
+        "info": "rust",
+        "code": "use axum::{routing::get, Router};\n\nasync fn handler() {}\n\n# let layer_one = axum::Extension(());\n# let layer_two = axum::Extension(());\n# let layer_three = axum::Extension(());\n#\nlet app = Router::new()\n    .route(\"/\", get(handler))\n    .layer(layer_one)\n    .layer(layer_two)\n    .layer(layer_three);\n# let _: Router = app;\n"
+      },
+      {
+        "id": "doc-0488c65d5a91dcaf-55",
+        "citation": {
+          "source_id": "e0029",
+          "start_line": 124,
+          "end_line": 143
+        },
+        "info": "rust",
+        "code": "use tower::ServiceBuilder;\nuse axum::{routing::get, Router};\n\nasync fn handler() {}\n\n# let layer_one = axum::Extension(());\n# let layer_two = axum::Extension(());\n# let layer_three = axum::Extension(());\n#\nlet app = Router::new()\n    .route(\"/\", get(handler))\n    .layer(\n        ServiceBuilder::new()\n            .layer(layer_one)\n            .layer(layer_two)\n            .layer(layer_three),\n    );\n# let _: Router = app;\n"
+      },
+      {
+        "id": "doc-0488c65d5a91dcaf-56",
+        "citation": {
+          "source_id": "e0029",
+          "start_line": 205,
+          "end_line": 253
+        },
+        "info": "rust",
+        "code": "use axum::{\n    response::Response,\n    body::Body,\n    extract::Request,\n};\nuse futures_util::future::BoxFuture;\nuse tower::{Service, Layer};\nuse std::task::{Context, Poll};\n\n#[derive(Clone)]\nstruct MyLayer;\n\nimpl<S> Layer<S> for MyLayer {\n    type Service = MyMiddleware<S>;\n\n    fn layer(&self, inner: S) -> Self::Service {\n        MyMiddleware { inner }\n    }\n}\n\n#[derive(Clone)]\nstruct MyMiddleware<S> {\n    inner: S,\n}\n\nimpl<S> Service<Request> for MyMiddleware<S>\nwhere\n    S: Service<Request, Response = Response> + Send + 'static,\n    S::Future: Send + 'static,\n{\n    type Response = S::Response;\n    type Error = S::Error;\n    // `BoxFuture` is a type alias for `Pin<Box<dyn Future + Send + 'a>>`\n    type Future = BoxFuture<'static, Result<Self::Response, Self::Error>>;\n\n    fn poll_ready(&mut self, cx: &mut Context<'_>) -> Poll<Result<(), Self::Error>> {\n        self.inner.poll_ready(cx)\n    }\n\n    fn call(&mut self, request: Request) -> Self::Future {\n        let future = self.inner.call(request);\n        Box::pin(async move {\n            let response: Response = future.await?;\n            Ok(response)\n        })\n    }\n}\n"
+      },
+      {
+        "id": "doc-0488c65d5a91dcaf-57",
+        "citation": {
+          "source_id": "e0029",
+          "start_line": 259,
+          "end_line": 268
+        },
+        "info": "ignore",
+        "code": "ServiceBuilder::new()\n        .layer(HandleErrorLayer::new(|_: BoxError| async {\n            // because axum uses infallible errors, you must handle your custom error type from your middleware here\n            StatusCode::BAD_REQUEST\n        }))\n        .layer(\n             // <your actual layer which DOES return an error>\n        );\n"
+      },
+      {
+        "id": "doc-0488c65d5a91dcaf-58",
+        "citation": {
+          "source_id": "e0029",
+          "start_line": 296,
+          "end_line": 321
+        },
+        "info": "rust",
+        "code": "use axum::{\n    routing::get,\n    error_handling::HandleErrorLayer,\n    http::StatusCode,\n    BoxError,\n    Router,\n};\nuse tower::{ServiceBuilder, timeout::TimeoutLayer};\nuse std::time::Duration;\n\nasync fn handler() {}\n\nlet app = Router::new()\n    .route(\"/\", get(handler))\n    .layer(\n        ServiceBuilder::new()\n            // this middleware goes above `TimeoutLayer` because it will receive\n            // errors returned by `TimeoutLayer`\n            .layer(HandleErrorLayer::new(|_: BoxError| async {\n                StatusCode::REQUEST_TIMEOUT\n            }))\n            .layer(TimeoutLayer::new(Duration::from_secs(10)))\n    );\n# let _: Router = app;\n"
+      },
+      {
+        "id": "doc-0488c65d5a91dcaf-59",
+        "citation": {
+          "source_id": "e0029",
+          "start_line": 359,
+          "end_line": 376
+        },
+        "info": "rust",
+        "code": "use axum::{\n    routing::get,\n    Router,\n};\nuse tower::ServiceBuilder;\n# let some_backpressure_sensitive_middleware =\n#     tower::layer::util::Identity::new();\n\nasync fn handler() { /* ... */ }\n\nlet app = Router::new().route(\"/\", get(handler));\n\nlet app = ServiceBuilder::new()\n    .layer(some_backpressure_sensitive_middleware)\n    .service(app);\n# let _: Router = app;\n"
+      },
+      {
+        "id": "doc-0488c65d5a91dcaf-60",
+        "citation": {
+          "source_id": "e0029",
+          "start_line": 396,
+          "end_line": 463
+        },
+        "info": "rust",
+        "code": "use axum::{\n    Router,\n    routing::get,\n    middleware::{self, Next},\n    response::Response,\n    extract::{State, Request},\n};\nuse tower::{Layer, Service};\nuse std::task::{Context, Poll};\n\n#[derive(Clone)]\nstruct AppState {}\n\n#[derive(Clone)]\nstruct MyLayer {\n    state: AppState,\n}\n\nimpl<S> Layer<S> for MyLayer {\n    type Service = MyService<S>;\n\n    fn layer(&self, inner: S) -> Self::Service {\n        MyService {\n            inner,\n            state: self.state.clone(),\n        }\n    }\n}\n\n#[derive(Clone)]\nstruct MyService<S> {\n    inner: S,\n    state: AppState,\n}\n\nimpl<S, B> Service<Request<B>> for MyService<S>\nwhere\n    S: Service<Request<B>>,\n{\n    type Response = S::Response;\n    type Error = S::Error;\n    type Future = S::Future;\n\n    fn poll_ready(&mut self, cx: &mut Context<'_>) -> Poll<Result<(), Self::Error>> {\n        self.inner.poll_ready(cx)\n    }\n\n    fn call(&mut self, req: Request<B>) -> Self::Future {\n        // Do something with `self.state`.\n        //\n        // See `axum::RequestExt` for how to run extractors directly from\n        // a `Request`.\n\n        self.inner.call(req)\n    }\n}\n\nasync fn handler(_: State<AppState>) {}\n\nlet state = AppState {};\n\nlet app = Router::new()\n    .route(\"/\", get(handler))\n    .layer(MyLayer { state: state.clone() })\n    .with_state(state);\n# let _: axum::Router = app;\n"
+      },
+      {
+        "id": "doc-0488c65d5a91dcaf-61",
+        "citation": {
+          "source_id": "e0029",
+          "start_line": 469,
+          "end_line": 519
+        },
+        "info": "rust",
+        "code": "use axum::{\n    Router,\n    http::StatusCode,\n    routing::get,\n    response::{IntoResponse, Response},\n    middleware::{self, Next},\n    extract::{Request, Extension},\n};\n\n#[derive(Clone)]\nstruct CurrentUser { /* ... */ }\n\nasync fn auth(mut req: Request, next: Next) -> Result<Response, StatusCode> {\n    let auth_header = req.headers()\n        .get(http::header::AUTHORIZATION)\n        .and_then(|header| header.to_str().ok());\n\n    let auth_header = if let Some(auth_header) = auth_header {\n        auth_header\n    } else {\n        return Err(StatusCode::UNAUTHORIZED);\n    };\n\n    if let Some(current_user) = authorize_current_user(auth_header).await {\n        // insert the current user into a request extension so the handler can\n        // extract it\n        req.extensions_mut().insert(current_user);\n        Ok(next.run(req).await)\n    } else {\n        Err(StatusCode::UNAUTHORIZED)\n    }\n}\n\nasync fn authorize_current_user(auth_token: &str) -> Option<CurrentUser> {\n    // ...\n    # unimplemented!()\n}\n\nasync fn handler(\n    // extract the current user, set by the middleware\n    Extension(current_user): Extension<CurrentUser>,\n) {\n    // ...\n}\n\nlet app = Router::new()\n    .route(\"/\", get(handler))\n    .route_layer(middleware::from_fn(auth));\n# let _: Router = app;\n"
+      },
+      {
+        "id": "doc-0488c65d5a91dcaf-62",
+        "citation": {
+          "source_id": "e0029",
+          "start_line": 534,
+          "end_line": 562
+        },
+        "info": "rust",
+        "code": "use tower::Layer;\nuse axum::{\n    Router,\n    ServiceExt, // for `into_make_service`\n    response::Response,\n    middleware::Next,\n    extract::Request,\n};\n\nfn rewrite_request_uri<B>(req: Request<B>) -> Request<B> {\n    // ...\n    # req\n}\n\n// this can be any `tower::Layer`\nlet middleware = tower::util::MapRequestLayer::new(rewrite_request_uri);\n\nlet app = Router::new();\n\n// apply the layer around the whole `Router`\n// this way the middleware will run before `Router` receives the request\nlet app_with_middleware = middleware.layer(app);\n\n# async {\nlet listener = tokio::net::TcpListener::bind(\"0.0.0.0:3000\").await.unwrap();\naxum::serve(listener, app_with_middleware.into_make_service()).await.unwrap();\n# };\n"
+      },
+      {
+        "id": "doc-535661876ca0e01d-63",
+        "citation": {
+          "source_id": "e0033",
+          "start_line": 8,
+          "end_line": 66
+        },
+        "info": "rust,no_run",
+        "code": "use axum::{\n    Json,\n    response::{Html, IntoResponse},\n    http::{StatusCode, Uri, header::{self, HeaderMap, HeaderName}},\n};\n\n// `()` gives an empty response\nasync fn empty() {}\n\n// String will get a `text/plain; charset=utf-8` content-type\nasync fn plain_text(uri: Uri) -> String {\n    format!(\"Hi from {}\", uri.path())\n}\n\n// Bytes will get a `application/octet-stream` content-type\nasync fn bytes() -> Vec<u8> {\n    vec![1, 2, 3, 4]\n}\n\n// `Json` will get a `application/json` content-type and work with anything that\n// implements `serde::Serialize`\nasync fn json() -> Json<Vec<String>> {\n    Json(vec![\"foo\".to_owned(), \"bar\".to_owned()])\n}\n\n// `Html` will get a `text/html` content-type\nasync fn html() -> Html<&'static str> {\n    Html(\"<p>Hello, World!</p>\")\n}\n\n// `StatusCode` gives an empty response with that status code\nasync fn status() -> StatusCode {\n    StatusCode::NOT_FOUND\n}\n\n// `HeaderMap` gives an empty response with some headers\nasync fn headers() -> HeaderMap {\n    let mut headers = HeaderMap::new();\n    headers.insert(header::SERVER, \"axum\".parse().unwrap());\n    headers\n}\n\n// An array of tuples also gives headers\nasync fn array_headers() -> [(HeaderName, &'static str); 2] {\n    [\n        (header::SERVER, \"axum\"),\n        (header::CONTENT_TYPE, \"text/plain\")\n    ]\n}\n\n// Use `impl IntoResponse` to avoid writing the whole type\nasync fn impl_trait() -> impl IntoResponse {\n    [\n        (header::SERVER, \"axum\"),\n        (header::CONTENT_TYPE, \"text/plain\")\n    ]\n}\n"
+      },
+      {
+        "id": "doc-535661876ca0e01d-64",
+        "citation": {
+          "source_id": "e0033",
+          "start_line": 71,
+          "end_line": 148
+        },
+        "info": "rust,no_run",
+        "code": "use axum::{\n    Json,\n    response::IntoResponse,\n    http::{StatusCode, HeaderMap, Uri, header},\n    extract::Extension,\n};\n\n// `(StatusCode, impl IntoResponse)` will override the status code of the response\nasync fn with_status(uri: Uri) -> (StatusCode, String) {\n    (StatusCode::NOT_FOUND, format!(\"Not Found: {}\", uri.path()))\n}\n\n// Use `impl IntoResponse` to avoid having to type the whole type\nasync fn impl_trait(uri: Uri) -> impl IntoResponse {\n    (StatusCode::NOT_FOUND, format!(\"Not Found: {}\", uri.path()))\n}\n\n// `(HeaderMap, impl IntoResponse)` to add additional headers\nasync fn with_headers() -> impl IntoResponse {\n    let mut headers = HeaderMap::new();\n    headers.insert(header::CONTENT_TYPE, \"text/plain\".parse().unwrap());\n    (headers, \"foo\")\n}\n\n// Or an array of tuples to more easily build the headers\nasync fn with_array_headers() -> impl IntoResponse {\n    ([(header::CONTENT_TYPE, \"text/plain\")], \"foo\")\n}\n\n// Use string keys for custom headers\nasync fn with_array_headers_custom() -> impl IntoResponse {\n    ([(\"x-custom\", \"custom\")], \"foo\")\n}\n\n// `(StatusCode, headers, impl IntoResponse)` to set status and add headers\n// `headers` can be either a `HeaderMap` or an array of tuples\nasync fn with_status_and_array_headers() -> impl IntoResponse {\n    (\n        StatusCode::NOT_FOUND,\n        [(header::CONTENT_TYPE, \"text/plain\")],\n        \"foo\",\n    )\n}\n\n// `(Extension<_>, impl IntoResponse)` to set response extensions\nasync fn with_status_extensions() -> impl IntoResponse {\n    (\n        Extension(Foo(\"foo\")),\n        \"foo\",\n    )\n}\n\n#[derive(Clone)]\nstruct Foo(&'static str);\n\n// Or mix and match all the things\nasync fn all_the_things(uri: Uri) -> impl IntoResponse {\n    let mut header_map = HeaderMap::new();\n    if uri.path() == \"/\" {\n        header_map.insert(header::SERVER, \"axum\".parse().unwrap());\n    }\n\n    (\n        // set status code\n        StatusCode::NOT_FOUND,\n        // headers with an array\n        [(\"x-custom\", \"custom\")],\n        // some extensions\n        Extension(Foo(\"foo\")),\n        Extension(Foo(\"bar\")),\n        // more headers, built dynamically\n        header_map,\n        // and finally the body\n        \"foo\",\n    )\n}\n"
+      },
+      {
+        "id": "doc-535661876ca0e01d-65",
+        "citation": {
+          "source_id": "e0033",
+          "start_line": 165,
+          "end_line": 180
+        },
+        "info": "rust,no_run",
+        "code": "use axum::{\n    Json,\n    response::{IntoResponse, Response},\n    body::Body,\n    http::StatusCode,\n};\n\nasync fn response() -> Response {\n    Response::builder()\n        .status(StatusCode::NOT_FOUND)\n        .header(\"x-foo\", \"custom header\")\n        .body(Body::from(\"not found\"))\n        .unwrap()\n}\n"
+      },
+      {
+        "id": "doc-535661876ca0e01d-66",
+        "citation": {
+          "source_id": "e0033",
+          "start_line": 187,
+          "end_line": 215
+        },
+        "info": "rust",
+        "code": "use axum::{\n    response::{IntoResponse, Redirect, Response},\n    http::StatusCode,\n};\n\nasync fn handle() -> Response {\n    if something() {\n        \"All good!\".into_response()\n    } else if something_else() {\n        (\n            StatusCode::INTERNAL_SERVER_ERROR,\n            \"Something went wrong...\",\n        ).into_response()\n    } else {\n        Redirect::to(\"/\").into_response()\n    }\n}\n\nfn something() -> bool {\n    // ...\n    # true\n}\n\nfn something_else() -> bool {\n    // ...\n    # true\n}\n"
+      },
+      {
+        "id": "doc-535661876ca0e01d-67",
+        "citation": {
+          "source_id": "e0033",
+          "start_line": 222,
+          "end_line": 228
+        },
+        "info": "rust",
+        "code": "use axum::http::StatusCode;\n\nasync fn handler() -> (StatusCode, [(&'static str, &'static str); 1], &'static str) {\n    (StatusCode::OK, [(\"x-foo\", \"bar\")], \"Hello, World!\")\n}\n"
+      },
+      {
+        "id": "doc-535661876ca0e01d-68",
+        "citation": {
+          "source_id": "e0033",
+          "start_line": 232,
+          "end_line": 238
+        },
+        "info": "rust",
+        "code": "use axum::{http::StatusCode, response::IntoResponse};\n\nasync fn impl_into_response() -> impl IntoResponse {\n    (StatusCode::OK, [(\"x-foo\", \"bar\")], \"Hello, World!\")\n}\n"
+      },
+      {
+        "id": "doc-535661876ca0e01d-69",
+        "citation": {
+          "source_id": "e0033",
+          "start_line": 243,
+          "end_line": 258
+        },
+        "info": "rust,compile_fail",
+        "code": "use axum::{http::StatusCode, response::IntoResponse};\n\nasync fn handler() -> impl IntoResponse {\n    if check_something() {\n        StatusCode::NOT_FOUND\n    } else {\n        \"Hello, World!\"\n    }\n}\n\nfn check_something() -> bool {\n    # false\n    // ...\n}\n"
+      },
+      {
+        "id": "doc-535661876ca0e01d-70",
+        "citation": {
+          "source_id": "e0033",
+          "start_line": 266,
+          "end_line": 278
+        },
+        "info": "rust,compile_fail",
+        "code": "use axum::{http::StatusCode, response::IntoResponse};\n\nasync fn handler() -> impl IntoResponse {\n    create_thing()?;\n    Ok(StatusCode::CREATED)\n}\n\nfn create_thing() -> Result<(), StatusCode> {\n    # Ok(())\n    // ...\n}\n"
+      },
+      {
+        "id": "doc-535661876ca0e01d-71",
+        "citation": {
+          "source_id": "e0033",
+          "start_line": 286,
+          "end_line": 298
+        },
+        "info": "rust,compile_fail",
+        "code": "use axum::{http::StatusCode, response::IntoResponse};\n\nasync fn handler() -> Result<impl IntoResponse, impl IntoResponse> {\n    create_thing()?;\n    Ok(StatusCode::CREATED)\n}\n\nfn create_thing() -> Result<(), StatusCode> {\n    # Ok(())\n    // ...\n}\n"
+      },
+      {
+        "id": "doc-535661876ca0e01d-72",
+        "citation": {
+          "source_id": "e0033",
+          "start_line": 302,
+          "end_line": 314
+        },
+        "info": "rust",
+        "code": "use axum::{http::StatusCode, response::IntoResponse};\n\nasync fn handler() -> Result<impl IntoResponse, StatusCode> {\n    create_thing()?;\n    Ok(StatusCode::CREATED)\n}\n\nfn create_thing() -> Result<(), StatusCode> {\n    # Ok(())\n    // ...\n}\n"
+      },
+      {
+        "id": "doc-64fac973ea2321ad-73",
+        "citation": {
+          "source_id": "e0037",
+          "start_line": 5,
+          "end_line": 22
+        },
+        "info": "rust",
+        "code": "use axum::{\n    Router,\n    routing::get,\n    handler::Handler,\n    response::IntoResponse,\n    http::{StatusCode, Method, Uri},\n};\n\nlet handler = get(|| async {}).fallback(fallback);\n\nlet app = Router::new().route(\"/\", handler);\n\nasync fn fallback(method: Method, uri: Uri) -> (StatusCode, String) {\n    (StatusCode::NOT_FOUND, format!(\"`{method}` not allowed for {uri}\"))\n}\n# let _: Router = app;\n"
+      },
+      {
+        "id": "doc-64fac973ea2321ad-74",
+        "citation": {
+          "source_id": "e0037",
+          "start_line": 29,
+          "end_line": 46
+        },
+        "info": "rust,should_panic",
+        "code": "use axum::{\n    routing::{get, post},\n    handler::Handler,\n    response::IntoResponse,\n    http::{StatusCode, Uri},\n};\n\nlet one = get(|| async {}).fallback(fallback_one);\n\nlet two = post(|| async {}).fallback(fallback_two);\n\nlet method_route = one.merge(two);\n\nasync fn fallback_one() -> impl IntoResponse { /* ... */ }\nasync fn fallback_two() -> impl IntoResponse { /* ... */ }\n# let app: axum::Router = axum::Router::new().route(\"/\", method_route);\n"
+      },
+      {
+        "id": "doc-c2e5b7fb82c5646d-75",
+        "citation": {
+          "source_id": "e0041",
+          "start_line": 15,
+          "end_line": 27
+        },
+        "info": "rust",
+        "code": "use axum::{routing::get, Router};\nuse tower::limit::ConcurrencyLimitLayer;\n\nasync fn handler() {}\n\nlet app = Router::new().route(\n    \"/\",\n    // All requests to `GET /` will be sent through `ConcurrencyLimitLayer`\n    get(handler).layer(ConcurrencyLimitLayer::new(64)),\n);\n# let _: Router = app;\n"
+      },
+      {
+        "id": "doc-3770245dd9d7e1d2-76",
+        "citation": {
+          "source_id": "e0042",
+          "start_line": 18,
+          "end_line": 28
+        },
+        "info": "rust",
+        "code": "use axum::body::{to_bytes, Body};\n\n# async fn foo() -> Result<(), axum_core::Error> {\nlet body = Body::from(vec![1, 2, 3]);\n// Use `usize::MAX` if you don't care about the maximum size.\nlet bytes = to_bytes(body, usize::MAX).await?;\nassert_eq!(&bytes[..], &[1, 2, 3]);\n# Ok(())\n# }\n"
+      },
+      {
+        "id": "doc-3770245dd9d7e1d2-77",
+        "citation": {
+          "source_id": "e0042",
+          "start_line": 32,
+          "end_line": 47
+        },
+        "info": "rust",
+        "code": "use axum::body::{to_bytes, Body};\nuse http_body_util::LengthLimitError;\n\n# #[tokio::main]\n# async fn main() {\nlet body = Body::from(vec![1, 2, 3]);\nmatch to_bytes(body, 1).await {\n    Ok(_bytes) => panic!(\"should have hit the limit\"),\n    Err(err) => {\n        let source = std::error::Error::source(&err).unwrap();\n        assert!(source.is::<LengthLimitError>());\n    }\n}\n# }\n"
+      },
+      {
+        "id": "doc-cfe7feeaf42f06df-78",
+        "citation": {
+          "source_id": "e0045",
+          "start_line": 6,
+          "end_line": 23
+        },
+        "info": "rust",
+        "code": "use axum::{\n    routing::{get, post},\n    Router,\n};\n\nlet get = get(|| async {});\nlet post = post(|| async {});\n\nlet merged = get.merge(post);\n\nlet app = Router::new().route(\"/\", merged);\n\n// Our app now accepts\n// - GET /\n// - POST /\n# let _: Router = app;\n"
+      }
+    ],
+    "warnings": [
+      "Example coverage is limited to collected Markdown code blocks and literal Rust doc attributes/comments. Unlabelled blocks are treated as Rust only in Rust documentation. Macros, cfg_attr, external includes, and generated documentation are not expanded; standalone example programs are still ordinary evidence.",
+      "e0007:72: nonliteral doc attribute was not expanded.",
+      "e0046:1: nonliteral doc attribute was not expanded."
+    ]
+  },
+  "analysis": {
+    "summary": "Analyzed the frozen axum 0.8.9 evidence and accounted for all 78 inventoried examples. Provided 13 complete src/main.rs recipes with explicit features and registry dependencies, separating current APIs from historical, compile-fail, ignored, and incomplete examples. Recipes have not been compiled or tested; validation remains with the coordinator. The sampled evidence is not exhaustive.",
+    "findings": [
+      {
+        "id": "f01",
+        "title": "Select server features and runtime dependencies explicitly",
+        "guidance": "Use Rust 1.80 or newer for axum 0.8.9. With default features disabled, serve requires tokio and either http1 or http2. The default #[tokio::main] runtime also needs the application's Tokio macros and rt-multi-thread features.",
+        "basis": "documented",
+        "features": [
+          "tokio",
+          "http1",
+          "http2"
+        ],
+        "citations": [
+          {
+            "source_id": "e0001",
+            "start_line": 12,
+            "end_line": 16
+          },
+          {
+            "source_id": "e0007",
+            "start_line": 44,
+            "end_line": 45
+          },
+          {
+            "source_id": "e0007",
+            "start_line": 528,
+            "end_line": 530
+          }
+        ]
+      },
+      {
+        "id": "f02",
+        "title": "Update historical route syntax before reuse",
+        "guidance": "Use /{id} and /{*rest} captures. Historical /:id and /*rest patterns panic under the normal 0.8 checks. Wildcards do not cover the bare prefix or its trailing slash; register those paths separately when needed. Automatic trailing-slash redirects are absent.",
+        "basis": "documented",
+        "features": [],
+        "citations": [
+          {
+            "source_id": "e0004",
+            "start_line": 121,
+            "end_line": 122
+          },
+          {
+            "source_id": "e0004",
+            "start_line": 601,
+            "end_line": 625
+          },
+          {
+            "source_id": "e0004",
+            "start_line": 661,
+            "end_line": 680
+          }
+        ]
+      },
+      {
+        "id": "f03",
+        "title": "Separate nested-router and method fallback behavior",
+        "guidance": "A router nested with nest inherits the outer fallback unless it supplies its own. nest_service does not inherit fallbacks. MethodRouter fallbacks handle unmatched methods, and merging two method routers that both have custom fallbacks panics. Set one fallback after merging.",
+        "basis": "documented",
+        "features": [],
+        "citations": [
+          {
+            "source_id": "e0004",
+            "start_line": 573,
+            "end_line": 599
+          },
+          {
+            "source_id": "e0004",
+            "start_line": 352,
+            "end_line": 353
+          },
+          {
+            "source_id": "e0037",
+            "start_line": 24,
+            "end_line": 55
+          }
+        ]
+      },
+      {
+        "id": "f04",
+        "title": "Use typed state and inexpensive clones",
+        "guidance": "Prefer State for application-wide data. Router<S> represents a router still missing S; supply it with with_state before serving. Keep state clones cheap, using Arc where appropriate. Implement FromRef for substates, or enable macros to derive it. A missing required Extension causes a runtime 500.",
+        "basis": "documented",
+        "features": [],
+        "citations": [
+          {
+            "source_id": "e0007",
+            "start_line": 186,
+            "end_line": 232
+          },
+          {
+            "source_id": "e0007",
+            "start_line": 267,
+            "end_line": 270
+          }
+        ]
+      },
+      {
+        "id": "f05",
+        "title": "Order extractors around one body consumer",
+        "guidance": "Extractors run left to right. Put Path, Query, headers, and State before the single body-consuming extractor. Json, Form, String, Bytes, and Request occupy the final position when used. JSON needs a suitable content type; Form reads GET/HEAD query strings and otherwise expects an application/x-www-form-urlencoded body.",
+        "basis": "documented",
+        "features": [
+          "json",
+          "form",
+          "query"
+        ],
+        "citations": [
+          {
+            "source_id": "e0021",
+            "start_line": 120,
+            "end_line": 193
+          },
+          {
+            "source_id": "e0026",
+            "start_line": 14,
+            "end_line": 24
+          },
+          {
+            "source_id": "e0022",
+            "start_line": 13,
+            "end_line": 28
+          }
+        ]
+      },
+      {
+        "id": "f06",
+        "title": "Customize rejections through their public interface",
+        "guidance": "Use Result<Json<T>, JsonRejection> for handler-local error customization, or wrap Json in a custom extractor for reuse. Public status() and body_text() methods support an error envelope without inspecting internal error types. Internal-source downcasts can break without a major release.",
+        "basis": "documented",
+        "features": [
+          "json"
+        ],
+        "citations": [
+          {
+            "source_id": "e0021",
+            "start_line": 266,
+            "end_line": 277
+          },
+          {
+            "source_id": "e0021",
+            "start_line": 389,
+            "end_line": 391
+          },
+          {
+            "source_id": "e0040",
+            "start_line": 45,
+            "end_line": 55
+          }
+        ]
+      },
+      {
+        "id": "f07",
+        "title": "Check each optional extractor's actual semantics",
+        "guidance": "Do not use Option<Extractor> as a general error-suppression mechanism. In this release, Option<Json<T>> returns None when Content-Type is absent but still rejects an unsuitable content type or invalid JSON. Option<Extension<T>> returns None for a missing extension.",
+        "basis": "inferred",
+        "features": [
+          "json"
+        ],
+        "citations": [
+          {
+            "source_id": "e0021",
+            "start_line": 238,
+            "end_line": 247
+          },
+          {
+            "source_id": "e0026",
+            "start_line": 116,
+            "end_line": 135
+          },
+          {
+            "source_id": "e0016",
+            "start_line": 100,
+            "end_line": 112
+          }
+        ]
+      },
+      {
+        "id": "f08",
+        "title": "Choose the appropriate custom extractor trait",
+        "guidance": "Implement FromRequestParts<S> for metadata and FromRequest<S> for body-consuming extraction, using native async methods. Avoid implementing both directly on one concrete extractor; generic wrappers are the documented exception. Historical request-body-generic signatures should not be copied.",
+        "basis": "documented",
+        "features": [],
+        "citations": [
+          {
+            "source_id": "e0021",
+            "start_line": 393,
+            "end_line": 483
+          },
+          {
+            "source_id": "e0021",
+            "start_line": 485,
+            "end_line": 542
+          },
+          {
+            "source_id": "e0021",
+            "start_line": 607,
+            "end_line": 611
+          },
+          {
+            "source_id": "e0006",
+            "start_line": 52,
+            "end_line": 55
+          }
+        ]
+      },
+      {
+        "id": "f09",
+        "title": "Keep body buffering limits explicit",
+        "guidance": "Bytes-based extractors have a default 2 MB limit, also affecting String, Json, and Form. When collecting Body directly with to_bytes, supply the desired limit explicitly. Its error source can identify http_body_util::LengthLimitError.",
+        "basis": "documented",
+        "features": [],
+        "citations": [
+          {
+            "source_id": "e0021",
+            "start_line": 599,
+            "end_line": 605
+          },
+          {
+            "source_id": "e0042",
+            "start_line": 14,
+            "end_line": 54
+          }
+        ]
+      },
+      {
+        "id": "f10",
+        "title": "Convert service failures into responses",
+        "guidance": "Handler Result errors that implement IntoResponse become ordinary HTTP responses. Fallible Tower services and middleware require HandleError or HandleErrorLayer. Place HandleErrorLayer outside a Tower timeout; any request-parts extractors precede the error argument.",
+        "basis": "documented",
+        "features": [],
+        "citations": [
+          {
+            "source_id": "e0015",
+            "start_line": 5,
+            "end_line": 36
+          },
+          {
+            "source_id": "e0015",
+            "start_line": 49,
+            "end_line": 92
+          },
+          {
+            "source_id": "e0015",
+            "start_line": 94,
+            "end_line": 174
+          }
+        ]
+      },
+      {
+        "id": "f11",
+        "title": "Account for middleware scope and ordering",
+        "guidance": "Add routes before applying their layers. Repeated layer calls process incoming requests from the last layer backward; ServiceBuilder processes them in declaration order. URI rewriting must wrap the entire Router because Router::layer runs after routing.",
+        "basis": "documented",
+        "features": [],
+        "citations": [
+          {
+            "source_id": "e0029",
+            "start_line": 20,
+            "end_line": 23
+          },
+          {
+            "source_id": "e0029",
+            "start_line": 63,
+            "end_line": 65
+          },
+          {
+            "source_id": "e0029",
+            "start_line": 145,
+            "end_line": 152
+          },
+          {
+            "source_id": "e0029",
+            "start_line": 525,
+            "end_line": 532
+          },
+          {
+            "source_id": "e0041",
+            "start_line": 6,
+            "end_line": 8
+          }
+        ]
+      },
+      {
+        "id": "f12",
+        "title": "Keep request context and backpressure policies deliberate",
+        "guidance": "Pass per-request middleware data through request extensions and insert it before next.run. Request extensions are not automatically copied to the response. Route-level concurrency middleware does not establish a general backpressure policy; the documentation recommends load shedding or placing backpressure-sensitive middleware around the whole application.",
+        "basis": "documented",
+        "features": [],
+        "citations": [
+          {
+            "source_id": "e0029",
+            "start_line": 343,
+            "end_line": 383
+          },
+          {
+            "source_id": "e0029",
+            "start_line": 465,
+            "end_line": 523
+          }
+        ]
+      },
+      {
+        "id": "f13",
+        "title": "Make response and error types inferable",
+        "guidance": "Use tuples to compose status, headers, extensions, and a final body. Convert heterogeneous branches into Response with into_response(). For question-mark propagation, give Result a concrete error type; impl IntoResponse alone does not resolve error conversion or allow unrelated branch types.",
+        "basis": "documented",
+        "features": [],
+        "citations": [
+          {
+            "source_id": "e0033",
+            "start_line": 150,
+            "end_line": 185
+          },
+          {
+            "source_id": "e0033",
+            "start_line": 240,
+            "end_line": 317
+          }
+        ]
+      },
+      {
+        "id": "f14",
+        "title": "Diagnose handler bounds and extractor failures",
+        "guidance": "For Handler errors, check extractor order, response conversion, Send futures, and Sync requirements. Holding a non-Send value across await commonly breaks a handler. Enable macros for debug_handler diagnostics. Enable tracing and configure the axum::rejection=trace target to inspect built-in extractor rejections.",
+        "basis": "documented",
+        "features": [
+          "macros",
+          "tracing"
+        ],
+        "citations": [
+          {
+            "source_id": "e0009",
+            "start_line": 3,
+            "end_line": 36
+          },
+          {
+            "source_id": "e0004",
+            "start_line": 123,
+            "end_line": 124
+          },
+          {
+            "source_id": "e0007",
+            "start_line": 525,
+            "end_line": 526
+          },
+          {
+            "source_id": "e0021",
+            "start_line": 676,
+            "end_line": 681
+          }
+        ]
+      }
+    ],
+    "recipes": [
+      {
+        "id": "r01",
+        "title": "Start a typed JSON HTTP server",
+        "description": "Serve a greeting and accept POST /users with a JSON username, returning an illustrative 201 JSON response. Runs until stopped.",
+        "code": "use axum::{http::StatusCode, routing::{get, post}, Json, Router};\nuse serde::{Deserialize, Serialize};\n\n#[derive(Deserialize)]\nstruct CreateUser {\n    username: String,\n}\n\n#[derive(Serialize)]\nstruct User {\n    id: u64,\n    username: String,\n}\n\nasync fn create_user(Json(input): Json<CreateUser>) -> (StatusCode, Json<User>) {\n    // Demonstration response; no database write occurs.\n    (StatusCode::CREATED, Json(User { id: 1337, username: input.username }))\n}\n\n#[tokio::main]\nasync fn main() -> std::io::Result<()> {\n    let app = Router::new()\n        .route(\"/\", get(|| async { \"Hello, World!\" }))\n        .route(\"/users\", post(create_user));\n    let listener = tokio::net::TcpListener::bind(\"127.0.0.1:3000\").await?;\n    axum::serve(listener, app).await\n}\n",
+        "default_features": false,
+        "features": [
+          "tokio",
+          "http1",
+          "json"
+        ],
+        "dependencies": {
+          "serde": {
+            "version": "1.0.221",
+            "features": [
+              "derive"
+            ],
+            "default_features": true
+          },
+          "tokio": {
+            "version": "1.44.2",
+            "features": [
+              "macros",
+              "rt-multi-thread",
+              "net"
+            ],
+            "default_features": true
+          }
+        },
+        "citations": [
+          {
+            "source_id": "e0003",
+            "start_line": 28,
+            "end_line": 86
+          },
+          {
+            "source_id": "e0007",
+            "start_line": 27,
+            "end_line": 45
+          },
+          {
+            "source_id": "e0007",
+            "start_line": 103,
+            "end_line": 127
+          },
+          {
+            "source_id": "e0021",
+            "start_line": 12,
+            "end_line": 33
+          },
+          {
+            "source_id": "e0026",
+            "start_line": 33,
+            "end_line": 53
+          },
+          {
+            "source_id": "e0001",
+            "start_line": 339,
+            "end_line": 341
+          }
+        ]
+      },
+      {
+        "id": "r02",
+        "title": "Compose routes and fallbacks without historical API traps",
+        "description": "Demonstrate 0.8 wildcard syntax, explicit slash routes, nested fallback inheritance, and a shared method fallback. Runs until stopped.",
+        "code": "use axum::{extract::Path, http::{Method, StatusCode, Uri}, routing::{get, post}, Router};\n\nasync fn wildcard(Path(rest): Path<String>) -> String {\n    rest\n}\n\nasync fn outer_fallback() -> (StatusCode, &'static str) {\n    (StatusCode::NOT_FOUND, \"outer fallback\")\n}\n\nasync fn method_fallback(method: Method, uri: Uri) -> (StatusCode, String) {\n    (StatusCode::METHOD_NOT_ALLOWED, format!(\"{method} is not allowed for {uri}\"))\n}\n\n#[tokio::main]\nasync fn main() -> std::io::Result<()> {\n    let api = Router::new()\n        .route(\"/users\", get(|| async { \"users\" }))\n        .fallback(|| async { (StatusCode::NOT_FOUND, \"API fallback\") });\n    let shared = Router::new().route(\"/users\", get(|| async { \"shared users\" }));\n    let methods = get(|| async { \"GET\" })\n        .merge(post(|| async { \"POST\" }))\n        .fallback(method_fallback);\n    let app = Router::new()\n        .nest(\"/api\", api)\n        .nest(\"/shared\", shared)\n        .route(\"/foo/{*rest}\", get(wildcard))\n        .route(\"/foo/bar\", get(|| async { \"static route\" }))\n        .route(\"/foo\", get(|| async { \"bare prefix\" }))\n        .route(\"/foo/\", get(|| async { \"trailing slash\" }))\n        .route(\"/methods\", methods)\n        .fallback(outer_fallback);\n    let listener = tokio::net::TcpListener::bind(\"127.0.0.1:3000\").await?;\n    axum::serve(listener, app).await\n}\n",
+        "default_features": false,
+        "features": [
+          "tokio",
+          "http1"
+        ],
+        "dependencies": {
+          "tokio": {
+            "version": "1.44.2",
+            "features": [
+              "macros",
+              "rt-multi-thread",
+              "net"
+            ],
+            "default_features": true
+          }
+        },
+        "citations": [
+          {
+            "source_id": "e0004",
+            "start_line": 121,
+            "end_line": 122
+          },
+          {
+            "source_id": "e0004",
+            "start_line": 575,
+            "end_line": 599
+          },
+          {
+            "source_id": "e0004",
+            "start_line": 606,
+            "end_line": 621
+          },
+          {
+            "source_id": "e0004",
+            "start_line": 629,
+            "end_line": 641
+          },
+          {
+            "source_id": "e0004",
+            "start_line": 648,
+            "end_line": 659
+          },
+          {
+            "source_id": "e0004",
+            "start_line": 665,
+            "end_line": 677
+          },
+          {
+            "source_id": "e0004",
+            "start_line": 699,
+            "end_line": 705
+          },
+          {
+            "source_id": "e0007",
+            "start_line": 51,
+            "end_line": 66
+          },
+          {
+            "source_id": "e0037",
+            "start_line": 5,
+            "end_line": 46
+          },
+          {
+            "source_id": "e0045",
+            "start_line": 6,
+            "end_line": 23
+          },
+          {
+            "source_id": "e0017",
+            "start_line": 84,
+            "end_line": 110
+          },
+          {
+            "source_id": "e0007",
+            "start_line": 27,
+            "end_line": 42
+          }
+        ]
+      },
+      {
+        "id": "r03",
+        "title": "Share application state and extract a substate",
+        "description": "Build routes that require AppState, provide that state before serving, and extract only an Arc-backed substate. No macros feature is needed for manual FromRef.",
+        "code": "use axum::{extract::{FromRef, State}, routing::get, Router};\nuse std::sync::Arc;\n\nstruct Settings {\n    greeting: String,\n}\n\n#[derive(Clone)]\nstruct AppState {\n    settings: Arc<Settings>,\n}\n\nimpl FromRef<AppState> for Arc<Settings> {\n    fn from_ref(state: &AppState) -> Self {\n        Arc::clone(&state.settings)\n    }\n}\n\nasync fn greeting(State(settings): State<Arc<Settings>>) -> String {\n    settings.greeting.clone()\n}\n\nfn routes() -> Router<AppState> {\n    Router::new().route(\"/\", get(greeting))\n}\n\n#[tokio::main]\nasync fn main() -> std::io::Result<()> {\n    let state = AppState {\n        settings: Arc::new(Settings { greeting: \"Hello from shared state\".to_owned() }),\n    };\n    let app: Router = routes().with_state(state);\n    let listener = tokio::net::TcpListener::bind(\"127.0.0.1:3000\").await?;\n    axum::serve(listener, app).await\n}\n",
+        "default_features": false,
+        "features": [
+          "tokio",
+          "http1"
+        ],
+        "dependencies": {
+          "tokio": {
+            "version": "1.44.2",
+            "features": [
+              "macros",
+              "rt-multi-thread",
+              "net"
+            ],
+            "default_features": true
+          }
+        },
+        "citations": [
+          {
+            "source_id": "e0004",
+            "start_line": 753,
+            "end_line": 764
+          },
+          {
+            "source_id": "e0007",
+            "start_line": 160,
+            "end_line": 232
+          },
+          {
+            "source_id": "e0007",
+            "start_line": 27,
+            "end_line": 42
+          }
+        ]
+      },
+      {
+        "id": "r04",
+        "title": "Combine typed path and query parameters",
+        "description": "Deserialize a UUID path and page/per_page query parameters, then return typed JSON. UUID serialization support is enabled without requesting UUID generation.",
+        "code": "use axum::{extract::{Path, Query}, routing::get, Json, Router};\nuse serde::{Deserialize, Serialize};\nuse uuid::Uuid;\n\n#[derive(Deserialize)]\nstruct Pagination {\n    page: usize,\n    per_page: usize,\n}\n\n#[derive(Serialize)]\nstruct User {\n    id: Uuid,\n    username: String,\n}\n\n#[derive(Serialize)]\nstruct Page {\n    user_id: Uuid,\n    page: usize,\n    per_page: usize,\n}\n\nasync fn user(Path(id): Path<Uuid>) -> Json<User> {\n    // Illustrative lookup result.\n    Json(User { id, username: \"example\".to_owned() })\n}\n\nasync fn things(Path(user_id): Path<Uuid>, Query(p): Query<Pagination>) -> Json<Page> {\n    Json(Page { user_id, page: p.page, per_page: p.per_page })\n}\n\n#[tokio::main]\nasync fn main() -> std::io::Result<()> {\n    let app = Router::new()\n        .route(\"/users/{id}\", get(user))\n        .route(\"/users/{id}/things\", get(things));\n    let listener = tokio::net::TcpListener::bind(\"127.0.0.1:3000\").await?;\n    axum::serve(listener, app).await\n}\n",
+        "default_features": false,
+        "features": [
+          "tokio",
+          "http1",
+          "query",
+          "json"
+        ],
+        "dependencies": {
+          "serde": {
+            "version": "1.0.221",
+            "features": [
+              "derive"
+            ],
+            "default_features": true
+          },
+          "tokio": {
+            "version": "1.44.2",
+            "features": [
+              "macros",
+              "rt-multi-thread",
+              "net"
+            ],
+            "default_features": true
+          },
+          "uuid": {
+            "version": "1.0",
+            "features": [
+              "serde"
+            ],
+            "default_features": true
+          }
+        },
+        "citations": [
+          {
+            "source_id": "e0007",
+            "start_line": 81,
+            "end_line": 95
+          },
+          {
+            "source_id": "e0021",
+            "start_line": 94,
+            "end_line": 118
+          },
+          {
+            "source_id": "e0026",
+            "start_line": 65,
+            "end_line": 93
+          },
+          {
+            "source_id": "e0001",
+            "start_line": 419,
+            "end_line": 424
+          },
+          {
+            "source_id": "e0007",
+            "start_line": 27,
+            "end_line": 42
+          }
+        ]
+      },
+      {
+        "id": "r05",
+        "title": "Return a consistent JSON rejection envelope",
+        "description": "Echo valid typed JSON and turn every JSON rejection into a JSON message while preserving its status. The body extractor remains last.",
+        "code": "use axum::{extract::rejection::JsonRejection, http::{HeaderMap, StatusCode}, routing::post, Json, Router};\nuse serde::{Deserialize, Serialize};\n\n#[derive(Deserialize, Serialize)]\nstruct Payload {\n    username: String,\n}\n\n#[derive(Serialize)]\nstruct ErrorBody {\n    message: String,\n}\n\nasync fn echo(\n    _headers: HeaderMap,\n    payload: Result<Json<Payload>, JsonRejection>,\n) -> Result<Json<Payload>, (StatusCode, Json<ErrorBody>)> {\n    payload.map_err(|rejection| {\n        let status = rejection.status();\n        let body = ErrorBody { message: rejection.body_text() };\n        (status, Json(body))\n    })\n}\n\n#[tokio::main]\nasync fn main() -> std::io::Result<()> {\n    let app = Router::new().route(\"/echo\", post(echo));\n    let listener = tokio::net::TcpListener::bind(\"127.0.0.1:3000\").await?;\n    axum::serve(listener, app).await\n}\n",
+        "default_features": false,
+        "features": [
+          "tokio",
+          "http1",
+          "json"
+        ],
+        "dependencies": {
+          "serde": {
+            "version": "1.0.221",
+            "features": [
+              "derive"
+            ],
+            "default_features": true
+          },
+          "tokio": {
+            "version": "1.44.2",
+            "features": [
+              "macros",
+              "rt-multi-thread",
+              "net"
+            ],
+            "default_features": true
+          }
+        },
+        "citations": [
+          {
+            "source_id": "e0004",
+            "start_line": 807,
+            "end_line": 828
+          },
+          {
+            "source_id": "e0021",
+            "start_line": 132,
+            "end_line": 190
+          },
+          {
+            "source_id": "e0021",
+            "start_line": 201,
+            "end_line": 236
+          },
+          {
+            "source_id": "e0040",
+            "start_line": 45,
+            "end_line": 55
+          },
+          {
+            "source_id": "e0007",
+            "start_line": 27,
+            "end_line": 42
+          }
+        ]
+      },
+      {
+        "id": "r06",
+        "title": "Implement metadata and body validation extractors",
+        "description": "Require a User-Agent header and a nonempty body using separate extractor traits. Delegating to Bytes retains its standard rejection and body-limit behavior.",
+        "code": "use axum::{\n    body::Bytes,\n    extract::{FromRequest, FromRequestParts, Request},\n    http::{header::{HeaderValue, USER_AGENT}, request::Parts, StatusCode},\n    response::{IntoResponse, Response},\n    routing::post,\n    Router,\n};\n\nstruct UserAgent(HeaderValue);\n\nimpl<S: Send + Sync> FromRequestParts<S> for UserAgent {\n    type Rejection = (StatusCode, &'static str);\n\n    async fn from_request_parts(parts: &mut Parts, _state: &S) -> Result<Self, Self::Rejection> {\n        parts.headers.get(USER_AGENT).cloned().map(Self)\n            .ok_or((StatusCode::BAD_REQUEST, \"User-Agent is required\"))\n    }\n}\n\nstruct NonemptyBody(Bytes);\n\nimpl<S> FromRequest<S> for NonemptyBody\nwhere\n    S: Send + Sync,\n    Bytes: FromRequest<S>,\n{\n    type Rejection = Response;\n\n    async fn from_request(req: Request, state: &S) -> Result<Self, Self::Rejection> {\n        let bytes = Bytes::from_request(req, state).await\n            .map_err(IntoResponse::into_response)?;\n        if bytes.is_empty() {\n            return Err((StatusCode::BAD_REQUEST, \"Body must not be empty\").into_response());\n        }\n        Ok(Self(bytes))\n    }\n}\n\nasync fn echo(UserAgent(agent): UserAgent, NonemptyBody(body): NonemptyBody) -> impl IntoResponse {\n    ([(\"x-client-agent\", agent)], body)\n}\n\n#[tokio::main]\nasync fn main() -> std::io::Result<()> {\n    let app = Router::new().route(\"/echo\", post(echo));\n    let listener = tokio::net::TcpListener::bind(\"127.0.0.1:3000\").await?;\n    axum::serve(listener, app).await\n}\n",
+        "default_features": false,
+        "features": [
+          "tokio",
+          "http1"
+        ],
+        "dependencies": {
+          "tokio": {
+            "version": "1.44.2",
+            "features": [
+              "macros",
+              "rt-multi-thread",
+              "net"
+            ],
+            "default_features": true
+          }
+        },
+        "citations": [
+          {
+            "source_id": "e0021",
+            "start_line": 403,
+            "end_line": 438
+          },
+          {
+            "source_id": "e0021",
+            "start_line": 444,
+            "end_line": 483
+          },
+          {
+            "source_id": "e0021",
+            "start_line": 491,
+            "end_line": 542
+          },
+          {
+            "source_id": "e0021",
+            "start_line": 599,
+            "end_line": 605
+          },
+          {
+            "source_id": "e0007",
+            "start_line": 27,
+            "end_line": 42
+          }
+        ]
+      },
+      {
+        "id": "r07",
+        "title": "Pass request context from middleware to handlers",
+        "description": "Demonstrate middleware inserting per-request identity for a handler. The fixed token is illustrative; unmatched paths retain the router's 404 behavior.",
+        "code": "use axum::{\n    extract::{Extension, Request},\n    http::{header::AUTHORIZATION, StatusCode},\n    middleware::{self, Next},\n    response::Response,\n    routing::get,\n    Router,\n};\n\n#[derive(Clone)]\nstruct CurrentUser {\n    name: String,\n}\n\nasync fn auth(mut req: Request, next: Next) -> Result<Response, StatusCode> {\n    // Demonstration only: replace this fixed token check with real authentication.\n    let authorized = req.headers().get(AUTHORIZATION)\n        .and_then(|value| value.to_str().ok())\n        == Some(\"Bearer demo-token\");\n    if !authorized {\n        return Err(StatusCode::UNAUTHORIZED);\n    }\n    req.extensions_mut().insert(CurrentUser { name: \"demo\".to_owned() });\n    Ok(next.run(req).await)\n}\n\nasync fn profile(Extension(user): Extension<CurrentUser>) -> String {\n    format!(\"Hello, {}\", user.name)\n}\n\n#[tokio::main]\nasync fn main() -> std::io::Result<()> {\n    let app = Router::new()\n        .route(\"/profile\", get(profile))\n        .route_layer(middleware::from_fn(auth));\n    let listener = tokio::net::TcpListener::bind(\"127.0.0.1:3000\").await?;\n    axum::serve(listener, app).await\n}\n",
+        "default_features": false,
+        "features": [
+          "tokio",
+          "http1"
+        ],
+        "dependencies": {
+          "tokio": {
+            "version": "1.44.2",
+            "features": [
+              "macros",
+              "rt-multi-thread",
+              "net"
+            ],
+            "default_features": true
+          }
+        },
+        "citations": [
+          {
+            "source_id": "e0029",
+            "start_line": 469,
+            "end_line": 519
+          },
+          {
+            "source_id": "e0016",
+            "start_line": 46,
+            "end_line": 48
+          },
+          {
+            "source_id": "e0035",
+            "start_line": 487,
+            "end_line": 512
+          },
+          {
+            "source_id": "e0007",
+            "start_line": 27,
+            "end_line": 42
+          }
+        ]
+      },
+      {
+        "id": "r08",
+        "title": "Handle fallible services and Tower timeouts",
+        "description": "Serve a deliberately failing service as HTTP 500 and a deliberately pending handler as HTTP 408 after one second, with error conversion outside the timeout.",
+        "code": "use axum::{\n    error_handling::{HandleError, HandleErrorLayer},\n    extract::Request,\n    http::{Method, StatusCode, Uri},\n    response::Response,\n    routing::get,\n    BoxError, Router,\n};\nuse std::time::Duration;\nuse tower::ServiceBuilder;\n\nasync fn slow() -> &'static str {\n    std::future::pending::<()>().await;\n    \"finished\"\n}\n\nasync fn handle_error(method: Method, uri: Uri, error: BoxError) -> (StatusCode, String) {\n    let status = if error.is::<tower::timeout::error::Elapsed>() {\n        StatusCode::REQUEST_TIMEOUT\n    } else {\n        StatusCode::INTERNAL_SERVER_ERROR\n    };\n    (status, format!(\"{method} {uri} could not be completed\"))\n}\n\n#[tokio::main]\nasync fn main() -> std::io::Result<()> {\n    let fallible = tower::service_fn(|_req: Request| async {\n        Err::<Response, anyhow::Error>(anyhow::anyhow!(\"demonstration failure\"))\n    });\n    let app = Router::new()\n        .route_service(\"/service\", HandleError::new(fallible, |_error: anyhow::Error| async {\n            (StatusCode::INTERNAL_SERVER_ERROR, \"Service failed\")\n        }))\n        .route(\"/slow\", get(slow))\n        .layer(ServiceBuilder::new()\n            .layer(HandleErrorLayer::new(handle_error))\n            .timeout(Duration::from_secs(1)));\n    let listener = tokio::net::TcpListener::bind(\"127.0.0.1:3000\").await?;\n    axum::serve(listener, app).await\n}\n",
+        "default_features": false,
+        "features": [
+          "tokio",
+          "http1"
+        ],
+        "dependencies": {
+          "anyhow": {
+            "version": "1.0",
+            "features": [],
+            "default_features": true
+          },
+          "tokio": {
+            "version": "1.44.2",
+            "features": [
+              "macros",
+              "rt-multi-thread",
+              "net",
+              "time"
+            ],
+            "default_features": true
+          },
+          "tower": {
+            "version": "0.5.2",
+            "features": [
+              "util",
+              "timeout"
+            ],
+            "default_features": false
+          }
+        },
+        "citations": [
+          {
+            "source_id": "e0015",
+            "start_line": 56,
+            "end_line": 92
+          },
+          {
+            "source_id": "e0015",
+            "start_line": 99,
+            "end_line": 134
+          },
+          {
+            "source_id": "e0015",
+            "start_line": 140,
+            "end_line": 174
+          },
+          {
+            "source_id": "e0029",
+            "start_line": 259,
+            "end_line": 268
+          },
+          {
+            "source_id": "e0029",
+            "start_line": 296,
+            "end_line": 321
+          },
+          {
+            "source_id": "e0001",
+            "start_line": 368,
+            "end_line": 378
+          },
+          {
+            "source_id": "e0001",
+            "start_line": 317,
+            "end_line": 318
+          },
+          {
+            "source_id": "e0007",
+            "start_line": 27,
+            "end_line": 42
+          }
+        ]
+      },
+      {
+        "id": "r09",
+        "title": "Compose responses and resolve return-type inference",
+        "description": "Show tuple composition, response extensions, a low-level builder, heterogeneous response branches, and a concrete Result error type. POST /create only demonstrates header validation.",
+        "code": "use axum::{\n    body::Body,\n    http::{HeaderMap, StatusCode, Uri},\n    response::{Html, IntoResponse, Redirect, Response},\n    routing::{get, post},\n    Extension, Router,\n};\n\n#[derive(Clone)]\nstruct ResponseTag;\n\nasync fn composed() -> impl IntoResponse {\n    (StatusCode::OK, [(\"x-example\", \"tuple\")], Extension(ResponseTag), \"Hello\")\n}\n\nasync fn raw() -> Response {\n    Response::builder()\n        .status(StatusCode::NOT_FOUND)\n        .header(\"x-example\", \"builder\")\n        .body(Body::from(\"not found\"))\n        .unwrap()\n}\n\nasync fn choice(uri: Uri) -> Response {\n    match uri.query() {\n        Some(\"format=html\") => Html(\"<p>Hello</p>\").into_response(),\n        Some(\"redirect=true\") => Redirect::to(\"/\").into_response(),\n        _ => \"Hello\".into_response(),\n    }\n}\n\nfn validate(headers: &HeaderMap) -> Result<(), StatusCode> {\n    if headers.contains_key(\"x-name\") {\n        Ok(())\n    } else {\n        Err(StatusCode::BAD_REQUEST)\n    }\n}\n\nasync fn create(headers: HeaderMap) -> Result<StatusCode, StatusCode> {\n    validate(&headers)?;\n    Ok(StatusCode::CREATED)\n}\n\n#[tokio::main]\nasync fn main() -> std::io::Result<()> {\n    let app = Router::new()\n        .route(\"/\", get(composed))\n        .route(\"/raw\", get(raw))\n        .route(\"/choice\", get(choice))\n        .route(\"/create\", post(create));\n    let listener = tokio::net::TcpListener::bind(\"127.0.0.1:3000\").await?;\n    axum::serve(listener, app).await\n}\n",
+        "default_features": false,
+        "features": [
+          "tokio",
+          "http1"
+        ],
+        "dependencies": {
+          "tokio": {
+            "version": "1.44.2",
+            "features": [
+              "macros",
+              "rt-multi-thread",
+              "net"
+            ],
+            "default_features": true
+          }
+        },
+        "citations": [
+          {
+            "source_id": "e0015",
+            "start_line": 16,
+            "end_line": 28
+          },
+          {
+            "source_id": "e0016",
+            "start_line": 54,
+            "end_line": 69
+          },
+          {
+            "source_id": "e0033",
+            "start_line": 8,
+            "end_line": 66
+          },
+          {
+            "source_id": "e0033",
+            "start_line": 71,
+            "end_line": 148
+          },
+          {
+            "source_id": "e0033",
+            "start_line": 165,
+            "end_line": 180
+          },
+          {
+            "source_id": "e0033",
+            "start_line": 187,
+            "end_line": 215
+          },
+          {
+            "source_id": "e0033",
+            "start_line": 222,
+            "end_line": 238
+          },
+          {
+            "source_id": "e0033",
+            "start_line": 243,
+            "end_line": 258
+          },
+          {
+            "source_id": "e0033",
+            "start_line": 266,
+            "end_line": 278
+          },
+          {
+            "source_id": "e0033",
+            "start_line": 286,
+            "end_line": 314
+          },
+          {
+            "source_id": "e0007",
+            "start_line": 27,
+            "end_line": 42
+          }
+        ]
+      },
+      {
+        "id": "r10",
+        "title": "Read and return URL-encoded forms",
+        "description": "Accept GET /form?value=hello or a POST form body value=hello with application/x-www-form-urlencoded, and return an encoded form response.",
+        "code": "use axum::{routing::get, Form, Router};\nuse serde::{Deserialize, Serialize};\n\n#[derive(Deserialize, Serialize)]\nstruct Payload {\n    value: String,\n}\n\nasync fn echo(Form(payload): Form<Payload>) -> Form<Payload> {\n    Form(payload)\n}\n\n#[tokio::main]\nasync fn main() -> std::io::Result<()> {\n    let app = Router::new().route(\"/form\", get(echo).post(echo));\n    let listener = tokio::net::TcpListener::bind(\"127.0.0.1:3000\").await?;\n    axum::serve(listener, app).await\n}\n",
+        "default_features": false,
+        "features": [
+          "tokio",
+          "http1",
+          "form"
+        ],
+        "dependencies": {
+          "serde": {
+            "version": "1.0.221",
+            "features": [
+              "derive"
+            ],
+            "default_features": true
+          },
+          "tokio": {
+            "version": "1.44.2",
+            "features": [
+              "macros",
+              "rt-multi-thread",
+              "net"
+            ],
+            "default_features": true
+          }
+        },
+        "citations": [
+          {
+            "source_id": "e0022",
+            "start_line": 13,
+            "end_line": 64
+          },
+          {
+            "source_id": "e0001",
+            "start_line": 92,
+            "end_line": 96
+          },
+          {
+            "source_id": "e0007",
+            "start_line": 27,
+            "end_line": 42
+          }
+        ]
+      },
+      {
+        "id": "r11",
+        "title": "Collect a body with an explicit byte limit",
+        "description": "A finite program illustrating successful bounded collection and recognition of a size-limit error. It needs no axum server features.",
+        "code": "use axum::body::{to_bytes, Body};\nuse http_body_util::LengthLimitError;\nuse std::error::Error;\n\n#[tokio::main(flavor = \"current_thread\")]\nasync fn main() -> Result<(), axum::Error> {\n    let bytes = to_bytes(Body::from(vec![1_u8, 2, 3]), 3).await?;\n    assert_eq!(&bytes[..], &[1, 2, 3]);\n\n    let error = to_bytes(Body::from(vec![1_u8, 2, 3]), 1)\n        .await\n        .expect_err(\"three bytes exceed a one-byte limit\");\n    assert!(error.source().is_some_and(|source| source.is::<LengthLimitError>()));\n    Ok(())\n}\n",
+        "default_features": false,
+        "features": [],
+        "dependencies": {
+          "http-body-util": {
+            "version": "0.1.0",
+            "features": [],
+            "default_features": true
+          },
+          "tokio": {
+            "version": "1.44.2",
+            "features": [
+              "macros",
+              "rt"
+            ],
+            "default_features": true
+          }
+        },
+        "citations": [
+          {
+            "source_id": "e0042",
+            "start_line": 18,
+            "end_line": 47
+          },
+          {
+            "source_id": "e0001",
+            "start_line": 183,
+            "end_line": 184
+          },
+          {
+            "source_id": "e0001",
+            "start_line": 351,
+            "end_line": 359
+          }
+        ]
+      },
+      {
+        "id": "r12",
+        "title": "Rewrite a URI before routing",
+        "description": "Internally rewrite /legacy to / before route selection, preserving the query string. The layer wraps the whole Router.",
+        "code": "use axum::{extract::Request, routing::get, Router, ServiceExt};\nuse tower::{util::MapRequestLayer, Layer};\n\nfn rewrite(mut request: Request) -> Request {\n    if request.uri().path() == \"/legacy\" {\n        let target = match request.uri().query() {\n            Some(query) => format!(\"/?{query}\"),\n            None => \"/\".to_owned(),\n        };\n        *request.uri_mut() = target.parse().expect(\"valid path with the existing query\");\n    }\n    request\n}\n\n#[tokio::main]\nasync fn main() -> std::io::Result<()> {\n    let app: Router = Router::new().route(\"/\", get(|| async { \"Current endpoint\" }));\n    let wrapped = MapRequestLayer::new(rewrite).layer(app);\n    let listener = tokio::net::TcpListener::bind(\"127.0.0.1:3000\").await?;\n    axum::serve(listener, wrapped.into_make_service()).await\n}\n",
+        "default_features": false,
+        "features": [
+          "tokio",
+          "http1"
+        ],
+        "dependencies": {
+          "tokio": {
+            "version": "1.44.2",
+            "features": [
+              "macros",
+              "rt-multi-thread",
+              "net"
+            ],
+            "default_features": true
+          },
+          "tower": {
+            "version": "0.5.2",
+            "features": [
+              "util"
+            ],
+            "default_features": false
+          }
+        },
+        "citations": [
+          {
+            "source_id": "e0029",
+            "start_line": 525,
+            "end_line": 562
+          },
+          {
+            "source_id": "e0034",
+            "start_line": 7,
+            "end_line": 18
+          },
+          {
+            "source_id": "e0001",
+            "start_line": 268,
+            "end_line": 271
+          }
+        ]
+      },
+      {
+        "id": "r13",
+        "title": "Compose tracing, extensions, and a method concurrency limit",
+        "description": "Trace HTTP requests, insert an extension before the handler, and limit concurrent calls through the GET method route. This demonstrates layer composition, not a complete overload policy.",
+        "code": "use axum::{extract::Extension, routing::get, Router};\nuse tower::{limit::ConcurrencyLimitLayer, ServiceBuilder};\nuse tower_http::trace::TraceLayer;\n\n#[derive(Clone)]\nstruct AppTag(&'static str);\n\nasync fn handler(Extension(tag): Extension<AppTag>) -> String {\n    format!(\"Application: {}\", tag.0)\n}\n\n#[tokio::main]\nasync fn main() -> std::io::Result<()> {\n    tracing_subscriber::fmt()\n        .with_max_level(tracing_subscriber::filter::LevelFilter::DEBUG)\n        .init();\n    let app = Router::new()\n        .route(\"/\", get(handler).layer(ConcurrencyLimitLayer::new(64)))\n        .layer(ServiceBuilder::new()\n            .layer(TraceLayer::new_for_http())\n            .layer(Extension(AppTag(\"example\"))));\n    let listener = tokio::net::TcpListener::bind(\"127.0.0.1:3000\").await?;\n    axum::serve(listener, app).await\n}\n",
+        "default_features": false,
+        "features": [
+          "tokio",
+          "http1",
+          "tracing"
+        ],
+        "dependencies": {
+          "tokio": {
+            "version": "1.44.2",
+            "features": [
+              "macros",
+              "rt-multi-thread",
+              "net"
+            ],
+            "default_features": true
+          },
+          "tower": {
+            "version": "0.5.2",
+            "features": [
+              "util",
+              "limit"
+            ],
+            "default_features": false
+          },
+          "tower-http": {
+            "version": "0.6.8",
+            "features": [
+              "trace"
+            ],
+            "default_features": false
+          },
+          "tracing-subscriber": {
+            "version": "0.3",
+            "features": [],
+            "default_features": true
+          }
+        },
+        "citations": [
+          {
+            "source_id": "e0029",
+            "start_line": 25,
+            "end_line": 47
+          },
+          {
+            "source_id": "e0029",
+            "start_line": 69,
+            "end_line": 84
+          },
+          {
+            "source_id": "e0029",
+            "start_line": 124,
+            "end_line": 152
+          },
+          {
+            "source_id": "e0041",
+            "start_line": 15,
+            "end_line": 27
+          },
+          {
+            "source_id": "e0001",
+            "start_line": 273,
+            "end_line": 304
+          },
+          {
+            "source_id": "e0001",
+            "start_line": 368,
+            "end_line": 378
+          },
+          {
+            "source_id": "e0001",
+            "start_line": 415,
+            "end_line": 417
+          },
+          {
+            "source_id": "e0007",
+            "start_line": 27,
+            "end_line": 42
+          }
+        ]
+      }
+    ],
+    "example_coverage": [
+      {
+        "example_id": "doc-403dabee035e1211-1",
+        "disposition": "adapted",
+        "recipe_ids": [
+          "r01"
+        ],
+        "reason": "Completed the JSON API server with explicit runtime and serialization dependencies."
+      },
+      {
+        "example_id": "doc-1a62a38631e53597-2",
+        "disposition": "adapted",
+        "recipe_ids": [
+          "r02"
+        ],
+        "reason": "Replaced placeholders with a nested router and its own fallback."
+      },
+      {
+        "example_id": "doc-1a62a38631e53597-3",
+        "disposition": "adapted",
+        "recipe_ids": [
+          "r02"
+        ],
+        "reason": "Included a second nested router that inherits the outer fallback."
+      },
+      {
+        "example_id": "doc-1a62a38631e53597-4",
+        "disposition": "adapted",
+        "recipe_ids": [
+          "r02"
+        ],
+        "reason": "Migrated wildcard syntax to 0.8 and used separate handlers for paths without captures."
+      },
+      {
+        "example_id": "doc-1a62a38631e53597-5",
+        "disposition": "supporting",
+        "recipe_ids": [
+          "r02"
+        ],
+        "reason": "Supports returning the wildcard capture without a leading slash; route syntax was updated."
+      },
+      {
+        "example_id": "doc-1a62a38631e53597-6",
+        "disposition": "adapted",
+        "recipe_ids": [
+          "r02"
+        ],
+        "reason": "Preserved the static route alongside a wildcard using 0.8 syntax."
+      },
+      {
+        "example_id": "doc-1a62a38631e53597-7",
+        "disposition": "supporting",
+        "recipe_ids": [
+          "r02"
+        ],
+        "reason": "Supports registering both trailing-slash forms explicitly."
+      },
+      {
+        "example_id": "doc-1a62a38631e53597-8",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "Historical 0.5 fallback API; it is not a current usage example."
+      },
+      {
+        "example_id": "doc-1a62a38631e53597-9",
+        "disposition": "supporting",
+        "recipe_ids": [
+          "r02"
+        ],
+        "reason": "Supports supplying an async handler directly to fallback."
+      },
+      {
+        "example_id": "doc-1a62a38631e53597-10",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "Historical application-state setup is superseded by the selected State recipe."
+      },
+      {
+        "example_id": "doc-1a62a38631e53597-11",
+        "disposition": "supporting",
+        "recipe_ids": [
+          "r03"
+        ],
+        "reason": "Supports providing application state with with_state."
+      },
+      {
+        "example_id": "doc-1a62a38631e53597-12",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "The selected substate recipe implements FromRef manually, avoiding the optional derive macro."
+      },
+      {
+        "example_id": "doc-1a62a38631e53597-13",
+        "disposition": "supporting",
+        "recipe_ids": [
+          "r05"
+        ],
+        "reason": "Its valid and invalid signatures explain why the JSON extractor follows headers."
+      },
+      {
+        "example_id": "doc-1a62a38631e53597-14",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "Uses removed RequestParts and an obsolete extractor signature."
+      },
+      {
+        "example_id": "doc-1a62a38631e53597-15",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "Incomplete historical alternatives include the obsolete request-body type parameter; current extractor examples were selected instead."
+      },
+      {
+        "example_id": "doc-1a62a38631e53597-16",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "Obsolete prerelease constructor syntax and placeholder routes."
+      },
+      {
+        "example_id": "doc-1a62a38631e53597-17",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "Placeholder-only prerelease snippet duplicates the complete current state example."
+      },
+      {
+        "example_id": "doc-1a62a38631e53597-18",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "Historical fallback service syntax is incompatible with the selected handler-based API."
+      },
+      {
+        "example_id": "doc-1a62a38631e53597-19",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "Its prerelease claim that nested routers do not inherit fallbacks is superseded by later release evidence."
+      },
+      {
+        "example_id": "doc-1aed3b13f3eeb20d-20",
+        "disposition": "supporting",
+        "recipe_ids": [
+          "r01"
+        ],
+        "reason": "Supplies the listener and serve pattern; the resulting server remains a long-running program, consistent with no_run."
+      },
+      {
+        "example_id": "doc-1aed3b13f3eeb20d-21",
+        "disposition": "supporting",
+        "recipe_ids": [
+          "r02"
+        ],
+        "reason": "Supports composing paths and method handlers."
+      },
+      {
+        "example_id": "doc-1aed3b13f3eeb20d-22",
+        "disposition": "supporting",
+        "recipe_ids": [
+          "r04"
+        ],
+        "reason": "Supports typed path and query extraction."
+      },
+      {
+        "example_id": "doc-1aed3b13f3eeb20d-23",
+        "disposition": "supporting",
+        "recipe_ids": [
+          "r01"
+        ],
+        "reason": "Supports the plain-text and JSON responses in the server."
+      },
+      {
+        "example_id": "doc-1aed3b13f3eeb20d-24",
+        "disposition": "adapted",
+        "recipe_ids": [
+          "r03"
+        ],
+        "reason": "Completed shared Arc state with a concrete value and handler."
+      },
+      {
+        "example_id": "doc-1aed3b13f3eeb20d-25",
+        "disposition": "adapted",
+        "recipe_ids": [
+          "r03"
+        ],
+        "reason": "Implemented a concrete substate using manual FromRef."
+      },
+      {
+        "example_id": "doc-1aed3b13f3eeb20d-26",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "Global extension state is an alternative to the selected typed State approach."
+      },
+      {
+        "example_id": "doc-1aed3b13f3eeb20d-27",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "Closure-captured state is a more verbose alternative to the selected State recipe."
+      },
+      {
+        "example_id": "doc-1aed3b13f3eeb20d-28",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "Executor-specific task-local state is outside the selected request-extension middleware recipe."
+      },
+      {
+        "example_id": "doc-6baa962bdc58fdbd-29",
+        "disposition": "supporting",
+        "recipe_ids": [
+          "r09"
+        ],
+        "reason": "Supports returning concrete Result errors as HTTP responses; the todo body is not copied."
+      },
+      {
+        "example_id": "doc-6baa962bdc58fdbd-30",
+        "disposition": "adapted",
+        "recipe_ids": [
+          "r08"
+        ],
+        "reason": "Replaced the placeholder operation with an explicitly failing demonstration service."
+      },
+      {
+        "example_id": "doc-6baa962bdc58fdbd-31",
+        "disposition": "adapted",
+        "recipe_ids": [
+          "r08"
+        ],
+        "reason": "Included timeout error classification and response conversion."
+      },
+      {
+        "example_id": "doc-6baa962bdc58fdbd-32",
+        "disposition": "adapted",
+        "recipe_ids": [
+          "r08"
+        ],
+        "reason": "Added method and URI extraction before the final error argument."
+      },
+      {
+        "example_id": "doc-984c599c9d1dae76-33",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "Global extension state duplicates an alternative already covered by State guidance."
+      },
+      {
+        "example_id": "doc-984c599c9d1dae76-34",
+        "disposition": "adapted",
+        "recipe_ids": [
+          "r09"
+        ],
+        "reason": "Included a concrete response extension alongside a response body."
+      },
+      {
+        "example_id": "doc-53a6c173aa00e510-35",
+        "disposition": "supporting",
+        "recipe_ids": [
+          "r01"
+        ],
+        "reason": "Supports typed JSON input on a POST route."
+      },
+      {
+        "example_id": "doc-53a6c173aa00e510-36",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "The broad extractor catalog is represented by more focused recipes; its extension route also lacks insertion middleware."
+      },
+      {
+        "example_id": "doc-53a6c173aa00e510-37",
+        "disposition": "adapted",
+        "recipe_ids": [
+          "r04"
+        ],
+        "reason": "Completed UUID path extraction and typed pagination with a concrete response."
+      },
+      {
+        "example_id": "doc-53a6c173aa00e510-38",
+        "disposition": "supporting",
+        "recipe_ids": [
+          "r05"
+        ],
+        "reason": "Supports placing request-parts extractors before the body-consuming extractor."
+      },
+      {
+        "example_id": "doc-53a6c173aa00e510-39",
+        "disposition": "supporting",
+        "recipe_ids": [
+          "r05"
+        ],
+        "reason": "Retained as compile_fail evidence for extractor ordering; invalid code is not emitted."
+      },
+      {
+        "example_id": "doc-53a6c173aa00e510-40",
+        "disposition": "supporting",
+        "recipe_ids": [
+          "r05"
+        ],
+        "reason": "Retained as compile_fail evidence against consuming the body twice."
+      },
+      {
+        "example_id": "doc-53a6c173aa00e510-41",
+        "disposition": "adapted",
+        "recipe_ids": [
+          "r05"
+        ],
+        "reason": "Converted handler-local rejection handling into a JSON error envelope while preserving rejection status."
+      },
+      {
+        "example_id": "doc-53a6c173aa00e510-42",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "The frozen evidence does not supply a registry version for axum-extra; no compatible version is guessed."
+      },
+      {
+        "example_id": "doc-53a6c173aa00e510-43",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "Internal error downcasting is explicitly documented as unstable; the selected recipe uses public rejection methods."
+      },
+      {
+        "example_id": "doc-53a6c173aa00e510-44",
+        "disposition": "adapted",
+        "recipe_ids": [
+          "r06"
+        ],
+        "reason": "Completed the request-parts extractor and used its header in the response."
+      },
+      {
+        "example_id": "doc-53a6c173aa00e510-45",
+        "disposition": "adapted",
+        "recipe_ids": [
+          "r06"
+        ],
+        "reason": "Added concrete nonempty-body validation and composed it with the header extractor."
+      },
+      {
+        "example_id": "doc-53a6c173aa00e510-46",
+        "disposition": "supporting",
+        "recipe_ids": [
+          "r06"
+        ],
+        "reason": "The compile_fail example supports implementing only the appropriate trait for each concrete extractor."
+      },
+      {
+        "example_id": "doc-53a6c173aa00e510-47",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "Authorization is unimplemented; the selected custom extractors have complete behavior."
+      },
+      {
+        "example_id": "doc-53a6c173aa00e510-48",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "Generic extractor timing is an advanced extension beyond the focused validation recipes."
+      },
+      {
+        "example_id": "doc-2a0f140a86a74152-49",
+        "disposition": "adapted",
+        "recipe_ids": [
+          "r10"
+        ],
+        "reason": "Completed form input handling with a non-sensitive payload."
+      },
+      {
+        "example_id": "doc-2a0f140a86a74152-50",
+        "disposition": "adapted",
+        "recipe_ids": [
+          "r10"
+        ],
+        "reason": "Returned the submitted payload as an encoded form response."
+      },
+      {
+        "example_id": "doc-555b16af49c41482-51",
+        "disposition": "supporting",
+        "recipe_ids": [
+          "r01"
+        ],
+        "reason": "Supports the JSON extractor and POST route used by the basic server."
+      },
+      {
+        "example_id": "doc-555b16af49c41482-52",
+        "disposition": "adapted",
+        "recipe_ids": [
+          "r04"
+        ],
+        "reason": "Replaced the unimplemented lookup with an explicitly illustrative user response."
+      },
+      {
+        "example_id": "doc-0488c65d5a91dcaf-53",
+        "disposition": "adapted",
+        "recipe_ids": [
+          "r13"
+        ],
+        "reason": "Completed tracing and extension layers with a handler that reads the extension."
+      },
+      {
+        "example_id": "doc-0488c65d5a91dcaf-54",
+        "disposition": "supporting",
+        "recipe_ids": [
+          "r13"
+        ],
+        "reason": "Provides the repeated-layer ordering contrast for the selected ServiceBuilder composition."
+      },
+      {
+        "example_id": "doc-0488c65d5a91dcaf-55",
+        "disposition": "supporting",
+        "recipe_ids": [
+          "r13"
+        ],
+        "reason": "Supports composing middleware in incoming-request order."
+      },
+      {
+        "example_id": "doc-0488c65d5a91dcaf-56",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "The generic pass-through Tower service adds no application behavior; focused middleware recipes were selected."
+      },
+      {
+        "example_id": "doc-0488c65d5a91dcaf-57",
+        "disposition": "supporting",
+        "recipe_ids": [
+          "r08"
+        ],
+        "reason": "The ignored placeholder illustrates error-layer placement only; a concrete timeout layer supplies the executable implementation."
+      },
+      {
+        "example_id": "doc-0488c65d5a91dcaf-58",
+        "disposition": "supporting",
+        "recipe_ids": [
+          "r08"
+        ],
+        "reason": "Confirms HandleErrorLayer must wrap the fallible timeout layer."
+      },
+      {
+        "example_id": "doc-0488c65d5a91dcaf-59",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "The hidden Identity layer does not demonstrate an actual backpressure policy."
+      },
+      {
+        "example_id": "doc-0488c65d5a91dcaf-60",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "The custom stateful layer is a pass-through template; selected recipes cover state and middleware separately."
+      },
+      {
+        "example_id": "doc-0488c65d5a91dcaf-61",
+        "disposition": "adapted",
+        "recipe_ids": [
+          "r07"
+        ],
+        "reason": "Completed request-extension propagation with an explicitly demonstration-only token check."
+      },
+      {
+        "example_id": "doc-0488c65d5a91dcaf-62",
+        "disposition": "adapted",
+        "recipe_ids": [
+          "r12"
+        ],
+        "reason": "Implemented a concrete URI rewrite outside the router and served the wrapped service."
+      },
+      {
+        "example_id": "doc-535661876ca0e01d-63",
+        "disposition": "supporting",
+        "recipe_ids": [
+          "r09"
+        ],
+        "reason": "Supports plain-text, HTML, and status responses."
+      },
+      {
+        "example_id": "doc-535661876ca0e01d-64",
+        "disposition": "adapted",
+        "recipe_ids": [
+          "r09"
+        ],
+        "reason": "Composed status, headers, response extension, and body."
+      },
+      {
+        "example_id": "doc-535661876ca0e01d-65",
+        "disposition": "adapted",
+        "recipe_ids": [
+          "r09"
+        ],
+        "reason": "Included a concrete Response builder endpoint."
+      },
+      {
+        "example_id": "doc-535661876ca0e01d-66",
+        "disposition": "adapted",
+        "recipe_ids": [
+          "r09"
+        ],
+        "reason": "Replaced placeholder predicates with URI-query branches returning a common Response type."
+      },
+      {
+        "example_id": "doc-535661876ca0e01d-67",
+        "disposition": "supporting",
+        "recipe_ids": [
+          "r09"
+        ],
+        "reason": "Supports tuple response composition."
+      },
+      {
+        "example_id": "doc-535661876ca0e01d-68",
+        "disposition": "supporting",
+        "recipe_ids": [
+          "r09"
+        ],
+        "reason": "Supports impl IntoResponse for a single concrete tuple type."
+      },
+      {
+        "example_id": "doc-535661876ca0e01d-69",
+        "disposition": "supporting",
+        "recipe_ids": [
+          "r09"
+        ],
+        "reason": "The compile_fail example motivates explicit Response conversion for heterogeneous branches."
+      },
+      {
+        "example_id": "doc-535661876ca0e01d-70",
+        "disposition": "supporting",
+        "recipe_ids": [
+          "r09"
+        ],
+        "reason": "The compile_fail example motivates a concrete Result error type when using question-mark propagation."
+      },
+      {
+        "example_id": "doc-535661876ca0e01d-71",
+        "disposition": "supporting",
+        "recipe_ids": [
+          "r09"
+        ],
+        "reason": "The compile_fail example rules out relying on an opaque error type for inference."
+      },
+      {
+        "example_id": "doc-535661876ca0e01d-72",
+        "disposition": "adapted",
+        "recipe_ids": [
+          "r09"
+        ],
+        "reason": "Completed validation and used a concrete StatusCode error type."
+      },
+      {
+        "example_id": "doc-64fac973ea2321ad-73",
+        "disposition": "adapted",
+        "recipe_ids": [
+          "r02"
+        ],
+        "reason": "Included a method fallback, choosing an explicit 405 response for unsupported methods."
+      },
+      {
+        "example_id": "doc-64fac973ea2321ad-74",
+        "disposition": "supporting",
+        "recipe_ids": [
+          "r02"
+        ],
+        "reason": "Preserved its should_panic meaning by merging first and setting only one fallback afterward."
+      },
+      {
+        "example_id": "doc-c2e5b7fb82c5646d-75",
+        "disposition": "adapted",
+        "recipe_ids": [
+          "r13"
+        ],
+        "reason": "Applied a concurrency limit to the GET method route."
+      },
+      {
+        "example_id": "doc-3770245dd9d7e1d2-76",
+        "disposition": "adapted",
+        "recipe_ids": [
+          "r11"
+        ],
+        "reason": "Made body collection a complete finite program with an explicit size limit."
+      },
+      {
+        "example_id": "doc-3770245dd9d7e1d2-77",
+        "disposition": "adapted",
+        "recipe_ids": [
+          "r11"
+        ],
+        "reason": "Included detection of the underlying LengthLimitError."
+      },
+      {
+        "example_id": "doc-cfe7feeaf42f06df-78",
+        "disposition": "adapted",
+        "recipe_ids": [
+          "r02"
+        ],
+        "reason": "Merged GET and POST method routers before attaching their shared fallback."
+      }
+    ]
+  },
+  "review": null,
+  "verification": [
+    {
+      "recipe_id": "r01",
+      "input_sha256": "98bae6ee106caf8d6d0cda58a81fe780dd90c4a5e53abe7e02b8d0d25e504d09",
+      "status": "compiled",
+      "rustc_version": "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
+      "log_path": "verification/r01/check.log",
+      "lockfile_sha256": "10b5483b6c0ac6c7ebe84d2ba403ffab30385da4e30944ecce49e1dbcbddc650",
+      "message": "cargo check --locked --all-targets passed; runtime behavior was not tested"
+    },
+    {
+      "recipe_id": "r02",
+      "input_sha256": "41651519d12aec8edd4861ea35ea033470ae3d9d3b33be01894e4894ad1494e2",
+      "status": "compiled",
+      "rustc_version": "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
+      "log_path": "verification/r02/check.log",
+      "lockfile_sha256": "2404fe1ddf227c3b940915a98c17bc7fd6374fdc64898b7369c4e12731c427ec",
+      "message": "cargo check --locked --all-targets passed; runtime behavior was not tested"
+    },
+    {
+      "recipe_id": "r03",
+      "input_sha256": "6ff3ba4ac9b1d3b1a4722b553255d9de0c599ffb9b6f2a81f0d213e0b90aad29",
+      "status": "compiled",
+      "rustc_version": "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
+      "log_path": "verification/r03/check.log",
+      "lockfile_sha256": "7fac8f5fd84bf74915cd266d632abd5df82008aa9e89becb9e7fe0cc19f1e359",
+      "message": "cargo check --locked --all-targets passed; runtime behavior was not tested"
+    },
+    {
+      "recipe_id": "r04",
+      "input_sha256": "28b682dbe2f0b5d279e634657553fddce9afe260aaa2cfde512fce4f854b7e76",
+      "status": "compiled",
+      "rustc_version": "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
+      "log_path": "verification/r04/check.log",
+      "lockfile_sha256": "2bc1e66889a9cdaede3c07946e86083fdb129a54c9ddefe527a6d8d47860d2cd",
+      "message": "cargo check --locked --all-targets passed; runtime behavior was not tested"
+    },
+    {
+      "recipe_id": "r05",
+      "input_sha256": "8c310ec1ef8363cdf288a315f016932fe725c0cb840103dbe66fdb69528c148a",
+      "status": "compiled",
+      "rustc_version": "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
+      "log_path": "verification/r05/check.log",
+      "lockfile_sha256": "f48fbcc85a51a4a318b6cf23bbb2b2ba6598ad7cca811b7f000d73575953a29c",
+      "message": "cargo check --locked --all-targets passed; runtime behavior was not tested"
+    },
+    {
+      "recipe_id": "r06",
+      "input_sha256": "37567d4442d83868f5ed600d9174d7b80acb02f38d0ae1bdf0efba35c4272313",
+      "status": "compiled",
+      "rustc_version": "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
+      "log_path": "verification/r06/check.log",
+      "lockfile_sha256": "3d1fdb96f9d61e67d3f2a77110bc694fec5424d381db3d42db62c669d2d44702",
+      "message": "cargo check --locked --all-targets passed; runtime behavior was not tested"
+    },
+    {
+      "recipe_id": "r07",
+      "input_sha256": "de3fdeafa155004e50ec6f66b27e47e8cc0343ab1be7639740a771c5d2c62b5f",
+      "status": "compiled",
+      "rustc_version": "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
+      "log_path": "verification/r07/check.log",
+      "lockfile_sha256": "0b71047f3620f1af1349b607053d0712ba3bda26395d6f154ca8a7b675a8752a",
+      "message": "cargo check --locked --all-targets passed; runtime behavior was not tested"
+    },
+    {
+      "recipe_id": "r08",
+      "input_sha256": "6102883a10ba8d7f779d72699c5e9b78ce1074efec0f454b3bbce425ee2a7eea",
+      "status": "compiled",
+      "rustc_version": "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
+      "log_path": "verification/r08/check.log",
+      "lockfile_sha256": "cc9e084015bc8656d8d1fe0e2cb205c79f6ff7e7f2bc5c04514303be4902562b",
+      "message": "cargo check --locked --all-targets passed; runtime behavior was not tested"
+    },
+    {
+      "recipe_id": "r09",
+      "input_sha256": "2b06eb2e39bda807b641ed9ca04f5388fc98f441609137ce41469237f76bb95b",
+      "status": "compiled",
+      "rustc_version": "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
+      "log_path": "verification/r09/check.log",
+      "lockfile_sha256": "5c3c2002f5e15762c80bc1434005f553b13e33b7bf1f919d62ecc8b9a9e72e58",
+      "message": "cargo check --locked --all-targets passed; runtime behavior was not tested"
+    },
+    {
+      "recipe_id": "r10",
+      "input_sha256": "9e97c634a4846feebda6c8cadf612e94774ecbd4a2b1f14cc5904a2513df5cf4",
+      "status": "compiled",
+      "rustc_version": "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
+      "log_path": "verification/r10/check.log",
+      "lockfile_sha256": "ce8220d87b0cf23e00273aa65e1a20839edf6f257b7cc69445c893fd1a77344e",
+      "message": "cargo check --locked --all-targets passed; runtime behavior was not tested"
+    },
+    {
+      "recipe_id": "r11",
+      "input_sha256": "654bfe51439db34031f082d0b3e8b276474d8ad27319bb9e41760532d3eb272c",
+      "status": "compiled",
+      "rustc_version": "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
+      "log_path": "verification/r11/check.log",
+      "lockfile_sha256": "48cc5e9e72d7a138609c3de82cd79847b93fc4ac62207e4be3679354ca4ec542",
+      "message": "cargo check --locked --all-targets passed; runtime behavior was not tested"
+    },
+    {
+      "recipe_id": "r12",
+      "input_sha256": "1bdf8bed94baaea01a68e5665a0b6a6fc25f3f6fd7020b54f5f12a4cebac149c",
+      "status": "compiled",
+      "rustc_version": "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
+      "log_path": "verification/r12/check.log",
+      "lockfile_sha256": "37f1e6cc5f6c5aa69092bb5490c7403d332ad948db7855748786b204e30b1337",
+      "message": "cargo check --locked --all-targets passed; runtime behavior was not tested"
+    },
+    {
+      "recipe_id": "r13",
+      "input_sha256": "80643456812d912c8d5bd226b5ab1c5ba827354a0420471539e676c0609a2a86",
+      "status": "compiled",
+      "rustc_version": "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
+      "log_path": "verification/r13/check.log",
+      "lockfile_sha256": "5cce79a9997c74778abdad4c1f8ed2cee0db4a1512c80ba3eee0fec34dc746d6",
+      "message": "cargo check --locked --all-targets passed; runtime behavior was not tested"
+    }
+  ],
+  "warnings": [
+    "Collection is bounded to 48 UTF-8 evidence files, 48 KiB per file, and 320 KiB total; examples and API documentation are sampled, not exhaustive. Rendered documentation and external documentation sites are not crawled.",
+    "Pinned repository archive: 2 link or special-file entries were rejected without following or extracting them.",
+    "Evidence is a bounded prefix of https://docs.rs/crate/axum/0.8.9/source/CHANGELOG.md (49152 bytes retained).",
+    "310 distinct eligible source files were omitted by the evidence budget; 48 files selected."
+  ]
+}

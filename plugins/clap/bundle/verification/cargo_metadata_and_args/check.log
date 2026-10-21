@@ -1,0 +1,6 @@
+    Updating crates.io index
+     Locking 15 packages to highest Rust 1.99.1 compatible versions
+    Checking clap_builder v4.6.7
+    Checking clap v4.6.7
+    Checking recipe-cargo_metadata_and_args v0.0.0 (<bundle>/verification/cargo_metadata_and_args)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.73s

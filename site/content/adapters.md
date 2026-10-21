@@ -29,7 +29,7 @@ Claude Code uses print mode, JSON output, and a response schema. Built-in tools,
 
 Codex uses `codex exec` with a read-only sandbox, ephemeral sessions, `--skip-git-repo-check`, a response schema, and a final output file. Progress output is separate from the accepted result. Its runtime state directory must be writable even though its analysis sandbox is read-only.
 
-The built-in CLI interfaces were checked against Claude Code 2.1.303 and Codex 0.159.2. Subprocess contracts are tested with fixtures. Live provider responses were not verified in the initial development environment: Claude Code lacked a login and Codex's injected state directory was read-only. The published clap, axum, and Stucco validation used imported analyses. A working authenticated local CLI is needed to exercise live analysis.
+The current clap, axum, and Bevy bundles were generated through Symposiast’s authenticated Codex 0.163.0 adapter. Each live response supplied findings, recipes, and documentation-example coverage, and all generated recipes compiled. Stucco uses an imported analysis. Earlier development runs were limited by unavailable Claude Code authentication and read-only Codex runtime state; those historical limitations do not describe these successful Codex runs. Subprocess fixture tests remain separate from live provider checks. See the [examples](examples.html) and [validation notes](https://github.com/mcaveniathor/symposiast/blob/main/docs/validation.md).
 
 ## Import an analysis
 

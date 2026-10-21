@@ -108,7 +108,7 @@ h1, h2, h3, p { margin-top: 0; }
 .doc-eyebrow { margin-bottom: 20px; }
 .docs-aside { padding-top: 45px; }
 .mobile-toc { display: none; }
-.page-toc { position: sticky; top: 28px; font-size: 12px; line-height: 1.6; border-left: 1px solid var(--rule); padding-left: 24px; }
+.page-toc { position: sticky; top: 28px; max-height: calc(100dvh - 56px); overflow-y: auto; font-size: 12px; line-height: 1.6; border-left: 1px solid var(--rule); padding-left: 24px; padding-right: 8px; }
 .page-toc .eyebrow { font-size: 9px; margin-bottom: 16px; }
 .page-toc ul { padding: 0; margin: 0; list-style: none; }
 .page-toc li { margin: 0 0 11px; }

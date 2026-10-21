@@ -1,0 +1,8 @@
+    Updating crates.io index
+     Locking 28 packages to highest Rust 1.99.1 compatible versions
+      Adding matchit v0.8.4 (available: v0.8.6)
+    Checking tower v0.5.3
+    Checking tokio v1.54.0
+    Checking axum v0.8.9
+    Checking recipe-r11 v0.0.0 (<bundle>/verification/r11)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 1.55s

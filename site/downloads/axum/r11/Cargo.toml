@@ -1,0 +1,25 @@
+[dependencies.axum]
+default-features = false
+features = []
+version = "=0.8.9"
+
+[dependencies.http-body-util]
+default-features = true
+features = []
+version = "0.1.0"
+
+[dependencies.tokio]
+default-features = true
+features = [
+    "macros",
+    "rt",
+]
+version = "1.44.2"
+
+[package]
+edition = "2024"
+name = "recipe-r11"
+publish = false
+version = "0.0.0"
+
+[workspace]
