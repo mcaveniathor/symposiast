@@ -14,6 +14,13 @@ jobs:
       - run: cargo test --locked --workspace --all-targets
       - name: Validate the packaged Stucco bundle
         run: cargo run --locked --bin symposiast -- check plugins/stucco/bundle --workspace site
+      - name: Validate generated crate bundles
+        run: |
+          for crate in clap axum bevy; do
+            cargo run --locked --bin symposiast -- render "plugins/$crate/bundle"
+          done
+      - name: Check generated crate examples
+        run: python3 scripts/update_examples.py --check
       - name: Check generated Stucco examples
         run: python3 scripts/update_stucco_examples.py --check
   stucco-examples:
@@ -30,6 +37,42 @@ jobs:
       - uses: Swatinem/rust-cache@v2
       - name: Run the release-pinned example and its assertions
         run: cargo run --locked --manifest-path site/downloads/stucco/${{ matrix.recipe }}/Cargo.toml
+  generated-examples:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        crate: [clap, axum, bevy]
+    env:
+      CARGO_TARGET_DIR: ${{ github.workspace }}/target/generated-examples
+      CARGO_BUILD_JOBS: 2
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install pinned toolchain
+        run: rustup show active-toolchain
+      - name: Install Bevy Linux build dependencies
+        if: matrix.crate == 'bevy'
+        run: sudo apt-get update && sudo apt-get install -y libasound2-dev libudev-dev libwayland-dev libxkbcommon-dev
+      - uses: Swatinem/rust-cache@v2
+      - name: Compile generated consumers
+        run: |
+          for manifest in site/downloads/${{ matrix.crate }}/*/Cargo.toml; do
+            cargo check --locked --all-targets --manifest-path "$manifest"
+          done
+      - name: Run clap's generated assertions and parser tests
+        if: matrix.crate == 'clap'
+        run: |
+          for manifest in site/downloads/clap/*/Cargo.toml; do
+            cargo run --locked --manifest-path "$manifest"
+            cargo test --locked --manifest-path "$manifest"
+          done
+      - name: Exercise axum HTTP responses
+        if: matrix.crate == 'axum'
+        run: python3 scripts/check_axum_examples.py
+      - name: Run Bevy's console and message examples
+        if: matrix.crate == 'bevy'
+        run: |
+          cargo run --locked --manifest-path site/downloads/bevy/hello/Cargo.toml
+          cargo run --locked --manifest-path site/downloads/bevy/message/Cargo.toml
   registry:
     runs-on: ubuntu-latest
     steps:

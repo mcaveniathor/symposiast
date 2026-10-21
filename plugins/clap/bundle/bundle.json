@@ -1,0 +1,3327 @@
+{
+  "schema_version": 1,
+  "release": {
+    "name": "clap",
+    "version": "4.6.7",
+    "checksum": "aa8876b300ab35ba921adea3dfd70157a46249b33f95c9084ae5709785478946",
+    "repository": "https://github.com/clap-rs/clap",
+    "repository_commit": "13f2db5072d600c11d8d6298e4e9ba53ffc6c1ab",
+    "rust_version": "1.85",
+    "features": {
+      "cargo": [
+        "clap_builder/cargo"
+      ],
+      "color": [
+        "clap_builder/color"
+      ],
+      "debug": [
+        "clap_builder/debug",
+        "clap_derive?/debug"
+      ],
+      "default": [
+        "std",
+        "color",
+        "help",
+        "usage",
+        "error-context",
+        "suggestions"
+      ],
+      "deprecated": [
+        "clap_builder/deprecated",
+        "clap_derive?/deprecated"
+      ],
+      "derive": [
+        "dep:clap_derive"
+      ],
+      "env": [
+        "clap_builder/env"
+      ],
+      "error-context": [
+        "clap_builder/error-context"
+      ],
+      "help": [
+        "clap_builder/help"
+      ],
+      "std": [
+        "clap_builder/std"
+      ],
+      "string": [
+        "clap_builder/string"
+      ],
+      "suggestions": [
+        "clap_builder/suggestions"
+      ],
+      "unicode": [
+        "clap_builder/unicode"
+      ],
+      "unstable-derive-ui-tests": [],
+      "unstable-doc": [
+        "clap_builder/unstable-doc",
+        "derive"
+      ],
+      "unstable-ext": [
+        "clap_builder/unstable-ext"
+      ],
+      "unstable-markdown": [
+        "clap_derive/unstable-markdown"
+      ],
+      "unstable-styles": [
+        "clap_builder/unstable-styles"
+      ],
+      "unstable-v5": [
+        "clap_builder/unstable-v5",
+        "clap_derive?/unstable-v5",
+        "deprecated"
+      ],
+      "usage": [
+        "clap_builder/usage"
+      ],
+      "wrap_help": [
+        "clap_builder/wrap_help"
+      ]
+    },
+    "collected_at": "1792577100"
+  },
+  "sources": [
+    {
+      "id": "e0001",
+      "kind": "manifest",
+      "path": "sources/e0001.txt",
+      "url": "https://docs.rs/crate/clap/4.6.7/source/Cargo.toml",
+      "sha256": "4c4829a1a916d2c47e3299ca4c3e607721fc62998d2d3628afc10a85f0a8169a"
+    },
+    {
+      "id": "e0002",
+      "kind": "release_metadata",
+      "path": "sources/e0002.txt",
+      "url": "https://docs.rs/crate/clap/4.6.7/source/.cargo_vcs_info.json",
+      "sha256": "f45b8510634b95327d0f120c45521fc784e5cf6e9f9a4aed60cd2ed38bbe6d96"
+    },
+    {
+      "id": "e0003",
+      "kind": "readme",
+      "path": "sources/e0003.txt",
+      "url": "https://docs.rs/crate/clap/4.6.7/source/README.md",
+      "sha256": "6693649b70119a6e7b29164fc6027ad95783744723736c6cc65483a8948a2e0f"
+    },
+    {
+      "id": "e0004",
+      "kind": "changelog",
+      "path": "sources/e0004.txt",
+      "url": "https://github.com/clap-rs/clap/blob/13f2db5072d600c11d8d6298e4e9ba53ffc6c1ab/CHANGELOG.md",
+      "sha256": "05fdd72ce5824da7e47118c41c4abc30c6df9323884fbb7c070b8dcd148d97b1"
+    },
+    {
+      "id": "e0005",
+      "kind": "api",
+      "path": "sources/e0005.txt",
+      "url": "https://docs.rs/crate/clap/4.6.7/source/src/lib.rs",
+      "sha256": "7cc12d03be294e8fe5014d27d54102a9d16f2f8c0ca7213e5c4542be3354a665"
+    },
+    {
+      "id": "e0006",
+      "kind": "documentation",
+      "path": "sources/e0006.txt",
+      "url": "https://docs.rs/crate/clap/4.6.7/source/src/_tutorial.rs",
+      "sha256": "03141e466c06faf981568e1511f297e09632b7d5c2494a940f4a87191f02e67c"
+    },
+    {
+      "id": "e0007",
+      "kind": "documentation",
+      "path": "sources/e0007.txt",
+      "url": "https://docs.rs/crate/clap/4.6.7/source/src/_derive/_tutorial.rs",
+      "sha256": "fee5e06dc487bac2eded1008f167bcc87559f45e2df8bbbeeb5dcba755f6fafa"
+    },
+    {
+      "id": "e0008",
+      "kind": "documentation",
+      "path": "sources/e0008.txt",
+      "url": "https://docs.rs/crate/clap/4.6.7/source/src/_derive/mod.rs",
+      "sha256": "fc4608975587e4d0a097121c8070a784b433185e4a1350a22f98d68e1fca8770"
+    },
+    {
+      "id": "e0009",
+      "kind": "example",
+      "path": "sources/e0009.txt",
+      "url": "https://docs.rs/crate/clap/4.6.7/source/examples/cargo-example-derive.rs",
+      "sha256": "e4a69cb1260b91ba07252a01ca9dceb3a9e47da44f51250d2ad64ecf1c31bd48"
+    },
+    {
+      "id": "e0010",
+      "kind": "documentation",
+      "path": "sources/e0010.txt",
+      "url": "https://docs.rs/crate/clap/4.6.7/source/src/_cookbook/cargo_example.rs",
+      "sha256": "fe7594a5233e9106a159aa1f5d5f0cde0d844356f630d55c78b8ef322327d4e5"
+    },
+    {
+      "id": "e0011",
+      "kind": "api",
+      "path": "sources/e0011.txt",
+      "url": "https://docs.rs/crate/clap/4.6.7/source/src/_concepts.rs",
+      "sha256": "0330af938a6a7b78b4094772f898982d627c79c8cba08f6600ee625a82c51db8"
+    },
+    {
+      "id": "e0012",
+      "kind": "test",
+      "path": "sources/e0012.txt",
+      "url": "https://github.com/clap-rs/clap/blob/13f2db5072d600c11d8d6298e4e9ba53ffc6c1ab/tests/derive_ui.rs",
+      "sha256": "2c9b0d1c2d9d5ae4ad062e22d3de08709808538d0bd68257e8804348b6af184f"
+    },
+    {
+      "id": "e0013",
+      "kind": "readme",
+      "path": "sources/e0013.txt",
+      "url": "https://docs.rs/crate/clap/4.6.7/source/examples/README.md",
+      "sha256": "c5f45032ee7acda0c5f98db456cbf4f9b0362d62dc81218fcf03bcdfbd19af05"
+    },
+    {
+      "id": "e0014",
+      "kind": "manifest",
+      "path": "sources/e0014.txt",
+      "url": "https://docs.rs/crate/clap/4.6.7/source/Cargo.toml.orig",
+      "sha256": "7ddbfd9cf6ec7bfd6af625d43d79c6d84b1666aec66934222c6f8ff8238f93cd"
+    },
+    {
+      "id": "e0015",
+      "kind": "example",
+      "path": "sources/e0015.txt",
+      "url": "https://docs.rs/crate/clap/4.6.7/source/examples/cargo-example.rs",
+      "sha256": "d8009d4c71e81dd1b21ba6189bef45400d907b32e1e24daa668b2ac53aabaff0"
+    },
+    {
+      "id": "e0016",
+      "kind": "documentation",
+      "path": "sources/e0016.txt",
+      "url": "https://docs.rs/crate/clap/4.6.7/source/src/_cookbook/cargo_example_derive.rs",
+      "sha256": "badf3e931ef5d5b7f5addc4912aca057ba83ee6302c43d7eeecd1661673fd407"
+    },
+    {
+      "id": "e0017",
+      "kind": "api",
+      "path": "sources/e0017.txt",
+      "url": "https://docs.rs/crate/clap/4.6.7/source/src/_faq.rs",
+      "sha256": "998d5c156930c87a78066ec6db87ac48553e00ce16a7633cc29e7a5684c3321e"
+    },
+    {
+      "id": "e0018",
+      "kind": "test",
+      "path": "sources/e0018.txt",
+      "url": "https://github.com/clap-rs/clap/blob/13f2db5072d600c11d8d6298e4e9ba53ffc6c1ab/tests/examples.rs",
+      "sha256": "8f19ba47fbf2b0d1e29442717270f498af942bfe553eff432d0557f0a5e6fb43"
+    },
+    {
+      "id": "e0019",
+      "kind": "readme",
+      "path": "sources/e0019.txt",
+      "url": "https://github.com/clap-rs/clap/blob/13f2db5072d600c11d8d6298e4e9ba53ffc6c1ab/clap_builder/README.md",
+      "sha256": "f42fbb1b8c923e94e17446f00e820da68ff3932d008610298e91ab68558326e7"
+    },
+    {
+      "id": "e0020",
+      "kind": "manifest",
+      "path": "sources/e0020.txt",
+      "url": "https://github.com/clap-rs/clap/blob/13f2db5072d600c11d8d6298e4e9ba53ffc6c1ab/clap_builder/Cargo.toml",
+      "sha256": "ff1473ffc20f0e61541ddbefd212caa595bd3033bd0556b4b48a516e77e5d3d1"
+    },
+    {
+      "id": "e0021",
+      "kind": "example",
+      "path": "sources/e0021.txt",
+      "url": "https://docs.rs/crate/clap/4.6.7/source/examples/demo.rs",
+      "sha256": "2b06a625319d9485b22228f25beb344c660c2b2b7f5fb5890b6881bd6c70661f"
+    },
+    {
+      "id": "e0022",
+      "kind": "documentation",
+      "path": "sources/e0022.txt",
+      "url": "https://docs.rs/crate/clap/4.6.7/source/src/_cookbook/escaped_positional.rs",
+      "sha256": "2789d8fea126355805b29e76b52c6cea4982565014087a46e0d48e4ddfbed7ab"
+    },
+    {
+      "id": "e0023",
+      "kind": "api",
+      "path": "sources/e0023.txt",
+      "url": "https://docs.rs/crate/clap/4.6.7/source/src/_features.rs",
+      "sha256": "e7ba4ed83b9ff2aef65e6773d603a4aaa0eb0ff96bc86dde4360e20385bf2809"
+    },
+    {
+      "id": "e0024",
+      "kind": "test",
+      "path": "sources/e0024.txt",
+      "url": "https://github.com/clap-rs/clap/blob/13f2db5072d600c11d8d6298e4e9ba53ffc6c1ab/tests/macros.rs",
+      "sha256": "6f5f968bf6b71e8e6e9b31d8b263f063b72e5b967115d01bf5f87580a9307c27"
+    },
+    {
+      "id": "e0025",
+      "kind": "example",
+      "path": "sources/e0025.txt",
+      "url": "https://docs.rs/crate/clap/4.6.7/source/examples/escaped-positional-derive.rs",
+      "sha256": "f292db181e81031fe29235830caa92892f19472df03a467857450332f87efe74"
+    },
+    {
+      "id": "e0026",
+      "kind": "documentation",
+      "path": "sources/e0026.txt",
+      "url": "https://docs.rs/crate/clap/4.6.7/source/src/_cookbook/escaped_positional_derive.rs",
+      "sha256": "802d0b672f4ed48152235d4a26a64c97fa921b361177bdd3a1a33cbac96f665d"
+    },
+    {
+      "id": "e0027",
+      "kind": "api",
+      "path": "sources/e0027.txt",
+      "url": "https://docs.rs/crate/clap/4.6.7/source/src/bin/stdio-fixture.rs",
+      "sha256": "1470aa00f7c2611a09e37f63ed5e7ddba9fe6d9e8406b549234c8a5d6a19a6f1"
+    },
+    {
+      "id": "e0028",
+      "kind": "test",
+      "path": "sources/e0028.txt",
+      "url": "https://github.com/clap-rs/clap/blob/13f2db5072d600c11d8d6298e4e9ba53ffc6c1ab/tests/ui.rs",
+      "sha256": "235a80f05da1e636d5a97024995f6f161c6d7a7a7482a29e617f53858e4b8f80"
+    },
+    {
+      "id": "e0029",
+      "kind": "example",
+      "path": "sources/e0029.txt",
+      "url": "https://docs.rs/crate/clap/4.6.7/source/examples/escaped-positional.rs",
+      "sha256": "51f489f97b9a411870d0b4952189ef84a6fee65adbb9af1c8a2744cd4e416d35"
+    },
+    {
+      "id": "e0030",
+      "kind": "documentation",
+      "path": "sources/e0030.txt",
+      "url": "https://docs.rs/crate/clap/4.6.7/source/src/_cookbook/find.rs",
+      "sha256": "6152ad5df466adc6de56bddb0f01930b4e4db1997fa972b055217cc7d6748a0a"
+    },
+    {
+      "id": "e0031",
+      "kind": "api",
+      "path": "sources/e0031.txt",
+      "url": "https://github.com/clap-rs/clap/blob/13f2db5072d600c11d8d6298e4e9ba53ffc6c1ab/clap_builder/src/derive.rs",
+      "sha256": "9435f58f2ebcc16aba2bbc3a5374e0dfd4fe1d1bfc4cd6dc5ca8a08d4e9e9680"
+    },
+    {
+      "id": "e0032",
+      "kind": "test",
+      "path": "sources/e0032.txt",
+      "url": "https://github.com/clap-rs/clap/blob/13f2db5072d600c11d8d6298e4e9ba53ffc6c1ab/tests/builder/action.rs",
+      "sha256": "8a8f0423f1c135eea7595eae1c1d81c5efe2b4da5aac8f70b3c916ff0ab0d359"
+    },
+    {
+      "id": "e0033",
+      "kind": "example",
+      "path": "sources/e0033.txt",
+      "url": "https://docs.rs/crate/clap/4.6.7/source/examples/find.rs",
+      "sha256": "cef261978e9c388089ea5a20d9cf900fb6836f5b024090ce6e64f1d68dfd74c5"
+    },
+    {
+      "id": "e0034",
+      "kind": "documentation",
+      "path": "sources/e0034.txt",
+      "url": "https://docs.rs/crate/clap/4.6.7/source/src/_cookbook/git.rs",
+      "sha256": "372977252a22fc776e3acaa4629e964114ccd6a49b8ef334d2b6646f12e8b5ee"
+    },
+    {
+      "id": "e0035",
+      "kind": "api",
+      "path": "sources/e0035.txt",
+      "url": "https://github.com/clap-rs/clap/blob/13f2db5072d600c11d8d6298e4e9ba53ffc6c1ab/clap_builder/src/lib.rs",
+      "sha256": "bd8987448be4ace2a3501375f6850261252f3485ea1c9879e137a2245359fbf5"
+    },
+    {
+      "id": "e0036",
+      "kind": "test",
+      "path": "sources/e0036.txt",
+      "url": "https://github.com/clap-rs/clap/blob/13f2db5072d600c11d8d6298e4e9ba53ffc6c1ab/tests/builder/app_settings.rs",
+      "sha256": "7001b1503370e1a8b009c915695bc0cf518b01ce3d0329583f7273162ba705d1"
+    },
+    {
+      "id": "e0037",
+      "kind": "example",
+      "path": "sources/e0037.txt",
+      "url": "https://docs.rs/crate/clap/4.6.7/source/examples/git-derive.rs",
+      "sha256": "c1289d154fda298bf23c051a8933da71980c141c23a335b0a898543c2feeb028"
+    },
+    {
+      "id": "e0038",
+      "kind": "documentation",
+      "path": "sources/e0038.txt",
+      "url": "https://docs.rs/crate/clap/4.6.7/source/src/_cookbook/git_derive.rs",
+      "sha256": "4ab7c0197efda06607ca60c2a85ea743aed3494f5fe9e408d935ea0500a345fc"
+    },
+    {
+      "id": "e0039",
+      "kind": "api",
+      "path": "sources/e0039.txt",
+      "url": "https://github.com/clap-rs/clap/blob/13f2db5072d600c11d8d6298e4e9ba53ffc6c1ab/clap_builder/src/macros.rs",
+      "sha256": "3f60aff102fb43aaeeecac07c1a98b040205f41972a290e0f3fc2641e8dbbc4f"
+    },
+    {
+      "id": "e0040",
+      "kind": "test",
+      "path": "sources/e0040.txt",
+      "url": "https://github.com/clap-rs/clap/blob/13f2db5072d600c11d8d6298e4e9ba53ffc6c1ab/tests/builder/arg_aliases.rs",
+      "sha256": "8f30848b5753314faabcccdc6f04ccabcb1345a4a26fa5bf0bdf8c00860715f8"
+    },
+    {
+      "id": "e0041",
+      "kind": "example",
+      "path": "sources/e0041.txt",
+      "url": "https://docs.rs/crate/clap/4.6.7/source/examples/git.rs",
+      "sha256": "0bd288eb2f308aef113a13aa76053c6551097ea46d453b12c36e245c4b42f709"
+    },
+    {
+      "id": "e0042",
+      "kind": "documentation",
+      "path": "sources/e0042.txt",
+      "url": "https://docs.rs/crate/clap/4.6.7/source/src/_cookbook/mod.rs",
+      "sha256": "53a00dbec35e6f8f608acf8be550862909f3c2597251c0283702b28f8a247a01"
+    },
+    {
+      "id": "e0043",
+      "kind": "api",
+      "path": "sources/e0043.txt",
+      "url": "https://github.com/clap-rs/clap/blob/13f2db5072d600c11d8d6298e4e9ba53ffc6c1ab/clap_builder/src/mkeymap.rs",
+      "sha256": "7911271311ef9ab092069fe93e6b9d6b86d2637c50655f335a81361694c2edc9"
+    },
+    {
+      "id": "e0044",
+      "kind": "test",
+      "path": "sources/e0044.txt",
+      "url": "https://github.com/clap-rs/clap/blob/13f2db5072d600c11d8d6298e4e9ba53ffc6c1ab/tests/builder/arg_aliases_short.rs",
+      "sha256": "167081fa648979b5d4b6054e3e6c2c930a5646dba205bdb63a7b86d31d9f2ba1"
+    },
+    {
+      "id": "e0045",
+      "kind": "example",
+      "path": "sources/e0045.txt",
+      "url": "https://docs.rs/crate/clap/4.6.7/source/examples/multicall-busybox.rs",
+      "sha256": "84159f60d0cbd1bb498ce4a2ba38ba69eb8eb3bac53d477248f387958ff797b7"
+    },
+    {
+      "id": "e0046",
+      "kind": "documentation",
+      "path": "sources/e0046.txt",
+      "url": "https://docs.rs/crate/clap/4.6.7/source/src/_cookbook/multicall_busybox.rs",
+      "sha256": "56176b4fa15e7a39c433706971d4e68aaf26ddc2a5790078b6dbe722ee13efee"
+    },
+    {
+      "id": "e0047",
+      "kind": "api",
+      "path": "sources/e0047.txt",
+      "url": "https://github.com/clap-rs/clap/blob/13f2db5072d600c11d8d6298e4e9ba53ffc6c1ab/clap_derive/src/attr.rs",
+      "sha256": "94861c00bc57d3b063d6042673752b6b708fbfa12f75aa02f2e414fa5da64bbf"
+    },
+    {
+      "id": "e0048",
+      "kind": "test",
+      "path": "sources/e0048.txt",
+      "url": "https://github.com/clap-rs/clap/blob/13f2db5072d600c11d8d6298e4e9ba53ffc6c1ab/tests/builder/arg_matches.rs",
+      "sha256": "27d7c5a0de82183aeb9440eeffecdb661f4eaf03356814aab943a36ec61dbfe9"
+    },
+    {
+      "id": "license-apache",
+      "kind": "license",
+      "path": "sources/LICENSE-APACHE",
+      "url": "https://docs.rs/crate/clap/4.6.7/source/LICENSE-APACHE",
+      "sha256": "249fdb6694467dd615b259f7ddde07be3f8ae5a72cecebb0e24f6629af4215fe"
+    },
+    {
+      "id": "license-mit",
+      "kind": "license",
+      "path": "sources/LICENSE-MIT",
+      "url": "https://docs.rs/crate/clap/4.6.7/source/LICENSE-MIT",
+      "sha256": "6efb0476a1cc085077ed49357026d8c173bf33017278ef440f222fb9cbcb66e6"
+    }
+  ],
+  "example_inventory": {
+    "examples": [
+      {
+        "id": "doc-1a62a38631e53597-1",
+        "citation": {
+          "source_id": "e0004",
+          "start_line": 1255,
+          "end_line": 1266
+        },
+        "info": "rust",
+        "code": "#[derive(clap::Parser)]\nstruct Cli {\n    ...\n}\n\n#[test]\nfn verify_cli() {\n    use clap::CommandFactory;\n    Cli::command().debug_assert()\n}\n"
+      },
+      {
+        "id": "doc-1a62a38631e53597-2",
+        "citation": {
+          "source_id": "e0004",
+          "start_line": 1269,
+          "end_line": 1278
+        },
+        "info": "rust",
+        "code": "fn cli() -> clap::Command {\n    ...\n}\n\n#[test]\nfn verify_cli() {\n    cli().debug_assert();\n}\n"
+      },
+      {
+        "id": "doc-1a62a38631e53597-3",
+        "citation": {
+          "source_id": "e0004",
+          "start_line": 1283,
+          "end_line": 1286
+        },
+        "info": "rust",
+        "code": ".arg(Arg::new(\"flag\").long(\"flag\"))  # --flag\n.arg(Arg::new(\"option\").long(\"option\").takes_value(true))  # --option <option>\n"
+      },
+      {
+        "id": "doc-1a62a38631e53597-4",
+        "citation": {
+          "source_id": "e0004",
+          "start_line": 1288,
+          "end_line": 1291
+        },
+        "info": "rust",
+        "code": ".arg(Arg::new(\"flag\").long(\"flag\").action(ArgAction::SetTrue))  # --flag\n.arg(Arg::new(\"option\").long(\"option\"))  # --option <option>\n"
+      },
+      {
+        "id": "doc-0cc6763a3698d320-5",
+        "citation": {
+          "source_id": "e0005",
+          "start_line": 47,
+          "end_line": 48
+        },
+        "info": "rust",
+        "code": "# #[cfg(feature = \"derive\")] {\n"
+      },
+      {
+        "id": "doc-0cc6763a3698d320-6",
+        "citation": {
+          "source_id": "e0005",
+          "start_line": 51,
+          "end_line": 53
+        },
+        "info": "",
+        "code": "\nAnd try it out:\n"
+      },
+      {
+        "id": "doc-009efc5a9c870a09-7",
+        "citation": {
+          "source_id": "e0006",
+          "start_line": 24,
+          "end_line": 24
+        },
+        "info": "rust",
+        "code": ""
+      },
+      {
+        "id": "doc-009efc5a9c870a09-8",
+        "citation": {
+          "source_id": "e0006",
+          "start_line": 26,
+          "end_line": 27
+        },
+        "info": "",
+        "code": "\n"
+      },
+      {
+        "id": "doc-009efc5a9c870a09-9",
+        "citation": {
+          "source_id": "e0006",
+          "start_line": 38,
+          "end_line": 38
+        },
+        "info": "rust",
+        "code": ""
+      },
+      {
+        "id": "doc-009efc5a9c870a09-10",
+        "citation": {
+          "source_id": "e0006",
+          "start_line": 40,
+          "end_line": 41
+        },
+        "info": "",
+        "code": "\n"
+      },
+      {
+        "id": "doc-009efc5a9c870a09-11",
+        "citation": {
+          "source_id": "e0006",
+          "start_line": 47,
+          "end_line": 47
+        },
+        "info": "rust",
+        "code": ""
+      },
+      {
+        "id": "doc-009efc5a9c870a09-12",
+        "citation": {
+          "source_id": "e0006",
+          "start_line": 49,
+          "end_line": 49
+        },
+        "info": "",
+        "code": ""
+      },
+      {
+        "id": "doc-009efc5a9c870a09-13",
+        "citation": {
+          "source_id": "e0006",
+          "start_line": 55,
+          "end_line": 55
+        },
+        "info": "rust",
+        "code": ""
+      },
+      {
+        "id": "doc-009efc5a9c870a09-14",
+        "citation": {
+          "source_id": "e0006",
+          "start_line": 57,
+          "end_line": 57
+        },
+        "info": "",
+        "code": ""
+      },
+      {
+        "id": "doc-009efc5a9c870a09-15",
+        "citation": {
+          "source_id": "e0006",
+          "start_line": 74,
+          "end_line": 74
+        },
+        "info": "rust",
+        "code": ""
+      },
+      {
+        "id": "doc-009efc5a9c870a09-16",
+        "citation": {
+          "source_id": "e0006",
+          "start_line": 76,
+          "end_line": 76
+        },
+        "info": "",
+        "code": ""
+      },
+      {
+        "id": "doc-009efc5a9c870a09-17",
+        "citation": {
+          "source_id": "e0006",
+          "start_line": 81,
+          "end_line": 81
+        },
+        "info": "rust",
+        "code": ""
+      },
+      {
+        "id": "doc-009efc5a9c870a09-18",
+        "citation": {
+          "source_id": "e0006",
+          "start_line": 83,
+          "end_line": 83
+        },
+        "info": "",
+        "code": ""
+      },
+      {
+        "id": "doc-009efc5a9c870a09-19",
+        "citation": {
+          "source_id": "e0006",
+          "start_line": 92,
+          "end_line": 92
+        },
+        "info": "rust",
+        "code": ""
+      },
+      {
+        "id": "doc-009efc5a9c870a09-20",
+        "citation": {
+          "source_id": "e0006",
+          "start_line": 94,
+          "end_line": 94
+        },
+        "info": "",
+        "code": ""
+      },
+      {
+        "id": "doc-009efc5a9c870a09-21",
+        "citation": {
+          "source_id": "e0006",
+          "start_line": 99,
+          "end_line": 99
+        },
+        "info": "rust",
+        "code": ""
+      },
+      {
+        "id": "doc-009efc5a9c870a09-22",
+        "citation": {
+          "source_id": "e0006",
+          "start_line": 101,
+          "end_line": 101
+        },
+        "info": "",
+        "code": ""
+      },
+      {
+        "id": "doc-009efc5a9c870a09-23",
+        "citation": {
+          "source_id": "e0006",
+          "start_line": 108,
+          "end_line": 108
+        },
+        "info": "rust",
+        "code": ""
+      },
+      {
+        "id": "doc-009efc5a9c870a09-24",
+        "citation": {
+          "source_id": "e0006",
+          "start_line": 110,
+          "end_line": 110
+        },
+        "info": "",
+        "code": ""
+      },
+      {
+        "id": "doc-009efc5a9c870a09-25",
+        "citation": {
+          "source_id": "e0006",
+          "start_line": 115,
+          "end_line": 115
+        },
+        "info": "rust",
+        "code": ""
+      },
+      {
+        "id": "doc-009efc5a9c870a09-26",
+        "citation": {
+          "source_id": "e0006",
+          "start_line": 117,
+          "end_line": 117
+        },
+        "info": "",
+        "code": ""
+      },
+      {
+        "id": "doc-009efc5a9c870a09-27",
+        "citation": {
+          "source_id": "e0006",
+          "start_line": 124,
+          "end_line": 124
+        },
+        "info": "rust",
+        "code": ""
+      },
+      {
+        "id": "doc-009efc5a9c870a09-28",
+        "citation": {
+          "source_id": "e0006",
+          "start_line": 126,
+          "end_line": 126
+        },
+        "info": "",
+        "code": ""
+      },
+      {
+        "id": "doc-009efc5a9c870a09-29",
+        "citation": {
+          "source_id": "e0006",
+          "start_line": 135,
+          "end_line": 135
+        },
+        "info": "rust",
+        "code": ""
+      },
+      {
+        "id": "doc-009efc5a9c870a09-30",
+        "citation": {
+          "source_id": "e0006",
+          "start_line": 137,
+          "end_line": 137
+        },
+        "info": "",
+        "code": ""
+      },
+      {
+        "id": "doc-009efc5a9c870a09-31",
+        "citation": {
+          "source_id": "e0006",
+          "start_line": 146,
+          "end_line": 146
+        },
+        "info": "rust",
+        "code": ""
+      },
+      {
+        "id": "doc-009efc5a9c870a09-32",
+        "citation": {
+          "source_id": "e0006",
+          "start_line": 148,
+          "end_line": 148
+        },
+        "info": "",
+        "code": ""
+      },
+      {
+        "id": "doc-009efc5a9c870a09-33",
+        "citation": {
+          "source_id": "e0006",
+          "start_line": 171,
+          "end_line": 171
+        },
+        "info": "rust",
+        "code": ""
+      },
+      {
+        "id": "doc-009efc5a9c870a09-34",
+        "citation": {
+          "source_id": "e0006",
+          "start_line": 173,
+          "end_line": 173
+        },
+        "info": "",
+        "code": ""
+      },
+      {
+        "id": "doc-009efc5a9c870a09-35",
+        "citation": {
+          "source_id": "e0006",
+          "start_line": 180,
+          "end_line": 180
+        },
+        "info": "rust",
+        "code": ""
+      },
+      {
+        "id": "doc-009efc5a9c870a09-36",
+        "citation": {
+          "source_id": "e0006",
+          "start_line": 182,
+          "end_line": 182
+        },
+        "info": "",
+        "code": ""
+      },
+      {
+        "id": "doc-009efc5a9c870a09-37",
+        "citation": {
+          "source_id": "e0006",
+          "start_line": 189,
+          "end_line": 189
+        },
+        "info": "rust",
+        "code": ""
+      },
+      {
+        "id": "doc-009efc5a9c870a09-38",
+        "citation": {
+          "source_id": "e0006",
+          "start_line": 191,
+          "end_line": 191
+        },
+        "info": "",
+        "code": ""
+      },
+      {
+        "id": "doc-009efc5a9c870a09-39",
+        "citation": {
+          "source_id": "e0006",
+          "start_line": 196,
+          "end_line": 196
+        },
+        "info": "rust",
+        "code": ""
+      },
+      {
+        "id": "doc-009efc5a9c870a09-40",
+        "citation": {
+          "source_id": "e0006",
+          "start_line": 198,
+          "end_line": 198
+        },
+        "info": "",
+        "code": ""
+      },
+      {
+        "id": "doc-009efc5a9c870a09-41",
+        "citation": {
+          "source_id": "e0006",
+          "start_line": 216,
+          "end_line": 216
+        },
+        "info": "rust",
+        "code": ""
+      },
+      {
+        "id": "doc-009efc5a9c870a09-42",
+        "citation": {
+          "source_id": "e0006",
+          "start_line": 218,
+          "end_line": 218
+        },
+        "info": "",
+        "code": ""
+      },
+      {
+        "id": "doc-009efc5a9c870a09-43",
+        "citation": {
+          "source_id": "e0006",
+          "start_line": 225,
+          "end_line": 225
+        },
+        "info": "rust",
+        "code": ""
+      },
+      {
+        "id": "doc-009efc5a9c870a09-44",
+        "citation": {
+          "source_id": "e0006",
+          "start_line": 227,
+          "end_line": 227
+        },
+        "info": "",
+        "code": ""
+      },
+      {
+        "id": "doc-009efc5a9c870a09-45",
+        "citation": {
+          "source_id": "e0006",
+          "start_line": 235,
+          "end_line": 235
+        },
+        "info": "rust,no_run",
+        "code": ""
+      },
+      {
+        "id": "doc-009efc5a9c870a09-46",
+        "citation": {
+          "source_id": "e0006",
+          "start_line": 237,
+          "end_line": 244
+        },
+        "info": "",
+        "code": "\n## Next Steps\n\n- [Cookbook][crate::_cookbook] for application-focused examples\n- Explore more features in the [API reference][super]\n\nFor support, see [Discussions](https://github.com/clap-rs/clap/discussions)\n"
+      },
+      {
+        "id": "doc-1aed3b13f3eeb20d-47",
+        "citation": {
+          "source_id": "e0007",
+          "start_line": 25,
+          "end_line": 25
+        },
+        "info": "rust",
+        "code": ""
+      },
+      {
+        "id": "doc-1aed3b13f3eeb20d-48",
+        "citation": {
+          "source_id": "e0007",
+          "start_line": 27,
+          "end_line": 28
+        },
+        "info": "",
+        "code": "\n"
+      },
+      {
+        "id": "doc-1aed3b13f3eeb20d-49",
+        "citation": {
+          "source_id": "e0007",
+          "start_line": 39,
+          "end_line": 39
+        },
+        "info": "rust",
+        "code": ""
+      },
+      {
+        "id": "doc-1aed3b13f3eeb20d-50",
+        "citation": {
+          "source_id": "e0007",
+          "start_line": 41,
+          "end_line": 42
+        },
+        "info": "",
+        "code": "\n"
+      },
+      {
+        "id": "doc-1aed3b13f3eeb20d-51",
+        "citation": {
+          "source_id": "e0007",
+          "start_line": 47,
+          "end_line": 47
+        },
+        "info": "rust",
+        "code": ""
+      },
+      {
+        "id": "doc-1aed3b13f3eeb20d-52",
+        "citation": {
+          "source_id": "e0007",
+          "start_line": 49,
+          "end_line": 49
+        },
+        "info": "",
+        "code": ""
+      },
+      {
+        "id": "doc-1aed3b13f3eeb20d-53",
+        "citation": {
+          "source_id": "e0007",
+          "start_line": 54,
+          "end_line": 54
+        },
+        "info": "rust",
+        "code": ""
+      },
+      {
+        "id": "doc-1aed3b13f3eeb20d-54",
+        "citation": {
+          "source_id": "e0007",
+          "start_line": 56,
+          "end_line": 56
+        },
+        "info": "",
+        "code": ""
+      },
+      {
+        "id": "doc-1aed3b13f3eeb20d-55",
+        "citation": {
+          "source_id": "e0007",
+          "start_line": 74,
+          "end_line": 74
+        },
+        "info": "rust",
+        "code": ""
+      },
+      {
+        "id": "doc-1aed3b13f3eeb20d-56",
+        "citation": {
+          "source_id": "e0007",
+          "start_line": 76,
+          "end_line": 76
+        },
+        "info": "",
+        "code": ""
+      },
+      {
+        "id": "doc-1aed3b13f3eeb20d-57",
+        "citation": {
+          "source_id": "e0007",
+          "start_line": 81,
+          "end_line": 81
+        },
+        "info": "rust",
+        "code": ""
+      },
+      {
+        "id": "doc-1aed3b13f3eeb20d-58",
+        "citation": {
+          "source_id": "e0007",
+          "start_line": 83,
+          "end_line": 83
+        },
+        "info": "",
+        "code": ""
+      },
+      {
+        "id": "doc-1aed3b13f3eeb20d-59",
+        "citation": {
+          "source_id": "e0007",
+          "start_line": 96,
+          "end_line": 96
+        },
+        "info": "rust",
+        "code": ""
+      },
+      {
+        "id": "doc-1aed3b13f3eeb20d-60",
+        "citation": {
+          "source_id": "e0007",
+          "start_line": 98,
+          "end_line": 98
+        },
+        "info": "",
+        "code": ""
+      },
+      {
+        "id": "doc-1aed3b13f3eeb20d-61",
+        "citation": {
+          "source_id": "e0007",
+          "start_line": 103,
+          "end_line": 103
+        },
+        "info": "rust",
+        "code": ""
+      },
+      {
+        "id": "doc-1aed3b13f3eeb20d-62",
+        "citation": {
+          "source_id": "e0007",
+          "start_line": 105,
+          "end_line": 105
+        },
+        "info": "",
+        "code": ""
+      },
+      {
+        "id": "doc-1aed3b13f3eeb20d-63",
+        "citation": {
+          "source_id": "e0007",
+          "start_line": 112,
+          "end_line": 112
+        },
+        "info": "rust",
+        "code": ""
+      },
+      {
+        "id": "doc-1aed3b13f3eeb20d-64",
+        "citation": {
+          "source_id": "e0007",
+          "start_line": 114,
+          "end_line": 114
+        },
+        "info": "",
+        "code": ""
+      },
+      {
+        "id": "doc-1aed3b13f3eeb20d-65",
+        "citation": {
+          "source_id": "e0007",
+          "start_line": 121,
+          "end_line": 121
+        },
+        "info": "rust",
+        "code": ""
+      },
+      {
+        "id": "doc-1aed3b13f3eeb20d-66",
+        "citation": {
+          "source_id": "e0007",
+          "start_line": 123,
+          "end_line": 123
+        },
+        "info": "",
+        "code": ""
+      },
+      {
+        "id": "doc-1aed3b13f3eeb20d-67",
+        "citation": {
+          "source_id": "e0007",
+          "start_line": 132,
+          "end_line": 132
+        },
+        "info": "rust",
+        "code": ""
+      },
+      {
+        "id": "doc-1aed3b13f3eeb20d-68",
+        "citation": {
+          "source_id": "e0007",
+          "start_line": 134,
+          "end_line": 134
+        },
+        "info": "",
+        "code": ""
+      },
+      {
+        "id": "doc-1aed3b13f3eeb20d-69",
+        "citation": {
+          "source_id": "e0007",
+          "start_line": 143,
+          "end_line": 143
+        },
+        "info": "rust",
+        "code": ""
+      },
+      {
+        "id": "doc-1aed3b13f3eeb20d-70",
+        "citation": {
+          "source_id": "e0007",
+          "start_line": 145,
+          "end_line": 145
+        },
+        "info": "",
+        "code": ""
+      },
+      {
+        "id": "doc-1aed3b13f3eeb20d-71",
+        "citation": {
+          "source_id": "e0007",
+          "start_line": 155,
+          "end_line": 155
+        },
+        "info": "rust",
+        "code": ""
+      },
+      {
+        "id": "doc-1aed3b13f3eeb20d-72",
+        "citation": {
+          "source_id": "e0007",
+          "start_line": 157,
+          "end_line": 160
+        },
+        "info": "",
+        "code": "We used a struct-variant to define the `add` subcommand.\nAlternatively, you can use a struct for your subcommand's arguments:\n```rust\n"
+      },
+      {
+        "id": "doc-1aed3b13f3eeb20d-73",
+        "citation": {
+          "source_id": "e0007",
+          "start_line": 162,
+          "end_line": 163
+        },
+        "info": "",
+        "code": "\n"
+      },
+      {
+        "id": "doc-1aed3b13f3eeb20d-74",
+        "citation": {
+          "source_id": "e0007",
+          "start_line": 186,
+          "end_line": 186
+        },
+        "info": "rust",
+        "code": ""
+      },
+      {
+        "id": "doc-1aed3b13f3eeb20d-75",
+        "citation": {
+          "source_id": "e0007",
+          "start_line": 188,
+          "end_line": 188
+        },
+        "info": "",
+        "code": ""
+      },
+      {
+        "id": "doc-1aed3b13f3eeb20d-76",
+        "citation": {
+          "source_id": "e0007",
+          "start_line": 195,
+          "end_line": 195
+        },
+        "info": "rust",
+        "code": ""
+      },
+      {
+        "id": "doc-1aed3b13f3eeb20d-77",
+        "citation": {
+          "source_id": "e0007",
+          "start_line": 197,
+          "end_line": 197
+        },
+        "info": "",
+        "code": ""
+      },
+      {
+        "id": "doc-1aed3b13f3eeb20d-78",
+        "citation": {
+          "source_id": "e0007",
+          "start_line": 202,
+          "end_line": 202
+        },
+        "info": "rust",
+        "code": ""
+      },
+      {
+        "id": "doc-1aed3b13f3eeb20d-79",
+        "citation": {
+          "source_id": "e0007",
+          "start_line": 204,
+          "end_line": 204
+        },
+        "info": "",
+        "code": ""
+      },
+      {
+        "id": "doc-1aed3b13f3eeb20d-80",
+        "citation": {
+          "source_id": "e0007",
+          "start_line": 225,
+          "end_line": 225
+        },
+        "info": "rust",
+        "code": ""
+      },
+      {
+        "id": "doc-1aed3b13f3eeb20d-81",
+        "citation": {
+          "source_id": "e0007",
+          "start_line": 227,
+          "end_line": 227
+        },
+        "info": "",
+        "code": ""
+      },
+      {
+        "id": "doc-1aed3b13f3eeb20d-82",
+        "citation": {
+          "source_id": "e0007",
+          "start_line": 234,
+          "end_line": 234
+        },
+        "info": "rust",
+        "code": ""
+      },
+      {
+        "id": "doc-1aed3b13f3eeb20d-83",
+        "citation": {
+          "source_id": "e0007",
+          "start_line": 236,
+          "end_line": 236
+        },
+        "info": "",
+        "code": ""
+      },
+      {
+        "id": "doc-1aed3b13f3eeb20d-84",
+        "citation": {
+          "source_id": "e0007",
+          "start_line": 244,
+          "end_line": 244
+        },
+        "info": "rust,no_run",
+        "code": ""
+      },
+      {
+        "id": "doc-1aed3b13f3eeb20d-85",
+        "citation": {
+          "source_id": "e0007",
+          "start_line": 246,
+          "end_line": 255
+        },
+        "info": "",
+        "code": "\n## Next Steps\n\n- [Cookbook][crate::_cookbook] for application-focused examples\n- Explore more features in the [Derive reference][super]\n  - See also [`Command`], [`Arg`], [`ArgGroup`], and [`PossibleValue`] builder functions which\n    can be used as attributes\n\nFor support, see [Discussions](https://github.com/clap-rs/clap/discussions)\n"
+      },
+      {
+        "id": "doc-60f9e0fbf213e267-86",
+        "citation": {
+          "source_id": "e0008",
+          "start_line": 21,
+          "end_line": 21
+        },
+        "info": "rust",
+        "code": ""
+      },
+      {
+        "id": "doc-60f9e0fbf213e267-87",
+        "citation": {
+          "source_id": "e0008",
+          "start_line": 23,
+          "end_line": 85
+        },
+        "info": "",
+        "code": "\nLet's start by breaking down the anatomy of the derive attributes:\n```rust\nuse clap::{Parser, Args, Subcommand, ValueEnum};\n\n/// Doc comment\n#[derive(Parser)]\n#[command(CMD ATTRIBUTE)]\n#[group(GROUP ATTRIBUTE)]\nstruct Cli {\n    /// Doc comment\n    #[arg(ARG ATTRIBUTE)]\n    field: UserType,\n\n    #[arg(value_enum, ARG ATTRIBUTE...)]\n    field: EnumValues,\n\n    #[command(flatten)]\n    delegate: Struct,\n\n    #[command(subcommand)]\n    command: Command,\n}\n\n/// Doc comment\n#[derive(Args)]\n#[command(PARENT CMD ATTRIBUTE)]\n#[group(GROUP ATTRIBUTE)]\nstruct Struct {\n    /// Doc comment\n    #[command(ARG ATTRIBUTE)]\n    field: UserType,\n}\n\n/// Doc comment\n#[derive(Subcommand)]\n#[command(PARENT CMD ATTRIBUTE)]\nenum Command {\n    /// Doc comment\n    #[command(CMD ATTRIBUTE)]\n    Variant1(Struct),\n\n    /// Doc comment\n    #[command(CMD ATTRIBUTE)]\n    Variant2 {\n        /// Doc comment\n        #[arg(ARG ATTRIBUTE)]\n        field: UserType,\n    }\n}\n\n/// Doc comment\n#[derive(ValueEnum)]\n#[value(VALUE ENUM ATTRIBUTE)]\nenum EnumValues {\n    /// Doc comment\n    #[value(POSSIBLE VALUE ATTRIBUTE)]\n    Variant1,\n}\n\nlet cli = Cli::parse();\n"
+      },
+      {
+        "id": "doc-60f9e0fbf213e267-88",
+        "citation": {
+          "source_id": "e0008",
+          "start_line": 105,
+          "end_line": 110
+        },
+        "info": "rust,ignore",
+        "code": "#[arg(\n    global = true, // name = arg form, neat for one-arg methods\n    required_if_eq(\"out\", \"file\") // name(arg1, arg2, ...) form.\n)]\n"
+      },
+      {
+        "id": "doc-60f9e0fbf213e267-89",
+        "citation": {
+          "source_id": "e0008",
+          "start_line": 355,
+          "end_line": 364
+        },
+        "info": "rust",
+        "code": "# use clap::Parser;\n\n#[derive(Parser)]\n#[command(about = \"I am a program and I work, just pass `-h`\", long_about = None)]\nstruct Foo {\n    #[arg(short, help = \"Pass `-h` and you'll see me!\")]\n    bar: String,\n}\n"
+      },
+      {
+        "id": "doc-60f9e0fbf213e267-90",
+        "citation": {
+          "source_id": "e0008",
+          "start_line": 369,
+          "end_line": 378
+        },
+        "info": "rust",
+        "code": "# use clap::Parser;\n\n#[derive(Parser)]\n/// I am a program and I work, just pass `-h`\nstruct Foo {\n    /// Pass `-h` and you'll see me!\n    bar: String,\n}\n"
+      },
+      {
+        "id": "doc-60f9e0fbf213e267-91",
+        "citation": {
+          "source_id": "e0008",
+          "start_line": 394,
+          "end_line": 411
+        },
+        "info": "rust",
+        "code": "# use clap::Parser;\n#[derive(Parser)]\n/// Hi there, I'm Robo!\n///\n/// I like beeping, stumbling, eating your electricity,\n/// and making records of you singing in a shower.\n/// Pay up, or I'll upload it to youtube!\nstruct Robo {\n    /// Call my brother SkyNet.\n    ///\n    /// I am artificial superintelligence. I won't rest\n    /// until I'll have destroyed humanity. Enjoy your\n    /// pathetic existence, you mere mortals.\n    #[arg(long, action)]\n    kill_all_humans: bool,\n}\n"
+      },
+      {
+        "id": "doc-60f9e0fbf213e267-92",
+        "citation": {
+          "source_id": "e0008",
+          "start_line": 471,
+          "end_line": 471
+        },
+        "info": "rust",
+        "code": ""
+      },
+      {
+        "id": "doc-60f9e0fbf213e267-93",
+        "citation": {
+          "source_id": "e0008",
+          "start_line": 473,
+          "end_line": 485
+        },
+        "info": "",
+        "code": "\n### Using derived subcommands in a builder application\n\nWhen using the derive API, you can use `#[command(subcommand)]` inside the struct to add\nsubcommands. The type of the field is usually an enum that derived `Parser`. However, you can\nalso add the subcommands in that enum to a `Command` instance created with the builder API.\n\nIt uses the [`Subcommand::augment_subcommands`][crate::Subcommand::augment_subcommands] method\nto add the subcommands to the `Command` instance.\n\nFor example:\n```rust\n"
+      },
+      {
+        "id": "doc-60f9e0fbf213e267-94",
+        "citation": {
+          "source_id": "e0008",
+          "start_line": 487,
+          "end_line": 505
+        },
+        "info": "",
+        "code": "\n### Adding hand-implemented subcommands to a derived application\n\nWhen using the derive API, you can use `#[command(subcommand)]` inside the struct to add\nsubcommands. The type of the field is usually an enum that derived `Parser`. However, you can\nalso implement the `Subcommand` trait manually on this enum (or any other type) and it can\nstill be used inside the struct created with the derive API. The implementation of the\n`Subcommand` trait will use the builder API to add the subcommands to the `Command` instance\ncreated behind the scenes for you by the derive API.\n\nNotice how in the previous example we used\n[`augment_subcommands`][crate::Subcommand::augment_subcommands] on an enum that derived\n`Parser`, whereas now we implement\n[`augment_subcommands`][crate::Subcommand::augment_subcommands] ourselves, but the derive API\ncalls it automatically since we used the `#[command(subcommand)]` attribute.\n\nFor example:\n```rust\n"
+      },
+      {
+        "id": "doc-60f9e0fbf213e267-95",
+        "citation": {
+          "source_id": "e0008",
+          "start_line": 507,
+          "end_line": 524
+        },
+        "info": "",
+        "code": "\n### Flattening hand-implemented args into a derived application\n\nWhen using the derive API, you can use `#[command(flatten)]` inside the struct to add arguments as\nif they were added directly to the containing struct. The type of the field is usually an\nstruct that derived `Args`. However, you can also implement the `Args` trait manually on this\nstruct (or any other type) and it can still be used inside the struct created with the derive\nAPI. The implementation of the `Args` trait will use the builder API to add the arguments to\nthe `Command` instance created behind the scenes for you by the derive API.\n\nNotice how in the previous example we used [`augment_args`][crate::Args::augment_args] on the\nstruct that derived `Parser`, whereas now we implement\n[`augment_args`][crate::Args::augment_args] ourselves, but the derive API calls it\nautomatically since we used the `#[command(flatten)]` attribute.\n\nFor example:\n```rust\n"
+      },
+      {
+        "id": "doc-60f9e0fbf213e267-96",
+        "citation": {
+          "source_id": "e0008",
+          "start_line": 526,
+          "end_line": 537
+        },
+        "info": "",
+        "code": "\n## Tips\n\n- To get access to a [`Command`][crate::Command] call\n  [`CommandFactory::command`][crate::CommandFactory::command] (implemented when deriving\n  [`Parser`][crate::Parser])\n- Proactively check for bad [`Command`][crate::Command] configurations by calling\n  [`Command::debug_assert`][crate::Command::debug_assert] in a test\n  ([example][_tutorial#testing])\n- Always remember to [document](#doc-comments) args and commands with `#![deny(missing_docs)]`\n  or `#[deny(clippy::missing_docs_in_private_items)]`\n"
+      },
+      {
+        "id": "doc-25c721e57b5c8046-97",
+        "citation": {
+          "source_id": "e0010",
+          "start_line": 3,
+          "end_line": 3
+        },
+        "info": "rust",
+        "code": ""
+      },
+      {
+        "id": "doc-25c721e57b5c8046-98",
+        "citation": {
+          "source_id": "e0010",
+          "start_line": 5,
+          "end_line": 6
+        },
+        "info": "",
+        "code": "\n"
+      },
+      {
+        "id": "doc-984c599c9d1dae76-99",
+        "citation": {
+          "source_id": "e0016",
+          "start_line": 3,
+          "end_line": 3
+        },
+        "info": "rust",
+        "code": ""
+      },
+      {
+        "id": "doc-984c599c9d1dae76-100",
+        "citation": {
+          "source_id": "e0016",
+          "start_line": 5,
+          "end_line": 6
+        },
+        "info": "",
+        "code": "\n"
+      },
+      {
+        "id": "doc-2a0f140a86a74152-101",
+        "citation": {
+          "source_id": "e0022",
+          "start_line": 3,
+          "end_line": 3
+        },
+        "info": "rust",
+        "code": ""
+      },
+      {
+        "id": "doc-2a0f140a86a74152-102",
+        "citation": {
+          "source_id": "e0022",
+          "start_line": 5,
+          "end_line": 6
+        },
+        "info": "",
+        "code": "\n"
+      },
+      {
+        "id": "doc-555b16af49c41482-103",
+        "citation": {
+          "source_id": "e0026",
+          "start_line": 3,
+          "end_line": 3
+        },
+        "info": "rust",
+        "code": ""
+      },
+      {
+        "id": "doc-555b16af49c41482-104",
+        "citation": {
+          "source_id": "e0026",
+          "start_line": 5,
+          "end_line": 6
+        },
+        "info": "",
+        "code": "\n"
+      },
+      {
+        "id": "doc-8803a58760042a28-105",
+        "citation": {
+          "source_id": "e0030",
+          "start_line": 3,
+          "end_line": 3
+        },
+        "info": "rust",
+        "code": ""
+      },
+      {
+        "id": "doc-8803a58760042a28-106",
+        "citation": {
+          "source_id": "e0030",
+          "start_line": 5,
+          "end_line": 6
+        },
+        "info": "",
+        "code": "\n"
+      },
+      {
+        "id": "doc-b33efcf30bd60f28-107",
+        "citation": {
+          "source_id": "e0031",
+          "start_line": 136,
+          "end_line": 143
+        },
+        "info": "rust",
+        "code": "# #[cfg(feature = \"derive\")] {\nstruct Context {\n    name: String,\n    debug: bool\n}\n# }\n"
+      },
+      {
+        "id": "doc-b33efcf30bd60f28-108",
+        "citation": {
+          "source_id": "e0031",
+          "start_line": 148,
+          "end_line": 164
+        },
+        "info": "rust",
+        "code": "# #[cfg(feature = \"derive\")] {\n# use clap::ArgMatches;\n# struct Context {\n#   name: String,\n#   debug: bool\n# }\nimpl From<ArgMatches> for Context {\n   fn from(m: ArgMatches) -> Self {\n       Context {\n           name: m.get_one::<String>(\"name\").unwrap().clone(),\n           debug: m.get_flag(\"debug\"),\n       }\n   }\n}\n# }\n"
+      },
+      {
+        "id": "doc-b33efcf30bd60f28-109",
+        "citation": {
+          "source_id": "e0031",
+          "start_line": 172,
+          "end_line": 179
+        },
+        "info": "rust",
+        "code": "# #[cfg(feature = \"derive\")] {\nstruct Context {\n    name: String,\n    debug: bool\n}\n# }\n"
+      },
+      {
+        "id": "doc-b33efcf30bd60f28-110",
+        "citation": {
+          "source_id": "e0031",
+          "start_line": 184,
+          "end_line": 200
+        },
+        "info": "rust",
+        "code": "# #[cfg(feature = \"derive\")] {\n# use clap::ArgMatches;\n# struct Context {\n#   name: String,\n#   debug: bool\n# }\nimpl From<ArgMatches> for Context {\n   fn from(m: ArgMatches) -> Self {\n       Context {\n           name: m.get_one::<String>(\"name\").unwrap().to_string(),\n           debug: m.get_flag(\"debug\"),\n       }\n   }\n}\n# }\n"
+      },
+      {
+        "id": "doc-6744007019ea6219-111",
+        "citation": {
+          "source_id": "e0034",
+          "start_line": 3,
+          "end_line": 3
+        },
+        "info": "rust",
+        "code": ""
+      },
+      {
+        "id": "doc-6744007019ea6219-112",
+        "citation": {
+          "source_id": "e0034",
+          "start_line": 5,
+          "end_line": 6
+        },
+        "info": "",
+        "code": "\n"
+      },
+      {
+        "id": "doc-480453e72651f178-113",
+        "citation": {
+          "source_id": "e0038",
+          "start_line": 3,
+          "end_line": 3
+        },
+        "info": "rust",
+        "code": ""
+      },
+      {
+        "id": "doc-480453e72651f178-114",
+        "citation": {
+          "source_id": "e0038",
+          "start_line": 5,
+          "end_line": 6
+        },
+        "info": "",
+        "code": "\n"
+      },
+      {
+        "id": "doc-39660c1518c4d948-115",
+        "citation": {
+          "source_id": "e0039",
+          "start_line": 6,
+          "end_line": 13
+        },
+        "info": "no_run",
+        "code": "# use clap_builder as clap;\n# use clap::crate_version;\n# use clap::Command;\nlet m = Command::new(\"cmd\")\n            .version(crate_version!())\n            .get_matches();\n"
+      },
+      {
+        "id": "doc-39660c1518c4d948-116",
+        "citation": {
+          "source_id": "e0039",
+          "start_line": 33,
+          "end_line": 40
+        },
+        "info": "no_run",
+        "code": "# use clap_builder as clap;\n# use clap::crate_authors;\n# use clap::Command;\nlet m = Command::new(\"cmd\")\n            .author(crate_authors!(\"\\n\"))\n            .get_matches();\n"
+      },
+      {
+        "id": "doc-39660c1518c4d948-117",
+        "citation": {
+          "source_id": "e0039",
+          "start_line": 64,
+          "end_line": 71
+        },
+        "info": "no_run",
+        "code": "# use clap_builder as clap;\n# use clap::crate_description;\n# use clap::Command;\nlet m = Command::new(\"cmd\")\n            .about(crate_description!())\n            .get_matches();\n"
+      },
+      {
+        "id": "doc-39660c1518c4d948-118",
+        "citation": {
+          "source_id": "e0039",
+          "start_line": 94,
+          "end_line": 100
+        },
+        "info": "no_run",
+        "code": "# use clap_builder as clap;\n# use clap::crate_name;\n# use clap::Command;\nlet m = Command::new(crate_name!())\n            .get_matches();\n"
+      },
+      {
+        "id": "doc-39660c1518c4d948-119",
+        "citation": {
+          "source_id": "e0039",
+          "start_line": 124,
+          "end_line": 128
+        },
+        "info": "no_run",
+        "code": "# use clap_builder as clap;\n# use clap::command;\nlet m = command!().get_matches();\n"
+      },
+      {
+        "id": "doc-39660c1518c4d948-120",
+        "citation": {
+          "source_id": "e0039",
+          "start_line": 513,
+          "end_line": 527
+        },
+        "info": "rust",
+        "code": "# use clap_builder as clap;\n# use clap::{Command, Arg, arg};\nlet cmd = Command::new(\"prog\")\n    .args(&[\n        arg!(--config <FILE> \"a required file for the configuration and no short\"),\n        arg!(-d --debug ... \"turns on debugging information and allows multiples\"),\n        arg!([input] \"an optional input file to use\")\n    ]);\n\nlet m = cmd.try_get_matches_from([\"prog\", \"--config\", \"file.toml\"]).unwrap();\nassert_eq!(m.get_one::<String>(\"config\").unwrap(), \"file.toml\");\nassert_eq!(*m.get_one::<u8>(\"debug\").unwrap(), 0);\nassert_eq!(m.get_one::<String>(\"input\"), None);\n"
+      },
+      {
+        "id": "doc-758e097da1b6a0f7-121",
+        "citation": {
+          "source_id": "e0046",
+          "start_line": 3,
+          "end_line": 3
+        },
+        "info": "rust",
+        "code": ""
+      },
+      {
+        "id": "doc-758e097da1b6a0f7-122",
+        "citation": {
+          "source_id": "e0046",
+          "start_line": 5,
+          "end_line": 6
+        },
+        "info": "",
+        "code": "\n"
+      }
+    ],
+    "warnings": [
+      "Example coverage is limited to collected Markdown code blocks and literal Rust doc attributes/comments. Unlabelled blocks are treated as Rust only in Rust documentation. Macros, cfg_attr, external includes, and generated documentation are not expanded; standalone example programs are still ordinary evidence.",
+      "e0005:49: nonliteral doc attribute was not expanded.",
+      "e0005:54: nonliteral doc attribute was not expanded.",
+      "e0005:108: nonliteral doc attribute was not expanded.",
+      "e0006:25: nonliteral doc attribute was not expanded.",
+      "e0006:28: nonliteral doc attribute was not expanded.",
+      "e0006:39: nonliteral doc attribute was not expanded.",
+      "e0006:42: nonliteral doc attribute was not expanded.",
+      "e0006:48: nonliteral doc attribute was not expanded.",
+      "e0006:50: nonliteral doc attribute was not expanded.",
+      "e0006:56: nonliteral doc attribute was not expanded.",
+      "e0006:58: nonliteral doc attribute was not expanded.",
+      "e0006:75: nonliteral doc attribute was not expanded.",
+      "e0006:77: nonliteral doc attribute was not expanded.",
+      "e0006:82: nonliteral doc attribute was not expanded.",
+      "e0006:84: nonliteral doc attribute was not expanded.",
+      "e0006:93: nonliteral doc attribute was not expanded.",
+      "e0006:95: nonliteral doc attribute was not expanded.",
+      "e0006:100: nonliteral doc attribute was not expanded.",
+      "e0006:102: nonliteral doc attribute was not expanded.",
+      "e0006:109: nonliteral doc attribute was not expanded.",
+      "e0006:111: nonliteral doc attribute was not expanded.",
+      "e0006:116: nonliteral doc attribute was not expanded.",
+      "e0006:118: nonliteral doc attribute was not expanded.",
+      "e0006:125: nonliteral doc attribute was not expanded.",
+      "e0006:127: nonliteral doc attribute was not expanded.",
+      "e0006:136: nonliteral doc attribute was not expanded.",
+      "e0006:138: nonliteral doc attribute was not expanded.",
+      "e0006:147: nonliteral doc attribute was not expanded.",
+      "e0006:149: nonliteral doc attribute was not expanded.",
+      "e0006:172: nonliteral doc attribute was not expanded.",
+      "e0006:174: nonliteral doc attribute was not expanded.",
+      "e0006:181: nonliteral doc attribute was not expanded.",
+      "e0006:183: nonliteral doc attribute was not expanded.",
+      "e0006:190: nonliteral doc attribute was not expanded.",
+      "e0006:192: nonliteral doc attribute was not expanded.",
+      "e0006:197: nonliteral doc attribute was not expanded.",
+      "e0006:199: nonliteral doc attribute was not expanded.",
+      "e0006:217: nonliteral doc attribute was not expanded.",
+      "e0006:219: nonliteral doc attribute was not expanded.",
+      "e0006:226: nonliteral doc attribute was not expanded.",
+      "e0006:228: nonliteral doc attribute was not expanded.",
+      "e0006:236: nonliteral doc attribute was not expanded.",
+      "e0007:26: nonliteral doc attribute was not expanded.",
+      "e0007:29: nonliteral doc attribute was not expanded.",
+      "e0007:40: nonliteral doc attribute was not expanded.",
+      "e0007:43: nonliteral doc attribute was not expanded.",
+      "e0007:48: nonliteral doc attribute was not expanded.",
+      "e0007:50: nonliteral doc attribute was not expanded.",
+      "e0007:55: nonliteral doc attribute was not expanded.",
+      "e0007:57: nonliteral doc attribute was not expanded.",
+      "e0007:75: nonliteral doc attribute was not expanded.",
+      "e0007:77: nonliteral doc attribute was not expanded.",
+      "e0007:82: nonliteral doc attribute was not expanded.",
+      "e0007:84: nonliteral doc attribute was not expanded.",
+      "e0007:97: nonliteral doc attribute was not expanded.",
+      "e0007:99: nonliteral doc attribute was not expanded.",
+      "e0007:104: nonliteral doc attribute was not expanded.",
+      "e0007:106: nonliteral doc attribute was not expanded.",
+      "e0007:113: nonliteral doc attribute was not expanded.",
+      "e0007:115: nonliteral doc attribute was not expanded.",
+      "e0007:122: nonliteral doc attribute was not expanded.",
+      "e0007:124: nonliteral doc attribute was not expanded.",
+      "e0007:133: nonliteral doc attribute was not expanded.",
+      "e0007:135: nonliteral doc attribute was not expanded.",
+      "e0007:144: nonliteral doc attribute was not expanded.",
+      "e0007:146: nonliteral doc attribute was not expanded.",
+      "e0007:156: nonliteral doc attribute was not expanded.",
+      "e0007:161: nonliteral doc attribute was not expanded.",
+      "e0007:164: nonliteral doc attribute was not expanded.",
+      "e0007:187: nonliteral doc attribute was not expanded.",
+      "e0007:189: nonliteral doc attribute was not expanded.",
+      "e0007:196: nonliteral doc attribute was not expanded.",
+      "e0007:198: nonliteral doc attribute was not expanded.",
+      "e0007:203: nonliteral doc attribute was not expanded.",
+      "e0007:205: nonliteral doc attribute was not expanded.",
+      "e0007:226: nonliteral doc attribute was not expanded.",
+      "e0007:228: nonliteral doc attribute was not expanded.",
+      "e0007:235: nonliteral doc attribute was not expanded.",
+      "e0007:237: nonliteral doc attribute was not expanded.",
+      "e0007:245: nonliteral doc attribute was not expanded.",
+      "e0008:22: nonliteral doc attribute was not expanded.",
+      "e0008:472: nonliteral doc attribute was not expanded.",
+      "e0008:486: nonliteral doc attribute was not expanded.",
+      "e0008:506: nonliteral doc attribute was not expanded.",
+      "e0008:525: nonliteral doc attribute was not expanded.",
+      "e0010:4: nonliteral doc attribute was not expanded.",
+      "e0010:7: nonliteral doc attribute was not expanded.",
+      "e0016:4: nonliteral doc attribute was not expanded.",
+      "e0016:7: nonliteral doc attribute was not expanded.",
+      "e0022:4: nonliteral doc attribute was not expanded.",
+      "e0022:7: nonliteral doc attribute was not expanded.",
+      "e0026:4: nonliteral doc attribute was not expanded.",
+      "e0026:7: nonliteral doc attribute was not expanded.",
+      "e0030:4: nonliteral doc attribute was not expanded.",
+      "e0030:7: nonliteral doc attribute was not expanded.",
+      "e0034:4: nonliteral doc attribute was not expanded.",
+      "e0034:7: nonliteral doc attribute was not expanded.",
+      "e0035:6: nonliteral doc attribute was not expanded.",
+      "e0035:51: nonliteral doc attribute was not expanded.",
+      "e0038:4: nonliteral doc attribute was not expanded.",
+      "e0038:7: nonliteral doc attribute was not expanded.",
+      "e0046:4: nonliteral doc attribute was not expanded.",
+      "e0046:7: nonliteral doc attribute was not expanded."
+    ]
+  },
+  "analysis": {
+    "summary": "Analyzed only the supplied clap 4.6.7 evidence. Eight complete src/main.rs recipes cover derive, builder, help, deferred subcommands, metadata macros, interoperation, escapes, and optional values. All 122 inventory entries are accounted for. Empty include fragments and historical syntax are distinguished from usable examples. Recipes have not been compiled or tested; evidence coverage is sampled.",
+    "findings": [
+      {
+        "id": "release_requirements",
+        "title": "Follow the release manifest and enforced std requirement",
+        "guidance": "Use Rust 1.85 or newer for clap 4.6.7. Keep std enabled, including when disabling default features: the implementation rejects builds without it. The overview's MSRV 1.74 and feature reference's description of std as unused are stale relative to the manifest and compile-time guard.",
+        "basis": "documented",
+        "features": [],
+        "citations": [
+          {
+            "source_id": "e0001",
+            "start_line": 12,
+            "end_line": 16
+          },
+          {
+            "source_id": "e0004",
+            "start_line": 69,
+            "end_line": 73
+          },
+          {
+            "source_id": "e0005",
+            "start_line": 29,
+            "end_line": 30
+          },
+          {
+            "source_id": "e0035",
+            "start_line": 14,
+            "end_line": 15
+          },
+          {
+            "source_id": "e0023",
+            "start_line": 5,
+            "end_line": 7
+          }
+        ]
+      },
+      {
+        "id": "api_and_features",
+        "title": "Choose the API and enable only the needed optional features",
+        "guidance": "Prefer derive for a fixed CLI whose values should become Rust fields. Choose builder when inspecting argument order or value sources, or when constructing the interface at runtime. Enable derive explicitly; cargo, env, string, and wrap_help are separate opt-ins for their respective capabilities.",
+        "basis": "documented",
+        "features": [
+          "derive"
+        ],
+        "citations": [
+          {
+            "source_id": "e0017",
+            "start_line": 74,
+            "end_line": 88
+          },
+          {
+            "source_id": "e0001",
+            "start_line": 115,
+            "end_line": 127
+          },
+          {
+            "source_id": "e0023",
+            "start_line": 15,
+            "end_line": 23
+          }
+        ]
+      },
+      {
+        "id": "argument_shapes",
+        "title": "Match argument actions, field types, and getters",
+        "guidance": "In builder code, use SetTrue for switches, Count for repeated flags, Set for a single value, and Append for repeated values. Read these with get_flag, get_count, get_one, and get_many respectively. Derive infers bool as a switch, Option<T> as optional, T as required unless defaulted, and Vec<T> as repeated.",
+        "basis": "documented",
+        "features": [],
+        "citations": [
+          {
+            "source_id": "e0004",
+            "start_line": 1280,
+            "end_line": 1294
+          },
+          {
+            "source_id": "e0004",
+            "start_line": 1300,
+            "end_line": 1308
+          },
+          {
+            "source_id": "e0008",
+            "start_line": 320,
+            "end_line": 335
+          }
+        ]
+      },
+      {
+        "id": "presence_and_repetition",
+        "title": "Separate effective values from explicit occurrences",
+        "guidance": "Do not use contains_id to decide whether a boolean switch was supplied: the supplied tests show that its default false value also creates an entry. Use get_flag for the effective boolean and value_source when provenance matters. Repeated Set or SetTrue arguments conflict by default; choose Append, Count, or args_override_self(true) deliberately.",
+        "basis": "inferred",
+        "features": [],
+        "citations": [
+          {
+            "source_id": "e0032",
+            "start_line": 26,
+            "end_line": 39
+          },
+          {
+            "source_id": "e0032",
+            "start_line": 81,
+            "end_line": 103
+          },
+          {
+            "source_id": "e0033",
+            "start_line": 68,
+            "end_line": 74
+          }
+        ]
+      },
+      {
+        "id": "macro_requiredness",
+        "title": "Set named-option requiredness explicitly",
+        "guidance": "arg!(--config <FILE>) requires a value when the option appears, but does not require the option itself. Add .required(true) when config must be supplied. The macro example's help text calls the file required without setting this requirement; do not copy that implication.",
+        "basis": "documented",
+        "features": [],
+        "citations": [
+          {
+            "source_id": "e0004",
+            "start_line": 1311,
+            "end_line": 1311
+          },
+          {
+            "source_id": "e0024",
+            "start_line": 11,
+            "end_line": 18
+          },
+          {
+            "source_id": "e0039",
+            "start_line": 516,
+            "end_line": 526
+          }
+        ]
+      },
+      {
+        "id": "parser_checks",
+        "title": "Check both configuration and parsing behavior",
+        "guidance": "Add a test calling Command::debug_assert, using CommandFactory::command for a derived parser. Use explicit argument iterators and fallible parsing to check valid inputs and rejected inputs without exiting the test process. Configuration checks complement behavioral assertions.",
+        "basis": "documented",
+        "features": [],
+        "citations": [
+          {
+            "source_id": "e0006",
+            "start_line": 230,
+            "end_line": 234
+          },
+          {
+            "source_id": "e0004",
+            "start_line": 1254,
+            "end_line": 1266
+          },
+          {
+            "source_id": "e0004",
+            "start_line": 1268,
+            "end_line": 1278
+          },
+          {
+            "source_id": "e0031",
+            "start_line": 70,
+            "end_line": 78
+          }
+        ]
+      },
+      {
+        "id": "help_documentation",
+        "title": "Control short and long help deliberately",
+        "guidance": "Use doc comments for help summaries and a blank line followed by details for long help. -h selects short text and --help selects long text. Explicit attributes override inferred documentation; clear an unwanted long description with #[command(long_about = None)].",
+        "basis": "documented",
+        "features": [
+          "derive"
+        ],
+        "citations": [
+          {
+            "source_id": "e0008",
+            "start_line": 348,
+            "end_line": 353
+          },
+          {
+            "source_id": "e0008",
+            "start_line": 382,
+            "end_line": 388
+          },
+          {
+            "source_id": "e0008",
+            "start_line": 413,
+            "end_line": 438
+          }
+        ]
+      },
+      {
+        "id": "help_example_difference",
+        "title": "Do not infer flags from help comments",
+        "guidance": "The two Foo help examples are not equivalent CLI declarations: the first has #[arg(short)] and the second does not. Doc comments supply help text, not flag spelling. Add short or long explicitly when adapting a documented field into an option.",
+        "basis": "inferred",
+        "features": [
+          "derive"
+        ],
+        "citations": [
+          {
+            "source_id": "e0008",
+            "start_line": 355,
+            "end_line": 378
+          },
+          {
+            "source_id": "e0008",
+            "start_line": 256,
+            "end_line": 261
+          }
+        ]
+      },
+      {
+        "id": "deferred_construction",
+        "title": "Opt into deferred subcommand construction",
+        "guidance": "In 4.6.7, opt into lazy subcommand argument construction with #[command(defer = true)] on a Parser or Subcommand enum. It defaults to false without unstable-v5. Put parent-help metadata on enum variants, configure nested enums separately, and call Command::build before inspecting deferred arguments. Parsing builds selected commands automatically.",
+        "basis": "documented",
+        "features": [
+          "derive"
+        ],
+        "citations": [
+          {
+            "source_id": "e0004",
+            "start_line": 27,
+            "end_line": 31
+          },
+          {
+            "source_id": "e0008",
+            "start_line": 164,
+            "end_line": 177
+          }
+        ]
+      },
+      {
+        "id": "interop",
+        "title": "Reuse derived types inside builder applications",
+        "guidance": "Combine builder and derive with Args::augment_args or Subcommand::augment_subcommands, then convert the resulting matches through FromArgMatches. This lets reusable derived argument sets participate in a builder-owned interface.",
+        "basis": "documented",
+        "features": [
+          "derive"
+        ],
+        "citations": [
+          {
+            "source_id": "e0008",
+            "start_line": 451,
+            "end_line": 464
+          },
+          {
+            "source_id": "e0008",
+            "start_line": 475,
+            "end_line": 482
+          },
+          {
+            "source_id": "e0031",
+            "start_line": 127,
+            "end_line": 165
+          },
+          {
+            "source_id": "e0031",
+            "start_line": 262,
+            "end_line": 269
+          }
+        ]
+      },
+      {
+        "id": "cargo_metadata",
+        "title": "Read application package metadata with the cargo feature",
+        "guidance": "Enable cargo for command! and crate_* metadata macros. They read the consuming package's Cargo metadata at compile time. crate_name! uses CARGO_PKG_NAME; use the appropriate Cargo environment variable directly if the binary or crate name differs.",
+        "basis": "documented",
+        "features": [
+          "cargo"
+        ],
+        "citations": [
+          {
+            "source_id": "e0006",
+            "start_line": 44,
+            "end_line": 45
+          },
+          {
+            "source_id": "e0023",
+            "start_line": 18,
+            "end_line": 19
+          },
+          {
+            "source_id": "e0039",
+            "start_line": 80,
+            "end_line": 105
+          },
+          {
+            "source_id": "e0039",
+            "start_line": 129,
+            "end_line": 147
+          }
+        ]
+      },
+      {
+        "id": "argument_boundaries",
+        "title": "Preserve argument boundaries and explicit escapes",
+        "guidance": "Pass already separated arguments to clap; parsing a shell command string requires a separate tokenizer. Use last(true) for a positional accessible only after --. Use allow_hyphen_values or allow_negative_numbers only when the argument's grammar calls for them.",
+        "basis": "documented",
+        "features": [],
+        "citations": [
+          {
+            "source_id": "e0011",
+            "start_line": 15,
+            "end_line": 34
+          },
+          {
+            "source_id": "e0011",
+            "start_line": 59,
+            "end_line": 73
+          }
+        ]
+      },
+      {
+        "id": "optional_option_value",
+        "title": "Model absent, bare, and explicit option values",
+        "guidance": "For a color-style option, combine num_args(0..=1), require_equals, a default value, and default_missing_value to distinguish omission, a bare --color, and --color=never. ValueEnum constrains the accepted values and permits default_value_t without a Display implementation.",
+        "basis": "inferred",
+        "features": [
+          "derive"
+        ],
+        "citations": [
+          {
+            "source_id": "e0037",
+            "start_line": 33,
+            "end_line": 42
+          },
+          {
+            "source_id": "e0041",
+            "start_line": 25,
+            "end_line": 31
+          },
+          {
+            "source_id": "e0031",
+            "start_line": 281,
+            "end_line": 286
+          }
+        ]
+      }
+    ],
+    "recipes": [
+      {
+        "id": "derive_basics",
+        "title": "Build a typed CLI with defaults and configuration checks",
+        "description": "Parse a required name and a typed default count from explicit inputs, with a configuration test. In an application entry point, Cli::parse() reads process arguments and handles CLI exits.",
+        "code": "use clap::{CommandFactory, Parser};\n\n/// Greet a person.\n#[derive(Debug, Parser)]\n#[command(name = \"greet\", version, long_about = None)]\nstruct Cli {\n    /// Name of the person to greet.\n    #[arg(short, long)]\n    name: String,\n\n    /// Number of greetings.\n    #[arg(short, long, default_value_t = 1)]\n    count: u8,\n}\n\nfn main() -> Result<(), clap::Error> {\n    Cli::command().debug_assert();\n    let cli = Cli::try_parse_from([\"greet\", \"--name\", \"Ada\"])?;\n    assert_eq!(cli.count, 1);\n    assert_eq!(cli.name, \"Ada\");\n    assert!(Cli::try_parse_from([\"greet\"]).is_err());\n    assert!(Cli::try_parse_from([\"greet\", \"--name\", \"Ada\", \"--count\", \"oops\"]).is_err());\n    for _ in 0..cli.count {\n        println!(\"Hello {}!\", cli.name);\n    }\n    Ok(())\n}\n\n#[test]\nfn verify_cli() {\n    Cli::command().debug_assert();\n}\n",
+        "default_features": true,
+        "features": [
+          "derive"
+        ],
+        "dependencies": {},
+        "citations": [
+          {
+            "source_id": "e0021",
+            "start_line": 1,
+            "end_line": 22
+          },
+          {
+            "source_id": "e0004",
+            "start_line": 1255,
+            "end_line": 1266
+          },
+          {
+            "source_id": "e0008",
+            "start_line": 526,
+            "end_line": 537
+          },
+          {
+            "source_id": "e0031",
+            "start_line": 70,
+            "end_line": 78
+          },
+          {
+            "source_id": "e0001",
+            "start_line": 115,
+            "end_line": 127
+          }
+        ]
+      },
+      {
+        "id": "builder_context",
+        "title": "Convert builder matches into application data",
+        "description": "Declare matching builder arguments before converting ArgMatches into an application struct. The documentation's derive cfg guards are unnecessary here because no clap derive macro is used.",
+        "code": "use clap::{Arg, ArgAction, ArgMatches, Command};\n\n#[derive(Debug)]\nstruct Context {\n    name: String,\n    debug: bool,\n}\n\nimpl From<ArgMatches> for Context {\n    fn from(matches: ArgMatches) -> Self {\n        Self {\n            name: matches.get_one::<String>(\"name\").expect(\"required name\").clone(),\n            debug: matches.get_flag(\"debug\"),\n        }\n    }\n}\n\nfn cli() -> Command {\n    Command::new(\"app\")\n        .arg(Arg::new(\"name\").long(\"name\").required(true))\n        .arg(Arg::new(\"debug\").long(\"debug\").action(ArgAction::SetTrue))\n        .arg(Arg::new(\"option\").long(\"option\"))\n}\n\nfn main() -> Result<(), clap::Error> {\n    cli().debug_assert();\n    let matches = cli().try_get_matches_from([\n        \"app\", \"--name\", \"Ada\", \"--debug\", \"--option\", \"value\",\n    ])?;\n    assert_eq!(matches.get_one::<String>(\"option\").map(String::as_str), Some(\"value\"));\n    let context = Context::from(matches);\n    assert_eq!(context.name, \"Ada\");\n    assert!(context.debug);\n\n    let defaults = cli().try_get_matches_from([\"app\", \"--name\", \"Ada\"])?;\n    assert!(!defaults.get_flag(\"debug\"));\n    assert_eq!(defaults.get_one::<String>(\"option\"), None);\n    assert!(cli().try_get_matches_from([\"app\"]).is_err());\n    println!(\"{context:?}\");\n    Ok(())\n}\n\n#[test]\nfn verify_cli() {\n    cli().debug_assert();\n}\n",
+        "default_features": true,
+        "features": [],
+        "dependencies": {},
+        "citations": [
+          {
+            "source_id": "e0004",
+            "start_line": 1269,
+            "end_line": 1278
+          },
+          {
+            "source_id": "e0004",
+            "start_line": 1288,
+            "end_line": 1294
+          },
+          {
+            "source_id": "e0031",
+            "start_line": 136,
+            "end_line": 143
+          },
+          {
+            "source_id": "e0031",
+            "start_line": 148,
+            "end_line": 164
+          },
+          {
+            "source_id": "e0031",
+            "start_line": 172,
+            "end_line": 179
+          },
+          {
+            "source_id": "e0031",
+            "start_line": 184,
+            "end_line": 200
+          },
+          {
+            "source_id": "e0006",
+            "start_line": 120,
+            "end_line": 123
+          },
+          {
+            "source_id": "e0032",
+            "start_line": 81,
+            "end_line": 103
+          }
+        ]
+      },
+      {
+        "id": "help_text",
+        "title": "Generate help from comments and explicit overrides",
+        "description": "Render short and long help, override inferred text with attributes, and explicitly retain option spelling when using doc comments.",
+        "code": "use clap::{CommandFactory, Parser};\n\n/// Inspect a report.\n///\n/// Detailed command documentation that is replaced by explicit metadata.\n#[derive(Parser)]\n#[command(name = \"report\", about = \"Inspect a report\", long_about = None)]\nstruct Cli {\n    /// Report name.\n    #[arg(short, long, help = \"Select a report\")]\n    name: String,\n\n    /// Show details.\n    ///\n    /// Include individual records in the report output.\n    #[arg(long)]\n    verbose: bool,\n}\n\nfn main() -> Result<(), clap::Error> {\n    Cli::command().debug_assert();\n    let cli = Cli::try_parse_from([\"report\", \"-n\", \"daily\", \"--verbose\"])?;\n    assert_eq!(cli.name, \"daily\");\n    assert!(cli.verbose);\n\n    let mut command = Cli::command();\n    let short = command.render_help().to_string();\n    let long = command.render_long_help().to_string();\n    assert!(short.contains(\"Select a report\"));\n    assert!(!short.contains(\"Include individual records\"));\n    assert!(long.contains(\"Include individual records\"));\n    assert!(!long.contains(\"Detailed command documentation\"));\n    println!(\"{long}\");\n    Ok(())\n}\n",
+        "default_features": true,
+        "features": [
+          "derive"
+        ],
+        "dependencies": {},
+        "citations": [
+          {
+            "source_id": "e0008",
+            "start_line": 355,
+            "end_line": 364
+          },
+          {
+            "source_id": "e0008",
+            "start_line": 369,
+            "end_line": 378
+          },
+          {
+            "source_id": "e0008",
+            "start_line": 394,
+            "end_line": 411
+          },
+          {
+            "source_id": "e0008",
+            "start_line": 413,
+            "end_line": 422
+          },
+          {
+            "source_id": "e0008",
+            "start_line": 382,
+            "end_line": 388
+          },
+          {
+            "source_id": "e0004",
+            "start_line": 1411,
+            "end_line": 1411
+          }
+        ]
+      },
+      {
+        "id": "deferred_subcommands",
+        "title": "Compose typed subcommands with deferred construction",
+        "description": "Compose reusable Args, a required subcommand, and an enum-valued option. Opt into the new 4.6.7 defer attribute and build before inspecting deferred arguments.",
+        "code": "use clap::{Args, CommandFactory, Parser, Subcommand, ValueEnum};\n\n#[derive(Debug, Parser)]\n#[command(name = \"jobs\")]\nstruct Cli {\n    #[command(flatten)]\n    logging: Logging,\n    #[command(subcommand)]\n    command: Commands,\n}\n\n#[derive(Debug, Args)]\nstruct Logging {\n    /// Increase verbosity.\n    #[arg(short = 'v', action = clap::ArgAction::Count)]\n    verbose: u8,\n}\n\n#[derive(Debug, Subcommand)]\n#[command(defer = true)]\nenum Commands {\n    /// Run a named job.\n    Run(RunArgs),\n}\n\n#[derive(Debug, Args)]\nstruct RunArgs {\n    name: String,\n    #[arg(long, value_enum, default_value_t = Mode::Fast)]\n    mode: Mode,\n}\n\n#[derive(Clone, Copy, Debug, PartialEq, Eq, ValueEnum)]\nenum Mode {\n    Fast,\n    Careful,\n}\n\nfn main() -> Result<(), clap::Error> {\n    let mut command = Cli::command();\n    command.build();\n    let run = command.find_subcommand(\"run\").expect(\"registered subcommand\");\n    assert!(run.get_arguments().any(|arg| arg.get_id() == \"mode\"));\n    command.debug_assert();\n\n    let cli = Cli::try_parse_from([\"jobs\", \"-vv\", \"run\", \"daily\", \"--mode\", \"careful\"])?;\n    assert_eq!(cli.logging.verbose, 2);\n    let Commands::Run(run) = cli.command;\n    assert_eq!(run.name, \"daily\");\n    assert_eq!(run.mode, Mode::Careful);\n    assert!(Cli::try_parse_from([\"jobs\", \"run\", \"daily\", \"--mode\", \"unknown\"]).is_err());\n    println!(\"{run:?}\");\n    Ok(())\n}\n",
+        "default_features": true,
+        "features": [
+          "derive"
+        ],
+        "dependencies": {},
+        "citations": [
+          {
+            "source_id": "e0008",
+            "start_line": 23,
+            "end_line": 85
+          },
+          {
+            "source_id": "e0007",
+            "start_line": 157,
+            "end_line": 160
+          },
+          {
+            "source_id": "e0008",
+            "start_line": 164,
+            "end_line": 177
+          },
+          {
+            "source_id": "e0008",
+            "start_line": 197,
+            "end_line": 204
+          },
+          {
+            "source_id": "e0008",
+            "start_line": 266,
+            "end_line": 272
+          },
+          {
+            "source_id": "e0008",
+            "start_line": 320,
+            "end_line": 335
+          },
+          {
+            "source_id": "e0007",
+            "start_line": 117,
+            "end_line": 119
+          },
+          {
+            "source_id": "e0031",
+            "start_line": 70,
+            "end_line": 78
+          }
+        ]
+      },
+      {
+        "id": "cargo_metadata_and_args",
+        "title": "Use Cargo metadata and concise argument macros",
+        "description": "Combine Cargo metadata macros with arg! declarations. The no_run metadata snippets are adapted to explicit inputs, and config requiredness is set explicitly.",
+        "code": "use clap::{arg, command, crate_authors, crate_description, crate_name, crate_version, Command};\n\nfn cli() -> Command {\n    command!().args([\n        arg!(--config <FILE> \"Configuration file\").required(true),\n        arg!(-d --debug ... \"Increase debug verbosity\"),\n        arg!([input] \"Optional input file\"),\n    ])\n}\n\nfn main() -> Result<(), clap::Error> {\n    // The explicit form shows the metadata macros used by command!.\n    Command::new(crate_name!())\n        .version(crate_version!())\n        .author(crate_authors!(\"\\n\"))\n        .about(crate_description!())\n        .try_get_matches_from([\"app\"])?;\n\n    cli().debug_assert();\n    let matches = cli().try_get_matches_from([\"app\", \"--config\", \"file.toml\"])?;\n    assert_eq!(matches.get_one::<String>(\"config\").map(String::as_str), Some(\"file.toml\"));\n    assert_eq!(matches.get_count(\"debug\"), 0);\n    assert_eq!(matches.get_one::<String>(\"input\"), None);\n\n    let repeated = cli().try_get_matches_from([\n        \"app\", \"--config\", \"file.toml\", \"-dd\", \"input.txt\",\n    ])?;\n    assert_eq!(repeated.get_count(\"debug\"), 2);\n    assert_eq!(repeated.get_one::<String>(\"input\").map(String::as_str), Some(\"input.txt\"));\n    assert!(cli().try_get_matches_from([\"app\"]).is_err());\n    Ok(())\n}\n",
+        "default_features": true,
+        "features": [
+          "cargo"
+        ],
+        "dependencies": {},
+        "citations": [
+          {
+            "source_id": "e0039",
+            "start_line": 6,
+            "end_line": 13
+          },
+          {
+            "source_id": "e0039",
+            "start_line": 33,
+            "end_line": 40
+          },
+          {
+            "source_id": "e0039",
+            "start_line": 64,
+            "end_line": 71
+          },
+          {
+            "source_id": "e0039",
+            "start_line": 94,
+            "end_line": 100
+          },
+          {
+            "source_id": "e0039",
+            "start_line": 124,
+            "end_line": 128
+          },
+          {
+            "source_id": "e0039",
+            "start_line": 513,
+            "end_line": 527
+          },
+          {
+            "source_id": "e0039",
+            "start_line": 129,
+            "end_line": 147
+          },
+          {
+            "source_id": "e0004",
+            "start_line": 1311,
+            "end_line": 1311
+          },
+          {
+            "source_id": "e0024",
+            "start_line": 11,
+            "end_line": 18
+          },
+          {
+            "source_id": "e0004",
+            "start_line": 1300,
+            "end_line": 1304
+          },
+          {
+            "source_id": "e0006",
+            "start_line": 44,
+            "end_line": 45
+          }
+        ]
+      },
+      {
+        "id": "builder_derive_interop",
+        "title": "Mix builder configuration with derived argument types",
+        "description": "Attach derived arguments and subcommands to a builder command and recover their typed values through FromArgMatches.",
+        "code": "use clap::{Args, Command, FromArgMatches, Subcommand};\n\n#[derive(Debug, Args)]\nstruct Common {\n    #[arg(long)]\n    debug: bool,\n}\n\n#[derive(Debug, Subcommand)]\nenum Actions {\n    /// Greet someone.\n    Greet { name: String },\n}\n\nfn cli() -> Command {\n    let command = Command::new(\"app\").subcommand_required(true);\n    let command = Common::augment_args(command);\n    Actions::augment_subcommands(command)\n}\n\nfn main() -> Result<(), clap::Error> {\n    cli().debug_assert();\n    let matches = cli().try_get_matches_from([\"app\", \"--debug\", \"greet\", \"Ada\"])?;\n    let common = Common::from_arg_matches(&matches)?;\n    let action = Actions::from_arg_matches(&matches)?;\n    assert!(common.debug);\n    let Actions::Greet { name } = action;\n    assert_eq!(name, \"Ada\");\n    println!(\"Hello {name}!\");\n    Ok(())\n}\n",
+        "default_features": true,
+        "features": [
+          "derive"
+        ],
+        "dependencies": {},
+        "citations": [
+          {
+            "source_id": "e0008",
+            "start_line": 473,
+            "end_line": 485
+          },
+          {
+            "source_id": "e0008",
+            "start_line": 457,
+            "end_line": 464
+          },
+          {
+            "source_id": "e0031",
+            "start_line": 127,
+            "end_line": 165
+          },
+          {
+            "source_id": "e0031",
+            "start_line": 227,
+            "end_line": 245
+          },
+          {
+            "source_id": "e0031",
+            "start_line": 262,
+            "end_line": 278
+          },
+          {
+            "source_id": "e0036",
+            "start_line": 50,
+            "end_line": 59
+          }
+        ]
+      },
+      {
+        "id": "escaped_positionals",
+        "title": "Capture positional values after --",
+        "description": "Capture an escaped positional tail while preserving a hyphen-prefixed value and an already-tokenized value containing spaces.",
+        "code": "use clap::{CommandFactory, Parser};\n\n#[derive(Debug, Parser)]\n#[command(name = \"wrapper\")]\nstruct Cli {\n    #[arg(short = 'f')]\n    flag: bool,\n    #[arg(short = 'p', value_name = \"PEAR\")]\n    pear: Option<String>,\n    /// Values accepted only after --.\n    #[arg(last = true)]\n    rest: Vec<String>,\n}\n\nfn main() -> Result<(), clap::Error> {\n    Cli::command().debug_assert();\n    let cli = Cli::try_parse_from([\n        \"wrapper\", \"-f\", \"-p=bob\", \"--\", \"--child-flag\", \"two words\",\n    ])?;\n    assert!(cli.flag);\n    assert_eq!(cli.pear.as_deref(), Some(\"bob\"));\n    assert_eq!(cli.rest, vec![\"--child-flag\".to_owned(), \"two words\".to_owned()]);\n    assert!(Cli::try_parse_from([\"wrapper\", \"unescaped\"]).is_err());\n    println!(\"{:?}\", cli.rest);\n    Ok(())\n}\n",
+        "default_features": true,
+        "features": [
+          "derive"
+        ],
+        "dependencies": {},
+        "citations": [
+          {
+            "source_id": "e0025",
+            "start_line": 1,
+            "end_line": 25
+          },
+          {
+            "source_id": "e0011",
+            "start_line": 59,
+            "end_line": 73
+          },
+          {
+            "source_id": "e0031",
+            "start_line": 70,
+            "end_line": 78
+          }
+        ]
+      },
+      {
+        "id": "optional_value",
+        "title": "Accept an option with an optional enum value",
+        "description": "Distinguish an omitted option, a bare switch-like option, and an explicit enum value. Explicit values must use the equals form.",
+        "code": "use clap::{CommandFactory, Parser, ValueEnum};\n\n#[derive(Clone, Copy, Debug, PartialEq, Eq, ValueEnum)]\nenum ColorWhen {\n    Always,\n    Auto,\n    Never,\n}\n\n#[derive(Debug, Parser)]\n#[command(name = \"viewer\")]\nstruct Cli {\n    #[arg(\n        long,\n        value_enum,\n        num_args = 0..=1,\n        require_equals = true,\n        default_value_t = ColorWhen::Auto,\n        default_missing_value = \"always\"\n    )]\n    color: ColorWhen,\n}\n\nfn main() -> Result<(), clap::Error> {\n    Cli::command().debug_assert();\n    assert_eq!(Cli::try_parse_from([\"viewer\"])?.color, ColorWhen::Auto);\n    assert_eq!(Cli::try_parse_from([\"viewer\", \"--color\"])?.color, ColorWhen::Always);\n    assert_eq!(Cli::try_parse_from([\"viewer\", \"--color=never\"])?.color, ColorWhen::Never);\n    assert!(Cli::try_parse_from([\"viewer\", \"--color=unknown\"]).is_err());\n    assert!(Cli::try_parse_from([\"viewer\", \"--color\", \"never\"]).is_err());\n    Ok(())\n}\n",
+        "default_features": true,
+        "features": [
+          "derive"
+        ],
+        "dependencies": {},
+        "citations": [
+          {
+            "source_id": "e0037",
+            "start_line": 33,
+            "end_line": 42
+          },
+          {
+            "source_id": "e0037",
+            "start_line": 62,
+            "end_line": 67
+          },
+          {
+            "source_id": "e0041",
+            "start_line": 25,
+            "end_line": 31
+          },
+          {
+            "source_id": "e0031",
+            "start_line": 281,
+            "end_line": 286
+          },
+          {
+            "source_id": "e0031",
+            "start_line": 70,
+            "end_line": 78
+          }
+        ]
+      }
+    ],
+    "example_coverage": [
+      {
+        "example_id": "doc-1a62a38631e53597-1",
+        "disposition": "adapted",
+        "recipe_ids": [
+          "derive_basics"
+        ],
+        "reason": "Replaced the placeholder CLI with a complete derived parser and retained the configuration test."
+      },
+      {
+        "example_id": "doc-1a62a38631e53597-2",
+        "disposition": "adapted",
+        "recipe_ids": [
+          "builder_context"
+        ],
+        "reason": "Supplied a complete command factory and retained the configuration test."
+      },
+      {
+        "example_id": "doc-1a62a38631e53597-3",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "Historical pre-v4 syntax uses the removed takes_value method; the following replacement is adapted instead."
+      },
+      {
+        "example_id": "doc-1a62a38631e53597-4",
+        "disposition": "adapted",
+        "recipe_ids": [
+          "builder_context"
+        ],
+        "reason": "Expanded the current flag and option declarations into a complete builder parser."
+      },
+      {
+        "example_id": "doc-0cc6763a3698d320-5",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "Only a documentation cfg wrapper was extracted; the separately supplied demo source is cited directly."
+      },
+      {
+        "example_id": "doc-0cc6763a3698d320-6",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "Prose introducing an unexpanded include, with no executable example."
+      },
+      {
+        "example_id": "doc-009efc5a9c870a09-7",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "Empty extracted Rust block; the include was not expanded."
+      },
+      {
+        "example_id": "doc-009efc5a9c870a09-8",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "Whitespace-only extraction."
+      },
+      {
+        "example_id": "doc-009efc5a9c870a09-9",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "Empty extracted Rust block; the include was not expanded."
+      },
+      {
+        "example_id": "doc-009efc5a9c870a09-10",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "Whitespace-only extraction."
+      },
+      {
+        "example_id": "doc-009efc5a9c870a09-11",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "Empty extracted Rust block; the include was not expanded."
+      },
+      {
+        "example_id": "doc-009efc5a9c870a09-12",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "Empty extracted block."
+      },
+      {
+        "example_id": "doc-009efc5a9c870a09-13",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "Empty extracted Rust block; the include was not expanded."
+      },
+      {
+        "example_id": "doc-009efc5a9c870a09-14",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "Empty extracted block."
+      },
+      {
+        "example_id": "doc-009efc5a9c870a09-15",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "Empty extracted Rust block; the include was not expanded."
+      },
+      {
+        "example_id": "doc-009efc5a9c870a09-16",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "Empty extracted block."
+      },
+      {
+        "example_id": "doc-009efc5a9c870a09-17",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "Empty extracted Rust block; the include was not expanded."
+      },
+      {
+        "example_id": "doc-009efc5a9c870a09-18",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "Empty extracted block."
+      },
+      {
+        "example_id": "doc-009efc5a9c870a09-19",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "Empty extracted Rust block; the include was not expanded."
+      },
+      {
+        "example_id": "doc-009efc5a9c870a09-20",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "Empty extracted block."
+      },
+      {
+        "example_id": "doc-009efc5a9c870a09-21",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "Empty extracted Rust block; the include was not expanded."
+      },
+      {
+        "example_id": "doc-009efc5a9c870a09-22",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "Empty extracted block."
+      },
+      {
+        "example_id": "doc-009efc5a9c870a09-23",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "Empty extracted Rust block; the include was not expanded."
+      },
+      {
+        "example_id": "doc-009efc5a9c870a09-24",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "Empty extracted block."
+      },
+      {
+        "example_id": "doc-009efc5a9c870a09-25",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "Empty extracted Rust block; the include was not expanded."
+      },
+      {
+        "example_id": "doc-009efc5a9c870a09-26",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "Empty extracted block."
+      },
+      {
+        "example_id": "doc-009efc5a9c870a09-27",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "Empty extracted Rust block; the include was not expanded."
+      },
+      {
+        "example_id": "doc-009efc5a9c870a09-28",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "Empty extracted block."
+      },
+      {
+        "example_id": "doc-009efc5a9c870a09-29",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "Empty extracted Rust block; the include was not expanded."
+      },
+      {
+        "example_id": "doc-009efc5a9c870a09-30",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "Empty extracted block."
+      },
+      {
+        "example_id": "doc-009efc5a9c870a09-31",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "Empty extracted Rust block; the include was not expanded."
+      },
+      {
+        "example_id": "doc-009efc5a9c870a09-32",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "Empty extracted block."
+      },
+      {
+        "example_id": "doc-009efc5a9c870a09-33",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "Empty extracted Rust block; the include was not expanded."
+      },
+      {
+        "example_id": "doc-009efc5a9c870a09-34",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "Empty extracted block."
+      },
+      {
+        "example_id": "doc-009efc5a9c870a09-35",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "Empty extracted Rust block; the include was not expanded."
+      },
+      {
+        "example_id": "doc-009efc5a9c870a09-36",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "Empty extracted block."
+      },
+      {
+        "example_id": "doc-009efc5a9c870a09-37",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "Empty extracted Rust block; the include was not expanded."
+      },
+      {
+        "example_id": "doc-009efc5a9c870a09-38",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "Empty extracted block."
+      },
+      {
+        "example_id": "doc-009efc5a9c870a09-39",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "Empty extracted Rust block; the include was not expanded."
+      },
+      {
+        "example_id": "doc-009efc5a9c870a09-40",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "Empty extracted block."
+      },
+      {
+        "example_id": "doc-009efc5a9c870a09-41",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "Empty extracted Rust block; the include was not expanded."
+      },
+      {
+        "example_id": "doc-009efc5a9c870a09-42",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "Empty extracted block."
+      },
+      {
+        "example_id": "doc-009efc5a9c870a09-43",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "Empty extracted Rust block; the include was not expanded."
+      },
+      {
+        "example_id": "doc-009efc5a9c870a09-44",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "Empty extracted block."
+      },
+      {
+        "example_id": "doc-009efc5a9c870a09-45",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "Empty no_run block; its included program is unavailable in this extraction."
+      },
+      {
+        "example_id": "doc-009efc5a9c870a09-46",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "Navigation and support prose, not a Rust program."
+      },
+      {
+        "example_id": "doc-1aed3b13f3eeb20d-47",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "Empty extracted Rust block; the include was not expanded."
+      },
+      {
+        "example_id": "doc-1aed3b13f3eeb20d-48",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "Whitespace-only extraction."
+      },
+      {
+        "example_id": "doc-1aed3b13f3eeb20d-49",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "Empty extracted Rust block; the include was not expanded."
+      },
+      {
+        "example_id": "doc-1aed3b13f3eeb20d-50",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "Whitespace-only extraction."
+      },
+      {
+        "example_id": "doc-1aed3b13f3eeb20d-51",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "Empty extracted Rust block; the include was not expanded."
+      },
+      {
+        "example_id": "doc-1aed3b13f3eeb20d-52",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "Empty extracted block."
+      },
+      {
+        "example_id": "doc-1aed3b13f3eeb20d-53",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "Empty extracted Rust block; the include was not expanded."
+      },
+      {
+        "example_id": "doc-1aed3b13f3eeb20d-54",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "Empty extracted block."
+      },
+      {
+        "example_id": "doc-1aed3b13f3eeb20d-55",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "Empty extracted Rust block; the include was not expanded."
+      },
+      {
+        "example_id": "doc-1aed3b13f3eeb20d-56",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "Empty extracted block."
+      },
+      {
+        "example_id": "doc-1aed3b13f3eeb20d-57",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "Empty extracted Rust block; the include was not expanded."
+      },
+      {
+        "example_id": "doc-1aed3b13f3eeb20d-58",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "Empty extracted block."
+      },
+      {
+        "example_id": "doc-1aed3b13f3eeb20d-59",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "Empty extracted Rust block; the include was not expanded."
+      },
+      {
+        "example_id": "doc-1aed3b13f3eeb20d-60",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "Empty extracted block."
+      },
+      {
+        "example_id": "doc-1aed3b13f3eeb20d-61",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "Empty extracted Rust block; the include was not expanded."
+      },
+      {
+        "example_id": "doc-1aed3b13f3eeb20d-62",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "Empty extracted block."
+      },
+      {
+        "example_id": "doc-1aed3b13f3eeb20d-63",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "Empty extracted Rust block; the include was not expanded."
+      },
+      {
+        "example_id": "doc-1aed3b13f3eeb20d-64",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "Empty extracted block."
+      },
+      {
+        "example_id": "doc-1aed3b13f3eeb20d-65",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "Empty extracted Rust block; the include was not expanded."
+      },
+      {
+        "example_id": "doc-1aed3b13f3eeb20d-66",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "Empty extracted block."
+      },
+      {
+        "example_id": "doc-1aed3b13f3eeb20d-67",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "Empty extracted Rust block; the include was not expanded."
+      },
+      {
+        "example_id": "doc-1aed3b13f3eeb20d-68",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "Empty extracted block."
+      },
+      {
+        "example_id": "doc-1aed3b13f3eeb20d-69",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "Empty extracted Rust block; the include was not expanded."
+      },
+      {
+        "example_id": "doc-1aed3b13f3eeb20d-70",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "Empty extracted block."
+      },
+      {
+        "example_id": "doc-1aed3b13f3eeb20d-71",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "Empty extracted Rust block; the include was not expanded."
+      },
+      {
+        "example_id": "doc-1aed3b13f3eeb20d-72",
+        "disposition": "supporting",
+        "recipe_ids": [
+          "deferred_subcommands"
+        ],
+        "reason": "The prose supports moving subcommand arguments into a separate struct; no included code is assumed."
+      },
+      {
+        "example_id": "doc-1aed3b13f3eeb20d-73",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "Whitespace-only extraction."
+      },
+      {
+        "example_id": "doc-1aed3b13f3eeb20d-74",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "Empty extracted Rust block; the include was not expanded."
+      },
+      {
+        "example_id": "doc-1aed3b13f3eeb20d-75",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "Empty extracted block."
+      },
+      {
+        "example_id": "doc-1aed3b13f3eeb20d-76",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "Empty extracted Rust block; the include was not expanded."
+      },
+      {
+        "example_id": "doc-1aed3b13f3eeb20d-77",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "Empty extracted block."
+      },
+      {
+        "example_id": "doc-1aed3b13f3eeb20d-78",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "Empty extracted Rust block; the include was not expanded."
+      },
+      {
+        "example_id": "doc-1aed3b13f3eeb20d-79",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "Empty extracted block."
+      },
+      {
+        "example_id": "doc-1aed3b13f3eeb20d-80",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "Empty extracted Rust block; the include was not expanded."
+      },
+      {
+        "example_id": "doc-1aed3b13f3eeb20d-81",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "Empty extracted block."
+      },
+      {
+        "example_id": "doc-1aed3b13f3eeb20d-82",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "Empty extracted Rust block; the include was not expanded."
+      },
+      {
+        "example_id": "doc-1aed3b13f3eeb20d-83",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "Empty extracted block."
+      },
+      {
+        "example_id": "doc-1aed3b13f3eeb20d-84",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "Empty no_run block; its included program is unavailable in this extraction."
+      },
+      {
+        "example_id": "doc-1aed3b13f3eeb20d-85",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "Navigation and support prose, not a Rust program."
+      },
+      {
+        "example_id": "doc-60f9e0fbf213e267-86",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "Empty extracted Rust block; the separately supplied demo source is cited directly."
+      },
+      {
+        "example_id": "doc-60f9e0fbf213e267-87",
+        "disposition": "adapted",
+        "recipe_ids": [
+          "deferred_subcommands"
+        ],
+        "reason": "Replaced schematic attributes, duplicate fields, and placeholder types with concrete Parser, Args, Subcommand, and ValueEnum definitions."
+      },
+      {
+        "example_id": "doc-60f9e0fbf213e267-88",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "Ignored attribute-only syntax illustration lacks its containing field and referenced argument; it is not treated as a runnable example."
+      },
+      {
+        "example_id": "doc-60f9e0fbf213e267-89",
+        "disposition": "adapted",
+        "recipe_ids": [
+          "help_text"
+        ],
+        "reason": "Used explicit about, long_about, short, and help attributes in a complete help-rendering example."
+      },
+      {
+        "example_id": "doc-60f9e0fbf213e267-90",
+        "disposition": "supporting",
+        "recipe_ids": [
+          "help_text"
+        ],
+        "reason": "Supports deriving help from doc comments; the recipe explicitly supplies the short flag missing from this snippet."
+      },
+      {
+        "example_id": "doc-60f9e0fbf213e267-91",
+        "disposition": "adapted",
+        "recipe_ids": [
+          "help_text"
+        ],
+        "reason": "Retained two-paragraph command and flag documentation with neutral example text and a complete main function."
+      },
+      {
+        "example_id": "doc-60f9e0fbf213e267-92",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "Empty extracted Rust block; the included interoperation program was not expanded."
+      },
+      {
+        "example_id": "doc-60f9e0fbf213e267-93",
+        "disposition": "supporting",
+        "recipe_ids": [
+          "builder_derive_interop"
+        ],
+        "reason": "Documents augment_subcommands, used to attach a derived enum to a builder command."
+      },
+      {
+        "example_id": "doc-60f9e0fbf213e267-94",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "Describes manual Subcommand implementation, but the included implementation is absent; the recipe uses derived interoperation instead."
+      },
+      {
+        "example_id": "doc-60f9e0fbf213e267-95",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "Describes manual Args implementation, but the included implementation is absent; the recipe uses derived interoperation instead."
+      },
+      {
+        "example_id": "doc-60f9e0fbf213e267-96",
+        "disposition": "supporting",
+        "recipe_ids": [
+          "derive_basics"
+        ],
+        "reason": "Supports obtaining Command through CommandFactory and checking its configuration in a test."
+      },
+      {
+        "example_id": "doc-25c721e57b5c8046-97",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "Empty extracted Rust block; the include was not expanded."
+      },
+      {
+        "example_id": "doc-25c721e57b5c8046-98",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "Whitespace-only extraction."
+      },
+      {
+        "example_id": "doc-984c599c9d1dae76-99",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "Empty extracted Rust block; the include was not expanded."
+      },
+      {
+        "example_id": "doc-984c599c9d1dae76-100",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "Whitespace-only extraction."
+      },
+      {
+        "example_id": "doc-2a0f140a86a74152-101",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "Empty extracted Rust block; the include was not expanded."
+      },
+      {
+        "example_id": "doc-2a0f140a86a74152-102",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "Whitespace-only extraction."
+      },
+      {
+        "example_id": "doc-555b16af49c41482-103",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "Empty extracted Rust block; the separately supplied escaped-positional program is cited directly."
+      },
+      {
+        "example_id": "doc-555b16af49c41482-104",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "Whitespace-only extraction."
+      },
+      {
+        "example_id": "doc-8803a58760042a28-105",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "Empty extracted Rust block; the include was not expanded."
+      },
+      {
+        "example_id": "doc-8803a58760042a28-106",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "Whitespace-only extraction."
+      },
+      {
+        "example_id": "doc-b33efcf30bd60f28-107",
+        "disposition": "adapted",
+        "recipe_ids": [
+          "builder_context"
+        ],
+        "reason": "Used the Context data structure in a complete builder example; ordinary struct declarations do not need the documentation's derive cfg wrapper."
+      },
+      {
+        "example_id": "doc-b33efcf30bd60f28-108",
+        "disposition": "adapted",
+        "recipe_ids": [
+          "builder_context"
+        ],
+        "reason": "Retained manual ArgMatches conversion and supplied the matching required name and boolean flag declarations."
+      },
+      {
+        "example_id": "doc-b33efcf30bd60f28-109",
+        "disposition": "supporting",
+        "recipe_ids": [
+          "builder_context"
+        ],
+        "reason": "Duplicates the Context shape used by the manual conversion recipe."
+      },
+      {
+        "example_id": "doc-b33efcf30bd60f28-110",
+        "disposition": "supporting",
+        "recipe_ids": [
+          "builder_context"
+        ],
+        "reason": "Equivalent conversion example supports typed getters; the recipe uses clone for its String value."
+      },
+      {
+        "example_id": "doc-6744007019ea6219-111",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "Empty extracted Rust block; the include was not expanded."
+      },
+      {
+        "example_id": "doc-6744007019ea6219-112",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "Whitespace-only extraction."
+      },
+      {
+        "example_id": "doc-480453e72651f178-113",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "Empty extracted Rust block; the separately supplied git-like program is cited directly."
+      },
+      {
+        "example_id": "doc-480453e72651f178-114",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "Whitespace-only extraction."
+      },
+      {
+        "example_id": "doc-39660c1518c4d948-115",
+        "disposition": "adapted",
+        "recipe_ids": [
+          "cargo_metadata_and_args"
+        ],
+        "reason": "Retained crate_version metadata construction; replaced ambient argv parsing from the no_run snippet with explicit inputs."
+      },
+      {
+        "example_id": "doc-39660c1518c4d948-116",
+        "disposition": "adapted",
+        "recipe_ids": [
+          "cargo_metadata_and_args"
+        ],
+        "reason": "Retained crate_authors with a newline separator; the complete adaptation does not depend on ambient argv."
+      },
+      {
+        "example_id": "doc-39660c1518c4d948-117",
+        "disposition": "adapted",
+        "recipe_ids": [
+          "cargo_metadata_and_args"
+        ],
+        "reason": "Retained crate_description metadata construction and supplied a complete deterministic adaptation of the no_run snippet."
+      },
+      {
+        "example_id": "doc-39660c1518c4d948-118",
+        "disposition": "adapted",
+        "recipe_ids": [
+          "cargo_metadata_and_args"
+        ],
+        "reason": "Retained crate_name for the command name and supplied explicit parsing inputs instead of ambient argv."
+      },
+      {
+        "example_id": "doc-39660c1518c4d948-119",
+        "disposition": "adapted",
+        "recipe_ids": [
+          "cargo_metadata_and_args"
+        ],
+        "reason": "Expanded command! into a full parser with explicit inputs; the original no_run annotation is not treated as execution evidence."
+      },
+      {
+        "example_id": "doc-39660c1518c4d948-120",
+        "disposition": "adapted",
+        "recipe_ids": [
+          "cargo_metadata_and_args"
+        ],
+        "reason": "Retained the config, counting flag, and optional positional pattern; added required(true) to make the stated config requirement real."
+      },
+      {
+        "example_id": "doc-758e097da1b6a0f7-121",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "Empty extracted Rust block; the include was not expanded."
+      },
+      {
+        "example_id": "doc-758e097da1b6a0f7-122",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "Whitespace-only extraction."
+      }
+    ]
+  },
+  "review": null,
+  "verification": [
+    {
+      "recipe_id": "derive_basics",
+      "input_sha256": "0eb8e6a0a0a0d5da2c09117a7cc685235974d954ddbc0c08ad3d192bfed104a6",
+      "status": "compiled",
+      "rustc_version": "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
+      "log_path": "verification/derive_basics/check.log",
+      "lockfile_sha256": "664aa5ab65f48165e37c078b8f689c62e3fd5a7d5307ff8df03d9990d65e26cd",
+      "message": "cargo check --locked --all-targets passed; runtime behavior was not tested"
+    },
+    {
+      "recipe_id": "builder_context",
+      "input_sha256": "8de9136087b42d06645f03229a5e946a206a0ebdf9543779c06ca284c22c2a68",
+      "status": "compiled",
+      "rustc_version": "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
+      "log_path": "verification/builder_context/check.log",
+      "lockfile_sha256": "493a1f516e81d44f972dec6c9e3c5f4aeee6c4c21b2a71e279bfe63726646738",
+      "message": "cargo check --locked --all-targets passed; runtime behavior was not tested"
+    },
+    {
+      "recipe_id": "help_text",
+      "input_sha256": "15510d66dc3ff750aa5f57f76c2e5eb88be41703adc546b55bdcbbb8b3eaf93e",
+      "status": "compiled",
+      "rustc_version": "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
+      "log_path": "verification/help_text/check.log",
+      "lockfile_sha256": "eff1e65ada9049582f8e2e690a208a00bedb46002cb324e04dc19b8d4dcab942",
+      "message": "cargo check --locked --all-targets passed; runtime behavior was not tested"
+    },
+    {
+      "recipe_id": "deferred_subcommands",
+      "input_sha256": "ed6ad51ae9167e3adb7bf2a9d50ec61411e553985699027ebfc7c4f9129b7af4",
+      "status": "compiled",
+      "rustc_version": "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
+      "log_path": "verification/deferred_subcommands/check.log",
+      "lockfile_sha256": "1577c65b49bf09e09d823e6cbc30db6af0bd5b0f3a10333822abec27d157fa3c",
+      "message": "cargo check --locked --all-targets passed; runtime behavior was not tested"
+    },
+    {
+      "recipe_id": "cargo_metadata_and_args",
+      "input_sha256": "bdc4a1306ee097953cadfeb83147cede7248a4ad4a700a5cd0cc294f874f0de7",
+      "status": "compiled",
+      "rustc_version": "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
+      "log_path": "verification/cargo_metadata_and_args/check.log",
+      "lockfile_sha256": "c1580a2a3998fc9b4b2042491e51c19a9ece342fc84a45321d42d67da21fcc49",
+      "message": "cargo check --locked --all-targets passed; runtime behavior was not tested"
+    },
+    {
+      "recipe_id": "builder_derive_interop",
+      "input_sha256": "1f01081ece70222f49e3c53f2ee92c28da90644ffeb3af5e69a5ae8a4db41bee",
+      "status": "compiled",
+      "rustc_version": "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
+      "log_path": "verification/builder_derive_interop/check.log",
+      "lockfile_sha256": "5838671a038500b2791ffe5e9bbe0ae62c756f40ecc695b6df70d2f504920603",
+      "message": "cargo check --locked --all-targets passed; runtime behavior was not tested"
+    },
+    {
+      "recipe_id": "escaped_positionals",
+      "input_sha256": "76fa2303c189080bfa5af9cd639c2ef75648d277fd0524ebd72be2b9ea84fa44",
+      "status": "compiled",
+      "rustc_version": "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
+      "log_path": "verification/escaped_positionals/check.log",
+      "lockfile_sha256": "1f7da98e7de5fe7f9c95de75b2524a197dcee2c1bc14fbf6a0d909be73dc5923",
+      "message": "cargo check --locked --all-targets passed; runtime behavior was not tested"
+    },
+    {
+      "recipe_id": "optional_value",
+      "input_sha256": "8a79d3197e154557f279a2a3a96cbd891cce1ad38d9fd47f0b48ef20d6f673b9",
+      "status": "compiled",
+      "rustc_version": "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
+      "log_path": "verification/optional_value/check.log",
+      "lockfile_sha256": "3e53c0aaab0a8cf7b28673e32a098adefa685d12d9d07428a634ebf98a236c6f",
+      "message": "cargo check --locked --all-targets passed; runtime behavior was not tested"
+    }
+  ],
+  "warnings": [
+    "Collection is bounded to 48 UTF-8 evidence files, 48 KiB per file, and 320 KiB total; examples and API documentation are sampled, not exhaustive. Rendered documentation and external documentation sites are not crawled.",
+    "Pinned repository archive: 13 link or special-file entries were rejected without following or extracting them.",
+    "Evidence is a bounded prefix of https://github.com/clap-rs/clap/blob/13f2db5072d600c11d8d6298e4e9ba53ffc6c1ab/CHANGELOG.md (49152 bytes retained).",
+    "300 distinct eligible source files were omitted by the evidence budget; 48 files selected."
+  ]
+}

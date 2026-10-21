@@ -1,0 +1,5 @@
+    Updating crates.io index
+     Locking 15 packages to highest Rust 1.99.1 compatible versions
+    Checking clap v4.6.7
+    Checking recipe-builder_context v0.0.0 (<bundle>/verification/builder_context)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.05s

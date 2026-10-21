@@ -1,0 +1,1602 @@
+[package]
+name = "bevy"
+version = "0.20.0"
+edition = "2024"
+categories = ["game-engines", "graphics", "gui", "rendering"]
+description = "A refreshingly simple data-driven game engine and app framework"
+exclude = ["assets/", "tools/", ".github/", "crates/", "examples/wasm/assets/"]
+homepage = "https://bevy.org"
+keywords = ["game", "engine", "gamedev", "graphics", "bevy"]
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/bevyengine/bevy"
+documentation = "https://docs.rs/bevy"
+rust-version = "1.97.1"
+
+[workspace]
+resolver = "3"
+members = [
+  # All of Bevy's official crates are within the `crates` folder!
+  "crates/*",
+  # Several crates with macros have "compile fail" tests nested inside them, also known as UI
+  # tests, that verify diagnostic output does not accidentally change.
+  # TODO: Use a glob pattern once they are fixed in `dependabot-core`
+  # TODO: See https://github.com/bevyengine/bevy/issues/17876 for context.
+  "crates/bevy_derive/compile_fail",
+  "crates/bevy_ecs/compile_fail",
+  "crates/bevy_reflect/compile_fail",
+  # Examples of compiling Bevy for mobile platforms.
+  "examples/mobile",
+  # Examples of using Bevy on no_std platforms.
+  "examples/no_std/*",
+  # Examples of compiling Bevy with automatic reflect type registration for platforms without `inventory` support.
+  "examples/reflection/auto_register_static",
+  # Examples of large bevy scenes.
+  "examples/large_scenes/bistro",
+  "examples/large_scenes/caldera_hotel",
+  "examples/large_scenes/bevy_city",
+  # Mipmap generator for testing large bevy scenes with mips and texture compression.
+  "examples/large_scenes/mipmap_generator",
+  # Benchmarks
+  "benches",
+  # Internal tools that are not published.
+  "tools/*",
+  # Bevy's error codes. This is a crate so we can automatically check all of the code blocks.
+  "errors",
+]
+exclude = [
+  # Integration tests are not part of the workspace
+  "tests-integration",
+]
+
+[workspace.lints.clippy]
+doc_markdown = "warn"
+manual_let_else = "warn"
+match_same_arms = "warn"
+redundant_closure_for_method_calls = "warn"
+redundant_else = "warn"
+semicolon_if_nothing_returned = "warn"
+type_complexity = "allow"
+undocumented_unsafe_blocks = "warn"
+unwrap_or_default = "warn"
+needless_lifetimes = "allow"
+too_many_arguments = "allow"
+nonstandard_macro_braces = "warn"
+print_stdout = "warn"
+print_stderr = "warn"
+
+ptr_as_ptr = "warn"
+ptr_cast_constness = "warn"
+ref_as_ptr = "warn"
+
+# see: https://github.com/bevyengine/bevy/pull/15375#issuecomment-2366966219
+too_long_first_doc_paragraph = "allow"
+
+# currently falsely fires on std::io, even tho core::io is unstable
+# https://github.com/rust-lang/rust-clippy/issues/13158#issuecomment-4373196346
+std_instead_of_core = "allow"
+std_instead_of_alloc = "warn"
+alloc_instead_of_core = "warn"
+
+allow_attributes = "warn"
+allow_attributes_without_reason = "warn"
+
+[workspace.lints.rust]
+missing_docs = "warn"
+unexpected_cfgs = { level = "warn", check-cfg = ['cfg(docsrs_dep)'] }
+unsafe_code = "deny"
+unsafe_op_in_unsafe_fn = "warn"
+unused_qualifications = "warn"
+
+# Unfortunately, cargo does not currently support overriding workspace lints
+# inside a particular crate. See https://github.com/rust-lang/cargo/issues/13157
+#
+# We require an override for cases like `std_instead_of_core`, which are intended
+# for the library contributors and not for how users should consume Bevy.
+# To ensure examples aren't subject to these lints, below is a duplication of the
+# workspace lints, with the "overrides" applied.
+#
+# [lints]
+# workspace = true
+
+[lints.clippy]
+doc_markdown = "warn"
+manual_let_else = "warn"
+match_same_arms = "warn"
+redundant_closure_for_method_calls = "warn"
+redundant_else = "warn"
+semicolon_if_nothing_returned = "warn"
+type_complexity = "allow"
+undocumented_unsafe_blocks = "warn"
+unwrap_or_default = "warn"
+needless_lifetimes = "allow"
+too_many_arguments = "allow"
+nonstandard_macro_braces = "warn"
+
+ptr_as_ptr = "warn"
+ptr_cast_constness = "warn"
+ref_as_ptr = "warn"
+
+too_long_first_doc_paragraph = "allow"
+
+std_instead_of_core = "allow"
+std_instead_of_alloc = "allow"
+alloc_instead_of_core = "allow"
+
+allow_attributes = "warn"
+allow_attributes_without_reason = "warn"
+
+[lints.rust]
+missing_docs = "warn"
+unexpected_cfgs = { level = "warn", check-cfg = ['cfg(docsrs_dep)'] }
+unsafe_code = "deny"
+unsafe_op_in_unsafe_fn = "warn"
+unused_qualifications = "warn"
+
+[features]
+default = ["2d", "3d", "ui", "audio"]
+
+# PROFILE: The default 2D Bevy experience. This includes the core Bevy framework, 2D functionality, scenes and picking.
+2d = ["default_app", "default_platform", "2d_bevy_render", "scene", "picking"]
+
+# PROFILE: The default 3D Bevy experience. This includes the core Bevy framework, 3D functionality, scenes and picking.
+3d = ["default_app", "default_platform", "3d_bevy_render", "scene", "picking"]
+
+# PROFILE: The default Bevy UI experience. This includes the core Bevy framework, Bevy UI, scenes, and picking.
+ui = [
+  "default_app",
+  "default_platform",
+  "ui_api",
+  "ui_bevy_render",
+  "scene",
+  "picking",
+  "bevy_ui_widgets",
+]
+
+# COLLECTION: Enable this feature during development to improve the development experience. This adds features like asset hot-reloading and debugging tools. This should not be enabled for published apps!
+dev = [
+  "debug",            # TODO: rename this to something more specific ... this is a "debug ECS names" feature
+  "bevy_dev_tools",
+  "render_dev_tools",
+  "file_watcher",
+]
+
+# COLLECTION: Features used to build audio Bevy apps.
+audio = ["bevy_audio", "vorbis"]
+
+# COLLECTION: Enables audio features and all supported formats.
+audio-all-formats = ["bevy_audio", "aac", "flac", "mp3", "mp4", "vorbis", "wav"]
+
+# COLLECTION: Features used to compose Bevy scenes.
+scene = ["bevy_world_serialization", "bevy_scene"]
+
+# COLLECTION: Enables picking with all backends.
+picking = ["bevy_picking", "mesh_picking", "sprite_picking", "ui_picking"]
+
+# COLLECTION: The core pieces that most apps need. This serves as a baseline feature set for other higher level feature collections (such as "2d" and "3d"). It is also useful as a baseline feature set for scenarios like headless apps that require no rendering (ex: command line tools, servers, etc).
+default_app = [
+  "async_executor",
+  "bevy_asset",
+  "bevy_log",
+  "bevy_state",
+  "reflect_auto_register",
+]
+
+# COLLECTION: These are platform support features, such as OS support/features, windowing and input backends, etc.
+default_platform = [
+  "std",
+  "bevy_gilrs",
+  "bevy_winit",
+  # Note: OS-integrated clipboard support is gated behind the `system_clipboard` feature,
+  # which is not enabled by default for security reasons.
+  "bevy_clipboard",
+  "default_font",
+  "multi_threaded",
+  "webgl2",
+  "x11",
+  "wayland",
+  "custom_cursor",
+  "sysinfo_plugin",
+]
+
+# COLLECTION: Default scene definition features. Note that this does not include an actual renderer, such as bevy_render (Bevy's default render backend).
+common_api = [
+  "bevy_animation",
+  "bevy_camera",
+  "bevy_color",
+  "bevy_curve",
+  "bevy_gizmos",
+  "bevy_image",
+  "bevy_mesh",
+  "bevy_shader",
+  "bevy_material",
+  "bevy_text",
+  "bevy_window",
+  "hdr",
+  "png",
+]
+
+# COLLECTION: Features used to build 2D Bevy apps (does not include a render backend). You generally don't need to worry about this unless you are using a custom renderer.
+2d_api = ["common_api", "bevy_sprite"]
+
+# COLLECTION: Bevy's built-in 2D renderer, built on top of `bevy_render`.
+2d_bevy_render = [
+  "2d_api",
+  "bevy_render",
+  "bevy_core_pipeline",
+  "bevy_post_process",
+  "bevy_sprite_render",
+  "bevy_gizmos_render",
+]
+
+# COLLECTION: Features used to build 3D Bevy apps (does not include a render backend). You generally don't need to worry about this unless you are using a custom renderer.
+3d_api = [
+  "common_api",
+  "bevy_light",
+  "bevy_mikktspace",
+  "ktx2",
+  "morph_animation",
+  "morph",
+  "smaa_luts",
+  "tonemapping_luts",
+  "zstd_rust",
+]
+
+# COLLECTION: Bevy's built-in 3D renderer, built on top of `bevy_render`.
+3d_bevy_render = [
+  "3d_api",
+  "bevy_render",
+  "bevy_core_pipeline",
+  "bevy_gizmos_render",
+  "bevy_anti_alias",
+  "bevy_gltf",
+  "bevy_pbr",
+  "bevy_post_process",
+  "gltf_animation",
+]
+
+# COLLECTION: Features used to build UI Bevy apps (does not include a render backend). You generally don't need to worry about this unless you are using a custom renderer.
+ui_api = ["default_app", "common_api", "bevy_input_focus", "bevy_ui"]
+
+# COLLECTION: Bevy's built-in UI renderer, built on top of `bevy_render`.
+ui_bevy_render = [
+  "ui_api",
+  "bevy_render",
+  "bevy_core_pipeline",
+  "bevy_ui_render",
+]
+
+# COLLECTION: Recommended defaults for `no_std` applications.
+default_no_std = ["libm", "critical-section", "bevy_color", "bevy_state"]
+
+# Provides an implementation for picking meshes
+mesh_picking = ["bevy_internal/mesh_picking"]
+
+# Provides an implementation for picking sprites
+sprite_picking = ["bevy_internal/sprite_picking"]
+
+# Provides an implementation for picking UI
+ui_picking = ["bevy_internal/ui_picking"]
+
+# Provides a debug overlay for Bevy UI
+bevy_ui_debug = ["bevy_internal/bevy_ui_debug"]
+
+# Force dynamic linking, which improves iterative compile times
+dynamic_linking = ["dep:bevy_dylib", "bevy_internal/dynamic_linking"]
+
+# Enables system information diagnostic plugin
+sysinfo_plugin = ["bevy_internal/sysinfo_plugin"]
+
+# Provides animation functionality
+bevy_animation = ["bevy_internal/bevy_animation"]
+
+# Provides mathematical curve functionality
+bevy_curve = ["bevy_internal/bevy_curve"]
+
+# Provides asset functionality
+bevy_asset = ["bevy_internal/bevy_asset"]
+
+# Provides audio functionality
+bevy_audio = ["bevy_internal/bevy_audio"]
+
+# Provides shared color types and operations
+bevy_color = ["bevy_internal/bevy_color"]
+
+# Provides cameras and other basic render pipeline features
+bevy_core_pipeline = ["bevy_internal/bevy_core_pipeline"]
+
+# Provides post process effects such as depth of field, bloom, chromatic aberration.
+bevy_post_process = ["bevy_internal/bevy_post_process"]
+
+# Provides various anti-aliasing solutions
+bevy_anti_alias = ["bevy_internal/bevy_anti_alias"]
+
+# Provides the ability to extract entities from an ECS main world to a sub world
+bevy_extract = ["bevy_internal/bevy_extract"]
+
+# Adds gamepad support
+bevy_gilrs = ["gamepad", "bevy_internal/bevy_gilrs"]
+
+# [glTF](https://www.khronos.org/gltf/) support
+bevy_gltf = ["bevy_internal/bevy_gltf"]
+
+# Adds PBR rendering
+bevy_pbr = ["bevy_internal/bevy_pbr"]
+
+# Provides picking functionality without any backend
+bevy_picking = ["bevy_internal/bevy_picking"]
+
+# Provides rendering functionality
+bevy_render = ["bevy_internal/bevy_render"]
+
+# Provides ECS serialization functionality
+bevy_world_serialization = ["bevy_internal/bevy_world_serialization"]
+
+# Provides scene functionality
+bevy_scene = ["bevy_internal/bevy_scene"]
+
+# Provides raytraced lighting (experimental)
+bevy_solari = ["bevy_internal/bevy_solari"]
+
+# Provides sprite functionality
+bevy_sprite = ["bevy_internal/bevy_sprite"]
+
+# Provides sprite rendering functionality
+bevy_sprite_render = ["bevy_internal/bevy_sprite_render"]
+
+# Provides text functionality
+bevy_text = ["bevy_internal/bevy_text"]
+
+# A custom ECS-driven UI framework
+bevy_ui = ["bevy_internal/bevy_ui"]
+
+# Provides rendering functionality for bevy_ui
+bevy_ui_render = ["bevy_internal/bevy_ui_render"]
+
+# Windowing layer
+bevy_window = ["bevy_internal/bevy_window"]
+
+# winit window and input backend
+bevy_winit = ["bevy_internal/bevy_winit"]
+
+# Load and access image data. Usually added by an image format
+bevy_image = ["bevy_internal/bevy_image"]
+
+# Provides a mesh format and some primitive meshing routines.
+bevy_mesh = ["bevy_internal/bevy_mesh"]
+
+# Provides vertex tangent generation for use with bevy_mesh.
+bevy_mikktspace = ["bevy_internal/bevy_mikktspace"]
+
+# Provides camera and visibility types, as well as culling primitives.
+bevy_camera = ["bevy_internal/bevy_camera"]
+
+# Provides light types such as point lights, directional lights, spotlights.
+bevy_light = ["bevy_internal/bevy_light"]
+
+# Provides shaders usable through asset handles.
+bevy_shader = ["bevy_internal/bevy_shader"]
+
+# Provides materials.
+bevy_material = ["bevy_internal/bevy_material"]
+
+# Adds support for gizmos
+bevy_gizmos = ["bevy_internal/bevy_gizmos"]
+
+# Adds support for rendering gizmos
+bevy_gizmos_render = ["bevy_internal/bevy_gizmos_render"]
+
+# Provides a collection of developer tools
+bevy_dev_tools = ["bevy_internal/bevy_dev_tools"]
+
+# Provides a collection of prebuilt camera controllers
+bevy_camera_controller = ["bevy_internal/bevy_camera_controller"]
+
+# Enables the free cam from bevy_camera_controller
+free_camera = ["bevy_internal/free_camera"]
+
+# Enables the pan camera from bevy_camera_controller
+pan_camera = ["bevy_internal/pan_camera"]
+
+# Enables the pan orbit camera from bevy_camera_controller
+pan_orbit_camera = ["bevy_internal/pan_orbit_camera"]
+
+# Enables the pan orbit camera anchor indicator gizmo
+pan_orbit_gizmo = ["bevy_internal/pan_orbit_gizmo"]
+
+# Enable the Bevy Remote Protocol
+bevy_remote = ["bevy_internal/bevy_remote"]
+
+# Enable integration with `tracing` and `log`
+bevy_log = ["bevy_internal/bevy_log"]
+
+# Enable input focus subsystem
+bevy_input_focus = ["bevy_internal/bevy_input_focus"]
+
+# Clipboard resource and management. See `system_clipboard` for OS-integrated clipboard support.
+bevy_clipboard = ["bevy_internal/bevy_clipboard"]
+
+# Headless widget collection for Bevy UI.
+bevy_ui_widgets = [
+  "bevy_internal/bevy_ui_widgets",
+  "bevy_input_focus",
+  "bevy_ui",
+]
+
+# Load and save settings
+bevy_settings = ["bevy_internal/bevy_settings"]
+
+# Feathers widget collection.
+bevy_feathers = ["bevy_internal/bevy_feathers", "bevy_ui_widgets"]
+
+# Enable passthrough loading for SPIR-V shaders (Only supported on Vulkan, shader capabilities and extensions must agree with the platform implementation)
+spirv_shader_passthrough = ["bevy_internal/spirv_shader_passthrough"]
+
+# Statically linked DXC shader compiler for DirectX 12
+statically-linked-dxc = ["bevy_internal/statically-linked-dxc"]
+
+# Forces the wgpu instance to be initialized using the raw Vulkan HAL, enabling additional configuration
+raw_vulkan_init = ["bevy_internal/raw_vulkan_init"]
+
+# Pre-populate buffer labels with buffer types for debugging.
+type_label_buffers = ["bevy_internal/type_label_buffers"]
+
+# Tracing support, saving a file in Chrome Tracing format
+trace_chrome = ["trace", "bevy_internal/trace_chrome", "debug"]
+
+# Tracing support, exposing a port for Tracy
+trace_tracy = ["trace", "bevy_internal/trace_tracy", "debug"]
+
+# Tracing support, with memory profiling, exposing a port for Tracy
+trace_tracy_memory = ["bevy_internal/trace_tracy_memory"]
+
+# Tracing support
+trace = ["bevy_internal/trace", "dep:tracing"]
+
+# Basis Universal compressed texture support
+basis-universal = ["bevy_internal/basis-universal"]
+
+# Texture compression asset processor (cross-platform, transcodes to any GPU format at load time)
+compressed_image_saver_universal = [
+  "bevy_internal/compressed_image_saver_universal",
+]
+
+# Texture compression asset processor (BCn for desktop, ASTC for mobile via env var)
+compressed_image_saver = ["bevy_internal/compressed_image_saver"]
+
+# Enables system-level clipboard support.
+system_clipboard = ["bevy_clipboard", "bevy_internal/system_clipboard"]
+
+# Enables image copy/paste via the system clipboard. Not supported on WASM.
+clipboard_image = ["system_clipboard", "bevy_internal/clipboard_image"]
+
+# BMP image format support
+bmp = ["bevy_internal/bmp"]
+
+# DDS compressed texture support
+dds = ["bevy_internal/dds"]
+
+# EXR image format support
+exr = ["bevy_internal/exr"]
+
+# Farbfeld image format support
+ff = ["bevy_internal/ff"]
+
+# GIF image format support
+gif = ["bevy_internal/gif"]
+
+# HDR image format support
+hdr = ["bevy_internal/hdr"]
+
+# KTX2 compressed texture support
+ktx2 = ["bevy_internal/ktx2"]
+
+# ICO image format support
+ico = ["bevy_internal/ico"]
+
+# JPEG image format support
+jpeg = ["bevy_internal/jpeg"]
+
+# PNG image format support
+png = ["bevy_internal/png"]
+
+# PNM image format support, includes pam, pbm, pgm and ppm
+pnm = ["bevy_internal/pnm"]
+
+# QOI image format support
+qoi = ["bevy_internal/qoi"]
+
+# TGA image format support
+tga = ["bevy_internal/tga"]
+
+# TIFF image format support
+tiff = ["bevy_internal/tiff"]
+
+# WebP image format support
+webp = ["bevy_internal/webp"]
+
+# For KTX2 supercompression
+zlib = ["bevy_internal/zlib"]
+
+# For KTX2 Zstandard decompression using pure Rust [ruzstd](https://crates.io/crates/ruzstd). This is the safe default. For maximum performance, use "zstd_c".
+zstd_rust = ["bevy_internal/zstd_rust"]
+
+# For KTX2 Zstandard decompression using [zstd](https://crates.io/crates/zstd). This is a faster backend, but uses unsafe C bindings. For the safe option, stick to the default backend with "zstd_rust".
+zstd_c = ["bevy_internal/zstd_c"]
+
+# FLAC audio format support (through `symphonia`)
+symphonia-flac = ["bevy_internal/symphonia-flac"]
+
+# OGG/VORBIS audio format support (through `symphonia`)
+symphonia-vorbis = ["bevy_internal/symphonia-vorbis"]
+
+# WAV audio format support (through `symphonia`)
+symphonia-wav = ["bevy_internal/symphonia-wav"]
+
+# AAC audio format support (through `symphonia`)
+aac = ["bevy_internal/aac"]
+
+# FLAC audio format support (through `claxon`)
+flac = ["bevy_internal/flac"]
+
+# MP4 audio format support (through `symphonia`). It also enables AAC support.
+mp4 = ["bevy_internal/mp4"]
+
+# MP3 audio format support (through `symphonia`)
+mp3 = ["bevy_internal/mp3"]
+
+# OGG/VORBIS audio format support (through `lewton`)
+vorbis = ["bevy_internal/vorbis"]
+
+# WAV audio format support (through `hound`)
+wav = ["bevy_internal/wav"]
+
+# Enable serialization support through serde
+serialize = ["bevy_internal/serialize"]
+
+# Enables multithreaded parallelism in the engine. Disabling it forces all engine tasks to run on a single thread.
+multi_threaded = ["bevy_internal/multi_threaded"]
+
+# Use async-io's implementation of block_on instead of futures-lite's implementation. This is preferred if your application uses async-io.
+async-io = ["bevy_internal/async-io"]
+
+# Wayland display server support
+wayland = ["bevy_internal/wayland"]
+
+# X11 display server support
+x11 = ["bevy_internal/x11"]
+
+# Android NativeActivity support. Legacy, should be avoided for most new Android games.
+android-native-activity = ["bevy_internal/android-native-activity"]
+
+# Android GameActivity support. Default, choose between this and `android-native-activity`.
+android-game-activity = ["bevy_internal/android-game-activity"]
+
+# Enable systems that allow for automated testing on CI
+bevy_ci_testing = ["bevy_internal/bevy_ci_testing"]
+
+# Enable systems that allow for renderable dev tools
+render_dev_tools = ["bevy_internal/render_dev_tools"]
+
+# Enable glTF animation loading
+gltf_animation = ["bevy_internal/gltf_animation"]
+
+# Enables support for morph target weights in bevy_mesh
+morph = ["bevy_internal/morph"]
+
+# Enables bevy_mesh and bevy_animation morph weight support
+morph_animation = ["bevy_internal/morph_animation"]
+
+# Enable detailed trace event logging. These trace events are expensive even when off, thus they require compile time opt-in
+detailed_trace = ["bevy_internal/detailed_trace"]
+
+# Include tonemapping Look Up Tables KTX2 files. If everything is pink, you need to enable this feature or change the `Tonemapping` method for your `Camera2d` or `Camera3d`.
+tonemapping_luts = ["bevy_internal/tonemapping_luts"]
+
+# Include SMAA Look Up Tables KTX2 Files
+smaa_luts = ["bevy_internal/smaa_luts"]
+
+# Include spatio-temporal blue noise KTX2 file used by generated environment maps, Solari and atmosphere
+bluenoise_texture = ["bevy_internal/bluenoise_texture"]
+
+# Include a preintegrated BRDF Look Up Table for more accurate specular shading.
+dfg_lut = ["bevy_internal/dfg_lut"]
+
+# Include Look Up Tables that are required for area lights.
+area_light_luts = ["bevy_internal/area_light_luts"]
+
+# NVIDIA Deep Learning Super Sampling
+dlss = ["bevy_internal/dlss"]
+
+# Forcibly disable DLSS so that `cargo build --all-features` works without the DLSS SDK being installed. Not meant for users.
+force_disable_dlss = ["bevy_internal/force_disable_dlss"]
+
+# Enable AccessKit on Unix backends (currently only works with experimental screen readers and forks.)
+accesskit_unix = ["bevy_internal/accesskit_unix"]
+
+# Enable assertions to check the validity of parameters passed to glam
+glam_assert = ["bevy_internal/glam_assert"]
+
+# Enable assertions in debug builds to check the validity of parameters passed to glam
+debug_glam_assert = ["bevy_internal/debug_glam_assert"]
+
+# Include a default font, containing only ASCII characters, at the cost of a 20kB binary size increase
+default_font = ["bevy_internal/default_font"]
+
+# Allows for discovery of preloaded system fonts
+system_font_discovery = ["bevy_internal/system_font_discovery"]
+
+# Enables dictionary-based segmentation for complex scripts (CJK, Thai, Khmer, Lao, Myanmar), at the cost of a larger binary
+complex_script_segmentation = ["bevy_internal/complex_script_segmentation"]
+
+# Enable support for shaders in SPIR-V
+shader_format_spirv = ["bevy_internal/shader_format_spirv"]
+
+# Enable support for transmission-related textures in the `StandardMaterial`, at the risk of blowing past the global, per-shader texture limit on older/lower-end GPUs
+pbr_transmission_textures = ["bevy_internal/pbr_transmission_textures"]
+
+# Enable support for Clustered Decals
+pbr_clustered_decals = ["bevy_internal/pbr_clustered_decals"]
+
+# Enable support for Light Textures
+pbr_light_textures = ["bevy_internal/pbr_light_textures"]
+
+# Enable support for multi-layer material textures in the `StandardMaterial`, at the risk of blowing past the global, per-shader texture limit on older/lower-end GPUs
+pbr_multi_layer_material_textures = [
+  "bevy_internal/pbr_multi_layer_material_textures",
+]
+
+# Enable support for anisotropy texture in the `StandardMaterial`, at the risk of blowing past the global, per-shader texture limit on older/lower-end GPUs
+pbr_anisotropy_texture = ["bevy_internal/pbr_anisotropy_texture"]
+
+# Enable support for PCSS, at the risk of blowing past the global, per-shader sampler limit on older/lower-end GPUs
+experimental_pbr_pcss = ["bevy_internal/experimental_pbr_pcss"]
+
+# Enable support for specular textures in the `StandardMaterial`, at the risk of blowing past the global, per-shader texture limit on older/lower-end GPUs
+pbr_specular_textures = ["bevy_internal/pbr_specular_textures"]
+
+# Enable some limitations to be able to use WebGL2. Please refer to the [WebGL2 and WebGPU](https://github.com/bevyengine/bevy/tree/latest/examples#webgl2-and-webgpu) section of the examples README for more information on how to run Wasm builds with WebGPU.
+webgl2 = ["bevy_internal/webgl"]
+
+# Enable support for WebGPU in Wasm. When enabled, this feature will override the `webgl2` feature and you won't be able to run Wasm builds with WebGL2, only with WebGPU.
+webgpu = ["bevy_internal/webgpu"]
+
+# Enables the built-in asset processor for processed assets.
+asset_processor = ["bevy_internal/asset_processor"]
+
+# Enables watching the filesystem for Bevy Asset hot-reloading
+file_watcher = ["bevy_internal/file_watcher"]
+
+# Enables watching in memory asset providers for Bevy Asset hot-reloading
+embedded_watcher = ["bevy_internal/embedded_watcher"]
+
+# Enables downloading assets from HTTP sources. Warning: there are security implications. Read the docs on WebAssetPlugin.
+http = ["bevy_internal/http"]
+
+# Enables downloading assets from HTTPS sources. Warning: there are security implications. Read the docs on WebAssetPlugin.
+https = ["bevy_internal/https"]
+
+# Enable caching downloaded assets on the filesystem. NOTE: this cache currently never invalidates entries!
+web_asset_cache = ["bevy_internal/web_asset_cache"]
+
+# Enable stepping-based debugging of Bevy systems
+bevy_debug_stepping = [
+  "bevy_internal/bevy_debug_stepping",
+  "bevy_internal/debug",
+]
+
+# Enable collecting schedule data from the app.
+schedule_data = ["bevy_internal/schedule_data"]
+
+# Enables the meshlet renderer for dense high-poly scenes (experimental)
+meshlet = ["bevy_internal/meshlet"]
+
+# Enables processing meshes into meshlet meshes for `bevy_pbr`
+meshlet_processor = ["bevy_internal/meshlet_processor"]
+
+# Enable built in global state machines
+bevy_state = ["bevy_internal/bevy_state"]
+
+# Enables source location tracking for change detection and spawning/despawning, which can assist with debugging
+track_location = ["bevy_internal/track_location"]
+
+# Enable function reflection
+reflect_functions = ["bevy_internal/reflect_functions"]
+
+# Enables `bevy_reflect` to access documentation comments of Rust code at runtime
+reflect_documentation = ["bevy_internal/reflect_documentation"]
+
+# Enable automatic reflect registration
+reflect_auto_register = ["bevy_internal/reflect_auto_register"]
+
+# Enable automatic reflect registration without inventory. See `reflect::load_type_registrations` for more info.
+reflect_auto_register_static = ["bevy_internal/reflect_auto_register_static"]
+
+# Enable winit custom cursor support
+custom_cursor = ["bevy_internal/custom_cursor"]
+
+# Experimental support for nodes that are ignored for UI layouting
+ghost_nodes = ["bevy_internal/ghost_nodes"]
+
+# Uses `async-executor` as a task execution backend.
+async_executor = ["std", "bevy_internal/async_executor"]
+
+# Allows access to the `std` crate.
+std = ["bevy_internal/std"]
+
+# `critical-section` provides the building blocks for synchronization primitives on all platforms, including `no_std`.
+critical-section = ["bevy_internal/critical-section"]
+
+# Uses the `libm` maths library instead of the one provided in `std` and `core`.
+libm = ["bevy_internal/libm"]
+
+# Enables use of browser APIs. Note this is currently only applicable on `wasm32` architectures.
+web = ["bevy_internal/web"]
+
+# Mouse support. Automatically enabled by `bevy_window`.
+mouse = ["bevy_internal/mouse"]
+
+# Keyboard support. Automatically enabled by `bevy_window`.
+keyboard = ["bevy_internal/keyboard"]
+
+# Gamepad support. Automatically enabled by `bevy_gilrs`.
+gamepad = ["bevy_internal/gamepad"]
+
+# Touch support. Automatically enabled by `bevy_window`.
+touch = ["bevy_internal/touch"]
+
+# Gestures support. Automatically enabled by `bevy_window`.
+gestures = ["bevy_internal/gestures"]
+
+# Enable hotpatching of Bevy systems
+hotpatching = ["bevy_internal/hotpatching"]
+
+# Enable collecting debug information about systems and components to help with diagnostics
+debug = ["bevy_internal/debug"]
+
+[dependencies]
+bevy_internal = { path = "crates/bevy_internal", version = "0.20.0", default-features = false }
+tracing = { version = "0.1", default-features = false, optional = true }
+
+# Wasm does not support dynamic linking.
+[target.'cfg(not(target_family = "wasm"))'.dependencies]
+bevy_dylib = { path = "crates/bevy_dylib", version = "0.20.0", default-features = false, optional = true }
+
+[dev-dependencies]
+rand = "0.10.0"
+chacha20 = { version = "0.10.0", default-features = false, features = ["rng"] }
+ron = "0.12"
+flate2 = "1.0"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1.0.140"
+bytemuck = "1"
+# The following explicit dependencies are needed for proc macros to work inside of examples as they are part of the bevy crate itself.
+bevy_animation = { path = "crates/bevy_animation", version = "0.20.0", default-features = false }
+bevy_asset = { path = "crates/bevy_asset", version = "0.20.0", default-features = false }
+bevy_ecs = { path = "crates/bevy_ecs", version = "0.20.0", default-features = false }
+bevy_extract = { path = "crates/bevy_extract", version = "0.20.0", default-features = false }
+bevy_gizmos = { path = "crates/bevy_gizmos", version = "0.20.0", default-features = false }
+bevy_image = { path = "crates/bevy_image", version = "0.20.0", default-features = false }
+bevy_reflect = { path = "crates/bevy_reflect", version = "0.20.0", default-features = false }
+bevy_render = { path = "crates/bevy_render", version = "0.20.0", default-features = false }
+bevy-settings = { path = "crates/bevy_settings", version = "0.20.0", default-features = false }
+bevy_state = { path = "crates/bevy_state", version = "0.20.0", default-features = false }
+bevy_scene = { path = "crates/bevy_scene", version = "0.20.0", default-features = false }
+# Needed to poll Task examples
+futures-lite = "2.0.1"
+futures-timer = { version = "3", features = ["wasm-bindgen", "gloo-timers"] }
+crossbeam-channel = "0.5.0"
+argh = "0.1.12"
+thiserror = "2.0"
+event-listener = "5.3.0"
+anyhow = "1"
+accesskit = "0.24"
+nonmax = "0.5"
+gltf = "1.4"
+indexmap = "2"
+
+[target.'cfg(not(target_family = "wasm"))'.dev-dependencies]
+ureq = { version = "3.0.8", features = ["json"] }
+
+[target.'cfg(target_arch = "wasm32")'.dev-dependencies]
+getrandom = { version = "0.4", default-features = false, features = [
+  "wasm_js",
+] }
+wasm-bindgen = { version = "0.2" }
+web-sys = { version = "0.3", features = ["Window"] }
+
+[[example]]
+name = "context_menu"
+path = "examples/usage/context_menu.rs"
+doc-scrape-examples = true
+
+[package.metadata.example.context_menu]
+name = "Context Menu"
+description = "Example of a context menu"
+category = "Usage"
+wasm = true
+
+[[example]]
+name = "hello_world"
+path = "examples/hello_world.rs"
+doc-scrape-examples = true
+
+[package.metadata.example.hello_world]
+hidden = true
+
+# 2D Rendering
+[[example]]
+name = "bloom_2d"
+path = "examples/2d/bloom_2d.rs"
+doc-scrape-examples = true
+
+[package.metadata.example.bloom_2d]
+name = "2D Bloom"
+description = "Illustrates bloom post-processing in 2d"
+category = "2D Rendering"
+wasm = true
+
+[[example]]
+name = "move_sprite"
+path = "examples/2d/move_sprite.rs"
+doc-scrape-examples = true
+
+[package.metadata.example.move_sprite]
+name = "Move Sprite"
+description = "Changes the transform of a sprite"
+category = "2D Rendering"
+wasm = true
+
+[[example]]
+name = "2d_viewport_to_world"
+path = "examples/2d/2d_viewport_to_world.rs"
+doc-scrape-examples = true
+
+[package.metadata.example.2d_viewport_to_world]
+name = "2D Viewport To World"
+description = "Demonstrates how to use the `Camera::viewport_to_world_2d` method with a dynamic viewport and camera."
+category = "2D Rendering"
+wasm = true
+
+[[example]]
+name = "rotate_to_cursor"
+path = "examples/2d/rotate_to_cursor.rs"
+doc-scrape-examples = true
+
+[package.metadata.example.rotate_to_cursor]
+name = "2D Rotation to Cursor"
+description = "Demonstrates rotating entities in 2D to follow the cursor"
+category = "2D Rendering"
+wasm = true
+
+[[example]]
+name = "rotation"
+path = "examples/2d/rotation.rs"
+doc-scrape-examples = true
+
+[package.metadata.example.rotation]
+name = "Generic 2D Rotation"
+description = "Demonstrates rotating entities in 2D with quaternions"
+category = "2D Rendering"
+wasm = true
+
+[[example]]
+name = "mesh2d"
+path = "examples/2d/mesh2d.rs"
+doc-scrape-examples = true
+
+[package.metadata.example.mesh2d]
+name = "Mesh 2D"
+description = "Renders a 2d mesh"
+category = "2D Rendering"
+wasm = true
+
+[[example]]
+name = "mesh2d_arcs"
+path = "examples/2d/mesh2d_arcs.rs"
+doc-scrape-examples = true
+
+[package.metadata.example.mesh2d_arcs]
+name = "Arc 2D Meshes"
+description = "Demonstrates UV-mapping of the circular segment and sector primitives"
+category = "2D Rendering"
+wasm = true
+
+[[example]]
+name = "mesh2d_manual"
+path = "examples/2d/mesh2d_manual.rs"
+doc-scrape-examples = true
+
+[package.metadata.example.mesh2d_manual]
+name = "Manual Mesh 2D"
+description = "Renders a custom mesh \"manually\" with \"mid-level\" renderer apis"
+category = "2D Rendering"
+wasm = true
+
+[[example]]
+name = "mesh2d_vertex_color_texture"
+path = "examples/2d/mesh2d_vertex_color_texture.rs"
+doc-scrape-examples = true
+
+[package.metadata.example.mesh2d_vertex_color_texture]
+name = "Mesh 2D With Vertex Colors"
+description = "Renders a 2d mesh with vertex color attributes"
+category = "2D Rendering"
+wasm = true
+
+[[example]]
+name = "2d_shapes"
+path = "examples/2d/2d_shapes.rs"
+doc-scrape-examples = true
+required-features = ["bevy_feathers"]
+
+[package.metadata.example.2d_shapes]
+name = "2D Shapes"
+description = "Renders simple 2D primitive shapes like circles and polygons"
+category = "2D Rendering"
+wasm = true
+
+[[example]]
+name = "cpu_draw"
+path = "examples/2d/cpu_draw.rs"
+doc-scrape-examples = true
+
+[package.metadata.example.cpu_draw]
+name = "CPU Drawing"
+description = "Manually read/write the pixels of a texture"
+category = "2D Rendering"
+wasm = true
+
+[[example]]
+name = "sprite"
+path = "examples/2d/sprite.rs"
+doc-scrape-examples = true
+
+[package.metadata.example.sprite]
+name = "Sprite"
+description = "Renders a sprite"
+category = "2D Rendering"
+wasm = true
+
+[[example]]
+name = "sprite_animation"
+path = "examples/2d/sprite_animation.rs"
+doc-scrape-examples = true
+
+[package.metadata.example.sprite_animation]
+name = "Sprite Animation"
+description = "Animates a sprite in response to an event"
+category = "2D Rendering"
+wasm = true
+
+[[example]]
+name = "sprite_scale"
+path = "examples/2d/sprite_scale.rs"
+doc-scrape-examples = true
+
+[package.metadata.example.sprite_scale]
+name = "Sprite Scale"
+description = "Shows how a sprite can be scaled into a rectangle while keeping the aspect ratio"
+category = "2D Rendering"
+wasm = true
+
+[[example]]
+name = "sprite_flipping"
+path = "examples/2d/sprite_flipping.rs"
+doc-scrape-examples = true
+
+[package.metadata.example.sprite_flipping]
+name = "Sprite Flipping"
+description = "Renders a sprite flipped along an axis"
+category = "2D Rendering"
+wasm = true
+
+[[example]]
+name = "sprite_sheet"
+path = "examples/2d/sprite_sheet.rs"
+doc-scrape-examples = true
+
+[package.metadata.example.sprite_sheet]
+name = "Sprite Sheet"
+description = "Renders an animated sprite"
+category = "2D Rendering"
+wasm = true
+
+[[example]]
+name = "sprite_tile"
+path = "examples/2d/sprite_tile.rs"
+doc-scrape-examples = true
+
+[package.metadata.example.sprite_tile]
+name = "Sprite Tile"
+description = "Renders a sprite tiled in a grid"
+category = "2D Rendering"
+wasm = true
+
+[[example]]
+name = "sprite_slice"
+path = "examples/2d/sprite_slice.rs"
+doc-scrape-examples = true
+
+[package.metadata.example.sprite_slice]
+name = "Sprite Slice"
+description = "Showcases slicing sprites into sections that can be scaled independently via the 9-patch technique"
+category = "2D Rendering"
+wasm = true
+
+[[example]]
+name = "text2d"
+path = "examples/2d/text2d.rs"
+doc-scrape-examples = true
+
+[package.metadata.example.text2d]
+name = "Text 2D"
+description = "Generates text in 2D"
+category = "2D Rendering"
+wasm = true
+
+[[example]]
+name = "multi_window_text"
+path = "examples/window/multi_window_text.rs"
+doc-scrape-examples = true
+
+[package.metadata.example.multi_window_text]
+name = "Multi-Window Text"
+description = "Renders text to multiple windows with different scale factors using both Text and Text2d"
+category = "2D Rendering"
+wasm = true
+
+[[example]]
+name = "ime_support"
+path = "examples/ui/text/ime_support.rs"
+doc-scrape-examples = true
+required-features = ["system_font_discovery"]
+
+[package.metadata.example.ime_support]
+name = "IME Support"
+description = "Demonstrates IME (Input Method Editor) support for text input"
+category = "UI (User Interface)"
+wasm = true
+
+[[example]]
+name = "inline_image"
+path = "examples/ui/text/inline_image.rs"
+doc-scrape-examples = true
+
+[package.metadata.example.inline_image]
+name = "Inline Images"
+description = "Demonstrates how to display images inline with text"
+category = "UI (User Interface)"
+wasm = true
+
+[[example]]
+name = "text_input"
+path = "examples/ui/text/text_input.rs"
+doc-scrape-examples = true
+
+[package.metadata.example.text_input]
+name = "Text Input"
+description = "Demonstrates a simple, unstyled text input widget"
+category = "UI (User Interface)"
+wasm = true
+
+[[example]]
+name = "editable_text_filter"
+path = "examples/ui/text/editable_text_filter.rs"
+doc-scrape-examples = true
+
+[package.metadata.example.editable_text_filter]
+name = "Editable Text Filter"
+description = "Demonstrates an 8-character hex input using EditableTextFilter"
+category = "UI (User Interface)"
+wasm = true
+
+[[example]]
+name = "multiline_text_input"
+path = "examples/ui/text/multiline_text_input.rs"
+doc-scrape-examples = true
+
+[package.metadata.example.multiline_text_input]
+name = "Multiline Text Input"
+description = "Demonstrates a single multiline EditableText widget"
+category = "UI (User Interface)"
+wasm = true
+
+[[example]]
+name = "multiple_text_inputs"
+path = "examples/ui/text/multiple_text_inputs.rs"
+doc-scrape-examples = true
+
+[package.metadata.example.multiple_text_inputs]
+name = "Multiple Text Inputs"
+description = "Demonstrates multiple text inputs"
+category = "UI (User Interface)"
+wasm = true
+
+[[example]]
+name = "texture_atlas"
+path = "examples/2d/texture_atlas.rs"
+doc-scrape-examples = true
+
+[package.metadata.example.texture_atlas]
+name = "Texture Atlas"
+description = "Generates a texture atlas (sprite sheet) from individual sprites"
+category = "2D Rendering"
+# Loading asset folders is not supported in Wasm, but required to create the atlas.
+wasm = false
+
+[[example]]
+name = "tilemap_chunk"
+path = "examples/2d/tilemap_chunk.rs"
+doc-scrape-examples = true
+
+[package.metadata.example.tilemap_chunk]
+name = "Tilemap Chunk"
+description = "Renders a tilemap chunk"
+category = "2D Rendering"
+wasm = true
+
+[[example]]
+name = "tilemap_chunk_orientation"
+path = "examples/2d/tilemap_chunk_orientation.rs"
+# Causes an ICE on docs.rs
+doc-scrape-examples = true
+
+[package.metadata.example.tilemap_chunk_orientation]
+name = "Tilemap Chunk with Orientations"
+description = "Renders a tilemap chunk using tile orientations (mirrored, rotated)"
+category = "2D Rendering"
+wasm = true
+
+[[example]]
+name = "transparency_2d"
+path = "examples/2d/transparency_2d.rs"
+doc-scrape-examples = true
+
+[package.metadata.example.transparency_2d]
+name = "Transparency in 2D"
+description = "Demonstrates transparency in 2d"
+category = "2D Rendering"
+wasm = true
+
+[[example]]
+name = "mesh2d_alpha_mode"
+path = "examples/2d/mesh2d_alpha_mode.rs"
+doc-scrape-examples = true
+
+[package.metadata.example.mesh2d_alpha_mode]
+name = "Mesh2d Alpha Mode"
+description = "Used to test alpha modes with mesh2d"
+category = "2D Rendering"
+wasm = true
+
+[[example]]
+name = "mesh2d_repeated_texture"
+path = "examples/2d/mesh2d_repeated_texture.rs"
+doc-scrape-examples = true
+
+[package.metadata.example.mesh2d_repeated_texture]
+name = "Mesh2d Repeated Texture"
+description = "Showcase of using `uv_transform` on the `ColorMaterial` of a `Mesh2d`"
+category = "2D Rendering"
+wasm = true
+
+[[example]]
+name = "pixel_grid_snap"
+path = "examples/2d/pixel_grid_snap.rs"
+doc-scrape-examples = true
+
+[package.metadata.example.pixel_grid_snap]
+name = "Pixel Grid Snapping"
+description = "Shows how to create graphics that snap to the pixel grid by rendering to a texture in 2D"
+category = "2D Rendering"
+wasm = true
+
+[[example]]
+name = "bounding_2d"
+path = "examples/math/bounding_2d.rs"
+doc-scrape-examples = true
+
+[package.metadata.example.bounding_2d]
+name = "Bounding Volume Intersections (2D)"
+description = "Showcases bounding volumes and intersection tests"
+category = "Math"
+wasm = true
+
+[[example]]
+name = "wireframe_2d"
+path = "examples/2d/wireframe_2d.rs"
+doc-scrape-examples = true
+required-features = ["bevy_feathers"]
+
+[package.metadata.example.wireframe_2d]
+name = "2D Wireframe"
+description = "Showcases wireframes for 2d meshes"
+category = "2D Rendering"
+# PolygonMode::Line wireframes are not supported by WebGL
+wasm = false
+
+# 3D Rendering
+[[example]]
+name = "3d_scene"
+path = "examples/3d/3d_scene.rs"
+doc-scrape-examples = true
+
+[package.metadata.example.3d_scene]
+name = "3D Scene"
+description = "Simple 3D scene with basic shapes and lighting"
+category = "3D Rendering"
+wasm = true
+
+[[example]]
+name = "rect_light"
+path = "examples/3d/rect_light.rs"
+doc-scrape-examples = true
+required-features = ["free_camera", "area_light_luts"]
+
+[package.metadata.example.rect_light]
+name = "Rectangular Area Light"
+description = "Simple 3D scene demonstrating rectangular area lights."
+category = "3D Rendering"
+wasm = true
+
+[[example]]
+name = "3d_shapes"
+path = "examples/3d/3d_shapes.rs"
+doc-scrape-examples = true
+
+[package.metadata.example.3d_shapes]
+name = "3D Shapes"
+description = "A scene showcasing the built-in 3D shapes"
+category = "3D Rendering"
+wasm = true
+
+[[example]]
+name = "3d_viewport_to_world"
+path = "examples/3d/3d_viewport_to_world.rs"
+doc-scrape-examples = true
+
+[package.metadata.example.3d_viewport_to_world]
+name = "3D Viewport To World"
+description = "Demonstrates how to use the `Camera::viewport_to_world` method"
+category = "3D Rendering"
+wasm = true
+
+[[example]]
+name = "animated_material"
+path = "examples/3d/animated_material.rs"
+doc-scrape-examples = true
+
+[package.metadata.example.animated_material]
+name = "Animated Material"
+description = "Shows how to animate material properties"
+category = "3D Rendering"
+wasm = true
+
+[[example]]
+name = "generate_custom_mesh"
+path = "examples/3d/generate_custom_mesh.rs"
+doc-scrape-examples = true
+
+[package.metadata.example.generate_custom_mesh]
+name = "Generate Custom Mesh"
+description = "Simple showcase of how to generate a custom mesh with a custom texture"
+category = "3D Rendering"
+wasm = true
+
+[[example]]
+name = "anti_aliasing"
+path = "examples/3d/anti_aliasing.rs"
+doc-scrape-examples = true
+
+[package.metadata.example.anti_aliasing]
+name = "Anti-aliasing"
+description = "Compares different anti-aliasing techniques supported by Bevy"
+category = "3D Rendering"
+# TAA not supported by WebGL
+wasm = false
+
+[[example]]
+name = "atmospheric_fog"
+path = "examples/3d/atmospheric_fog.rs"
+doc-scrape-examples = true
+
+[package.metadata.example.atmospheric_fog]
+name = "Atmospheric Fog"
+description = "A scene showcasing the atmospheric fog effect"
+category = "3D Rendering"
+wasm = true
+
+[[example]]
+name = "atmosphere"
+path = "examples/3d/atmosphere.rs"
+doc-scrape-examples = true
+
+[package.metadata.example.atmosphere]
+name = "Atmosphere"
+description = "A scene showcasing pbr atmospheric scattering"
+category = "3D Rendering"
+wasm = true
+
+[[example]]
+name = "fog"
+path = "examples/3d/fog.rs"
+doc-scrape-examples = true
+
+[package.metadata.example.fog]
+name = "Fog"
+description = "A scene showcasing the distance fog effect"
+category = "3D Rendering"
+wasm = true
+
+[[example]]
+name = "auto_exposure"
+path = "examples/3d/auto_exposure.rs"
+doc-scrape-examples = true
+
+[package.metadata.example.auto_exposure]
+name = "Auto Exposure"
+description = "A scene showcasing auto exposure"
+category = "3D Rendering"
+# Requires compute shaders, which are not supported by WebGL.
+wasm = false
+
+[[example]]
+name = "blend_modes"
+path = "examples/3d/blend_modes.rs"
+doc-scrape-examples = true
+
+[package.metadata.example.blend_modes]
+name = "Blend Modes"
+description = "Showcases different blend modes"
+category = "3D Rendering"
+wasm = true
+
+[[example]]
+name = "contact_shadows"
+path = "examples/3d/contact_shadows.rs"
+doc-scrape-examples = true
+required-features = ["bluenoise_texture", "bevy_feathers"]
+
+[package.metadata.example.contact_shadows]
+name = "Contact Shadows"
+description = "Showcases how contact shadows add shadow detail"
+category = "3D Rendering"
+wasm = true
+
+[[example]]
+name = "lighting"
+path = "examples/3d/lighting.rs"
+doc-scrape-examples = true
+
+[package.metadata.example.lighting]
+name = "Lighting"
+description = "Illustrates various lighting options in a simple scene"
+category = "3D Rendering"
+wasm = true
+
+[[example]]
+name = "lines"
+path = "examples/3d/lines.rs"
+doc-scrape-examples = true
+
+[package.metadata.example.lines]
+name = "Lines"
+description = "Create a custom material to draw 3d lines"
+category = "3D Rendering"
+wasm = true
+
+[[example]]
+name = "ssao"
+path = "examples/3d/ssao.rs"
+doc-scrape-examples = true
+
+[package.metadata.example.ssao]
+name = "Screen Space Ambient Occlusion"
+description = "A scene showcasing screen space ambient occlusion"
+category = "3D Rendering"
+# Requires compute shaders, which are not supported by WebGL.
+wasm = false
+
+[[example]]
+name = "spotlight"
+path = "examples/3d/spotlight.rs"
+doc-scrape-examples = true
+
+[package.metadata.example.spotlight]
+name = "Spotlight"
+description = "Illustrates spot lights"
+category = "3D Rendering"
+wasm = true
+
+[[example]]
+name = "bloom_3d"
+path = "examples/3d/bloom_3d.rs"
+doc-scrape-examples = true
+
+[package.metadata.example.bloom_3d]
+name = "3D Bloom"
+description = "Illustrates bloom configuration using HDR and emissive materials"
+category = "3D Rendering"
+wasm = true
+
+[[example]]
+name = "decal"
+path = "examples/3d/decal.rs"
+doc-scrape-examples = true
+required-features = ["free_camera"]
+
+[package.metadata.example.decal]
+name = "Decal"
+description = "Decal rendering"
+category = "3D Rendering"
+wasm = true
+
+[[example]]
+name = "deferred_rendering"
+path = "examples/3d/deferred_rendering.rs"
+doc-scrape-examples = true
+
+[package.metadata.example.deferred_rendering]
+name = "Deferred Rendering"
+description = "Renders meshes with both forward and deferred pipelines"
+category = "3D Rendering"
+wasm = true
+
+[[example]]
+name = "motion_blur"
+path = "examples/3d/motion_blur.rs"
+doc-scrape-examples = true
+
+[package.metadata.example.motion_blur]
+name = "Motion Blur"
+description = "Demonstrates per-pixel motion blur"
+category = "3D Rendering"
+wasm = true
+
+[[example]]
+name = "order_independent_transparency"
+path = "examples/3d/order_independent_transparency.rs"
+doc-scrape-examples = true
+required-features = ["bevy_feathers"]
+
+[package.metadata.example.order_independent_transparency]
+name = "Order Independent Transparency"
+description = "Demonstrates how to use OIT"
+category = "3D Rendering"
+# Not supported by WebGL
+wasm = false
+
+[[example]]
+name = "tonemapping"
+path = "examples/3d/tonemapping.rs"
+doc-scrape-examples = true
+
+[package.metadata.example.tonemapping]
+name = "Tonemapping"
+description = "Compares tonemapping options"
+category = "3D Rendering"
+wasm = true
+
+[[example]]
+name = "orthographic"
+path = "examples/3d/orthographic.rs"
+doc-scrape-examples = true
+
+[package.metadata.example.orthographic]
+name = "Orthographic View"
+description = "Shows how to create a 3D orthographic view (for isometric-look in games or CAD applications)"
+category = "3D Rendering"
+wasm = true
+
+[[example]]
+name = "parenting"
+path = "examples/3d/parenting.rs"
+doc-scrape-examples = true
+
+[package.metadata.example.parenting]
+name = "Parenting"
+description = "Demonstrates parent->child relationships and relative transformations"
+category = "3D Rendering"
+wasm = true
+
+[[example]]
+name = "pbr"
+path = "examples/3d/pbr.rs"
+doc-scrape-examples = true
+
+[package.metadata.example.pbr]
+name = "Physically Based Rendering"
+description = "Demonstrates use of Physically Based Rendering (PBR) properties"
+category = "3D Rendering"
+wasm = true
+
+[[example]]
+name = "parallax_mapping"
+path = "examples/3d/parallax_mapping.rs"
+doc-scrape-examples = true
+
+[package.metadata.example.parallax_mapping]
+name = "Parallax Mapping"
+description = "Demonstrates use of a normal map and depth map for parallax mapping"
+category = "3D Rendering"
+wasm = true
+
+[[example]]
+name = "render_to_texture"
+path = "examples/3d/render_to_texture.rs"
+doc-scrape-examples = true
+
+[package.metadata.example.render_to_texture]
+name = "Render to Texture"
+description = "Shows how to render to a texture, useful for mirrors, UI, or exporting images"
+category = "3D Rendering"
+wasm = true
+
+[[example]]
+name = "shadow_biases"
+path = "examples/3d/shadow_biases.rs"
+doc-scrape-examples = true
+required-features = ["free_camera"]
+
+[package.metadata.example.shadow_biases]
+name = "Shadow Biases"
+description = "Demonstrates how shadow biases affect shadows in a 3d scene"
+category = "3D Rendering"
+wasm = true
+
+[[example]]
+name = "shadow_caster_receiver"
+path = "examples/3d/shadow_caster_receiver.rs"
+doc-scrape-examples = true
+
+[package.metadata.example.shadow_caster_receiver]
+name = "Shadow Caster and Receiver"
+description = "Demonstrates how to prevent meshes from casting/receiving shadows in a 3d scene"
+category = "3D Rendering"
+wasm = true
+
+[[example]]
+name = "skybox"
+path = "examples/3d/skybox.rs"
+doc-scrape-examples = true
+required-features = ["free_camera"]
+
+[package.metadata.example.skybox]
+name = "Skybox"
+description = "Load a cubemap texture onto a cube like a skybox and cycle through different compressed texture formats."
+category = "3D Rendering"
+wasm = true
+
+[[example]]
+name = "solari"
+path = "examples/3d/solari.rs"
+doc-scrape-examples = true
+required-features = ["bevy_solari", "https", "free_camera"]
+
+[package.metadata.example.solari]
+name = "Solari"
+description = "Demonstrates realtime dynamic raytraced lighting using Bevy Solari."
+category = "3D Rendering"
+wasm = false
+
+[[example]]
+name = "solari_reflections"
+path = "examples/3d/solari_reflections.rs"
+doc-scrape-examples = true
+required-features = ["bevy_solari", "free_camera"]
+
+[package.metadata.example.solari_reflections]
+name = "Solari Reflections"
+description = "Test bed for Solari reflections."
+category = "3D Rendering"
+wasm = false
+hidden = true
+
+[[example]]
+name = "spherical_area_lights"
+path = "examples/3d/spherical_area_lights.rs"
+doc-scrape-examples = true
+
+[package.metadata.example.spherical_area_lights]
+name = "Spherical Area Lights"
+description = "Demonstrates how point light radius values affect light behavio

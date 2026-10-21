@@ -32,7 +32,7 @@ pub(crate) const DOCUMENTS: [(&str, &str, &str); 6] = [
     (
         "examples",
         "Examples",
-        "Explore checked clap, axum, and Stucco recipes, with their exact versions and features.",
+        "Explore checked clap, axum, Bevy, and Stucco recipes, with their exact versions and features.",
     ),
     (
         "adapters",
@@ -140,7 +140,10 @@ fn collect_downloads(
         if kind.is_dir() {
             collect_downloads(&entry.path(), &path, files)?;
         } else if kind.is_file()
-            && (name == "Cargo.toml" || name == "Cargo.lock" || name.ends_with(".rs"))
+            && (name == "Cargo.toml"
+                || name == "Cargo.lock"
+                || name == "coverage.json"
+                || name.ends_with(".rs"))
         {
             files.push((path, fs::read(entry.path())?));
         } else if !kind.is_file() {

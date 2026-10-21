@@ -1,0 +1,36 @@
+[dependencies.axum]
+default-features = false
+features = [
+    "tokio",
+    "http1",
+    "query",
+    "json",
+]
+version = "=0.8.9"
+
+[dependencies.serde]
+default-features = true
+features = ["derive"]
+version = "1.0.221"
+
+[dependencies.tokio]
+default-features = true
+features = [
+    "macros",
+    "rt-multi-thread",
+    "net",
+]
+version = "1.44.2"
+
+[dependencies.uuid]
+default-features = true
+features = ["serde"]
+version = "1.0"
+
+[package]
+edition = "2024"
+name = "recipe-r04"
+publish = false
+version = "0.0.0"
+
+[workspace]

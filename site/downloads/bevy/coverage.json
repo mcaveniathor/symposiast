@@ -1,0 +1,102 @@
+{
+  "release": {
+    "name": "bevy",
+    "version": "0.20.0"
+  },
+  "inventory": {
+    "examples": [
+      {
+        "id": "doc-403dabee035e1211-1",
+        "citation": {
+          "source_id": "e0003",
+          "start_line": 74,
+          "end_line": 82
+        },
+        "info": "rust",
+        "code": "use bevy::prelude::*;\n\nfn main() {\n    App::new()\n        .add_plugins(DefaultPlugins)\n        .run();\n}\n"
+      },
+      {
+        "id": "doc-1a62a38631e53597-2",
+        "citation": {
+          "source_id": "e0004",
+          "start_line": 54,
+          "end_line": 57
+        },
+        "info": "rust",
+        "code": "#[deprecated(since = \"0.17.0\", note = \"This message will appear in the deprecation warning.\")]\nstruct MyStruct;\n"
+      },
+      {
+        "id": "doc-1a62a38631e53597-3",
+        "citation": {
+          "source_id": "e0004",
+          "start_line": 77,
+          "end_line": 88
+        },
+        "info": "rust",
+        "code": "// 0.15\nfn my_system(world: &mut World) {\n    world.old_method();\n}\n\n// 0.16\nfn my_system(world: &mut World) {\n    // Use `new_method()` instead.\n    world.new_method();\n}\n"
+      },
+      {
+        "id": "doc-009efc5a9c870a09-4",
+        "citation": {
+          "source_id": "e0006",
+          "start_line": 18,
+          "end_line": 30
+        },
+        "info": "",
+        "code": "use bevy::prelude::*;\n\nfn main() {\n   App::new()\n       .add_systems(Update, hello_world_system)\n       .run();\n}\n\nfn hello_world_system() {\n   println!(\"hello world\");\n}\n"
+      },
+      {
+        "id": "doc-c2e5b7fb82c5646d-5",
+        "citation": {
+          "source_id": "e0041",
+          "start_line": 43,
+          "end_line": 59
+        },
+        "info": "rust",
+        "code": "{\n  // creates a span and starts the timer\n  let my_span = info_span!(\"span_name\", name = \"span_name\").entered();\n  do_something_here();\n} // my_span is dropped here ... this stops the timer\n\n\n// You can also \"manually\" enter the span if you need more control over when the timer starts\n// Prefer the previous, simpler syntax unless you need the extra control.\nlet my_span = info_span!(\"span_name\", name = \"span_name\");\n{\n  // starts the span's timer\n  let guard = my_span.enter();\n  do_something_here();\n} // guard is dropped here ... this stops the timer\n"
+      }
+    ],
+    "warnings": [
+      "Example coverage is limited to collected Markdown code blocks and literal Rust doc attributes/comments. Unlabelled blocks are treated as Rust only in Rust documentation. Macros, cfg_attr, external includes, and generated documentation are not expanded; standalone example programs are still ordinary evidence.",
+      "e0006:45: nonliteral doc attribute was not expanded."
+    ]
+  },
+  "coverage": [
+    {
+      "example_id": "doc-403dabee035e1211-1",
+      "disposition": "adapted",
+      "recipe_ids": [
+        "window"
+      ],
+      "reason": "Preserves the documented DefaultPlugins window bootstrap."
+    },
+    {
+      "example_id": "doc-1a62a38631e53597-2",
+      "disposition": "skipped",
+      "recipe_ids": [],
+      "reason": "Illustrates Rust deprecation syntax for migration-guide authors, rather than a Bevy application API."
+    },
+    {
+      "example_id": "doc-1a62a38631e53597-3",
+      "disposition": "skipped",
+      "recipe_ids": [],
+      "reason": "Contains placeholder methods and illustrative 0.15/0.16 version labels; it does not establish a real migration for 0.20.0."
+    },
+    {
+      "example_id": "doc-009efc5a9c870a09-4",
+      "disposition": "adapted",
+      "recipe_ids": [
+        "hello"
+      ],
+      "reason": "Preserves the complete hello-world application and selects the documented headless baseline feature collection."
+    },
+    {
+      "example_id": "doc-c2e5b7fb82c5646d-5",
+      "disposition": "adapted",
+      "recipe_ids": [
+        "profile"
+      ],
+      "reason": "Places the preferred entered-span pattern inside an Update system, supplies concrete work, and enables a profiling backend."
+    }
+  ]
+}

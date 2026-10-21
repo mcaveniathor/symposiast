@@ -133,7 +133,7 @@ The collector verifies the published crates.io archive checksum and anchors opti
 
 Selection is bounded to 48 sources, 48 KiB per file, and 320 KiB of retained evidence. Download and expanded-archive limits are 32 MiB and 192 MiB. Missing repository material, truncation, and omitted sources appear in bundle warnings. Read those warnings when assessing coverage.
 
-Validation compiled twelve pinned clap, axum, and Stucco recipes. Additional parser tests, rendering checks, and in-memory HTTP assertions were run separately; the CLI's `compiled` status records only Cargo compilation. These examples are documented in [examples](examples.html). The automated suite covers collection, adapters, citations, verification, installation, MCP, and version warnings without requiring provider credentials.
+Validation compiles pinned clap, axum, Bevy, and Stucco recipes. The current clap, axum, and Bevy recipes come from live Symposiast generation; generation and runtime details are recorded with their bundles. Additional runtime checks are separate; the CLI's `compiled` status records only Cargo compilation. These examples are documented in [examples](examples.html). The automated suite covers collection, adapters, citations, verification, installation, MCP, and version warnings without requiring provider credentials.
 
 ## Registry sharing and requests
 

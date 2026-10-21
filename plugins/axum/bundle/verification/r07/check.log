@@ -1,0 +1,5 @@
+    Updating crates.io index
+     Locking 40 packages to highest Rust 1.99.1 compatible versions
+      Adding matchit v0.8.4 (available: v0.8.6)
+    Checking recipe-r07 v0.0.0 (<bundle>/verification/r07)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.06s

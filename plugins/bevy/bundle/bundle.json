@@ -1,0 +1,1456 @@
+{
+  "schema_version": 1,
+  "release": {
+    "name": "bevy",
+    "version": "0.20.0",
+    "checksum": "8bd0e4ea5ec677698955f9f285221eab78606d8c27b57b889def199c16ce36e6",
+    "repository": "https://github.com/bevyengine/bevy",
+    "repository_commit": "b3bdd75becaffe9a16677cf5bae5bd6d198f052b",
+    "rust_version": "1.97.1",
+    "features": {
+      "2d": [
+        "default_app",
+        "default_platform",
+        "2d_bevy_render",
+        "scene",
+        "picking"
+      ],
+      "2d_api": [
+        "common_api",
+        "bevy_sprite"
+      ],
+      "2d_bevy_render": [
+        "2d_api",
+        "bevy_render",
+        "bevy_core_pipeline",
+        "bevy_post_process",
+        "bevy_sprite_render",
+        "bevy_gizmos_render"
+      ],
+      "3d": [
+        "default_app",
+        "default_platform",
+        "3d_bevy_render",
+        "scene",
+        "picking"
+      ],
+      "3d_api": [
+        "common_api",
+        "bevy_light",
+        "bevy_mikktspace",
+        "ktx2",
+        "morph_animation",
+        "morph",
+        "smaa_luts",
+        "tonemapping_luts",
+        "zstd_rust"
+      ],
+      "3d_bevy_render": [
+        "3d_api",
+        "bevy_render",
+        "bevy_core_pipeline",
+        "bevy_gizmos_render",
+        "bevy_anti_alias",
+        "bevy_gltf",
+        "bevy_pbr",
+        "bevy_post_process",
+        "gltf_animation"
+      ],
+      "aac": [
+        "bevy_internal/aac"
+      ],
+      "accesskit_unix": [
+        "bevy_internal/accesskit_unix"
+      ],
+      "android-game-activity": [
+        "bevy_internal/android-game-activity"
+      ],
+      "android-native-activity": [
+        "bevy_internal/android-native-activity"
+      ],
+      "area_light_luts": [
+        "bevy_internal/area_light_luts"
+      ],
+      "asset_processor": [
+        "bevy_internal/asset_processor"
+      ],
+      "async-io": [
+        "bevy_internal/async-io"
+      ],
+      "async_executor": [
+        "std",
+        "bevy_internal/async_executor"
+      ],
+      "audio": [
+        "bevy_audio",
+        "vorbis"
+      ],
+      "audio-all-formats": [
+        "bevy_audio",
+        "aac",
+        "flac",
+        "mp3",
+        "mp4",
+        "vorbis",
+        "wav"
+      ],
+      "basis-universal": [
+        "bevy_internal/basis-universal"
+      ],
+      "bevy_animation": [
+        "bevy_internal/bevy_animation"
+      ],
+      "bevy_anti_alias": [
+        "bevy_internal/bevy_anti_alias"
+      ],
+      "bevy_asset": [
+        "bevy_internal/bevy_asset"
+      ],
+      "bevy_audio": [
+        "bevy_internal/bevy_audio"
+      ],
+      "bevy_camera": [
+        "bevy_internal/bevy_camera"
+      ],
+      "bevy_camera_controller": [
+        "bevy_internal/bevy_camera_controller"
+      ],
+      "bevy_ci_testing": [
+        "bevy_internal/bevy_ci_testing"
+      ],
+      "bevy_clipboard": [
+        "bevy_internal/bevy_clipboard"
+      ],
+      "bevy_color": [
+        "bevy_internal/bevy_color"
+      ],
+      "bevy_core_pipeline": [
+        "bevy_internal/bevy_core_pipeline"
+      ],
+      "bevy_curve": [
+        "bevy_internal/bevy_curve"
+      ],
+      "bevy_debug_stepping": [
+        "bevy_internal/bevy_debug_stepping",
+        "bevy_internal/debug"
+      ],
+      "bevy_dev_tools": [
+        "bevy_internal/bevy_dev_tools"
+      ],
+      "bevy_extract": [
+        "bevy_internal/bevy_extract"
+      ],
+      "bevy_feathers": [
+        "bevy_internal/bevy_feathers",
+        "bevy_ui_widgets"
+      ],
+      "bevy_gilrs": [
+        "gamepad",
+        "bevy_internal/bevy_gilrs"
+      ],
+      "bevy_gizmos": [
+        "bevy_internal/bevy_gizmos"
+      ],
+      "bevy_gizmos_render": [
+        "bevy_internal/bevy_gizmos_render"
+      ],
+      "bevy_gltf": [
+        "bevy_internal/bevy_gltf"
+      ],
+      "bevy_image": [
+        "bevy_internal/bevy_image"
+      ],
+      "bevy_input_focus": [
+        "bevy_internal/bevy_input_focus"
+      ],
+      "bevy_light": [
+        "bevy_internal/bevy_light"
+      ],
+      "bevy_log": [
+        "bevy_internal/bevy_log"
+      ],
+      "bevy_material": [
+        "bevy_internal/bevy_material"
+      ],
+      "bevy_mesh": [
+        "bevy_internal/bevy_mesh"
+      ],
+      "bevy_mikktspace": [
+        "bevy_internal/bevy_mikktspace"
+      ],
+      "bevy_pbr": [
+        "bevy_internal/bevy_pbr"
+      ],
+      "bevy_picking": [
+        "bevy_internal/bevy_picking"
+      ],
+      "bevy_post_process": [
+        "bevy_internal/bevy_post_process"
+      ],
+      "bevy_remote": [
+        "bevy_internal/bevy_remote"
+      ],
+      "bevy_render": [
+        "bevy_internal/bevy_render"
+      ],
+      "bevy_scene": [
+        "bevy_internal/bevy_scene"
+      ],
+      "bevy_settings": [
+        "bevy_internal/bevy_settings"
+      ],
+      "bevy_shader": [
+        "bevy_internal/bevy_shader"
+      ],
+      "bevy_solari": [
+        "bevy_internal/bevy_solari"
+      ],
+      "bevy_sprite": [
+        "bevy_internal/bevy_sprite"
+      ],
+      "bevy_sprite_render": [
+        "bevy_internal/bevy_sprite_render"
+      ],
+      "bevy_state": [
+        "bevy_internal/bevy_state"
+      ],
+      "bevy_text": [
+        "bevy_internal/bevy_text"
+      ],
+      "bevy_ui": [
+        "bevy_internal/bevy_ui"
+      ],
+      "bevy_ui_debug": [
+        "bevy_internal/bevy_ui_debug"
+      ],
+      "bevy_ui_render": [
+        "bevy_internal/bevy_ui_render"
+      ],
+      "bevy_ui_widgets": [
+        "bevy_internal/bevy_ui_widgets",
+        "bevy_input_focus",
+        "bevy_ui"
+      ],
+      "bevy_window": [
+        "bevy_internal/bevy_window"
+      ],
+      "bevy_winit": [
+        "bevy_internal/bevy_winit"
+      ],
+      "bevy_world_serialization": [
+        "bevy_internal/bevy_world_serialization"
+      ],
+      "bluenoise_texture": [
+        "bevy_internal/bluenoise_texture"
+      ],
+      "bmp": [
+        "bevy_internal/bmp"
+      ],
+      "clipboard_image": [
+        "system_clipboard",
+        "bevy_internal/clipboard_image"
+      ],
+      "common_api": [
+        "bevy_animation",
+        "bevy_camera",
+        "bevy_color",
+        "bevy_curve",
+        "bevy_gizmos",
+        "bevy_image",
+        "bevy_mesh",
+        "bevy_shader",
+        "bevy_material",
+        "bevy_text",
+        "bevy_window",
+        "hdr",
+        "png"
+      ],
+      "complex_script_segmentation": [
+        "bevy_internal/complex_script_segmentation"
+      ],
+      "compressed_image_saver": [
+        "bevy_internal/compressed_image_saver"
+      ],
+      "compressed_image_saver_universal": [
+        "bevy_internal/compressed_image_saver_universal"
+      ],
+      "critical-section": [
+        "bevy_internal/critical-section"
+      ],
+      "custom_cursor": [
+        "bevy_internal/custom_cursor"
+      ],
+      "dds": [
+        "bevy_internal/dds"
+      ],
+      "debug": [
+        "bevy_internal/debug"
+      ],
+      "debug_glam_assert": [
+        "bevy_internal/debug_glam_assert"
+      ],
+      "default": [
+        "2d",
+        "3d",
+        "ui",
+        "audio"
+      ],
+      "default_app": [
+        "async_executor",
+        "bevy_asset",
+        "bevy_log",
+        "bevy_state",
+        "reflect_auto_register"
+      ],
+      "default_font": [
+        "bevy_internal/default_font"
+      ],
+      "default_no_std": [
+        "libm",
+        "critical-section",
+        "bevy_color",
+        "bevy_state"
+      ],
+      "default_platform": [
+        "std",
+        "bevy_gilrs",
+        "bevy_winit",
+        "bevy_clipboard",
+        "default_font",
+        "multi_threaded",
+        "webgl2",
+        "x11",
+        "wayland",
+        "custom_cursor",
+        "sysinfo_plugin"
+      ],
+      "detailed_trace": [
+        "bevy_internal/detailed_trace"
+      ],
+      "dev": [
+        "debug",
+        "bevy_dev_tools",
+        "render_dev_tools",
+        "file_watcher"
+      ],
+      "dfg_lut": [
+        "bevy_internal/dfg_lut"
+      ],
+      "dlss": [
+        "bevy_internal/dlss"
+      ],
+      "dynamic_linking": [
+        "dep:bevy_dylib",
+        "bevy_internal/dynamic_linking"
+      ],
+      "embedded_watcher": [
+        "bevy_internal/embedded_watcher"
+      ],
+      "experimental_pbr_pcss": [
+        "bevy_internal/experimental_pbr_pcss"
+      ],
+      "exr": [
+        "bevy_internal/exr"
+      ],
+      "ff": [
+        "bevy_internal/ff"
+      ],
+      "file_watcher": [
+        "bevy_internal/file_watcher"
+      ],
+      "flac": [
+        "bevy_internal/flac"
+      ],
+      "force_disable_dlss": [
+        "bevy_internal/force_disable_dlss"
+      ],
+      "free_camera": [
+        "bevy_internal/free_camera"
+      ],
+      "gamepad": [
+        "bevy_internal/gamepad"
+      ],
+      "gestures": [
+        "bevy_internal/gestures"
+      ],
+      "ghost_nodes": [
+        "bevy_internal/ghost_nodes"
+      ],
+      "gif": [
+        "bevy_internal/gif"
+      ],
+      "glam_assert": [
+        "bevy_internal/glam_assert"
+      ],
+      "gltf_animation": [
+        "bevy_internal/gltf_animation"
+      ],
+      "hdr": [
+        "bevy_internal/hdr"
+      ],
+      "hotpatching": [
+        "bevy_internal/hotpatching"
+      ],
+      "http": [
+        "bevy_internal/http"
+      ],
+      "https": [
+        "bevy_internal/https"
+      ],
+      "ico": [
+        "bevy_internal/ico"
+      ],
+      "jpeg": [
+        "bevy_internal/jpeg"
+      ],
+      "keyboard": [
+        "bevy_internal/keyboard"
+      ],
+      "ktx2": [
+        "bevy_internal/ktx2"
+      ],
+      "libm": [
+        "bevy_internal/libm"
+      ],
+      "mesh_picking": [
+        "bevy_internal/mesh_picking"
+      ],
+      "meshlet": [
+        "bevy_internal/meshlet"
+      ],
+      "meshlet_processor": [
+        "bevy_internal/meshlet_processor"
+      ],
+      "morph": [
+        "bevy_internal/morph"
+      ],
+      "morph_animation": [
+        "bevy_internal/morph_animation"
+      ],
+      "mouse": [
+        "bevy_internal/mouse"
+      ],
+      "mp3": [
+        "bevy_internal/mp3"
+      ],
+      "mp4": [
+        "bevy_internal/mp4"
+      ],
+      "multi_threaded": [
+        "bevy_internal/multi_threaded"
+      ],
+      "pan_camera": [
+        "bevy_internal/pan_camera"
+      ],
+      "pan_orbit_camera": [
+        "bevy_internal/pan_orbit_camera"
+      ],
+      "pan_orbit_gizmo": [
+        "bevy_internal/pan_orbit_gizmo"
+      ],
+      "pbr_anisotropy_texture": [
+        "bevy_internal/pbr_anisotropy_texture"
+      ],
+      "pbr_clustered_decals": [
+        "bevy_internal/pbr_clustered_decals"
+      ],
+      "pbr_light_textures": [
+        "bevy_internal/pbr_light_textures"
+      ],
+      "pbr_multi_layer_material_textures": [
+        "bevy_internal/pbr_multi_layer_material_textures"
+      ],
+      "pbr_specular_textures": [
+        "bevy_internal/pbr_specular_textures"
+      ],
+      "pbr_transmission_textures": [
+        "bevy_internal/pbr_transmission_textures"
+      ],
+      "picking": [
+        "bevy_picking",
+        "mesh_picking",
+        "sprite_picking",
+        "ui_picking"
+      ],
+      "png": [
+        "bevy_internal/png"
+      ],
+      "pnm": [
+        "bevy_internal/pnm"
+      ],
+      "qoi": [
+        "bevy_internal/qoi"
+      ],
+      "raw_vulkan_init": [
+        "bevy_internal/raw_vulkan_init"
+      ],
+      "reflect_auto_register": [
+        "bevy_internal/reflect_auto_register"
+      ],
+      "reflect_auto_register_static": [
+        "bevy_internal/reflect_auto_register_static"
+      ],
+      "reflect_documentation": [
+        "bevy_internal/reflect_documentation"
+      ],
+      "reflect_functions": [
+        "bevy_internal/reflect_functions"
+      ],
+      "render_dev_tools": [
+        "bevy_internal/render_dev_tools"
+      ],
+      "scene": [
+        "bevy_world_serialization",
+        "bevy_scene"
+      ],
+      "schedule_data": [
+        "bevy_internal/schedule_data"
+      ],
+      "serialize": [
+        "bevy_internal/serialize"
+      ],
+      "shader_format_spirv": [
+        "bevy_internal/shader_format_spirv"
+      ],
+      "smaa_luts": [
+        "bevy_internal/smaa_luts"
+      ],
+      "spirv_shader_passthrough": [
+        "bevy_internal/spirv_shader_passthrough"
+      ],
+      "sprite_picking": [
+        "bevy_internal/sprite_picking"
+      ],
+      "statically-linked-dxc": [
+        "bevy_internal/statically-linked-dxc"
+      ],
+      "std": [
+        "bevy_internal/std"
+      ],
+      "symphonia-flac": [
+        "bevy_internal/symphonia-flac"
+      ],
+      "symphonia-vorbis": [
+        "bevy_internal/symphonia-vorbis"
+      ],
+      "symphonia-wav": [
+        "bevy_internal/symphonia-wav"
+      ],
+      "sysinfo_plugin": [
+        "bevy_internal/sysinfo_plugin"
+      ],
+      "system_clipboard": [
+        "bevy_clipboard",
+        "bevy_internal/system_clipboard"
+      ],
+      "system_font_discovery": [
+        "bevy_internal/system_font_discovery"
+      ],
+      "tga": [
+        "bevy_internal/tga"
+      ],
+      "tiff": [
+        "bevy_internal/tiff"
+      ],
+      "tonemapping_luts": [
+        "bevy_internal/tonemapping_luts"
+      ],
+      "touch": [
+        "bevy_internal/touch"
+      ],
+      "trace": [
+        "bevy_internal/trace",
+        "dep:tracing"
+      ],
+      "trace_chrome": [
+        "trace",
+        "bevy_internal/trace_chrome",
+        "debug"
+      ],
+      "trace_tracy": [
+        "trace",
+        "bevy_internal/trace_tracy",
+        "debug"
+      ],
+      "trace_tracy_memory": [
+        "bevy_internal/trace_tracy_memory"
+      ],
+      "track_location": [
+        "bevy_internal/track_location"
+      ],
+      "type_label_buffers": [
+        "bevy_internal/type_label_buffers"
+      ],
+      "ui": [
+        "default_app",
+        "default_platform",
+        "ui_api",
+        "ui_bevy_render",
+        "scene",
+        "picking",
+        "bevy_ui_widgets"
+      ],
+      "ui_api": [
+        "default_app",
+        "common_api",
+        "bevy_input_focus",
+        "bevy_ui"
+      ],
+      "ui_bevy_render": [
+        "ui_api",
+        "bevy_render",
+        "bevy_core_pipeline",
+        "bevy_ui_render"
+      ],
+      "ui_picking": [
+        "bevy_internal/ui_picking"
+      ],
+      "vorbis": [
+        "bevy_internal/vorbis"
+      ],
+      "wav": [
+        "bevy_internal/wav"
+      ],
+      "wayland": [
+        "bevy_internal/wayland"
+      ],
+      "web": [
+        "bevy_internal/web"
+      ],
+      "web_asset_cache": [
+        "bevy_internal/web_asset_cache"
+      ],
+      "webgl2": [
+        "bevy_internal/webgl"
+      ],
+      "webgpu": [
+        "bevy_internal/webgpu"
+      ],
+      "webp": [
+        "bevy_internal/webp"
+      ],
+      "x11": [
+        "bevy_internal/x11"
+      ],
+      "zlib": [
+        "bevy_internal/zlib"
+      ],
+      "zstd_c": [
+        "bevy_internal/zstd_c"
+      ],
+      "zstd_rust": [
+        "bevy_internal/zstd_rust"
+      ]
+    },
+    "collected_at": "1792577085"
+  },
+  "sources": [
+    {
+      "id": "e0001",
+      "kind": "manifest",
+      "path": "sources/e0001.txt",
+      "url": "https://docs.rs/crate/bevy/0.20.0/source/Cargo.toml",
+      "sha256": "97875fa6adb30f9df9f448fba8a25245ca83ef38aa2367d6d50de3de793f8a7f"
+    },
+    {
+      "id": "e0002",
+      "kind": "release_metadata",
+      "path": "sources/e0002.txt",
+      "url": "https://docs.rs/crate/bevy/0.20.0/source/.cargo_vcs_info.json",
+      "sha256": "1a312fb5c9c75dd40b1e0400d511528f98aef8a03fd7a0d9987dd8eee389dc37"
+    },
+    {
+      "id": "e0003",
+      "kind": "readme",
+      "path": "sources/e0003.txt",
+      "url": "https://docs.rs/crate/bevy/0.20.0/source/README.md",
+      "sha256": "dd2327c348fe01e66f585fd00f8cf06b07396afaf9194c228a6291b87a314c2f"
+    },
+    {
+      "id": "e0004",
+      "kind": "changelog",
+      "path": "sources/e0004.txt",
+      "url": "https://docs.rs/crate/bevy/0.20.0/source/_release-content/migration_guides.md",
+      "sha256": "63245a6fd79a1f1293fcefc4034e849b50e0b8beda8471e559fb5f4ca7ae9825"
+    },
+    {
+      "id": "e0005",
+      "kind": "changelog",
+      "path": "sources/e0005.txt",
+      "url": "https://docs.rs/crate/bevy/0.20.0/source/_release-content/migration_guides_template.md",
+      "sha256": "ddb21ec249c702381755607b1e967443458b4e4335723d5792128f9da8d9ed64"
+    },
+    {
+      "id": "e0006",
+      "kind": "api",
+      "path": "sources/e0006.txt",
+      "url": "https://docs.rs/crate/bevy/0.20.0/source/src/lib.rs",
+      "sha256": "10075d3357dd35ffcb0b0c85a276ded49573b59d692e075ba6e8ad8b2738aa48"
+    },
+    {
+      "id": "e0007",
+      "kind": "example",
+      "path": "sources/e0007.txt",
+      "url": "https://docs.rs/crate/bevy/0.20.0/source/examples/hello_world.rs",
+      "sha256": "c382c3a19f70321c5f72dd061a27c8a714227ebba4f43a77735bd7530eb72950"
+    },
+    {
+      "id": "e0008",
+      "kind": "documentation",
+      "path": "sources/e0008.txt",
+      "url": "https://docs.rs/crate/bevy/0.20.0/source/CODE_OF_CONDUCT.md",
+      "sha256": "0bb666dbb7f86719acd0ae544cbbb0390830cddcb10df3f92b0677e482c7d9be"
+    },
+    {
+      "id": "e0009",
+      "kind": "test",
+      "path": "sources/e0009.txt",
+      "url": "https://docs.rs/crate/bevy/0.20.0/source/tests/how_to_test_apps.rs",
+      "sha256": "8a084c75e1a3b52d74fe649cc657e19d87148640a1abc2d7965ba6f8c6578cb3"
+    },
+    {
+      "id": "e0010",
+      "kind": "readme",
+      "path": "sources/e0010.txt",
+      "url": "https://docs.rs/crate/bevy/0.20.0/source/_release-content/README.md",
+      "sha256": "7678ab70e396f5e273569323b575fc1001ee171473f0139c26bf6347de062299"
+    },
+    {
+      "id": "e0011",
+      "kind": "manifest",
+      "path": "sources/e0011.txt",
+      "url": "https://docs.rs/crate/bevy/0.20.0/source/Cargo.toml.orig",
+      "sha256": "99695c39891ea0362d6b4ee068e7e68357f50a7892ca9c3963ef9d9efa2d91d7"
+    },
+    {
+      "id": "e0012",
+      "kind": "example",
+      "path": "sources/e0012.txt",
+      "url": "https://docs.rs/crate/bevy/0.20.0/source/examples/2d/2d_shapes.rs",
+      "sha256": "f551f9f6cfb9c9faf279c50a2f4373f84229954c68ff3df3296fbec0a127924e"
+    },
+    {
+      "id": "e0013",
+      "kind": "documentation",
+      "path": "sources/e0013.txt",
+      "url": "https://docs.rs/crate/bevy/0.20.0/source/CONTRIBUTING.md",
+      "sha256": "e325c2274026f56d1a73ce584e800c39e24c0a21ceb824ca1b06968f310d56e0"
+    },
+    {
+      "id": "e0014",
+      "kind": "test",
+      "path": "sources/e0014.txt",
+      "url": "https://docs.rs/crate/bevy/0.20.0/source/tests/how_to_test_systems.rs",
+      "sha256": "9a751f499b4a1882839bda1c03045ee1f0f91f2aff0e470c8bf2b576b5c3fccb"
+    },
+    {
+      "id": "e0015",
+      "kind": "readme",
+      "path": "sources/e0015.txt",
+      "url": "https://docs.rs/crate/bevy/0.20.0/source/docs-rs/README.md",
+      "sha256": "2e0112fa6a4d96a1eca9d239f9db2c655482fbdee05ea9a861446864bdcb2f10"
+    },
+    {
+      "id": "e0016",
+      "kind": "example",
+      "path": "sources/e0016.txt",
+      "url": "https://docs.rs/crate/bevy/0.20.0/source/examples/2d/2d_viewport_to_world.rs",
+      "sha256": "c2a82569f743914e518645d88270700bdaca6437e10837a0768f9ac00464205d"
+    },
+    {
+      "id": "e0017",
+      "kind": "documentation",
+      "path": "sources/e0017.txt",
+      "url": "https://docs.rs/crate/bevy/0.20.0/source/CREDITS.md",
+      "sha256": "eba73804d1b1a8475ecda4ff4023c5ee7c3219119b084056c909712f37591e1d"
+    },
+    {
+      "id": "e0018",
+      "kind": "test",
+      "path": "sources/e0018.txt",
+      "url": "https://docs.rs/crate/bevy/0.20.0/source/tests/3d/no_prepass.rs",
+      "sha256": "ef19ee496c30e38d541566b2e670d25355fecef86aac60632170efe61165a82d"
+    },
+    {
+      "id": "e0019",
+      "kind": "example",
+      "path": "sources/e0019.txt",
+      "url": "https://docs.rs/crate/bevy/0.20.0/source/examples/2d/bloom_2d.rs",
+      "sha256": "d3e8831a8b58a70316b94430864a022885889cb37fbcd1867bc4a11cfbc1777b"
+    },
+    {
+      "id": "e0020",
+      "kind": "documentation",
+      "path": "sources/e0020.txt",
+      "url": "https://docs.rs/crate/bevy/0.20.0/source/SECURITY.md",
+      "sha256": "eb500a46e55ce1ccfbc299122acf46427e0daf885a971e59a9657f1c80c66a73"
+    },
+    {
+      "id": "e0021",
+      "kind": "test",
+      "path": "sources/e0021.txt",
+      "url": "https://docs.rs/crate/bevy/0.20.0/source/tests/3d/test_invalid_skinned_mesh.rs",
+      "sha256": "86d38d9bffe148006e89697c7dd5c5b945e53dddd2d7f9686c80c7a8818d4498"
+    },
+    {
+      "id": "e0022",
+      "kind": "example",
+      "path": "sources/e0022.txt",
+      "url": "https://docs.rs/crate/bevy/0.20.0/source/examples/2d/cpu_draw.rs",
+      "sha256": "f177113e6696000964a0f3f6724350f1e856c2e89447de9c04e27525205b8b87"
+    },
+    {
+      "id": "e0023",
+      "kind": "documentation",
+      "path": "sources/e0023.txt",
+      "url": "https://docs.rs/crate/bevy/0.20.0/source/_release-content/release_notes.md",
+      "sha256": "c1126bc6fc9112eff518163b0b6b963b497663039f03ac3763e1c0adcbedefa4"
+    },
+    {
+      "id": "e0024",
+      "kind": "test",
+      "path": "sources/e0024.txt",
+      "url": "https://docs.rs/crate/bevy/0.20.0/source/tests/3d/test_meshlet.rs",
+      "sha256": "8f15e481bacb6414a98f324ccdea4ef3d086fc24b6c23473e0ea863474d9d9a0"
+    },
+    {
+      "id": "e0025",
+      "kind": "example",
+      "path": "sources/e0025.txt",
+      "url": "https://docs.rs/crate/bevy/0.20.0/source/examples/2d/dynamic_mip_generation.rs",
+      "sha256": "da12f3bc6c0c0469a98339e6e9b0b8eb9716bb277635ae32ed8afbc33f24099a"
+    },
+    {
+      "id": "e0026",
+      "kind": "documentation",
+      "path": "sources/e0026.txt",
+      "url": "https://docs.rs/crate/bevy/0.20.0/source/_release-content/release_notes_template.md",
+      "sha256": "eb623a6e1634164cd27da060e4de19e871129085c7ccc24eab839f779c758cd5"
+    },
+    {
+      "id": "e0027",
+      "kind": "test",
+      "path": "sources/e0027.txt",
+      "url": "https://docs.rs/crate/bevy/0.20.0/source/tests/3d/test_skinned_mesh_bounds.rs",
+      "sha256": "d18e8841a1f1aa16734f107312ffbe13a3cfc8a64feeaa568bb807c191e94972"
+    },
+    {
+      "id": "e0028",
+      "kind": "example",
+      "path": "sources/e0028.txt",
+      "url": "https://docs.rs/crate/bevy/0.20.0/source/examples/2d/mesh2d.rs",
+      "sha256": "b4aac5e97ec578f7554f03dd8ca70978f096b3823fded341f7c69eede74aec0e"
+    },
+    {
+      "id": "e0029",
+      "kind": "documentation",
+      "path": "sources/e0029.txt",
+      "url": "https://docs.rs/crate/bevy/0.20.0/source/docs/cargo_features.md",
+      "sha256": "b86ea75fabe098389663da6e4aa89b8eea4e3f711a2b116b8c36bd40cb621389"
+    },
+    {
+      "id": "e0030",
+      "kind": "test",
+      "path": "sources/e0030.txt",
+      "url": "https://docs.rs/crate/bevy/0.20.0/source/tests/ecs/ambiguity_detection.rs",
+      "sha256": "54e0e5a875b386afac1f7c9c418296ed423a64149923742ad38b7f8e7e2b97cb"
+    },
+    {
+      "id": "e0031",
+      "kind": "example",
+      "path": "sources/e0031.txt",
+      "url": "https://docs.rs/crate/bevy/0.20.0/source/examples/2d/mesh2d_alpha_mode.rs",
+      "sha256": "33a9cc1c9504281c6c1f74ba6481123a86feac4b614f57eec7f418e3eff98cdd"
+    },
+    {
+      "id": "e0032",
+      "kind": "documentation",
+      "path": "sources/e0032.txt",
+      "url": "https://docs.rs/crate/bevy/0.20.0/source/docs/debugging.md",
+      "sha256": "3c1294a980db850593f97ab546f431fa6cd1365d89a130bf984e71dcba09f40a"
+    },
+    {
+      "id": "e0033",
+      "kind": "test",
+      "path": "sources/e0033.txt",
+      "url": "https://docs.rs/crate/bevy/0.20.0/source/tests/window/change_window_mode.rs",
+      "sha256": "a9b3fbb8bf5a073e733a0478e776046a414c1b23949449578a1ef4db304d5984"
+    },
+    {
+      "id": "e0034",
+      "kind": "example",
+      "path": "sources/e0034.txt",
+      "url": "https://docs.rs/crate/bevy/0.20.0/source/examples/2d/mesh2d_arcs.rs",
+      "sha256": "811a3e5ad467276b0a341bfd4d07f9ac51804d69955992f121f0a4b68b24b88a"
+    },
+    {
+      "id": "e0035",
+      "kind": "documentation",
+      "path": "sources/e0035.txt",
+      "url": "https://docs.rs/crate/bevy/0.20.0/source/docs/linters.md",
+      "sha256": "0b0d9abfa51dfc13e80479501d6657eb591f39ffcc2bfec6706f2957f5375d4d"
+    },
+    {
+      "id": "e0036",
+      "kind": "test",
+      "path": "sources/e0036.txt",
+      "url": "https://docs.rs/crate/bevy/0.20.0/source/tests/window/desktop_request_redraw.rs",
+      "sha256": "f27530a02fa1539332d0a57380280bec5f5e1c966bfff7f846826565ed6ca80f"
+    },
+    {
+      "id": "e0037",
+      "kind": "example",
+      "path": "sources/e0037.txt",
+      "url": "https://docs.rs/crate/bevy/0.20.0/source/examples/2d/mesh2d_manual.rs",
+      "sha256": "a9f8aa270288a0f8af15fbfbbaa367e6712acc8c59d35df4cd24162a30f62084"
+    },
+    {
+      "id": "e0038",
+      "kind": "documentation",
+      "path": "sources/e0038.txt",
+      "url": "https://docs.rs/crate/bevy/0.20.0/source/docs/linux_dependencies.md",
+      "sha256": "e50a027b805561918fc08f48b320fcfe823194f41719d36d1e7353b8bb0841b2"
+    },
+    {
+      "id": "e0039",
+      "kind": "test",
+      "path": "sources/e0039.txt",
+      "url": "https://docs.rs/crate/bevy/0.20.0/source/tests/window/minimizing.rs",
+      "sha256": "39dc6f895f413ede6152af5a07063d37b200c1ea4527f8c12a8da4c5aea5acdd"
+    },
+    {
+      "id": "e0040",
+      "kind": "example",
+      "path": "sources/e0040.txt",
+      "url": "https://docs.rs/crate/bevy/0.20.0/source/examples/2d/mesh2d_repeated_texture.rs",
+      "sha256": "d274ec0c616c7557450f6549d6eff232ac13a85e263218c4be96f4c9027c5213"
+    },
+    {
+      "id": "e0041",
+      "kind": "documentation",
+      "path": "sources/e0041.txt",
+      "url": "https://docs.rs/crate/bevy/0.20.0/source/docs/profiling.md",
+      "sha256": "7b1f954a11ba172eb5051786126c26f6413d29a57bae0ae682f6d7a834026b52"
+    },
+    {
+      "id": "e0042",
+      "kind": "test",
+      "path": "sources/e0042.txt",
+      "url": "https://docs.rs/crate/bevy/0.20.0/source/tests/window/resizing.rs",
+      "sha256": "5f4b3ae7149d1279fe3994326b798438fc1e4de1080d6236fde30701cb854502"
+    },
+    {
+      "id": "e0043",
+      "kind": "example",
+      "path": "sources/e0043.txt",
+      "url": "https://docs.rs/crate/bevy/0.20.0/source/examples/2d/mesh2d_vertex_color_texture.rs",
+      "sha256": "3c7c73bf15fe0c6df30e8b4c61e59767fa10f3a85b98ed14a7dded0d8a8765c1"
+    },
+    {
+      "id": "e0044",
+      "kind": "documentation",
+      "path": "sources/e0044.txt",
+      "url": "https://docs.rs/crate/bevy/0.20.0/source/_release-content/migration-guides/color_plane_y_axis.md",
+      "sha256": "3b1730078635352fd9497600d0b4f00367d5b5d9a970632d1bd8eef23b27264e"
+    },
+    {
+      "id": "e0045",
+      "kind": "example",
+      "path": "sources/e0045.txt",
+      "url": "https://docs.rs/crate/bevy/0.20.0/source/examples/asset/processing/e.txt",
+      "sha256": "3f79bb7b435b05321651daefd374cdc681dc06faa65e374e38337b88ca046dea"
+    },
+    {
+      "id": "license-apache",
+      "kind": "license",
+      "path": "sources/LICENSE-APACHE",
+      "url": "https://docs.rs/crate/bevy/0.20.0/source/LICENSE-APACHE",
+      "sha256": "a6cba85bc92e0cff7a450b1d873c0eaa2e9fc96bf472df0247a26bec77bf3ff9"
+    },
+    {
+      "id": "license-mit",
+      "kind": "license",
+      "path": "sources/LICENSE-MIT",
+      "url": "https://docs.rs/crate/bevy/0.20.0/source/LICENSE-MIT",
+      "sha256": "508a77d2e7b51d98adeed32648ad124b7b30241a8e70b2e72c99f92d8e5874d1"
+    }
+  ],
+  "example_inventory": {
+    "examples": [
+      {
+        "id": "doc-403dabee035e1211-1",
+        "citation": {
+          "source_id": "e0003",
+          "start_line": 74,
+          "end_line": 82
+        },
+        "info": "rust",
+        "code": "use bevy::prelude::*;\n\nfn main() {\n    App::new()\n        .add_plugins(DefaultPlugins)\n        .run();\n}\n"
+      },
+      {
+        "id": "doc-1a62a38631e53597-2",
+        "citation": {
+          "source_id": "e0004",
+          "start_line": 54,
+          "end_line": 57
+        },
+        "info": "rust",
+        "code": "#[deprecated(since = \"0.17.0\", note = \"This message will appear in the deprecation warning.\")]\nstruct MyStruct;\n"
+      },
+      {
+        "id": "doc-1a62a38631e53597-3",
+        "citation": {
+          "source_id": "e0004",
+          "start_line": 77,
+          "end_line": 88
+        },
+        "info": "rust",
+        "code": "// 0.15\nfn my_system(world: &mut World) {\n    world.old_method();\n}\n\n// 0.16\nfn my_system(world: &mut World) {\n    // Use `new_method()` instead.\n    world.new_method();\n}\n"
+      },
+      {
+        "id": "doc-009efc5a9c870a09-4",
+        "citation": {
+          "source_id": "e0006",
+          "start_line": 18,
+          "end_line": 30
+        },
+        "info": "",
+        "code": "use bevy::prelude::*;\n\nfn main() {\n   App::new()\n       .add_systems(Update, hello_world_system)\n       .run();\n}\n\nfn hello_world_system() {\n   println!(\"hello world\");\n}\n"
+      },
+      {
+        "id": "doc-c2e5b7fb82c5646d-5",
+        "citation": {
+          "source_id": "e0041",
+          "start_line": 43,
+          "end_line": 59
+        },
+        "info": "rust",
+        "code": "{\n  // creates a span and starts the timer\n  let my_span = info_span!(\"span_name\", name = \"span_name\").entered();\n  do_something_here();\n} // my_span is dropped here ... this stops the timer\n\n\n// You can also \"manually\" enter the span if you need more control over when the timer starts\n// Prefer the previous, simpler syntax unless you need the extra control.\nlet my_span = info_span!(\"span_name\", name = \"span_name\");\n{\n  // starts the span's timer\n  let guard = my_span.enter();\n  do_something_here();\n} // guard is dropped here ... this stops the timer\n"
+      }
+    ],
+    "warnings": [
+      "Example coverage is limited to collected Markdown code blocks and literal Rust doc attributes/comments. Unlabelled blocks are treated as Rust only in Rust documentation. Macros, cfg_attr, external includes, and generated documentation are not expanded; standalone example programs are still ordinary evidence.",
+      "e0006:45: nonliteral doc attribute was not expanded."
+    ]
+  },
+  "analysis": {
+    "summary": "Guidance and five standalone recipes target the frozen Bevy 0.20.0 evidence. All five inventoried snippets are accounted for; migration-authoring placeholders are excluded. Evidence is sampled and some documentation contains older version labels. Recipes have not been compiled or tested.",
+    "findings": [
+      {
+        "id": "feature-selection",
+        "title": "Choose the release toolchain and feature scope explicitly",
+        "guidance": "Use Rust 1.97.1 or newer for Bevy 0.20.0. Disable default features when selecting a domain profile such as 2d; defaults combine 2d, 3d, ui, and audio. For applications without rendering, default_app is a documented baseline.",
+        "basis": "documented",
+        "features": [
+          "2d",
+          "3d",
+          "ui",
+          "audio",
+          "default_app"
+        ],
+        "citations": [
+          {
+            "source_id": "e0001",
+            "start_line": 12,
+            "end_line": 16
+          },
+          {
+            "source_id": "e0029",
+            "start_line": 7,
+            "end_line": 14
+          },
+          {
+            "source_id": "e0011",
+            "start_line": 135,
+            "end_line": 142
+          },
+          {
+            "source_id": "e0011",
+            "start_line": 175,
+            "end_line": 182
+          }
+        ]
+      },
+      {
+        "id": "evidence-version",
+        "title": "Separate release evidence from illustrative version labels",
+        "guidance": "Keep dependency versions pinned to 0.20.0 when adapting this evidence. The feature documentation's TOML example still names 0.18, and the migration-process examples use illustrative older versions and placeholder methods; neither establishes a 0.20 API migration.",
+        "basis": "inferred",
+        "features": [],
+        "citations": [
+          {
+            "source_id": "e0029",
+            "start_line": 16,
+            "end_line": 20
+          },
+          {
+            "source_id": "e0001",
+            "start_line": 12,
+            "end_line": 16
+          },
+          {
+            "source_id": "e0004",
+            "start_line": 75,
+            "end_line": 88
+          }
+        ]
+      },
+      {
+        "id": "app-bootstrap",
+        "title": "Register systems and select plugins separately",
+        "guidance": "Bootstrap standard window functionality with App::new().add_plugins(DefaultPlugins).run(). For the basic console example, register a function with add_systems(Update, system) and run the app without adding the window plugin group.",
+        "basis": "documented",
+        "features": [],
+        "citations": [
+          {
+            "source_id": "e0003",
+            "start_line": 72,
+            "end_line": 82
+          },
+          {
+            "source_id": "e0006",
+            "start_line": 17,
+            "end_line": 30
+          }
+        ]
+      },
+      {
+        "id": "headless-checks",
+        "title": "Drive headless applications with explicit updates",
+        "guidance": "For headless application checks, use MinimalPlugins and call app.update() explicitly. Supply resources omitted by those plugins, such as ButtonInput<KeyCode>, yourself. When manually simulating input without InputPlugin, clear just_pressed state between updates. Splitting application logic into plugins supports isolated checks.",
+        "basis": "documented",
+        "features": [],
+        "citations": [
+          {
+            "source_id": "e0009",
+            "start_line": 1,
+            "end_line": 9
+          },
+          {
+            "source_id": "e0009",
+            "start_line": 23,
+            "end_line": 24
+          },
+          {
+            "source_id": "e0009",
+            "start_line": 52,
+            "end_line": 85
+          },
+          {
+            "source_id": "e0009",
+            "start_line": 88,
+            "end_line": 128
+          }
+        ]
+      },
+      {
+        "id": "buffered-messages",
+        "title": "Register buffered messages before writing or reading them",
+        "guidance": "For buffered ECS communication, derive Message, register the type with add_message, and consume it through MessageReader::read. The supplied test demonstrates injecting a message through Messages<T>, advancing the application once, and inspecting the resulting resource.",
+        "basis": "inferred",
+        "features": [
+          "default_app"
+        ],
+        "citations": [
+          {
+            "source_id": "e0014",
+            "start_line": 10,
+            "end_line": 20
+          },
+          {
+            "source_id": "e0014",
+            "start_line": 150,
+            "end_line": 174
+          }
+        ]
+      },
+      {
+        "id": "mesh-components",
+        "title": "Wrap mesh and material handles in rendering components",
+        "guidance": "Create primitive meshes through Assets<Mesh> and materials through Assets<ColorMaterial>. Wrap their handles in Mesh2d and MeshMaterial2d when spawning a renderable entity, and spawn Camera2d to view it.",
+        "basis": "documented",
+        "features": [
+          "2d"
+        ],
+        "citations": [
+          {
+            "source_id": "e0012",
+            "start_line": 4,
+            "end_line": 10
+          },
+          {
+            "source_id": "e0028",
+            "start_line": 12,
+            "end_line": 24
+          }
+        ]
+      },
+      {
+        "id": "profiling",
+        "title": "Keep span guards alive while profiling work",
+        "guidance": "Select a tracing backend, such as trace_chrome, which also enables trace and debug. Keep info-level spans enabled. Bind the guard returned by info_span!(...).entered() for the full synchronous work scope; use a separate enter() guard only when finer control is needed. Profile release builds; Chrome-format output can be inspected with Perfetto.",
+        "basis": "documented",
+        "features": [
+          "trace",
+          "trace_chrome",
+          "trace_tracy"
+        ],
+        "citations": [
+          {
+            "source_id": "e0041",
+            "start_line": 24,
+            "end_line": 28
+          },
+          {
+            "source_id": "e0041",
+            "start_line": 39,
+            "end_line": 59
+          },
+          {
+            "source_id": "e0041",
+            "start_line": 131,
+            "end_line": 135
+          },
+          {
+            "source_id": "e0011",
+            "start_line": 443,
+            "end_line": 453
+          }
+        ]
+      }
+    ],
+    "recipes": [
+      {
+        "id": "window",
+        "title": "Open a window with default plugins",
+        "description": "Open the documented standard window using the full default feature set. Running this graphical recipe requires a suitable display and graphics environment.",
+        "code": "use bevy::prelude::*;\n\nfn main() {\n    App::new()\n        .add_plugins(DefaultPlugins)\n        .run();\n}\n",
+        "default_features": true,
+        "features": [],
+        "dependencies": {},
+        "citations": [
+          {
+            "source_id": "e0003",
+            "start_line": 74,
+            "end_line": 82
+          },
+          {
+            "source_id": "e0011",
+            "start_line": 135,
+            "end_line": 136
+          }
+        ]
+      },
+      {
+        "id": "hello",
+        "title": "Run a console system",
+        "description": "Use the crate's hello-world program with the documented default_app baseline for applications without rendering. No additional plugins are installed.",
+        "code": "use bevy::prelude::*;\n\nfn main() {\n    App::new()\n        .add_systems(Update, hello_world_system)\n        .run();\n}\n\nfn hello_world_system() {\n    println!(\"hello world\");\n}\n",
+        "default_features": false,
+        "features": [
+          "default_app"
+        ],
+        "dependencies": {},
+        "citations": [
+          {
+            "source_id": "e0006",
+            "start_line": 18,
+            "end_line": 30
+          },
+          {
+            "source_id": "e0011",
+            "start_line": 175,
+            "end_line": 182
+          }
+        ]
+      },
+      {
+        "id": "message",
+        "title": "Process a message in a headless application",
+        "description": "Adapt the supplied system test into a standalone program that registers a message, injects it, advances the app, and asserts the resulting score.",
+        "code": "use bevy::prelude::*;\n\n#[derive(Message)]\nstruct EnemyDied(u32);\n\n#[derive(Resource)]\nstruct Score(u32);\n\nfn update_score(mut messages: MessageReader<EnemyDied>, mut score: ResMut<Score>) {\n    for message in messages.read() {\n        score.0 += message.0;\n    }\n}\n\nfn main() {\n    let mut app = App::new();\n    app.insert_resource(Score(0))\n        .add_message::<EnemyDied>()\n        .add_systems(Update, update_score);\n\n    app.world_mut()\n        .resource_mut::<Messages<EnemyDied>>()\n        .write(EnemyDied(3));\n\n    app.update();\n\n    assert_eq!(app.world().resource::<Score>().0, 3);\n}\n",
+        "default_features": false,
+        "features": [
+          "default_app"
+        ],
+        "dependencies": {},
+        "citations": [
+          {
+            "source_id": "e0014",
+            "start_line": 10,
+            "end_line": 20
+          },
+          {
+            "source_id": "e0014",
+            "start_line": 150,
+            "end_line": 174
+          },
+          {
+            "source_id": "e0011",
+            "start_line": 175,
+            "end_line": 182
+          }
+        ]
+      },
+      {
+        "id": "mesh",
+        "title": "Render a primitive 2D mesh",
+        "description": "Render a purple rectangle using the 2d profile and generated assets. No external asset files are needed.",
+        "code": "use bevy::{color::palettes::basic::PURPLE, prelude::*};\n\nfn main() {\n    App::new()\n        .add_plugins(DefaultPlugins)\n        .add_systems(Startup, setup)\n        .run();\n}\n\nfn setup(\n    mut commands: Commands,\n    mut meshes: ResMut<Assets<Mesh>>,\n    mut materials: ResMut<Assets<ColorMaterial>>,\n) {\n    commands.spawn(Camera2d);\n    commands.spawn((\n        Mesh2d(meshes.add(Rectangle::default())),\n        MeshMaterial2d(materials.add(Color::from(PURPLE))),\n        Transform::default().with_scale(Vec3::splat(128.0)),\n    ));\n}\n",
+        "default_features": false,
+        "features": [
+          "2d"
+        ],
+        "dependencies": {},
+        "citations": [
+          {
+            "source_id": "e0028",
+            "start_line": 3,
+            "end_line": 24
+          },
+          {
+            "source_id": "e0029",
+            "start_line": 10,
+            "end_line": 14
+          },
+          {
+            "source_id": "e0011",
+            "start_line": 138,
+            "end_line": 139
+          }
+        ]
+      },
+      {
+        "id": "profile",
+        "title": "Capture a custom CPU profiling span",
+        "description": "Capture a scoped span on each graphical application update using trace_chrome. Run in release mode with info-level spans enabled, then close the application normally and inspect the generated trace.",
+        "code": "use bevy::prelude::*;\n\nfn main() {\n    App::new()\n        .add_plugins(DefaultPlugins)\n        .add_systems(Update, profile_work)\n        .run();\n}\n\nfn profile_work() {\n    let _span = info_span!(\"example_work\", name = \"example_work\").entered();\n    let total: u64 = (0..1_000_u64)\n        .map(std::hint::black_box)\n        .sum();\n    std::hint::black_box(total);\n}\n",
+        "default_features": true,
+        "features": [
+          "trace_chrome"
+        ],
+        "dependencies": {},
+        "citations": [
+          {
+            "source_id": "e0003",
+            "start_line": 74,
+            "end_line": 82
+          },
+          {
+            "source_id": "e0006",
+            "start_line": 18,
+            "end_line": 30
+          },
+          {
+            "source_id": "e0041",
+            "start_line": 41,
+            "end_line": 59
+          },
+          {
+            "source_id": "e0041",
+            "start_line": 131,
+            "end_line": 135
+          },
+          {
+            "source_id": "e0011",
+            "start_line": 443,
+            "end_line": 444
+          }
+        ]
+      }
+    ],
+    "example_coverage": [
+      {
+        "example_id": "doc-403dabee035e1211-1",
+        "disposition": "adapted",
+        "recipe_ids": [
+          "window"
+        ],
+        "reason": "Preserves the documented DefaultPlugins window bootstrap."
+      },
+      {
+        "example_id": "doc-1a62a38631e53597-2",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "Illustrates Rust deprecation syntax for migration-guide authors, rather than a Bevy application API."
+      },
+      {
+        "example_id": "doc-1a62a38631e53597-3",
+        "disposition": "skipped",
+        "recipe_ids": [],
+        "reason": "Contains placeholder methods and illustrative 0.15/0.16 version labels; it does not establish a real migration for 0.20.0."
+      },
+      {
+        "example_id": "doc-009efc5a9c870a09-4",
+        "disposition": "adapted",
+        "recipe_ids": [
+          "hello"
+        ],
+        "reason": "Preserves the complete hello-world application and selects the documented headless baseline feature collection."
+      },
+      {
+        "example_id": "doc-c2e5b7fb82c5646d-5",
+        "disposition": "adapted",
+        "recipe_ids": [
+          "profile"
+        ],
+        "reason": "Places the preferred entered-span pattern inside an Update system, supplies concrete work, and enables a profiling backend."
+      }
+    ]
+  },
+  "review": null,
+  "verification": [
+    {
+      "recipe_id": "window",
+      "input_sha256": "b9f98d9be3011f038653f3ec1c6d0a245ec8e5c0663bd6a592eb60db1cdabc67",
+      "status": "compiled",
+      "rustc_version": "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
+      "log_path": "verification/window/check.log",
+      "lockfile_sha256": "fc3949f8d8afd70e5eef75c6c0a48557236119be1b52ef6e85c8f93668f6da63",
+      "message": "cargo check --locked --all-targets passed; runtime behavior was not tested"
+    },
+    {
+      "recipe_id": "hello",
+      "input_sha256": "3113e2b90efa211f1e7c274b97b2073c7c4ad4f1d92b509d0cbb71c0312a130c",
+      "status": "compiled",
+      "rustc_version": "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
+      "log_path": "verification/hello/check.log",
+      "lockfile_sha256": "124b4e5cbaf97532a262a085341239818f029de6e75a22c1c7ea060776e6f239",
+      "message": "cargo check --locked --all-targets passed; runtime behavior was not tested"
+    },
+    {
+      "recipe_id": "message",
+      "input_sha256": "e06368031dd8aaa6ed4e4a7eefc4f2ce3a62751d7396306f545e8759b889e409",
+      "status": "compiled",
+      "rustc_version": "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
+      "log_path": "verification/message/check.log",
+      "lockfile_sha256": "a44508b4fb7ed4459f05b0283eda6cb556eaaefdcd114991371f566314107392",
+      "message": "cargo check --locked --all-targets passed; runtime behavior was not tested"
+    },
+    {
+      "recipe_id": "mesh",
+      "input_sha256": "a2bfed12f966e7440cb1ab550349bdc5ec72cea1e7e7cf588b439b9b65c421fe",
+      "status": "compiled",
+      "rustc_version": "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
+      "log_path": "verification/mesh/check.log",
+      "lockfile_sha256": "4fe0d019f7b2d4bedbc4da16ec9770e3baf77a1389c1e6f5a2c4dd1069b0e6ac",
+      "message": "cargo check --locked --all-targets passed; runtime behavior was not tested"
+    },
+    {
+      "recipe_id": "profile",
+      "input_sha256": "828b9fc7428d902b504390e1fc55bf5f2d03b190541ddba2086853116e7a9c50",
+      "status": "compiled",
+      "rustc_version": "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
+      "log_path": "verification/profile/check.log",
+      "lockfile_sha256": "4acdc9b2959aa789deb0ab6d6eddf343c7702011e37c26f2d5550470ea474736",
+      "message": "cargo check --locked --all-targets passed; runtime behavior was not tested"
+    }
+  ],
+  "warnings": [
+    "Collection is bounded to 48 UTF-8 evidence files, 48 KiB per file, and 320 KiB total; examples and API documentation are sampled, not exhaustive. Rendered documentation and external documentation sites are not crawled.",
+    "Pinned repository snapshot unavailable; using published crate evidence: download exceeds size limit: https://codeload.github.com/bevyengine/bevy/tar.gz/b3bdd75becaffe9a16677cf5bae5bd6d198f052b",
+    "Evidence is a bounded prefix of https://docs.rs/crate/bevy/0.20.0/source/Cargo.toml (49135 bytes retained).",
+    "Evidence is a bounded prefix of https://docs.rs/crate/bevy/0.20.0/source/Cargo.toml.orig (49152 bytes retained).",
+    "530 distinct eligible source files were omitted by the evidence budget; 45 files selected."
+  ]
+}

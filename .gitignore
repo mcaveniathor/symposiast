@@ -7,3 +7,14 @@
 /plugins/stucco/bundle/plugin/
 /stucco-example/
 __pycache__/
+
+/plugins/clap/bundle/verification/target/
+/plugins/axum/bundle/verification/target/
+/plugins/bevy/bundle/verification/target/
+/plugins/clap/bundle/plugin/
+/plugins/axum/bundle/plugin/
+/plugins/bevy/bundle/plugin/
+
+/plugins/clap/bundle/verification/*/target/
+/plugins/axum/bundle/verification/*/target/
+/plugins/bevy/bundle/verification/*/target/

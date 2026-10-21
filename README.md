@@ -4,7 +4,7 @@ Build release-specific Rust crate guidance for the [Symposium](https://github.co
 
 Read the [documentation and examples](https://mcaveniathor.github.io/symposiast/), or browse shared guidance in the [Symposiast Registry](https://mcaveniathor.github.io/symposiast-registry/).
 
-Claude Code and Codex are the initial agent integrations. A custom executable adapter can connect other agents. Validated examples cover clap, axum, and Stucco.
+Claude Code and Codex are the initial agent integrations. A custom executable adapter can connect other agents. Validated examples cover clap, axum, Bevy, and Stucco.
 
 - **Using a crate?** [Install shared guidance](https://mcaveniathor.github.io/symposiast-registry/subscribe.html), try it on a real task, and [share what happened](https://github.com/mcaveniathor/symposiast-registry/issues/new?template=usage-feedback.yml). You do not need the Symposiast CLI to use a portable entry.
 - **Maintaining a crate?** [Start a pilot](https://mcaveniathor.github.io/symposiast/maintainers.html) for one published release and up to three user tasks, then review the bundle with consumers before adding it to your release workflow.
@@ -133,7 +133,7 @@ See [the design](docs/design.md), [agent adapter contract](docs/adapters.md), an
 
 ## Documentation site
 
-The GitHub Pages site is built in Rust with [Stucco](https://github.com/mcaveniathor/stucco). It includes getting started and automation guides, adapter and command references, and twelve runnable clap/axum/Stucco recipes with pinned lockfiles.
+The GitHub Pages site is built in Rust with [Stucco](https://github.com/mcaveniathor/stucco). It includes getting started and automation guides, adapter and command references, and generated clap/axum/Bevy recipes and Stucco recipes with pinned lockfiles.
 
 ```sh
 cargo run --locked -p symposiast-site -- dist --base /symposiast/

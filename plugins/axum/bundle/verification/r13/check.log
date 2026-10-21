@@ -1,0 +1,26 @@
+    Updating crates.io index
+     Locking 56 packages to highest Rust 1.99.1 compatible versions
+      Adding matchit v0.8.4 (available: v0.8.6)
+      Adding tower-http v0.6.11 (available: v0.7.1)
+ Downloading crates ...
+  Downloaded tokio-util v0.7.20
+    Checking once_cell v1.21.4
+    Checking futures-sink v0.3.34
+    Checking tokio-util v0.7.20
+    Checking tracing-core v0.1.36
+    Checking cfg-if v1.0.5
+    Checking log v0.4.34
+    Checking tracing v0.1.44
+    Checking lazy_static v1.5.1
+    Checking sharded-slab v0.1.7
+    Checking axum-core v0.5.6
+    Checking tower v0.5.3
+    Checking tracing-log v0.2.0
+    Checking thread_local v1.1.10
+    Checking nu-ansi-term v0.50.3
+    Checking bitflags v2.13.2
+    Checking axum v0.8.9
+    Checking tower-http v0.6.11
+    Checking tracing-subscriber v0.3.23
+    Checking recipe-r13 v0.0.0 (<bundle>/verification/r13)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 2.58s

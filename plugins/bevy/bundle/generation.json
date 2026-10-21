@@ -1,0 +1,14 @@
+{
+  "generator_repository": "https://github.com/mcaveniathor/symposiast",
+  "generator_revision": "19cd230",
+  "generation": "Live Symposiast Codex adapter generated findings, recipes, and example coverage from collected release evidence. No recipe code was supplied through --analysis.",
+  "command": "symposiast analyze .symposiast/bevy-docs --agent codex --timeout 900",
+  "analysis_review": "No separate reviewer invoked; bundle review is null.",
+  "toolchain": "Rust 1.99.1",
+  "platform": "Linux x86_64",
+  "human_review_claimed": false,
+  "verification_environment": "Initial graphical recipe checks failed because Wayland development files were unavailable. Reverification used Ubuntu libwayland-dev and libxkbcommon-dev packages extracted under /tmp and a Cargo wrapper setting PKG_CONFIG_PATH. Recipe inputs were unchanged.",
+  "agent": "codex",
+  "agent_cli_version": "0.163.0",
+  "runtime_trials": "The hello and message executables passed. Window, mesh, and profiling recipes were compiled only; no graphical runtime or trace-output verification is claimed."
+}
