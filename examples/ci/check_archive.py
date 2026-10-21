@@ -33,6 +33,13 @@ def main():
         assert data["release"]["name"] == "stucco"
         assert data["release"]["version"] == "0.2.1"
         assert len(data["analysis"]["recipes"]) == 1
+        examples = data["example_inventory"]["examples"]
+        coverage = data["analysis"]["example_coverage"]
+        assert examples, "The action fixture must exercise documentation example coverage"
+        assert len(coverage) == len(examples)
+        assert {entry["example_id"] for entry in coverage} == {entry["id"] for entry in examples}
+        assert any(entry["disposition"] == "adapted" for entry in coverage)
+        assert all(entry["reason"].strip() for entry in coverage)
         assert all(check["status"] == "compiled" for check in data["verification"])
         for source in data["sources"]:
             assert hashlib.sha256((bundle / source["path"]).read_bytes()).hexdigest() == source["sha256"]

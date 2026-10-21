@@ -1,5 +1,5 @@
 {
-  "summary": "Frozen Stucco 0.2.1 analysis used to exercise the CI action without a provider call. This fixture covers semantic page rendering only.",
+  "summary": "Fixed Stucco 0.2.1 guidance used by the deterministic CI adapter without a provider call. This fixture covers semantic page rendering only.",
   "findings": [
     {
       "id": "semantic-pages",

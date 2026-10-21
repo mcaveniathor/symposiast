@@ -299,3 +299,56 @@ fn registry_preserves_example_inventory_and_skip_reasons() {
         );
     }
 }
+
+#[test]
+#[cfg(unix)]
+fn ci_adapter_accounts_for_real_inventory_with_optional_repository_evidence() {
+    for published_only in [false, true] {
+        let temp = tempfile::tempdir().unwrap();
+        let source = temp.path().join("source");
+        let mut bundle = fixture(&source);
+        if published_only {
+            bundle
+                .sources
+                .retain(|source| source.url.starts_with("https://docs.rs/"));
+        }
+        // Model collection with and without the optional repository snapshot.
+        bundle.example_inventory = None;
+        bundle.analysis = None;
+        bundle.review = None;
+        bundle.verification.clear();
+        bundle.save(&source).unwrap();
+        let result = Command::new(env!("CARGO_BIN_EXE_symposiast"))
+            .arg("analyze")
+            .arg(&source)
+            .args(["--agent", "custom", "--agent-executable"])
+            .arg(Path::new(env!("CARGO_MANIFEST_DIR")).join("examples/ci/stucco-adapter.py"))
+            .arg("--skip-verify")
+            .output()
+            .unwrap();
+        assert!(
+            result.status.success(),
+            "{}",
+            String::from_utf8_lossy(&result.stderr)
+        );
+        let generated = Bundle::load(&source).unwrap();
+        let inventory = generated.example_inventory.unwrap();
+        let analysis = generated.analysis.unwrap();
+        assert!(!inventory.examples.is_empty());
+        assert_eq!(analysis.example_coverage.len(), inventory.examples.len());
+        assert!(
+            analysis
+                .example_coverage
+                .iter()
+                .any(|coverage| coverage.disposition == symposiast::examples::Disposition::Adapted)
+        );
+        assert!(
+            analysis
+                .example_coverage
+                .iter()
+                .any(|coverage| coverage.disposition == symposiast::examples::Disposition::Skipped)
+        );
+        assert_eq!(analysis.recipes.len(), 1);
+        assert_eq!(analysis.recipes[0].id, "semantic-page");
+    }
+}
