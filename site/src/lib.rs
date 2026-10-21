@@ -18,11 +18,16 @@ pub static SITE_STYLE: Asset = Asset {
 };
 register_asset!(SITE_STYLE);
 
-pub(crate) const DOCUMENTS: [(&str, &str, &str); 5] = [
+pub(crate) const DOCUMENTS: [(&str, &str, &str); 6] = [
     (
         "getting-started",
         "Getting started",
-        "Install Symposiast and generate your first release-specific Symposium plugin.",
+        "Use shared guidance or generate a release-specific Symposium plugin.",
+    ),
+    (
+        "maintainers",
+        "For maintainers",
+        "Pilot guidance for your crate, review it with users, and maintain it across releases.",
     ),
     (
         "examples",

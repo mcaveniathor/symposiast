@@ -10,11 +10,11 @@ pub(crate) fn page(site: &Site) -> String {
         el::div().class("hero-copy")
             .child(el::p().class("eyebrow").child(el::span().class("status-dot").aria("hidden", "true")).text("RUST CRATES. RELEASE-SPECIFIC KNOWLEDGE."))
             .child(el::h1().id("hero-title").text("Guidance for the ").child(el::em().text("release")).text(" you use."))
-            .child(el::p().class("hero-description").text("Turn a Rust crate’s source, changelog, documentation, and examples into skills, MCP retrieval, and version checks for Symposium."))
+            .child(el::p().class("hero-description").text("Use source-backed Rust guidance in your coding agent, or help users of your crate with reviewed recipes for an exact release. Distributed through Symposium."))
             .child(Cluster::new().space(Space::S3).class("hero-actions")
-                .child(ButtonLink::new("Get started →", site.url("getting-started.html")).variant(Variant::Primary).class("button-primary"))
-                .child(ButtonLink::new("Explore examples", site.url("examples.html")).class("button-secondary")))
-            .child(el::p().class("hero-footnote").text("Bring Claude Code, Codex, or your own agent."))
+                .child(ButtonLink::new("Use shared guidance →", "https://mcaveniathor.github.io/symposiast-registry/subscribe.html").variant(Variant::Primary).class("button-primary"))
+                .child(ButtonLink::new("Guide your crate’s users", site.url("maintainers.html")).class("button-secondary")))
+            .child(el::p().class("hero-footnote").text("Portable guidance needs Symposium and a configured agent. No Symposiast CLI required."))
             .child(el::p().class("built-with").text("This site is built with ")
                 .child(el::a().href("https://github.com/mcaveniathor/stucco").text("Stucco"))
                 .text(". ")
@@ -41,7 +41,10 @@ pub(crate) fn page(site: &Site) -> String {
             .child(el::a().class("text-link").href("https://mcaveniathor.github.io/symposiast-registry/").text("Browse the registry →"))
             .child(el::a().class("text-link").href("https://mcaveniathor.github.io/symposiast-registry/subscribe.html").text("Install shared guidance →"))
             .child(el::a().class("text-link").href("https://mcaveniathor.github.io/symposiast-registry/contributing.html").text("Submit guidance →"))
-            .child(el::a().class("text-link").href("https://github.com/mcaveniathor/symposiast-registry/issues/new?template=guidance-request.yml").text("Request a crate →")));
+            .child(el::a().class("text-link").href("https://github.com/mcaveniathor/symposiast-registry/issues/new?template=guidance-request.yml").text("Request a crate →"))
+            .child(el::a().class("text-link").href("https://github.com/mcaveniathor/symposiast-registry/issues/new?template=usage-feedback.yml").text("Share your experience →")))
+        .child(el::p().class("built-with").text("An independent community registry. Symposium’s official recommendations have their own review process. ")
+            .child(el::a().href(site.url("maintainers.html#choose-a-publishing-path")).text("Explore publishing paths →")));
 
     let terminal = el::section().class("quickstart").aria("labelledby", "quickstart-title")
         .child(el::div().class("section-intro")

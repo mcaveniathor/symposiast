@@ -4,6 +4,8 @@ Browse the [registry website](https://mcaveniathor.github.io/symposiast-registry
 
 `export-registry` turns a verified bundle into a portable Symposium plugin containing skills, recipes, and their evidence. Recipients need Symposium to sync the skills; they do not need Symposiast or an analysis-agent login.
 
+This is an independent community registry, separate from [Symposium's official recommendations](https://github.com/symposium-dev/recommendations). Symposium's [crate-author guide](https://symposium.dev/crate-authors/supporting-your-crate.html) prefers skills shipped by crates and requires external skills to be submitted directly for vetting. Exporting here does not submit to or confer acceptance by Symposium. The [maintainer pilot guide](https://mcaveniathor.github.io/symposiast/maintainers.html) covers consumer trials, the publishing choices, and the limitations of embedding post-release guidance in a crate.
+
 ```sh
 symposiast export-registry plugins/stucco/bundle \
   --output .symposiast/registry/stucco-0-2-1
@@ -74,6 +76,8 @@ Read the registry’s [contribution guide](https://github.com/mcaveniathor/sympo
 - **Submit an entry:** fork the registry, generate guidance for an exact release, inspect its citations and license notices, verify every recipe, and export into a new entry directory. Add its summary and tags to `catalog.json`, run registry and site checks, and open a pull request with the full bundle or reproducible generation details. Keep separate crate releases in separate directories.
 - **Request a crate or release:** search [existing issues](https://github.com/mcaveniathor/symposiast-registry/issues), then use the [guidance request form](https://github.com/mcaveniathor/symposiast-registry/issues/new?template=guidance-request.yml). Include the package, release, intended tasks, features, and target constraints. No generated bundle or agent credentials are needed. Requests do not guarantee a delivery date.
 - **Report a correction:** use the [correction form](https://github.com/mcaveniathor/symposiast-registry/issues/new?template=correction.yml) with the entry, finding or recipe ID, and a reproduction. Regenerate affected records when submitting a fix; do not manually alter provenance to bypass validation.
+- **Try a maintainer pilot:** [propose one release and up to three tasks](https://github.com/mcaveniathor/symposiast/issues/new?template=maintainer-pilot.yml), with a reviewer and willing consumer testers.
+- **Report use:** [share first or repeat use](https://github.com/mcaveniathor/symposiast-registry/issues/new?template=usage-feedback.yml), including installation, whether the agent consulted the guidance, and the task outcome. Reports are voluntary; keep private code and transcripts out of public issues.
 
 Maintainers review source identity, citations, scope, licenses, recipe usefulness, and verification records before accepting an entry. Compilation and recorded agent review are shown separately. An absent review is not approval; CI does not establish recommendation quality or runtime behavior.
 

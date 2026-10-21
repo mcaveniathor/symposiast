@@ -110,6 +110,11 @@ impl Site {
                         .aria("label", "Related projects")
                         .child(
                             el::a()
+                                .href(self.url("maintainers.html#contribute-to-the-project"))
+                                .text("Contribute"),
+                        )
+                        .child(
+                            el::a()
                                 .href("https://mcaveniathor.github.io/symposiast-registry/")
                                 .text("Registry"),
                         )

@@ -2,13 +2,13 @@
 
 Generate release-specific crate guidance in GitHub Actions with `mcaveniathor/symposiast@action-v1.0.0`. The action collects the published crate and pinned repository evidence, runs your chosen agent, validates citations, compiles complete consumer recipes, and uploads a portable bundle for installation through Symposium.
 
-Use it after `cargo publish`, when a GitHub release is published, or from a manual workflow. Consumers choose when to install the resulting guidance; generation does not change their dependencies or installed plugins.
+Use it after `cargo publish`, when a GitHub release is published, or from a manual workflow. Generation produces a candidate for review. Consumers choose when to install published guidance; generation does not change their dependencies or installed plugins. Start with the [maintainer pilot](maintainers.html) to agree on useful tasks and a reviewer.
 
 ## Run on a release
 
-Copy the [complete release workflow](https://github.com/mcaveniathor/symposiast/blob/action-v1.0.0/examples/workflows/release-guidance.yml) into `.github/workflows/release-guidance.yml` in your crate repository. Change its crate name, add the selected provider secret, and commit it to the default branch. It supports published releases and manual dispatch. Generation uses read-only repository permissions; a separate job attaches the archive to the GitHub release.
+Copy the [current release workflow](https://github.com/mcaveniathor/symposiast/blob/main/examples/workflows/release-guidance.yml) into `.github/workflows/release-guidance.yml` in your crate repository. Change its crate name, add the selected provider secret, and commit it to the default branch. It supports published releases and manual dispatch. The workflow uses the fixed `action-v1.0.0` generation action with read-only repository permissions and uploads an artifact for review.
 
-The publication step refuses to overwrite an existing release asset. Remove or rename an older asset deliberately before rerunning publication. Manual dispatch creates a workflow artifact without attaching it to a release.
+The current example does not automatically attach generated guidance to a public release. Older copies of the example, including the one at the `action-v1.0.0` tag, include a `publish` job; remove that job when adopting this review workflow. Keep existing published downloads and publish corrections as new revisions.
 
 The central step is:
 
@@ -136,7 +136,7 @@ The source used to build Symposiast comes from the action reference, independent
 | `artifact-id` | GitHub artifact ID when uploading is enabled. |
 | `artifact-url` | GitHub artifact download URL when uploading is enabled. |
 
-Use `${{ steps.guidance.outputs.archive-path }}` in a later step in the same job. Paths are local to that runner; use upload/download artifact steps to transfer the archive to another job. Downloading a workflow artifact requires GitHub access, and workflow artifacts expire according to their retention settings. Attaching the archive to a release provides a separate distribution path; see the [release workflow](https://github.com/mcaveniathor/symposiast/blob/action-v1.0.0/examples/workflows/release-guidance.yml).
+Use `${{ steps.guidance.outputs.archive-path }}` in a later step in the same job. Paths are local to that runner; use upload/download artifact steps to transfer the archive to another job. Downloading a workflow artifact requires GitHub access, and workflow artifacts expire according to their retention settings. After review, distribute the portable skills through a registry or attach the full bundle to a release using the process below.
 
 The archive includes `bundle.json`, frozen `sources/`, and verified consumer projects, lockfiles, and compiler logs from `verification/`. It excludes the generated `plugin/` directory, build caches, and runtime configuration tied to the runner. Inspect coverage warnings, citations, and compilation results before installing.
 
@@ -151,9 +151,46 @@ cargo agents sync
 
 Use a durable local Symposiast installation and have Symposium configured. Installation renders the skills, MCP registration, and version hook with paths that belong to the recipient's machine. The plugin targets the exact analyzed crate version; the hook can report dependency drift. See [installation details](getting-started.html#install-into-your-project).
 
+## Review and publish the candidate
+
+Download the artifact from the successful run using GitHub's run page or the [GitHub CLI](https://cli.github.com/manual/gh_run_download). Replace the uppercase placeholders and example crate/version with the actual values. Use a fresh local directory:
+
+```sh
+gh run download RUN_ID --repo OWNER/REPO \
+  --name release-guidance --dir candidate
+cd candidate
+sha256sum your-crate-1.2.3.tar.gz
+tar -xzf your-crate-1.2.3.tar.gz
+```
+
+Record the run URL, artifact ID, archive hash, generator revision, and reviewer in the pilot issue or registry PR. Review this exact bundle's findings, evidence, features, warnings, and compilation records. Try the agreed tasks and record runtime checks separately. An approved agent review does not replace a crate maintainer's review. A rerun produces a new candidate and needs its own review.
+
+For consumers who only need skills, install a Symposiast revision that includes `export-registry` (check `symposiast export-registry --help`), then export the reviewed bundle to a fresh entry:
+
+```sh
+symposiast export-registry your-crate-1.2.3 \
+  --output /path/to/registry/your-crate-1-2-3
+```
+
+Follow the [community registry contribution process](https://mcaveniathor.github.io/symposiast-registry/contributing.html), including its catalog and validation checks. The export copies portable skills and evidence without MCP registrations or runner paths; recipients use Symposium without the Symposiast CLI. Export does not submit a PR or publish a release. Symposium's official recommendations require a separate submission under their rules; see [publishing paths](maintainers.html#choose-a-publishing-path).
+
+To offer the full bundle as well, give the reviewed archive a revisioned filename and create its checksum. The following preserves the candidate bytes and assumes the crate's GitHub release `v1.2.3` already exists:
+
+```sh
+cp your-crate-1.2.3.tar.gz your-crate-1.2.3-r1.tar.gz
+sha256sum your-crate-1.2.3-r1.tar.gz > your-crate-1.2.3-r1.sha256
+gh release upload v1.2.3 \
+  your-crate-1.2.3-r1.tar.gz your-crate-1.2.3-r1.sha256 \
+  --repo OWNER/REPO
+```
+
+[Release upload](https://cli.github.com/manual/gh_release_upload) requires write access. Keep the default refusal to overwrite assets; use `r2` for a reviewed correction. Include scope, review evidence, limitations, installation instructions, a factual Symposiast provenance link, and a [feedback link](https://github.com/mcaveniathor/symposiast-registry/issues/new?template=usage-feedback.yml) in the release notes. When publishing in the community registry repository, follow its separate revision-tag convention instead.
+
+This is a post-release process: the crate must already exist on crates.io, and its archive cannot be changed to include the generated skills. Keep the bundle's exact release identity intact. See the [maintainer guide](maintainers.html) for crate-embedded publishing limitations and follow-up on the next release.
+
 ## Permissions, failures, and limits
 
-Keep generation in a job with `contents: read`. Give `contents: write` only to a separate publication job that downloads the successful archive and attaches it to the intended release. Avoid exposing provider secrets to untrusted pull requests, including `pull_request_target` workflows that check out contributor code. Review custom executables and imported analysis just as you would other executable workflow inputs.
+Keep generation in a job with `contents: read`. If you automate publication later, use a separately authorized publication job that publishes the reviewed artifact, with `contents: write` confined to that job. Avoid exposing provider secrets to untrusted pull requests, including `pull_request_target` workflows that check out contributor code. Review custom executables and imported analysis just as you would other executable workflow inputs.
 
 Compilation can run dependency build scripts and procedural macros. The verifier bounds time and inherited environment variables but does not create an operating-system sandbox. Use disposable runners for trusted crates, and a suitably isolated environment when validating untrusted dependencies. Compilation results mean `cargo check` passed for the recorded recipe and lockfile; they do not establish runtime behavior.
 
