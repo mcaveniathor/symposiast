@@ -1,3 +1,30 @@
+// Share Stucco's saved choice and pre-paint theme initialization.
+const themeSwitch = document.querySelector('.theme-switch');
+if (themeSwitch) {
+  const preference = window.matchMedia('(prefers-color-scheme: dark)');
+  const storageKey = themeSwitch.dataset.themeStorageKey;
+  const root = document.documentElement;
+  const updateSwitch = () => {
+    const dark = root.dataset.theme ? root.dataset.theme === 'dark' : preference.matches;
+    themeSwitch.setAttribute('aria-checked', String(dark));
+  };
+  themeSwitch.addEventListener('click', () => {
+    const theme = themeSwitch.getAttribute('aria-checked') === 'true' ? 'light' : 'dark';
+    root.dataset.theme = theme;
+    try { localStorage.setItem(storageKey, theme); } catch { /* Still switch this page. */ }
+    updateSwitch();
+  });
+  preference.addEventListener('change', updateSwitch);
+  window.addEventListener('storage', event => {
+    if (event.key !== storageKey && event.key !== null) return;
+    if (event.newValue === 'light' || event.newValue === 'dark') root.dataset.theme = event.newValue;
+    else delete root.dataset.theme;
+    updateSwitch();
+  });
+  updateSwitch();
+  themeSwitch.hidden = false;
+}
+
 // Code remains selectable and navigation works when scripts are unavailable.
 const status = document.createElement('span');
 status.className = 'visually-hidden';

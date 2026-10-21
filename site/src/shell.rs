@@ -1,6 +1,7 @@
+use stucco::actions::Button;
 use stucco::layout::{Container, SkipLink};
 use stucco::theme::Preset;
-use stucco::{Attrs, Bundle, Meta, Page, Render, el};
+use stucco::{Attrs, Bundle, Meta, Page, Render, behavior, el};
 
 use crate::DOCUMENTS;
 
@@ -92,6 +93,16 @@ impl Site {
                         .class("source-link")
                         .href("https://github.com/mcaveniathor/symposiast")
                         .text("GitHub"),
+                )
+                .child(
+                    Button::new(el::span().aria("hidden", "true").text("☾"))
+                        .class("theme-switch")
+                        .attr("role", "switch")
+                        .aria("label", "Dark mode")
+                        .aria("checked", "false")
+                        .attr("title", "Dark mode")
+                        .attr("hidden", "")
+                        .data("theme-storage-key", behavior::THEME_STORAGE_KEY),
                 ),
         )
     }

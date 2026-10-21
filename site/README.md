@@ -2,6 +2,8 @@
 
 The site is a static Rust program built with [Stucco](https://github.com/mcaveniathor/stucco), pinned to version 0.2.1. It uses Stucco's page renderer, components, theme bundle, and content-hashed assets. It needs no server at runtime.
 
+The header's dark mode switch uses Stucco's `data-theme` attribute and `stucco-theme` storage key. It follows the system preference until a visitor chooses a mode, restores that choice before first paint, and shares it between both sites when hosted on the same origin. With JavaScript disabled, the switch stays hidden and the page follows the system preference. Custom site colors use `light-dark()` alongside Stucco's theme.
+
 From the repository root:
 
 ```sh
