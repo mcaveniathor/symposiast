@@ -32,6 +32,17 @@ pub(crate) fn page(site: &Site) -> String {
             .child(el::div().class("note-stamp").child(el::span().aria("hidden", "true").text("✓")).text(" VALIDATED PILOT")),
     );
 
+    let registry = el::section().class("section").aria("labelledby", "registry-title")
+        .child(el::div().class("section-heading")
+            .child(el::p().class("eyebrow").text("SHARED RELEASE GUIDANCE"))
+            .child(el::h2().id("registry-title").text("Start with the registry."))
+            .child(el::p().text("Find portable skills for exact crate releases, with recipes, frozen evidence, and compilation records. Subscribe through Symposium to use an available entry without running an analysis agent.")))
+        .child(Cluster::new().space(Space::S4)
+            .child(el::a().class("text-link").href("https://mcaveniathor.github.io/symposiast-registry/").text("Browse the registry →"))
+            .child(el::a().class("text-link").href("https://mcaveniathor.github.io/symposiast-registry/subscribe.html").text("Install shared guidance →"))
+            .child(el::a().class("text-link").href("https://mcaveniathor.github.io/symposiast-registry/contributing.html").text("Submit guidance →"))
+            .child(el::a().class("text-link").href("https://github.com/mcaveniathor/symposiast-registry/issues/new?template=guidance-request.yml").text("Request a crate →")));
+
     let terminal = el::section().class("quickstart").aria("labelledby", "quickstart-title")
         .child(el::div().class("section-intro")
             .child(el::p().class("eyebrow").text("FROM CRATE TO PLUGIN"))
@@ -84,7 +95,7 @@ pub(crate) fn page(site: &Site) -> String {
             .child(pilot(site, "axum", "0.8.9", "Routes, shared state, typed JSON", "Validated", "examples.html#axum-089"))
             .child(pilot(site, "stucco", "0.2.1", "Static pages, themed assets, Axum", "Validated", "examples.html#stucco-021")));
 
-    site.page("Symposiast", "Generate release-specific Rust crate skills, MCP retrieval, and version checks for the Symposium ecosystem.", "home", (hero, terminal, artifacts, process, pilots))
+    site.page("Symposiast", "Generate release-specific Rust crate skills, MCP retrieval, and version checks for the Symposium ecosystem.", "home", (hero, registry, terminal, artifacts, process, pilots))
 }
 
 fn pilot(

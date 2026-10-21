@@ -2,9 +2,15 @@
 
 Build release-specific Rust crate guidance for the [Symposium](https://github.com/symposium-dev/symposium) ecosystem. Given a crate, Symposiast collects its published source and pinned repository evidence, asks a chosen agent to produce practical guidance, checks consumer examples, and exports skills, MCP retrieval, and a dependency-version hook.
 
-Read the [documentation and examples](https://mcaveniathor.github.io/symposiast/).
+Read the [documentation and examples](https://mcaveniathor.github.io/symposiast/), or browse shared guidance in the [Symposiast Registry](https://mcaveniathor.github.io/symposiast-registry/).
 
 Claude Code and Codex are the initial agent integrations. A custom executable adapter can connect other agents. Validated examples cover clap, axum, and Stucco.
+
+## Use shared guidance
+
+The [registry](https://mcaveniathor.github.io/symposiast-registry/) catalogs portable skills for exact crate releases, with recipes, frozen evidence, and compilation records. [Subscribe through Symposium](https://mcaveniathor.github.io/symposiast-registry/subscribe.html) to use an available entry without running Symposiast or an analysis agent. Portable entries contain skills and references; full bundles add local MCP retrieval and version hooks when installed with Symposiast.
+
+To grow the collection, [submit verified guidance](https://mcaveniathor.github.io/symposiast-registry/contributing.html), [request a crate or release](https://github.com/mcaveniathor/symposiast-registry/issues/new?template=guidance-request.yml), or [report a correction](https://github.com/mcaveniathor/symposiast-registry/issues/new?template=correction.yml). See the [registry and export guide](docs/registry.md) for the repository format and verification requirements.
 
 ## Install
 
@@ -72,7 +78,7 @@ See the [automation guide](https://mcaveniathor.github.io/symposiast/automation.
 
 ## Install into Symposium
 
-To share compiled guidance as a portable skills-only plugin, use `symposiast export-registry BUNDLE --output REGISTRY/ENTRY`. The export carries recipes, evidence, provenance, and recorded lockfiles without local runtime paths. See [registry sharing and the Stucco pilot](docs/registry.md).
+To share compiled guidance as a portable skills-only plugin, use `symposiast export-registry BUNDLE --output REGISTRY/ENTRY`. The export carries recipes, evidence, provenance, and recorded lockfiles without local runtime paths. Browse the [registry catalog](https://mcaveniathor.github.io/symposiast-registry/), [submit guidance or request coverage](https://github.com/mcaveniathor/symposiast-registry/blob/main/CONTRIBUTING.md), or read the [registry and export guide](docs/registry.md).
 
 ```sh
 symposiast install .symposiast/clap

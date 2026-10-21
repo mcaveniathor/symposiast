@@ -134,3 +134,9 @@ The collector verifies the published crates.io archive checksum and anchors opti
 Selection is bounded to 48 sources, 48 KiB per file, and 320 KiB of retained evidence. Download and expanded-archive limits are 32 MiB and 192 MiB. Missing repository material, truncation, and omitted sources appear in bundle warnings. Read those warnings when assessing coverage.
 
 Validation compiled eight pinned clap, axum, and Stucco recipes. Additional parser tests, rendering checks, and in-memory HTTP assertions were run separately; the CLI's `compiled` status records only Cargo compilation. These examples are documented in [examples](examples.html). The automated suite covers collection, adapters, citations, verification, installation, MCP, and version warnings without requiring provider credentials.
+
+## Registry sharing and requests
+
+Browse the [Symposiast Registry](https://mcaveniathor.github.io/symposiast-registry/) for exact-release skills, recipes, evidence, and compilation status. [Install guidance](https://mcaveniathor.github.io/symposiast-registry/subscribe.html) through Symposium, or read the [export guide](https://github.com/mcaveniathor/symposiast/blob/main/docs/registry.md) to produce a portable entry.
+
+To share a verified bundle, follow the [submission guide](https://github.com/mcaveniathor/symposiast-registry/blob/main/CONTRIBUTING.md). To ask for a crate/release or report a correction, use the registry’s [issue forms](https://github.com/mcaveniathor/symposiast-registry/issues/new/choose). Requests need no bundle or agent credentials.

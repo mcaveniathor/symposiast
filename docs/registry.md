@@ -1,4 +1,6 @@
-# Sharing a registry entry
+# The Symposiast registry
+
+Browse the [registry website](https://mcaveniathor.github.io/symposiast-registry/) for available releases, installation instructions, and contribution routes. The [registry repository](https://github.com/mcaveniathor/symposiast-registry) is the source of truth for entries and requests.
 
 `export-registry` turns a verified bundle into a portable Symposium plugin containing skills, recipes, and their evidence. Recipients need Symposium to sync the skills; they do not need Symposiast or an analysis-agent login.
 
@@ -65,8 +67,20 @@ python3 scripts/check_registry.py
 
 Pass `--cargo-agents /path/to/cargo-agents` for a separately installed CLI. The script creates an isolated `SYMPOSIUM_HOME`, relocates the exported registry, deletes its input bundle, and syncs the real pinned consumer into Claude Code and Codex skill directories. It verifies all installed bytes, repeats sync, and checks removal after changing the dependency to a path-crate fixture with a mismatched version. The fixture tests selection only, not Stucco runtime behavior. No user-wide agent configuration is changed.
 
-## Publication boundary
+## Submit guidance or request coverage
+
+Read the registry’s [contribution guide](https://github.com/mcaveniathor/symposiast-registry/blob/main/CONTRIBUTING.md) for the full workflow and review criteria.
+
+- **Submit an entry:** fork the registry, generate guidance for an exact release, inspect its citations and license notices, verify every recipe, and export into a new entry directory. Add its summary and tags to `catalog.json`, run registry and site checks, and open a pull request with the full bundle or reproducible generation details. Keep separate crate releases in separate directories.
+- **Request a crate or release:** search [existing issues](https://github.com/mcaveniathor/symposiast-registry/issues), then use the [guidance request form](https://github.com/mcaveniathor/symposiast-registry/issues/new?template=guidance-request.yml). Include the package, release, intended tasks, features, and target constraints. No generated bundle or agent credentials are needed. Requests do not guarantee a delivery date.
+- **Report a correction:** use the [correction form](https://github.com/mcaveniathor/symposiast-registry/issues/new?template=correction.yml) with the entry, finding or recipe ID, and a reproduction. Regenerate affected records when submitting a fix; do not manually alter provenance to bypass validation.
+
+Maintainers review source identity, citations, scope, licenses, recipe usefulness, and verification records before accepting an entry. Compilation and recorded agent review are shown separately. An absent review is not approval; CI does not establish recommendation quality or runtime behavior.
+
+## Publication and the registry website
 
 The pilot is published in a separate Git registry with a catalog README and a [revisioned bundle download](https://github.com/mcaveniathor/symposiast-registry/releases/tag/stucco-0.2.1-r1). The archive preserves the full source bundle, runnable recipe projects, compiler logs, and recorded lockfiles; a SHA256 file accompanies it. Corrections should get new release tags and archives rather than replacing an existing download.
 
-A searchable website, automated registry PRs, and broader crate coverage remain follow-up work. Bevy is not included until its guidance and recipes pass review and compilation.
+The [registry website](https://mcaveniathor.github.io/symposiast-registry/) is built with Stucco in the registry repository and deployed through GitHub Pages. Its searchable catalog reads `catalog.json` and each entry’s exported provenance; the contribution page renders the repository’s `CONTRIBUTING.md`. Accepted entries appear after the Pages build deploys. See [site development](https://github.com/mcaveniathor/symposiast-registry/blob/main/site/README.md) for local preview and checks.
+
+Automated registry PRs and broader crate coverage remain follow-up work. Bevy is not included until its guidance and recipes pass review and compilation.

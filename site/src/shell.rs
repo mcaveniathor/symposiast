@@ -65,6 +65,11 @@ impl Site {
             }
             nav = nav.child(link);
         }
+        nav = nav.child(
+            el::a()
+                .href("https://mcaveniathor.github.io/symposiast-registry/")
+                .text("Registry"),
+        );
         el::header().class("site-header").child(
             Container::new()
                 .class("site-container header-inner")
@@ -103,6 +108,11 @@ impl Site {
                 .child(
                     el::nav()
                         .aria("label", "Related projects")
+                        .child(
+                            el::a()
+                                .href("https://mcaveniathor.github.io/symposiast-registry/")
+                                .text("Registry"),
+                        )
                         .child(
                             el::a()
                                 .href("https://github.com/mcaveniathor/symposiast")

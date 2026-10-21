@@ -13,6 +13,8 @@ python3 site/check_links.py dist --base /symposiast/
 
 The [automation guide](content/automation.md) documents the reusable Symposiast action and release workflow examples.
 
+The site's navigation, homepage, and guides link to the separate [Symposiast Registry](https://mcaveniathor.github.io/symposiast-registry/). Its catalog, contribution instructions, and website source live in [the registry repository](https://github.com/mcaveniathor/symposiast-registry); edit those there rather than duplicating the catalog in this site.
+
 For a local preview at the root path:
 
 ```sh

@@ -2,6 +2,14 @@
 
 Turn a Rust crate release into a local Symposium plugin with source-backed guidance, complete consumer recipes, MCP retrieval, and a dependency-version hook.
 
+## Start with shared guidance
+
+Check the [Symposiast Registry](https://mcaveniathor.github.io/symposiast-registry/) for your exact crate release before generating a new bundle. Its portable skills include recipes, frozen evidence, and compilation records. Follow the [registry installation guide](https://mcaveniathor.github.io/symposiast-registry/subscribe.html) to subscribe through Symposium; using these entries does not require the Symposiast CLI or an analysis-agent login.
+
+Inspect the entry's features, source identity, collection warnings, and review status before applying it. Portable entries supply skills and references. For MCP retrieval and version hooks, use a full bundle installed with Symposiast, as described below.
+
+If coverage is missing, [request a crate or release](https://github.com/mcaveniathor/symposiast-registry/issues/new?template=guidance-request.yml), or generate guidance with this guide and [submit a verified entry](https://mcaveniathor.github.io/symposiast-registry/contributing.html).
+
 ## Install the CLI
 
 Install Rust with [rustup](https://rustup.rs/), then build Symposiast from source:
